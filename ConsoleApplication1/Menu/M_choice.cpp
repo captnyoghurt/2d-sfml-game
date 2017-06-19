@@ -31,9 +31,9 @@ bool M_choice::getShown() const
 
 
 // Return the surface of the choice
-std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator M_choice::getSurface() const
+std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator M_choice::getSurfaceText() const
 {
-	return m_surface;
+	return m_surfaceText;
 }
 
 
@@ -63,9 +63,9 @@ int M_choice::getY() const
 
 
 // Return the surface of the choice with modifying possibilities
-std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& M_choice::getRealSurface()
+std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& M_choice::getRealSurfaceText()
 {
-	return m_surface;
+	return m_surfaceText;
 }
 
 
@@ -73,8 +73,8 @@ std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterato
 int M_choice::setShown(const bool &b, const int &dx, const int &dy)
 {
 	m_shown = b;
-	std::dynamic_pointer_cast<SurfaceText>(m_surface->second)->setDimensions(m_x + dx, m_y + dy, m_surface->second->getWidth(), m_surface->second->getHeight());
-	m_surface->second->setEnable(b);
+	std::dynamic_pointer_cast<SurfaceText>(m_surfaceText->second)->setDimensions(m_x + dx, m_y + dy, m_surfaceText->second->getWidth(), m_surfaceText->second->getHeight());
+	m_surfaceText->second->setEnable(b);
 	return 0;
 }
 
@@ -114,14 +114,14 @@ int M_choice::load(ManageSurfaces& surf, const std::string &str, sf::Font &f, co
 	m_y = y;
 
 	setAction(act);
-	m_surface = surf.addSurface(ManageSurfaces::e_thing::TEXT, std::shared_ptr<Surface>(new SurfaceText));
-	std::dynamic_pointer_cast<SurfaceText>(m_surface->second)->setString(str);
-	std::dynamic_pointer_cast<SurfaceText>(m_surface->second)->setFont(f);
-	std::dynamic_pointer_cast<SurfaceText>(m_surface->second)->setCharacterSize(MENU_SIMPLE_FONTSIZE);
-	std::dynamic_pointer_cast<SurfaceText>(m_surface->second)->setDimensions(x, 
+	m_surfaceText = surf.addSurface(ManageSurfaces::e_thing::TEXT, std::shared_ptr<Surface>(new SurfaceText));
+	std::dynamic_pointer_cast<SurfaceText>(m_surfaceText->second)->setString(str);
+	std::dynamic_pointer_cast<SurfaceText>(m_surfaceText->second)->setFont(f);
+	std::dynamic_pointer_cast<SurfaceText>(m_surfaceText->second)->setCharacterSize(MENU_SIMPLE_FONTSIZE);
+	std::dynamic_pointer_cast<SurfaceText>(m_surfaceText->second)->setDimensions(x,
 																			 y,
-																			 int(std::dynamic_pointer_cast<SurfaceText>(m_surface->second)->getLocalBounds().width),
-																			 int(std::dynamic_pointer_cast<SurfaceText>(m_surface->second)->getLocalBounds().height));
+																			 int(std::dynamic_pointer_cast<SurfaceText>(m_surfaceText->second)->getLocalBounds().width),
+																			 int(std::dynamic_pointer_cast<SurfaceText>(m_surfaceText->second)->getLocalBounds().height));
 	m_shown = sh;
 
 	m_initialized = true;
