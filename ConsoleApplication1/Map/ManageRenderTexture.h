@@ -22,11 +22,11 @@ public:
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator getTheSurface(int n);
 
 	// Return the RenderTexture where all the surfaces are printed with modifying possibilities
-	sf::RenderTexture& getRealRenderTexture();
+	sf::RenderTexture& getRealRenderTexture(bool updateIt = true);
 	// Return the render texture surface with modifying possibilities
-	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& getRealRenderTextureSurface();
+	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& getRealRenderTextureSurface(bool updateIt = true);
 	// Return the vector of all the surfaces on the render texture with modifying possibilities
-	std::vector<std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator>& getRealSurfaces();
+	std::vector<std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator>& getRealSurfaces(bool updateIt = true);
 
 	// Tell the object to be updated
 	int gotUpdated();
