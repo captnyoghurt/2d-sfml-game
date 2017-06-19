@@ -26,6 +26,8 @@ public:
 	// Return the vector of all the surfaces on the render texture with modifying possibilities
 	std::vector<std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator>& getRealSurfaces();
 
+	// Add a surface to the render texture
+	int add(std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator it);
 private:
 	sf::RenderTexture m_renderTexture;
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator m_renderTextureSurface;

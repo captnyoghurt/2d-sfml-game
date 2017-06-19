@@ -53,3 +53,11 @@ std::vector<std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface
 {
 	return m_surfaces;
 }
+
+// Add a surface to the render texture
+int ManageRenderTexture::add(std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator it)
+{
+	it->second->setEnable(false);
+	m_surfaces.push_back(it);
+	return 0;
+}
