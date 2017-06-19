@@ -92,8 +92,13 @@ int ManageRenderTexture::update()
 	if (!m_updated)
 		return 1;
 
+	// Back to a non updated render texture
+	m_updated = false;
+
+	// Clear the texture
 	m_renderTexture.clear();
 
+	// Draw every texture
 	for (unsigned int i(0); i < m_surfaces.size(); ++i)
 	{
 		if (m_surfaces.at(i)->first == ManageSurfaces::e_thing::SPRITE)
@@ -102,6 +107,7 @@ int ManageRenderTexture::update()
 			m_renderTexture.draw(*std::dynamic_pointer_cast<SurfaceText>(m_surfaces.at(i)->second));
 	}
 
+	// Render it to the real screen
 	std::dynamic_pointer_cast<SurfaceSprite>(m_renderTextureSurface->second)->setTexture(m_renderTexture.getTexture());
 
 	return 0;
