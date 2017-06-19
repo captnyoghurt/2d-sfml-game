@@ -3,6 +3,7 @@
 #include <list>
 #include "../Event/IG_Action.h"
 #include "../Map/ManageSurfaces.h"
+#include "../Map/ManageRenderTexture.h"
 
 class M_choice
 {
@@ -16,7 +17,7 @@ public:
 	// Return if the choice should be shown
 	bool getShown() const;
 	// Return the surface of the choice
-	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator getSurfaceText() const;
+	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator getSurface();
 	// Return the action made by the choice
 	IG_Action getAction() const;
 	// Return the position X of the choice on the screen
@@ -25,7 +26,7 @@ public:
 	int getY() const;
 
 	// Return the surface of the choice with modifying possibilities
-	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& getRealSurfaceText();
+	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& getRealSurface();
 
 	// Modify if the choice should be shown
 	int setShown(const bool &b, const int &dx, const int &dy);
@@ -41,7 +42,7 @@ public:
 private:
 	bool m_initialized;
 	bool m_shown;
-	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator m_surfaceText;
+	ManageRenderTexture m_textureManager;
 	IG_Action m_action;
 	int m_x;
 	int m_y;

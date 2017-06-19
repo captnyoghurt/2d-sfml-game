@@ -31,9 +31,9 @@ bool M_choice::getShown() const
 
 
 // Return the surface of the choice
-std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator M_choice::getSurfaceText() const
+std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator M_choice::getSurface()
 {
-	return m_surfaceText;
+	return m_textureManager.getRenderTextureSurface();
 }
 
 
@@ -63,9 +63,9 @@ int M_choice::getY() const
 
 
 // Return the surface of the choice with modifying possibilities
-std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& M_choice::getRealSurfaceText()
+std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& M_choice::getRealSurface()
 {
-	return m_surfaceText;
+	return m_textureManager.getRealRenderTextureSurface();
 }
 
 
@@ -73,8 +73,8 @@ std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterato
 int M_choice::setShown(const bool &b, const int &dx, const int &dy)
 {
 	m_shown = b;
-	std::dynamic_pointer_cast<SurfaceText>(m_surfaceText->second)->setDimensions(m_x + dx, m_y + dy, m_surfaceText->second->getWidth(), m_surfaceText->second->getHeight());
-	m_surfaceText->second->setEnable(b);
+	m_textureManager.getRealRenderTextureSurface()->second->setDimensions(m_x + dx, m_y + dy, m_textureManager.getRealRenderTextureSurface()->second->getWidth(), m_textureManager.getRealRenderTextureSurface()->second->getHeight());
+	m_textureManager.getRealRenderTextureSurface()->second->setEnable(b);
 	return 0;
 }
 
