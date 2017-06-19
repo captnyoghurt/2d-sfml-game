@@ -33,6 +33,8 @@ public:
 
 	// Add a surface to the render texture
 	int add(std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator it);
+	// Update the render texture if necessary
+	int update();
 private:
 	bool m_updated;
 	sf::RenderTexture m_renderTexture;

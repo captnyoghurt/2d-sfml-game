@@ -78,3 +78,25 @@ int ManageRenderTexture::add(std::list<std::pair<ManageSurfaces::e_thing, std::s
 	m_surfaces.push_back(it);
 	return 0;
 }
+
+
+// Update the render texture if necessary
+int ManageRenderTexture::update()
+{
+	if (!m_updated)
+		return 1;
+
+	m_renderTexture.clear();
+
+	for (unsigned int i(0); i < m_surfaces.size(); ++i)
+	{
+		if (m_surfaces.at(i)->first == ManageSurfaces::e_thing::SPRITE)
+			m_renderTexture.draw(*std::dynamic_pointer_cast<SurfaceSprite>(m_surfaces.at(i)->second));
+		else if (m_surfaces.at(i)->first == ManageSurfaces::e_thing::TEXT)
+			m_renderTexture.draw(*std::dynamic_pointer_cast<SurfaceText>(m_surfaces.at(i)->second));
+	}
+
+	std::dynamic_pointer_cast<SurfaceSprite>(m_renderTextureSurface->second)->setTexture(m_renderTexture.getTexture());
+
+	return 0;
+}
