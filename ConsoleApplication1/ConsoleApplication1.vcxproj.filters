@@ -189,6 +189,9 @@
     <ClCompile Include="Menu\MenuBattleSide.cpp">
       <Filter>Fichiers sources\Menu</Filter>
     </ClCompile>
+    <ClCompile Include="Map\ManageRenderTexture.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -325,6 +328,9 @@
     </ClInclude>
     <ClInclude Include="Menu\MenuBattleSide.h">
       <Filter>Fichiers d%27en-tête\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Map\ManageRenderTexture.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

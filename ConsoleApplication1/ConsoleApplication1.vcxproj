@@ -180,6 +180,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map\Camera.cpp" />
     <ClCompile Include="Map\Layer.cpp" />
+    <ClCompile Include="Map\ManageRenderTexture.cpp" />
     <ClCompile Include="Map\ManageRessources.cpp" />
     <ClCompile Include="Map\ManageSurfaces.cpp" />
     <ClCompile Include="Map\Map.cpp" />
@@ -227,6 +228,7 @@
     <ClInclude Include="initialization.h" />
     <ClInclude Include="Map\Camera.h" />
     <ClInclude Include="Map\Layer.h" />
+    <ClInclude Include="Map\ManageRenderTexture.h" />
     <ClInclude Include="Map\ManageRessources.h" />
     <ClInclude Include="Map\ManageSurfaces.h" />
     <ClInclude Include="Map\Map.h" />
