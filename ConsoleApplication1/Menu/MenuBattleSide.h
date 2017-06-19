@@ -5,7 +5,7 @@
 class MenuBattleSide : public Menu
 {
 public:
-	MenuBattleSide();
+	MenuBattleSide(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer);
 	~MenuBattleSide();
 
 public:
