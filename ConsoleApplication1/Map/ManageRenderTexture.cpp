@@ -12,13 +12,6 @@ ManageRenderTexture::~ManageRenderTexture()
 }
 
 
-// Return the RenderTexture where all the surfaces are printed
-sf::RenderTexture ManageRenderTexture::getRenderTexture() const
-{
-	return m_renderTexture;
-}
-
-
 // Return the render texture surface
 std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator ManageRenderTexture::getRenderTextureSurface()
 {

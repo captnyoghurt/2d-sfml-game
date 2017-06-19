@@ -13,8 +13,6 @@ public:
 	~ManageRenderTexture();
 
 public:
-	// Return the RenderTexture where all the surfaces are printed
-	sf::RenderTexture getRenderTexture() const;
 	// Return the render texture surface
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator getRenderTextureSurface();
 	// Return the vector of all the surfaces on the render texture
