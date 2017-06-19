@@ -2,7 +2,7 @@
 
 
 
-MenuBattle::MenuBattle()
+MenuBattle::MenuBattle(Battle *b)
 {
 }
 

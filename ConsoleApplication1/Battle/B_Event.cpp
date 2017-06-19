@@ -30,7 +30,7 @@ int B_Event::setDescription(const std::string &description)
 
 
 // Do the event
-int B_Event::execute(Battle &bat)
+int B_Event::execute(Battle *bat)
 {
 	return 0;
 }

@@ -17,7 +17,7 @@ public:
 	int setDestination(std::shared_ptr<Fighter> dest);
 
 	// Do the event
-	virtual int execute(Battle &bat);
+	virtual int execute(Battle *bat);
 private:
 	std::shared_ptr<Fighter> m_destination;
 };

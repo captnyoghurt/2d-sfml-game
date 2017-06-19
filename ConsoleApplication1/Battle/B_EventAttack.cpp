@@ -51,7 +51,7 @@ int B_EventAttack::setDestination(std::shared_ptr<Fighter> dest)
 
 
 // Do the event
-int B_EventAttack::execute(Battle &bat)
+int B_EventAttack::execute(Battle *bat)
 {
 	// [TODO]
 	// L'attaque

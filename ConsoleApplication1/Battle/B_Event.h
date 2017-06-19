@@ -20,7 +20,7 @@ public:
 	int setDescription(const std::string &description);
 
 	// Do the event
-	virtual int execute(Battle &bat);
+	virtual int execute(Battle *bat);
 protected:
 	std::string  m_description;
 };

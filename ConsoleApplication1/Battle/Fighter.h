@@ -2,7 +2,6 @@
 
 
 #include <vector>
-#include "B_Event.h"
 #include "Health.h"
 #include "Characteristic.h"
 #include "../Map/ManageSurfaces.h"
@@ -11,6 +10,7 @@
 #include "Spell.h"
 
 class Battle;
+class B_Event;
 
 class Fighter
 {
@@ -53,7 +53,7 @@ public:
 	int setSurface(std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator it);
 
 	// Make the fighter do an action for the next turn
-	int doAction(B_Event evt);
+	int doAction(std::shared_ptr<B_Event> evt);
 	// True if the fighter is dead (== 0 HP)
 	bool isDead() const;
 	// Change stance & possibilities

@@ -8,6 +8,16 @@ Health::Health()
 }
 
 
+Health::Health(const Health &h)
+{
+	setMaxPoints(h.getMaxPoints());
+	setPoints(h.getPoints());
+	m_continuousEffects = h.getContinuousEffects();
+	m_effects = h.getEffects();
+	m_bonus = h.getBonus();
+}
+
+
 Health::~Health()
 {
 }

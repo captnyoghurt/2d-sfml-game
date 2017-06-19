@@ -1,5 +1,10 @@
 #include "Battle.h"
 #include "Fighter.h"
+#include "B_Event.h"
+#include "B_EventAttack.h"
+#include "B_EventDefense.h"
+#include "B_EventEscape.h"
+#include "B_EventSpell.h"
 
 
 
@@ -117,7 +122,7 @@ int Fighter::setSkillPoints(const SkillPoints &skp)
 // Modify a characteristic
 int Fighter::setCharacteristic(const Characteristic &ch, int n)
 {
-	if (n < 0 || n >= m_characteristics.size())
+	if (n < 0 || (unsigned)n >= m_characteristics.size())
 		return -1;
 
 	m_characteristics.at(n).setMaxPoints(ch.getMaxPoints());
@@ -137,7 +142,7 @@ int Fighter::setSurface(std::list<std::pair<ManageSurfaces::e_thing, std::shared
 
 
 // Make the fighter do an action for the next turn
-int Fighter::doAction(B_Event evt)
+int Fighter::doAction(std::shared_ptr<B_Event> evt)
 {
 	// [TODO]
 	// Add the event to the battle historic
