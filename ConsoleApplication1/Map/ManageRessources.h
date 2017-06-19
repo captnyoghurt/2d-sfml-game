@@ -51,8 +51,6 @@ public:
 	// Clear all the ressources
 	int clear();
 private:
-	// Testing things
-	// Testing other things
 	std::list<sf::Font> m_fonts;
 	std::list<sf::Image> m_images;
 	std::list<sf::Texture> m_textures;
