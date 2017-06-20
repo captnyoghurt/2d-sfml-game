@@ -132,7 +132,7 @@ int M_choice::load(ManageSurfaces& surf, const std::string &str, sf::Font &f, co
 	std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->setPosition(0.0, 0.0);
 	//std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->rotate(std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->getRotation() + 180);
 
-	m_textureManager.load(surf, x, y, surfaceText->second->getWidth(), surfaceText->second->getHeight());
+	m_textureManager.load(surf, x, y, surfaceText->second->getWidth(), MENUS_GAP_BETWEEN_LINES);
 	m_textureManager.add(surfaceText);
 
 	m_shown = sh;

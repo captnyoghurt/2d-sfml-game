@@ -116,7 +116,7 @@ int ManageRenderTexture::load(ManageSurfaces& surf, int x, int y, int w, int h, 
 {
 	m_initialized = true;
 
-	m_renderTexture.create(2*w, 2*h, depthBuffer);
+	m_renderTexture.create(w, h, depthBuffer);
 	m_renderTextureSurface = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::shared_ptr<Surface>(new SurfaceSprite));
 	std::dynamic_pointer_cast<SurfaceSprite>(m_renderTextureSurface->second)->setTexture(m_renderTexture.getTexture());
 	m_renderTextureSurface->second->setDimensions(x, y, w, h);
@@ -153,18 +153,6 @@ int ManageRenderTexture::update()
 
 	// Render it to the real screen
 	std::dynamic_pointer_cast<SurfaceSprite>(m_renderTextureSurface->second)->setTexture(m_renderTexture.getTexture());
-
-	///
-	//std::dynamic_pointer_cast<SurfaceText>(m_surfaces.at(0)->second)->getTexture()->copyToImage().saveToFile("save0.png");
-	sf::RenderTexture rf;
-	rf.create(100, 100);
-	rf.draw(*std::dynamic_pointer_cast<SurfaceText>(m_surfaces.at(0)->second));
-	rf.display();
-	rf.getTexture().copyToImage().saveToFile("save0.png");
-
-	m_renderTexture.getTexture().copyToImage().saveToFile("save1.png");
-	std::dynamic_pointer_cast<SurfaceSprite>(m_renderTextureSurface->second)->getTexture()->copyToImage().saveToFile("save2.png");
-	///
 
 	return 0;
 }
