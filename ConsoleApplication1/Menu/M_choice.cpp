@@ -10,6 +10,13 @@ M_choice::M_choice()
 }
 
 
+M_choice::M_choice(const M_choice & ch)
+{
+	m_initialized = ch.getInitialized();
+	m_shown = ch.getShown();
+}
+
+
 M_choice::~M_choice()
 {
 
@@ -114,14 +121,18 @@ int M_choice::load(ManageSurfaces& surf, const std::string &str, sf::Font &f, co
 	m_y = y;
 
 	setAction(act);
-	m_surfaceText = surf.addSurface(ManageSurfaces::e_thing::TEXT, std::shared_ptr<Surface>(new SurfaceText));
-	std::dynamic_pointer_cast<SurfaceText>(m_surfaceText->second)->setString(str);
-	std::dynamic_pointer_cast<SurfaceText>(m_surfaceText->second)->setFont(f);
-	std::dynamic_pointer_cast<SurfaceText>(m_surfaceText->second)->setCharacterSize(MENU_SIMPLE_FONTSIZE);
-	std::dynamic_pointer_cast<SurfaceText>(m_surfaceText->second)->setDimensions(x,
+	auto surfaceText = surf.addSurface(ManageSurfaces::e_thing::TEXT, std::shared_ptr<Surface>(new SurfaceText));
+	std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->setString(str);
+	std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->setFont(f);
+	std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->setCharacterSize(MENU_SIMPLE_FONTSIZE);
+	std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->setDimensions(x,
 																			 y,
-																			 int(std::dynamic_pointer_cast<SurfaceText>(m_surfaceText->second)->getLocalBounds().width),
-																			 int(std::dynamic_pointer_cast<SurfaceText>(m_surfaceText->second)->getLocalBounds().height));
+																			 int(std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->getLocalBounds().width),
+																			 int(std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->getLocalBounds().height));
+	
+	m_textureManager.load(surf, surfaceText->second->getWidth(), surfaceText->second->getHeight());
+	m_textureManager.add(surfaceText);
+
 	m_shown = sh;
 
 	m_initialized = true;

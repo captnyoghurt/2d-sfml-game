@@ -15,7 +15,9 @@ public:
 public:
 	// Return if the render texture need to be updated
 	bool getUpdated() const;
-	// Return the render texture surface
+	// Return if the render texture is initialized
+	bool getInitialized() const;
+ 	// Return the render texture surface
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator getRenderTextureSurface();
 	// Return the vector of all the surfaces on the render texture
 	std::vector<std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator> getSurfaces() const;
@@ -33,10 +35,13 @@ public:
 
 	// Add a surface to the render texture
 	int add(std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator it);
+	// Initialize the render texture
+	int load(ManageSurfaces& surf, int w, int h, bool depthBuffer = false);
 	// Update the render texture if necessary
 	int update();
 private:
 	bool m_updated;
+	bool m_initialized;
 	sf::RenderTexture m_renderTexture;
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator m_renderTextureSurface;
 	std::vector<std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator>  m_surfaces;

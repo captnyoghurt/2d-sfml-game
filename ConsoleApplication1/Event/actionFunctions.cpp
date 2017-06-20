@@ -135,7 +135,7 @@ int af_menuChoiceAction(Game &g)
 	/*int i = ;
 	std::shared_ptr<MenuChoice> m(std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back()));
 	M_choice *mc((std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back()))->getChoices().at(std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->getSelectedChoice()));*/
-	return (std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back()))->getChoices().at(std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->getSelectedChoice()).getAction().getAction()(g);
+	return (std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back()))->getChoices().at(std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->getSelectedChoice())->getAction().getAction()(g);
 }
 
 

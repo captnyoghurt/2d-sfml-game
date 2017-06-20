@@ -1,14 +1,17 @@
 #pragma once
 
 #include <list>
+#include <memory>
 #include "../Event/IG_Action.h"
-#include "../Map/ManageSurfaces.h"
 #include "../Map/ManageRenderTexture.h"
+#include "../Map/ManageSurfaces.h"
+
 
 class M_choice
 {
 public:
 	M_choice();
+	M_choice(const M_choice & ch);
 	~M_choice();
 
 public:

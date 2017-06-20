@@ -14,7 +14,7 @@ public:
 
 public:
 	// Return the choices surfaces with modifying possibilities
-	std::vector<M_choice> getChoices();
+	std::vector< std::shared_ptr<M_choice> > getChoices();
 	// Return the down cursor surfaces with modifying possibilities
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator getCursorSurfaceDown();
 	// Return the up cursor surfaces with modifying possibilities
@@ -39,10 +39,10 @@ public:
 	virtual int close(ManageSurfaces& surf);
 
 private:
-	std::vector<M_choice> m_choices;
+	std::vector < std::shared_ptr<M_choice> > m_choices;
 	std::list < std::pair < ManageSurfaces::e_thing, std::shared_ptr<Surface> > >::iterator m_cursorSurfaceUp;
 	std::list < std::pair < ManageSurfaces::e_thing, std::shared_ptr<Surface> > >::iterator m_cursorSurfaceDown;
-	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator m_selectedChoiceSurface;
+	std::list < std::pair < ManageSurfaces::e_thing, std::shared_ptr<Surface> > >::iterator m_selectedChoiceSurface;
 	int m_selectedChoice;
 	int m_firstChoiceShown;
 	int m_lastChoiceShown;

@@ -34,7 +34,7 @@ MenuChoice::~MenuChoice()
 
 
 // Return the choices surfaces with modifying possibilities
-std::vector<M_choice> MenuChoice::getChoices()
+std::vector<std::shared_ptr<M_choice>> MenuChoice::getChoices()
 {
 	return m_choices;
 }
@@ -112,11 +112,11 @@ int MenuChoice::setSelectedChoice(const int	&ch)
 	{
 		if (i >= (unsigned)m_firstChoiceShown && i <= (unsigned)m_lastChoiceShown)
 		{
-			m_choices.at(i).setShown(true, 0, -m_firstChoiceShown*MENUS_GAP_BETWEEN_LINES);
+			m_choices.at(i)->setShown(true, 0, -m_firstChoiceShown*MENUS_GAP_BETWEEN_LINES);
 		}
 		else
 		{
-			m_choices.at(i).setShown(false, 0, 0);
+			m_choices.at(i)->setShown(false, 0, 0);
 		}
 	}
 
@@ -161,7 +161,7 @@ int MenuChoice::load(ManageRessources& ress, ManageSurfaces& surf, const std::st
 
 	while (std::getline(file, firstLine) && std::getline(file, secondLine))
 	{
-		m_choices.push_back(M_choice());
+		m_choices.push_back(std::shared_ptr<M_choice>(new M_choice));
 		int cx, cy;
 
 		// Read the "first line" with every indication (position, action)
@@ -179,7 +179,7 @@ int MenuChoice::load(ManageRessources& ress, ManageSurfaces& surf, const std::st
 			act.setAction(getActionFromWord(word));
 		}
 		// Second line used for the string
-		m_choices.back().load(surf, secondLine, f, cx, cy, true, act);
+		m_choices.back()->load(surf, secondLine, f, cx, cy, true, act);
 
 		numberOfChoices++;
 	}
@@ -196,7 +196,7 @@ int MenuChoice::load(ManageRessources& ress, ManageSurfaces& surf, const std::st
 		m_lastChoiceShown = numberOfChoices - 1;
 
 	std::dynamic_pointer_cast<SurfaceSprite>(m_selectedChoiceSurface->second)->setScale(float(m_width) / (MENU_SURFACE_SELECTED_WIDTH),
-																						float(std::dynamic_pointer_cast<SurfaceText>(m_choices.at(0).getRealSurfaceText()->second)->getGlobalBounds().height + (MENUS_GAP_BETWEEN_LINES)/2) / (MENU_SURFACE_SELECTED_HEIGHT));
+																						float(std::dynamic_pointer_cast<SurfaceSprite>(m_choices.at(0)->getRealSurface()->second)->getGlobalBounds().height + (MENUS_GAP_BETWEEN_LINES)/2) / (MENU_SURFACE_SELECTED_HEIGHT));
 
 	setSelectedChoice(0);
 
@@ -213,7 +213,7 @@ int MenuChoice::update(Game &g)
 
 	for (unsigned int i(0); i < m_choices.size(); i++)
 	{
-		std::dynamic_pointer_cast<SurfaceText>(m_choices.at(i).getRealSurfaceText()->second)->setPosition(float(x + m_x + MENUS_BORDER_X), float(x + m_y + MENUS_BORDER_Y + (i*MENUS_GAP_BETWEEN_LINES)));
+		std::dynamic_pointer_cast<SurfaceSprite>(m_choices.at(i)->getSurface()->second)->setPosition(float(x + m_x + MENUS_BORDER_X), float(x + m_y + MENUS_BORDER_Y + (i*MENUS_GAP_BETWEEN_LINES)));
 	}
 
 	return 0;
@@ -225,7 +225,7 @@ int MenuChoice::close(ManageSurfaces& surf)
 {
 	for (unsigned int i(0); i < m_choices.size(); i++)
 	{
-		surf.deleteSurface(m_choices.at(i).getRealSurfaceText());
+		surf.deleteSurface(m_choices.at(i)->getSurface());
 	}
 
 	m_choices.clear();

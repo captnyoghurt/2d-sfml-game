@@ -4,6 +4,7 @@
 
 ManageRenderTexture::ManageRenderTexture()
 {
+	m_initialized = false;
 }
 
 
@@ -16,6 +17,13 @@ ManageRenderTexture::~ManageRenderTexture()
 bool ManageRenderTexture::getUpdated() const
 {
 	return m_updated;
+}
+
+
+// Return if the render texture is initialized
+bool ManageRenderTexture::getInitialized() const
+{
+	return m_initialized;
 }
 
 
@@ -82,6 +90,22 @@ int ManageRenderTexture::add(std::list<std::pair<ManageSurfaces::e_thing, std::s
 {
 	it->second->setEnable(false);
 	m_surfaces.push_back(it);
+
+
+
+	return 0;
+}
+
+
+// Initialize the render texture
+int ManageRenderTexture::load(ManageSurfaces& surf, int w, int h, bool depthBuffer)
+{
+	m_initialized = true;
+
+	m_renderTexture.create(w, h, depthBuffer);
+	m_renderTextureSurface = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::shared_ptr<Surface>(new SurfaceSprite));
+	std::dynamic_pointer_cast<SurfaceSprite>(m_renderTextureSurface->second)->setTexture(m_renderTexture.getTexture());
+
 	return 0;
 }
 
@@ -89,6 +113,8 @@ int ManageRenderTexture::add(std::list<std::pair<ManageSurfaces::e_thing, std::s
 // Update the render texture if necessary
 int ManageRenderTexture::update()
 {
+	if (!m_initialized)
+		return -1;
 	if (!m_updated)
 		return 1;
 
