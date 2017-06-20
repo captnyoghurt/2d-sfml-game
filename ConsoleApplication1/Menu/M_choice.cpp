@@ -148,5 +148,5 @@ int M_choice::load(ManageSurfaces& surf, const std::string &str, sf::Font &f, co
 // Clear the surfaces of the choice
 int M_choice::clear(ManageSurfaces &surf)
 {
-	return m_textureManager.clear();
+	return m_textureManager.clear(surf);
 }

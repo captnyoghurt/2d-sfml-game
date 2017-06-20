@@ -156,3 +156,25 @@ int ManageRenderTexture::update()
 
 	return 0;
 }
+
+
+// Clear the surfaces
+int ManageRenderTexture::clear(ManageSurfaces& surf)
+{
+	if (!m_initialized)
+		return -1;
+
+	m_renderTexture.clear();
+	surf.deleteSurface(m_renderTextureSurface);
+
+	for (int i(0); i < m_surfaces.size(); ++i)
+	{
+		surf.deleteSurface(m_surfaces.at(i));
+	}
+
+	m_surfaces.clear();
+
+	m_initialized = false;
+
+	return 0;
+}

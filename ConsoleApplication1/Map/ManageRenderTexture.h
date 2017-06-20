@@ -39,6 +39,8 @@ public:
 	int load(ManageSurfaces& surf, int x, int y, int w, int h, bool depthBuffer = false);
 	// Update the render texture if necessary
 	int update();
+	// Clear the surfaces
+	int clear(ManageSurfaces& surf);
 private:
 	bool m_updated;
 	bool m_initialized;
