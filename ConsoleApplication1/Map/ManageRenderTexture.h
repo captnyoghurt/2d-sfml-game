@@ -34,7 +34,7 @@ public:
 	int gotUpdated();
 
 	// Add a surface to the render texture
-	int add(std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator it);
+	int add(std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator it, int x = -1, int y = -1);
 	// Initialize the render texture
 	int load(ManageSurfaces& surf, int x, int y, int w, int h, bool depthBuffer = false);
 	// Update the render texture if necessary

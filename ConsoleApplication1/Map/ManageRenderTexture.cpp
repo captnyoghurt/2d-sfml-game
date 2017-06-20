@@ -86,12 +86,23 @@ int ManageRenderTexture::gotUpdated()
 
 
 // Add a surface to the render texture
-int ManageRenderTexture::add(std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator it)
+int ManageRenderTexture::add(std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator it, int x, int y)
 {
 	it->second->setEnable(false);
-	m_surfaces.push_back(it);
-
 	
+
+	if (x == -1 && y == -1)
+	{
+		x = it->second->getX() - m_renderTextureSurface->second->getX();
+		y = it->second->getY() - m_renderTextureSurface->second->getY();
+	}
+
+	if(it->first == ManageSurfaces::e_thing::SPRITE)
+		std::dynamic_pointer_cast<SurfaceSprite>(it->second)->setPosition(float(x), float(y));
+	else if (it->first == ManageSurfaces::e_thing::TEXT)
+		std::dynamic_pointer_cast<SurfaceText>(it->second)->setPosition(float(x), float(y));
+
+	m_surfaces.push_back(it);
 
 	return 0;
 }
@@ -122,7 +133,7 @@ int ManageRenderTexture::update()
 	// Back to a non updated render texture
 	m_updated = false;
 
-	m_renderTexture.display();
+	
 	// Clear the texture
 	m_renderTexture.clear(sf::Color(0, 0, 0, 0));
 
@@ -134,6 +145,8 @@ int ManageRenderTexture::update()
 		else if (m_surfaces.at(i)->first == ManageSurfaces::e_thing::TEXT)
 			m_renderTexture.draw(*std::dynamic_pointer_cast<SurfaceText>(m_surfaces.at(i)->second));
 	}
+
+	m_renderTexture.display();
 
 	// Render it to the real screen
 	std::dynamic_pointer_cast<SurfaceSprite>(m_renderTextureSurface->second)->setTexture(m_renderTexture.getTexture());
