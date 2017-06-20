@@ -42,6 +42,8 @@ public:
 
 	// Load the choice
 	int load(ManageSurfaces& surf, const std::string &str, sf::Font &f, const int &x, const int &y, const bool &sh, IG_Action act);
+	// Clear the surfaces of the choice
+	int clear(ManageSurfaces &surf);
 private:
 	bool m_initialized;
 	bool m_shown;
