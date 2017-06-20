@@ -122,6 +122,7 @@ int ManageRenderTexture::update()
 	// Back to a non updated render texture
 	m_updated = false;
 
+	m_renderTexture.display();
 	// Clear the texture
 	m_renderTexture.clear(sf::Color(0, 0, 0, 0));
 
