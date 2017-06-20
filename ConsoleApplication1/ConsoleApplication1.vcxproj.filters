@@ -171,12 +171,6 @@
     <ClCompile Include="Battle\Fighter.cpp">
       <Filter>Fichiers sources\Battle</Filter>
     </ClCompile>
-    <ClCompile Include="Battle\TeamMate.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\TeamBattle.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="Battle\EnemiBoss.cpp">
       <Filter>Fichiers sources\Battle</Filter>
     </ClCompile>
@@ -190,7 +184,13 @@
       <Filter>Fichiers sources\Menu</Filter>
     </ClCompile>
     <ClCompile Include="Map\ManageRenderTexture.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\TeamMate.cpp">
+      <Filter>Fichiers sources\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\TeamBattle.cpp">
+      <Filter>Fichiers sources\Battle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -311,12 +311,6 @@
     <ClInclude Include="Battle\Fighter.h">
       <Filter>Fichiers d%27en-tête\Battle</Filter>
     </ClInclude>
-    <ClInclude Include="Battle\TeamMate.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\TeamBattle.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Battle\EnemiBoss.h">
       <Filter>Fichiers d%27en-tête\Battle</Filter>
     </ClInclude>
@@ -330,7 +324,13 @@
       <Filter>Fichiers d%27en-tête\Menu</Filter>
     </ClInclude>
     <ClInclude Include="Map\ManageRenderTexture.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\TeamMate.h">
+      <Filter>Fichiers d%27en-tête\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\TeamBattle.h">
+      <Filter>Fichiers d%27en-tête\Battle</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
