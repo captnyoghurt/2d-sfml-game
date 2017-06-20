@@ -91,20 +91,21 @@ int ManageRenderTexture::add(std::list<std::pair<ManageSurfaces::e_thing, std::s
 	it->second->setEnable(false);
 	m_surfaces.push_back(it);
 
-
+	
 
 	return 0;
 }
 
 
 // Initialize the render texture
-int ManageRenderTexture::load(ManageSurfaces& surf, int w, int h, bool depthBuffer)
+int ManageRenderTexture::load(ManageSurfaces& surf, int x, int y, int w, int h, bool depthBuffer)
 {
 	m_initialized = true;
 
 	m_renderTexture.create(w, h, depthBuffer);
 	m_renderTextureSurface = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::shared_ptr<Surface>(new SurfaceSprite));
 	std::dynamic_pointer_cast<SurfaceSprite>(m_renderTextureSurface->second)->setTexture(m_renderTexture.getTexture());
+	m_renderTextureSurface->second->setDimensions(x, y, w, h);
 
 	return 0;
 }

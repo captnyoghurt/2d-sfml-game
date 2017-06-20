@@ -129,11 +129,13 @@ int M_choice::load(ManageSurfaces& surf, const std::string &str, sf::Font &f, co
 																			 y,
 																			 int(std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->getLocalBounds().width),
 																			 int(std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->getLocalBounds().height));
-	
-	m_textureManager.load(surf, surfaceText->second->getWidth(), surfaceText->second->getHeight());
+	std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->setPosition(0.0, 0.0);
+
+	m_textureManager.load(surf, x, y, surfaceText->second->getWidth(), surfaceText->second->getHeight());
 	m_textureManager.add(surfaceText);
 
 	m_shown = sh;
+	m_textureManager.update();
 
 	m_initialized = true;
 
