@@ -225,7 +225,7 @@ int MenuChoice::close(ManageSurfaces& surf)
 {
 	for (unsigned int i(0); i < m_choices.size(); i++)
 	{
-		surf.deleteSurface(m_choices.at(i)->getSurface());
+		m_choices.at(i)->clear(surf);
 	}
 
 	m_choices.clear();
