@@ -196,7 +196,7 @@ int MenuChoice::load(ManageRessources& ress, ManageSurfaces& surf, const std::st
 		m_lastChoiceShown = numberOfChoices - 1;
 
 	std::dynamic_pointer_cast<SurfaceSprite>(m_selectedChoiceSurface->second)->setScale(float(m_width) / (MENU_SURFACE_SELECTED_WIDTH),
-																						float(std::dynamic_pointer_cast<SurfaceSprite>(m_choices.at(0)->getRealSurface()->second)->getGlobalBounds().height + (MENUS_GAP_BETWEEN_LINES)/2) / (MENU_SURFACE_SELECTED_HEIGHT));
+																						float(std::dynamic_pointer_cast<SurfaceSprite>(m_choices.at(0)->getRealSurface()->second)->getGlobalBounds().height) / (MENU_SURFACE_SELECTED_HEIGHT));
 
 	setSelectedChoice(0);
 
