@@ -123,7 +123,7 @@ int ManageRenderTexture::update()
 	m_updated = false;
 
 	// Clear the texture
-	m_renderTexture.clear();
+	m_renderTexture.clear(sf::Color(0, 0, 0, 0));
 
 	// Draw every texture
 	for (unsigned int i(0); i < m_surfaces.size(); ++i)
