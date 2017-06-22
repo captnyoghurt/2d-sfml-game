@@ -12,6 +12,48 @@ MenuBattleSide::~MenuBattleSide()
 }
 
 
+// Return the cursor for the right surface
+std::list < std::pair < ManageSurfaces::e_thing, std::shared_ptr<Surface> > >::iterator MenuBattleSide::getCursor()
+{
+
+}
+
+
+// Return the current selected choice
+int MenuBattleSide::getSelectedChoice() const
+{
+
+}
+
+
+// Return the maximum number of choices
+int MenuBattleSide::getNumberMaxChoices() const
+{
+
+}
+
+
+// Return all the choices with modifying possibilities
+std::vector< std::shared_ptr<M_choice> >& MenuBattleSide::getChoices()
+{
+
+}
+
+
+// Modify the current selected choice
+int MenuBattleSide::getSelectedChoice(const int &s)
+{
+
+}
+
+
+// Modify the maximum number of choices
+int MenuBattleSide::getNumberMaxChoices(const int &c)
+{
+
+}
+
+
 // Load the menu
 int MenuBattleSide::load(ManageRessources& ress, ManageSurfaces& surf, const int &x, const int &y, const int &w, const int &h)
 {
