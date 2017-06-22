@@ -55,6 +55,9 @@ int TEAM_WALK_RIGHT_POSITION_Y = 96;
 int TEAM_WALK_LEFT_POSITION_Y = 48;
 int TEAM_WALK_LAYER = 2;
 
+/// Combat
+int TEAM_BATTLE_MAX_NUMBER = 5;
+
 // Menu constants
 
 /// Font

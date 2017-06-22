@@ -62,6 +62,9 @@ extern int TEAM_WALK_RIGHT_POSITION_Y;
 extern int TEAM_WALK_LEFT_POSITION_Y;
 extern int TEAM_WALK_LAYER;
 
+/// Combat
+extern int TEAM_BATTLE_MAX_NUMBER;
+
 // Menu constants
 
 /// Font
