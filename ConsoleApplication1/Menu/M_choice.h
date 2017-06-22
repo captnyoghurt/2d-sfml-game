@@ -30,6 +30,8 @@ public:
 
 	// Return the surface of the choice with modifying possibilities
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& getRealSurface();
+	// Return the render texture manager with modifying possibilities
+	ManageRenderTexture& getRealRenderTextureManager();
 
 	// Modify if the choice should be shown
 	int setShown(const bool &b, const int &dx, const int &dy);

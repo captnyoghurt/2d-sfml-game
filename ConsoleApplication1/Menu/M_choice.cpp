@@ -76,6 +76,13 @@ std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterato
 }
 
 
+// Return the render texture manager with modifying possibilities
+ManageRenderTexture& M_choice::getRealRenderTextureManager()
+{
+	return m_textureManager;
+}
+
+
 // Modify if the choice should be shown
 int M_choice::setShown(const bool &b, const int &dx, const int &dy)
 {
