@@ -15,21 +15,21 @@ MenuBattleSide::~MenuBattleSide()
 // Return the cursor for the right surface
 std::list < std::pair < ManageSurfaces::e_thing, std::shared_ptr<Surface> > >::iterator MenuBattleSide::getCursor()
 {
-
+	return m_cursorSurfaceRight;
 }
 
 
 // Return the current selected choice
 int MenuBattleSide::getSelectedChoice() const
 {
-
+	return m_selectedChoice;
 }
 
 
 // Return the maximum number of choices
 int MenuBattleSide::getNumberMaxChoices() const
 {
-
+	return m_numberMaxChoices;
 }
 
 
