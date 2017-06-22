@@ -36,7 +36,7 @@ int MenuBattleSide::getNumberMaxChoices() const
 // Return all the choices with modifying possibilities
 std::vector< std::shared_ptr<M_choice> >& MenuBattleSide::getChoices()
 {
-
+	return m_choices;
 }
 
 
