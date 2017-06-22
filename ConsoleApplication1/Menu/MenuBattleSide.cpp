@@ -43,7 +43,13 @@ std::vector< std::shared_ptr<M_choice> >& MenuBattleSide::getChoices()
 // Modify the current selected choice
 int MenuBattleSide::setSelectedChoice(const int &s)
 {
+	if ((unsigned)s < m_numberMaxChoices)
+	{
+		m_selectedChoice = s;
+		return 0;
+	}
 
+	return -1;
 }
 
 
