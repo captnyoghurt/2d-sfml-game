@@ -25,9 +25,9 @@ public:
 	std::vector< std::shared_ptr<M_choice> >& getChoices();
 
 	// Modify the current selected choice
-	int getSelectedChoice(const int &s);
+	int setSelectedChoice(const int &s);
 	// Modify the maximum number of choices
-	int getNumberMaxChoices(const int &c);
+	int setNumberMaxChoices(const int &c);
 
 	// Load the menu
 	virtual int load(ManageRessources& ress, ManageSurfaces& surf, const int &x, const int &y, const int &w = -1, const int &h = -1);

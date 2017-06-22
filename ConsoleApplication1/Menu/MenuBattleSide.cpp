@@ -41,14 +41,14 @@ std::vector< std::shared_ptr<M_choice> >& MenuBattleSide::getChoices()
 
 
 // Modify the current selected choice
-int MenuBattleSide::getSelectedChoice(const int &s)
+int MenuBattleSide::setSelectedChoice(const int &s)
 {
 
 }
 
 
 // Modify the maximum number of choices
-int MenuBattleSide::getNumberMaxChoices(const int &c)
+int MenuBattleSide::setNumberMaxChoices(const int &c)
 {
 
 }
