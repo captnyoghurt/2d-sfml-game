@@ -1,3 +1,4 @@
+#include "../constants.h"
 #include "MenuBattleSide.h"
 
 
@@ -56,7 +57,17 @@ int MenuBattleSide::setSelectedChoice(const int &s)
 // Modify the maximum number of choices
 int MenuBattleSide::setNumberMaxChoices(const int &c)
 {
+	if ((unsigned)c < TEAM_BATTLE_MAX_NUMBER)
+	{
+		m_numberMaxChoices = c;
 
+		if (m_selectedChoice >= m_numberMaxChoices)
+			m_selectedChoice = c - 1;
+
+		return 0;
+	}
+
+	return -1;
 }
 
 
