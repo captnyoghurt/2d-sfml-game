@@ -167,7 +167,7 @@ int ManageRenderTexture::clear(ManageSurfaces& surf)
 	m_renderTexture.clear();
 	surf.deleteSurface(m_renderTextureSurface);
 
-	for (int i(0); i < m_surfaces.size(); ++i)
+	for (unsigned int i(0); i < m_surfaces.size(); ++i)
 	{
 		surf.deleteSurface(m_surfaces.at(i));
 	}
