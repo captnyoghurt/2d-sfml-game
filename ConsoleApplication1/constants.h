@@ -144,3 +144,7 @@ extern int SKILLPOINTS_SURFACE_HEIGHT;
 
 /// Mana
 extern int MANA_MAX_POINTS;
+extern int MANA_SURFACE_BEGIN_X;
+extern int MANA_SURFACE_BEGIN_Y;
+extern int MANA_SURFACE_WIDTH;
+extern int MANA_SURFACE_HEIGHT;
