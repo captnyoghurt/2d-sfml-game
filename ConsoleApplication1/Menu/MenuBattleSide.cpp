@@ -57,7 +57,7 @@ int MenuBattleSide::setSelectedChoice(const int &s)
 // Modify the maximum number of choices
 int MenuBattleSide::setNumberMaxChoices(const int &c)
 {
-	if ((unsigned)c < TEAM_BATTLE_MAX_NUMBER)
+	if ((unsigned)c < (unsigned)TEAM_BATTLE_MAX_NUMBER)
 	{
 		m_numberMaxChoices = c;
 
