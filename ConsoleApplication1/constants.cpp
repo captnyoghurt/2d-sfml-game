@@ -41,6 +41,10 @@ int MENUS_BORDER_X = 10;
 int MENUS_BORDER_Y = 10;
 int MENUS_GAP_BETWEEN_LINES = 25; // px
 
+/// Ressources number texture
+int RESSOURCE_TEXTURE_NUMBER_MENU = 0;
+int RESSOURCE_TEXTURE_NUMBER_LIFEBAR = 1;
+
 // Team constants
 
 /// Walk Stand

@@ -48,6 +48,10 @@ extern int MENUS_BORDER_X;
 extern int MENUS_BORDER_Y;
 extern int MENUS_GAP_BETWEEN_LINES; // px
 
+/// Ressources number texture
+extern int RESSOURCE_TEXTURE_NUMBER_MENU;
+extern int RESSOURCE_TEXTURE_NUMBER_LIFEBAR;
+
 // Team constants
 
 /// Walk Stand
