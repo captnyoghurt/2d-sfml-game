@@ -130,6 +130,10 @@ extern int MENU_SURFACE_SELECTED_HEIGHT;
 
 /// Health
 extern int HEALTH_MAX_POINTS;
+extern int HEALTH_SURFACE_BEGIN_X;
+extern int HEALTH_SURFACE_BEGIN_Y;
+extern int HEALTH_SURFACE_WIDTH;
+extern int HEALTH_SURFACE_HEIGHT;
 
 /// Skill Points
 extern int SKILLPOINTS_MAX_POINTS;
