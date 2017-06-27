@@ -13,11 +13,11 @@ MenuChoice::MenuChoice(ManageRessources& ress, ManageSurfaces& surf, int lastEve
 	m_cursorSurfaceDown = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::shared_ptr<Surface>(new SurfaceSprite));
 	m_cursorSurfaceUp = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::shared_ptr<Surface>(new SurfaceSprite));
 
-	std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceUp->second)->setTexture(ress.getTheTexture(0));
+	std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceUp->second)->setTexture(ress.getTheTexture(RESSOURCE_TEXTURE_NUMBER_MENU));
 	std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceUp->second)->setTextureRect(sf::IntRect(MENU_SURFACE_CURSOR_UP_BEGIN_X, MENU_SURFACE_CURSOR_UP_BEGIN_Y, MENU_SURFACE_CURSOR_UP_WIDTH, MENU_SURFACE_CURSOR_UP_HEIGHT));
-	std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceDown->second)->setTexture(ress.getTheTexture(0));
+	std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceDown->second)->setTexture(ress.getTheTexture(RESSOURCE_TEXTURE_NUMBER_MENU));
 	std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceDown->second)->setTextureRect(sf::IntRect(MENU_SURFACE_CURSOR_DOWN_BEGIN_X, MENU_SURFACE_CURSOR_DOWN_BEGIN_Y, MENU_SURFACE_CURSOR_DOWN_WIDTH, MENU_SURFACE_CURSOR_DOWN_HEIGHT));
-	std::dynamic_pointer_cast<SurfaceSprite>(m_selectedChoiceSurface->second)->setTexture(ress.getTheTexture(0));
+	std::dynamic_pointer_cast<SurfaceSprite>(m_selectedChoiceSurface->second)->setTexture(ress.getTheTexture(RESSOURCE_TEXTURE_NUMBER_MENU));
 	std::dynamic_pointer_cast<SurfaceSprite>(m_selectedChoiceSurface->second)->setTextureRect(sf::IntRect(MENU_SURFACE_SELECTED_BEGIN_X, MENU_SURFACE_SELECTED_BEGIN_Y, MENU_SURFACE_SELECTED_WIDTH, MENU_SURFACE_SELECTED_HEIGHT));
 
 	m_initialized = false;
@@ -131,7 +131,7 @@ int MenuChoice::load(ManageRessources& ress, ManageSurfaces& surf, const std::st
 		return -1;
 
 	bool autoPlacement(false);
-	sf::Font& f(ress.getTheFont(0));
+	sf::Font& f(ress.getTheFont(RESSOURCE_FONT_NUMBER_MONO));
 	int numberOfChoices(0);
 	std::ifstream file(filename);
 	std::string firstLine, secondLine;

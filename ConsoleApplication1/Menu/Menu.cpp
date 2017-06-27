@@ -13,7 +13,7 @@ Menu::Menu(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer)
 
 	m_lastEventLayer = lastEventLayer;
 	std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->setEnable(false);
-	std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->setTexture(ress.getTheTexture(0));
+	std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->setTexture(ress.getTheTexture(RESSOURCE_TEXTURE_NUMBER_MENU));
 	std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->setTextureRect(sf::IntRect(MENU_SURFACE_BEGIN_X, MENU_SURFACE_BEGIN_Y, MENU_SURFACE_WIDTH, MENU_SURFACE_HEIGHT));
 	/*if (showCursor)
 	{
