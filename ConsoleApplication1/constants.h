@@ -52,6 +52,9 @@ extern int MENUS_GAP_BETWEEN_LINES; // px
 extern int RESSOURCE_TEXTURE_NUMBER_MENU;
 extern int RESSOURCE_TEXTURE_NUMBER_LIFEBAR;
 
+/// Ressources number font
+extern int RESSOURCE_FONT_NUMBER_MONO;
+
 // Team constants
 
 /// Walk Stand

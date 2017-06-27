@@ -45,6 +45,9 @@ int MENUS_GAP_BETWEEN_LINES = 25; // px
 int RESSOURCE_TEXTURE_NUMBER_MENU = 0;
 int RESSOURCE_TEXTURE_NUMBER_LIFEBAR = 1;
 
+/// Ressources number font
+int RESSOURCE_FONT_NUMBER_MONO = 0;
+
 // Team constants
 
 /// Walk Stand
