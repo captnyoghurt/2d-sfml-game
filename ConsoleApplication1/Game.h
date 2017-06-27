@@ -69,6 +69,10 @@ public:
 	// Update everything in the game
 	int update();
 
+protected:
+	// Load the ressources of the game (to be called in the constructor)
+	int loadRessources();
+
 private:
 	std::vector<ManageSurfaces> m_surfaceManager;
 	std::vector<ManageRessources> m_ressourceManager;

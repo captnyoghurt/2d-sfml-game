@@ -12,12 +12,7 @@ Game::Game(VideoMode mode, const String &title, Uint32 style, const ContextSetti
 	m_team(*this),
 	m_map(*this)
 {
-	std::list<sf::Texture>::iterator it;
-	if (!(it = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addTexture()))->loadFromFile(MENU_SURFACE_NAME))
-		std::cout << "Cacaaa\n";
-	std::list<sf::Font>::iterator it2;
-	if (!(it2 = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addFont()))->loadFromFile(MENU_FONT_NAME))
-		std::cout << "Gros caca\n";
+	loadRessources();
 }
 
 
@@ -250,4 +245,20 @@ int Game::update()
 	//std::cout << "#\t" << clk.getElapsedTime().asMicroseconds() << "\n";
 
 	return ret;
+}
+
+
+/// Protected
+
+// Load the ressources of the game (to be called in the constructor)
+int Game::loadRessources()
+{
+	std::list<sf::Texture>::iterator it;
+	if (!(it = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addTexture()))->loadFromFile(MENU_SURFACE_NAME))
+		std::cout << "Cacaaa\n";
+	std::list<sf::Font>::iterator it2;
+	if (!(it2 = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addFont()))->loadFromFile(MENU_FONT_NAME))
+		std::cout << "Gros caca\n";
+
+	return 0;
 }
