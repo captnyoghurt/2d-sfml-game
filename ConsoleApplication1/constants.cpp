@@ -71,7 +71,7 @@ int TEAM_BATTLE_MAX_NUMBER = 5;
 std::string MENU_FONT_NAME("monofonto.ttf");
 
 /// Surface
-std::string MENU_SURFACE_NAME("001-Blue01.png");
+std::string MENU_SURFACE_NAME("data/graphic/others/001-Blue01.png");
 int MENU_SURFACE_BEGIN_X = 0;
 int MENU_SURFACE_BEGIN_Y = 0;
 int MENU_SURFACE_WIDTH = 128;
