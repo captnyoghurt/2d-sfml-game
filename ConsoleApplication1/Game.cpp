@@ -149,7 +149,6 @@ int Game::start()
 
 	while (m_window.isOpen())
 	{
-		//std::cout << "&& Last update : " << clk2.getElapsedTime().asMicroseconds() << " micros" << std::endl;
 		clk2.restart();
 		update();
 		if (m_map.getUpdated())
@@ -165,8 +164,6 @@ int Game::start()
 
 		if (clk2.getElapsedTime().asMilliseconds() < 5)
 			sf::sleep(sf::milliseconds(WINDOW_SLEEPTIME) - clk2.getElapsedTime());
-		/*else
-			std::cout << "___ No waiting\n";*/
 	}
 
 	return 0;
