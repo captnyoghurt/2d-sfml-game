@@ -260,7 +260,7 @@ int Game::loadRessources()
 	if (!(it2 = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addFont()))->loadFromFile(MENU_FONT_NAME))
 		std::cout << "Gros caca\n";
 
-	if (!(it = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addTexture())->loadFromFile(MENU_BATTLE_SURFACE_BAR)))
+	if (!(it = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addTexture()))->loadFromFile(MENU_BATTLE_SURFACE_BAR))
 		std::cout << "Problème\n";
 
 	return 0;
