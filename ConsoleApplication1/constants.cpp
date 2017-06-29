@@ -51,7 +51,7 @@ int RESSOURCE_FONT_NUMBER_MONO = 0;
 // Team constants
 
 /// Walk Stand
-std::string TEAM_BASIC_WALKSTAND("001-Fighter01.png");
+std::string TEAM_BASIC_WALKSTAND("data/graphic/charset/001-Fighter01.png");
 int TEAM_WALK_ANIMATION_REFRESH = 100; // ms
 int TEAM_WALK_WIDTH = 32;
 int TEAM_WALK_HEIGHT = 48;
