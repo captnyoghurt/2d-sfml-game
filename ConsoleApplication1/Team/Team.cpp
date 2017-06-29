@@ -21,7 +21,7 @@ Team::Team(Game &g)
 	m_speedY = 0;
 
 	auto texture = g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MAP).addTexture();
-	if (!texture->loadFromFile("001-Fighter01.png"))
+	if (!texture->loadFromFile(TEAM_BASIC_WALKSTAND))
 		std::cout << "Error loading the walk stand\n";
 
 	setWalkStand(g.getRealSurfaceManager().at(TEAM_WALK_LAYER).addSurface(ManageSurfaces::SPRITE, std::shared_ptr<Surface>(new SurfaceSprite)));
