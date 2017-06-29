@@ -244,7 +244,7 @@ int Map::load(std::string filename, Game &g)
 	}
 
 	// Get the Tileset
-	if (setTileset(string("001-Grassland01.png")) == -1)
+	if (setTileset(string("data/graphic/tileset/001-Grassland01.png")) == -1)
 		return -1;
 
 	// Read the data
