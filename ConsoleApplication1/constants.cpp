@@ -121,7 +121,7 @@ int MENU_SURFACE_SELECTED_HEIGHT = 32;
 // Battle constants
 
 /// General
-std::string MENU_BATTLE_SURFACE_BAR("data/graphic/bar.png");
+std::string MENU_BATTLE_SURFACE_BAR("data/graphic/others/bar.png");
 
 /// Health
 int HEALTH_MAX_POINTS = 999999;
