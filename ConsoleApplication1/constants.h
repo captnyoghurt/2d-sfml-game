@@ -125,8 +125,10 @@ extern int MENU_SURFACE_SELECTED_WIDTH;
 extern int MENU_SURFACE_SELECTED_HEIGHT;
 
 
-
 // Battle constants
+
+/// General
+extern std::string MENU_BATTLE_SURFACE_BAR;
 
 /// Health
 extern int HEALTH_MAX_POINTS;
