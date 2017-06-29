@@ -251,11 +251,17 @@ int Game::update()
 int Game::loadRessources()
 {
 	std::list<sf::Texture>::iterator it;
+	std::list<sf::Font>::iterator it2;
+
+
 	if (!(it = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addTexture()))->loadFromFile(MENU_SURFACE_NAME))
 		std::cout << "Cacaaa\n";
-	std::list<sf::Font>::iterator it2;
+
 	if (!(it2 = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addFont()))->loadFromFile(MENU_FONT_NAME))
 		std::cout << "Gros caca\n";
+
+	if (!(it = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addTexture())->loadFromFile(MENU_BATTLE_SURFACE_BAR)))
+		std::cout << "Problème\n";
 
 	return 0;
 }
