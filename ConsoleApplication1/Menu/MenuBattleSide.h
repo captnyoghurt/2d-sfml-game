@@ -11,7 +11,7 @@ public:
 	enum e_menuBattleSideItems{NAME, HP_TEXT, HP_IMAGE, MP_TEXT, MP_IMAGE, TP_TEXT, TP_IMAGE, TOTAL};
 
 public:
-	MenuBattleSide(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer);
+	MenuBattleSide(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer, int type);
 	~MenuBattleSide();
 
 public:

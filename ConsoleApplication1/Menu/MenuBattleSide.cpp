@@ -3,7 +3,7 @@
 
 
 
-MenuBattleSide::MenuBattleSide(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer) : Menu(ress, surf, lastEventLayer)
+MenuBattleSide::MenuBattleSide(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer, int type) : Menu(ress, surf, lastEventLayer)
 {
 }
 
