@@ -7,6 +7,7 @@
 class MenuBattleSide : public Menu
 {
 public:
+	enum e_menuBattleSideBarType{MENU_BATTLE_ENEMIE, MENU_BATTLE_ALLIE};
 	enum e_menuBattleSideItems{NAME, HP_TEXT, HP_IMAGE, MP_TEXT, MP_IMAGE, TP_TEXT, TP_IMAGE, TOTAL};
 
 public:
@@ -40,5 +41,6 @@ private:
 	std::list < std::pair < ManageSurfaces::e_thing, std::shared_ptr<Surface> > >::iterator m_cursorSurfaceRight;
 	int m_selectedChoice;
 	int m_numberMaxChoices;
+	int m_barType;
 };
 
