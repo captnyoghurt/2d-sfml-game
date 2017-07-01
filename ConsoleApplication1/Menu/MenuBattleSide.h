@@ -7,7 +7,7 @@
 class MenuBattleSide : public Menu
 {
 public:
-	enum e_menuBattleSideBarType{MENU_BATTLE_ENEMIE, MENU_BATTLE_ALLIE};
+	enum e_menuBattleSideBarType{MENU_BATTLE_ENEMIE, MENU_BATTLE_ALLIE, TOTAL};
 	enum e_menuBattleSideItems{NAME, HP_TEXT, HP_IMAGE, MP_TEXT, MP_IMAGE, TP_TEXT, TP_IMAGE, TOTAL};
 
 public:
