@@ -1,10 +1,21 @@
 #include "../constants.h"
+#include "../Map/ManageSurfaces.h"
 #include "MenuBattleSide.h"
 
 
 
 MenuBattleSide::MenuBattleSide(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer, int type) : Menu(ress, surf, lastEventLayer)
 {
+	m_barType = type;
+
+	m_cursorSurfaceRight = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::shared_ptr<Surface>(new SurfaceSprite));
+
+	std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceRight->second)->setTexture(ress.getTheTexture(RESSOURCE_TEXTURE_NUMBER_MENU));
+	std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceRight->second)->setTextureRect(sf::IntRect(MENU_SURFACE_CURSOR_UP_BEGIN_X, MENU_SURFACE_CURSOR_UP_BEGIN_Y, MENU_SURFACE_CURSOR_UP_WIDTH, MENU_SURFACE_CURSOR_UP_HEIGHT));
+
+	m_selectedChoice = 0;
+	m_initialized = false;
+	m_numberMaxChoices = TEAM_BATTLE_MAX_NUMBER;
 }
 
 
