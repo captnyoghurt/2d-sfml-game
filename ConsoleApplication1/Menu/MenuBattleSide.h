@@ -7,8 +7,8 @@
 class MenuBattleSide : public Menu
 {
 public:
-	enum e_menuBattleSideBarType{MENU_BATTLE_ENEMIE, MENU_BATTLE_ALLIE, TOTAL};
-	enum e_menuBattleSideItems{NAME, HP_TEXT, HP_IMAGE, MP_TEXT, MP_IMAGE, TP_TEXT, TP_IMAGE, TOTAL};
+	enum e_menuBattleSideBarType{MENU_BATTLE_ENEMIE, MENU_BATTLE_ALLIE, MENU_BATTLE_TOTAL};
+	enum e_menuBattleSideItems{NAME, HP_TEXT, HP_IMAGE, MP_TEXT, MP_IMAGE, TP_TEXT, TP_IMAGE, MENU_BATTLE_ITEM_TOTAL};
 
 public:
 	MenuBattleSide(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer, int type);
