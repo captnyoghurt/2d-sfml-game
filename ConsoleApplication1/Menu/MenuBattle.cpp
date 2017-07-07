@@ -1,5 +1,7 @@
+#include <memory>
 #include "MenuBattle.h"
 #include "../Game.h"
+#include "MenuBattleSide.h"
 
 
 MenuBattle::MenuBattle(Battle *b)
@@ -60,7 +62,15 @@ int MenuBattle::gotUpdated()
 // All the action functions for the menus
 int MenuBattle::af_MenuBattleDown(Game &g)
 {
-	gotUpdated();
+	if (m_activeMenu != MenuBattle::BM_LEFT && m_activeMenu != MenuBattle::BM_RIGHT)
+		return 1;
+
+	if ((unsigned)static_cast<MenuBattleSide*>(m_menus.at(m_activeMenu))->getSelectedChoice() <= static_cast<MenuBattleSide*>(m_menus.at(m_activeMenu))->getChoices().size() - 1)
+	{
+		static_cast<MenuBattleSide*>(m_menus.at(m_activeMenu))->setSelectedChoice(static_cast<MenuBattleSide*>(m_menus.at(m_activeMenu))->getSelectedChoice() + 1);
+
+		gotUpdated();
+	}
 
 	return 0;
 }
@@ -68,7 +78,15 @@ int MenuBattle::af_MenuBattleDown(Game &g)
 
 int MenuBattle::af_MenuBattleUp(Game &g)
 {
-	gotUpdated();
+	if (m_activeMenu != MenuBattle::BM_LEFT && m_activeMenu != MenuBattle::BM_RIGHT)
+		return 1;
+
+	if (static_cast<MenuBattleSide*>(m_menus.at(m_activeMenu))->getSelectedChoice() > 0)
+	{
+		static_cast<MenuBattleSide*>(m_menus.at(m_activeMenu))->setSelectedChoice(static_cast<MenuBattleSide*>(m_menus.at(m_activeMenu))->getSelectedChoice() - 1);
+
+		gotUpdated();
+	}
 
 	return 0;
 }
