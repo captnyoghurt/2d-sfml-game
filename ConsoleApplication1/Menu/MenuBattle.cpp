@@ -7,6 +7,7 @@
 MenuBattle::MenuBattle(Battle *b)
 {
 	m_updated = true;
+	m_isBlocking = false;
 }
 
 
@@ -19,6 +20,13 @@ MenuBattle::~MenuBattle()
 bool MenuBattle::getUpdated() const
 {
 	return m_updated;
+}
+
+
+// Return if this menu is currently waiting for an action
+bool MenuBattle::getIsBlocking() const
+{
+	return m_isBlocking;
 }
 
 
@@ -45,6 +53,15 @@ int MenuBattle::setActiveMenu(const int &am)
 	m_activeMenu = am;
 
 	gotUpdated();
+
+	return 0;
+}
+
+
+// Modify if this menu is currently waiting for an action
+int MenuBattle::setIsBlocking(const bool &b)
+{
+	m_isBlocking = b;
 
 	return 0;
 }
@@ -95,6 +112,8 @@ int MenuBattle::af_MenuBattleUp(Game &g)
 int MenuBattle::af_MenuBattleEnter(Game &g)
 {
 	int ret(0);
+
+	m_isBlocking = false;
 
 	if (m_activeMenu == MenuBattle::BM_LEFT || m_activeMenu == MenuBattle::BM_RIGHT)
 	{

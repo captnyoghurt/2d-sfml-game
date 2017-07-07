@@ -18,12 +18,16 @@ public:
 	int getActiveMenu() const;
 	// Return if the MenuBattle is updated
 	bool getUpdated() const;
+	// Return if this menu is currently waiting for an action
+	bool getIsBlocking() const;
 
 	// Return the menus with modifying possibilities
 	std::vector<Menu*>& getRealMenus();
 
 	// Modify the current menu
 	int setActiveMenu(const int &am);
+	// Modify if this menu is currently waiting for an action
+	int setIsBlocking(const bool &b);
 	
 	// Tell the MenuBattle that it's updated
 	int gotUpdated();
@@ -36,5 +40,6 @@ private:
 	std::vector<Menu*> m_menus;
 	int m_activeMenu;
 	bool m_updated;
+	bool m_isBlocking;
 };
 
