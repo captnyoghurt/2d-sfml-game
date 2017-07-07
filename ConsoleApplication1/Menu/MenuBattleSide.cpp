@@ -83,27 +83,37 @@ int MenuBattleSide::setNumberMaxChoices(const int &c)
 
 
 // Update the surfaces according to the ressource given
-int MenuBattleSide::updateBar(int n, MenuBattleSide::e_menuBattleSideBarType type, double ratio)
+int MenuBattleSide::updateBar(int n, MenuBattleSide::e_menuBattleSideItems type, int act, int max)
 {
+	double ratio = (double)(act/max);
+
 	if (ratio < 0.0)
 		ratio = 0;
 
 	if (!((unsigned)n < m_choices.size()))
 		return -1;
+	if ((type != MenuBattleSide::e_menuBattleSideItems::HP_IMAGE)
+		&& (type != MenuBattleSide::e_menuBattleSideItems::MP_IMAGE)
+		&& (type != MenuBattleSide::e_menuBattleSideItems::TP_IMAGE))
+		return -1;
 
+	// Update the bar surface
 	std::dynamic_pointer_cast<SurfaceSprite>(m_choices.at(n)->getRealRenderTextureManager().getTheSurface((int)type)->second)->setTextureRect(
-		sf::IntRect((1.0-ratio)*HEALTH_SURFACE_WIDTH/2,
+		sf::IntRect((1.0 - ratio)*HEALTH_SURFACE_WIDTH / 2,
 			std::dynamic_pointer_cast<SurfaceSprite>(m_choices.at(n)->getRealRenderTextureManager().getTheSurface((int)type)->second)->getTextureRect().top,
 			std::dynamic_pointer_cast<SurfaceSprite>(m_choices.at(n)->getRealRenderTextureManager().getTheSurface((int)type)->second)->getTextureRect().width,
 			std::dynamic_pointer_cast<SurfaceSprite>(m_choices.at(n)->getRealRenderTextureManager().getTheSurface((int)type)->second)->getTextureRect().height
-			)
+		)
 	);
 
+	// Update the text surface
+	std::string text;
+
+	text = text + " " + std::to_string(act) + "/" + std::to_string(max);
+
+	std::dynamic_pointer_cast<SurfaceText>(m_choices.at(n)->getRealRenderTextureManager().getTheSurface((int)(type - 1))->second)->setString(text);
+
 	return 0;
-}
-int MenuBattleSide::updateBar(int n, MenuBattleSide::e_menuBattleSideBarType type, int act, int max)
-{
-	return updateBar(n, type, (double)(act/max));
 }
 
 
