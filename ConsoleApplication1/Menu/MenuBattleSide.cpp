@@ -109,6 +109,13 @@ int MenuBattleSide::updateBar(int n, MenuBattleSide::e_menuBattleSideItems type,
 	// Update the text surface
 	std::string text;
 
+	if (type == MenuBattleSide::e_menuBattleSideItems::HP_IMAGE)
+		text = HEALTH_NAME;
+	else if (type == MenuBattleSide::e_menuBattleSideItems::MP_IMAGE)
+		text = MANA_NAME;
+	else
+		text = SKILLPOINTS_NAME;
+
 	text = text + " " + std::to_string(act) + "/" + std::to_string(max);
 
 	std::dynamic_pointer_cast<SurfaceText>(m_choices.at(n)->getRealRenderTextureManager().getTheSurface((int)(type - 1))->second)->setString(text);
