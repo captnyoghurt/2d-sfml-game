@@ -101,7 +101,7 @@ int MenuBattleSide::updateBar(int n, MenuBattleSide::e_menuBattleSideItems type,
 
 	// Update the bar surface
 	std::dynamic_pointer_cast<SurfaceSprite>(m_choices.at(n)->getRealRenderTextureManager().getTheSurface((int)type)->second)->setTextureRect(
-		sf::IntRect((1.0 - ratio)*HEALTH_SURFACE_WIDTH / 2,
+		sf::IntRect((int)((1.0 - ratio)*HEALTH_SURFACE_WIDTH / 2),
 			std::dynamic_pointer_cast<SurfaceSprite>(m_choices.at(n)->getRealRenderTextureManager().getTheSurface((int)type)->second)->getTextureRect().top,
 			std::dynamic_pointer_cast<SurfaceSprite>(m_choices.at(n)->getRealRenderTextureManager().getTheSurface((int)type)->second)->getTextureRect().width,
 			std::dynamic_pointer_cast<SurfaceSprite>(m_choices.at(n)->getRealRenderTextureManager().getTheSurface((int)type)->second)->getTextureRect().height
