@@ -28,7 +28,7 @@ public:
 	// Tell the MenuBattle that it's updated
 	int gotUpdated();
 
-	/// All the action functions for the menus
+	// All the action functions for the menus
 	int af_MenuBattleDown(Game &g);
 	int af_MenuBattleUp(Game &g);
 	int af_MenuBattleEnter(Game &g);

@@ -1,5 +1,5 @@
 #include "MenuBattle.h"
-
+#include "../Game.h"
 
 
 MenuBattle::MenuBattle(Battle *b)
@@ -53,5 +53,28 @@ int MenuBattle::gotUpdated()
 {
 	m_updated = true;
 
+	return 0;
+}
+
+
+// All the action functions for the menus
+int MenuBattle::af_MenuBattleDown(Game &g)
+{
+	gotUpdated();
+
+	return 0;
+}
+
+
+int MenuBattle::af_MenuBattleUp(Game &g)
+{
+	gotUpdated();
+
+	return 0;
+}
+
+
+int MenuBattle::af_MenuBattleEnter(Game &g)
+{
 	return 0;
 }
