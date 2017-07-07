@@ -166,6 +166,15 @@ int MenuBattleSide::update(Game &g)
 // Close the menu
 int MenuBattleSide::close(ManageSurfaces& surf)
 {
-	// [TODO]
+	for (unsigned int i(0); i < m_choices.size(); i++)
+	{
+		m_choices.at(i)->clear(surf);
+	}
+
+	m_choices.clear();
+
+	surf.deleteSurface(m_background);
+	surf.deleteSurface(m_cursorSurfaceRight);
+
 	return 0;
 }
