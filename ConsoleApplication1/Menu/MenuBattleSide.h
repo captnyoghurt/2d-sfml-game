@@ -30,6 +30,11 @@ public:
 	// Modify the maximum number of choices
 	int setNumberMaxChoices(const int &c);
 
+
+	// Update the surfaces according to the ressource given
+	int updateBar(int n, MenuBattleSide::e_menuBattleSideBarType type, double ratio);
+	int updateBar(int n, MenuBattleSide::e_menuBattleSideBarType type, int act, int max);
+
 	// Load the menu
 	virtual int load(ManageRessources& ress, ManageSurfaces& surf, const int &x, const int &y, const int &w = -1, const int &h = -1);
 	// Update surfaces

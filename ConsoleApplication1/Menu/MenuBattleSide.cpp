@@ -82,6 +82,31 @@ int MenuBattleSide::setNumberMaxChoices(const int &c)
 }
 
 
+// Update the surfaces according to the ressource given
+int MenuBattleSide::updateBar(int n, MenuBattleSide::e_menuBattleSideBarType type, double ratio)
+{
+	if (ratio < 0.0)
+		ratio = 0;
+
+	if (!((unsigned)n < m_choices.size()))
+		return -1;
+
+	std::dynamic_pointer_cast<SurfaceSprite>(m_choices.at(n)->getRealRenderTextureManager().getTheSurface((int)type)->second)->setTextureRect(
+		sf::IntRect((1.0-ratio)*HEALTH_SURFACE_WIDTH/2,
+			std::dynamic_pointer_cast<SurfaceSprite>(m_choices.at(n)->getRealRenderTextureManager().getTheSurface((int)type)->second)->getTextureRect().top,
+			std::dynamic_pointer_cast<SurfaceSprite>(m_choices.at(n)->getRealRenderTextureManager().getTheSurface((int)type)->second)->getTextureRect().width,
+			std::dynamic_pointer_cast<SurfaceSprite>(m_choices.at(n)->getRealRenderTextureManager().getTheSurface((int)type)->second)->getTextureRect().height
+			)
+	);
+
+	return 0;
+}
+int MenuBattleSide::updateBar(int n, MenuBattleSide::e_menuBattleSideBarType type, int act, int max)
+{
+	return updateBar(n, type, (double)(act/max));
+}
+
+
 // Load the menu
 int MenuBattleSide::load(ManageRessources& ress, ManageSurfaces& surf, const int &x, const int &y, const int &w, const int &h)
 {
