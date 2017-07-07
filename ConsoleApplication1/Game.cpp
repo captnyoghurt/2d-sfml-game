@@ -99,7 +99,7 @@ std::vector<ManageRessources>& Game::getRealRessourceManager()
 {
 	return m_ressourceManager;
 }
-ManageRessources& Game::getRealRessourcesManager(int n)
+ManageRessources& Game::getRealRessourceManager(int n)
 {
 	return m_ressourceManager.at(n);
 }

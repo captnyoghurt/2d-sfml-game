@@ -44,7 +44,7 @@ public:
 	ManageSurfaces& getRealSurfaceManager(int n);
 	// Return the ressource manager with modifying possibilities
 	std::vector<ManageRessources>& getRealRessourceManager();
-	ManageRessources& getRealRessourcesManager(int n);
+	ManageRessources& getRealRessourceManager(int n);
 	// Return the animation manager with modifying possibilities
 	ManageAnimation& getRealAnimationManager();
 	// Return the team with modifying possibilities

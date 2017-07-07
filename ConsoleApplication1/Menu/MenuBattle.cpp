@@ -123,7 +123,7 @@ int MenuBattle::af_MenuBattleEnter(Game &g)
 	}
 	else if (m_activeMenu == MenuBattle::BM_DIALOG)
 	{
-		ret = static_cast<MenuDialogBox*>(m_menus.at(m_activeMenu))->continueText(g.getRealRessourcesManager(RESSOURCE_TEXTURE_NUMBER_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER));
+		ret = static_cast<MenuDialogBox*>(m_menus.at(m_activeMenu))->continueText(g.getRealRessourceManager(RESSOURCE_TEXTURE_NUMBER_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER));
 
 		if (ret == 0)
 			m_isBlocking = true;
