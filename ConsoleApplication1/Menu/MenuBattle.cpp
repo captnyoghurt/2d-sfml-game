@@ -4,11 +4,19 @@
 
 MenuBattle::MenuBattle(Battle *b)
 {
+	m_updated = true;
 }
 
 
 MenuBattle::~MenuBattle()
 {
+}
+
+
+// Return if the MenuBattle is updated
+bool MenuBattle::getUpdated() const
+{
+	return m_updated;
 }
 
 
@@ -33,6 +41,17 @@ int MenuBattle::setActiveMenu(const int &am)
 		return -1;
 
 	m_activeMenu = am;
+
+	gotUpdated();
+
+	return 0;
+}
+
+
+// Tell the MenuBattle that it's updated
+int MenuBattle::gotUpdated()
+{
+	m_updated = true;
 
 	return 0;
 }

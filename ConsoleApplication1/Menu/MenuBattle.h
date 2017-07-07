@@ -16,6 +16,8 @@ public:
 public:
 	// Return the current active menu
 	int getActiveMenu() const;
+	// Return if the MenuBattle is updated
+	bool getUpdated() const;
 
 	// Return the menus with modifying possibilities
 	std::vector<Menu*>& getRealMenus();
@@ -23,6 +25,8 @@ public:
 	// Modify the current menu
 	int setActiveMenu(const int &am);
 	
+	// Tell the MenuBattle that it's updated
+	int gotUpdated();
 
 	/// All the action functions for the menus
 	int af_MenuBattleDown(Game &g);
@@ -31,5 +35,6 @@ public:
 private:
 	std::vector<Menu*> m_menus;
 	int m_activeMenu;
+	bool m_updated;
 };
 
