@@ -99,6 +99,10 @@ std::vector<ManageRessources>& Game::getRealRessourceManager()
 {
 	return m_ressourceManager;
 }
+ManageRessources& Game::getRealRessourcesManager(int n)
+{
+	return m_ressourceManager.at(n);
+}
 
 
 // Return the animation manager with modifying possibilities
