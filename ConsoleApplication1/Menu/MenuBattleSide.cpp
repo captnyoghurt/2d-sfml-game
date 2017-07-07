@@ -2,6 +2,7 @@
 #include "../Map/ManageSurfaces.h"
 #include "MenuBattleSide.h"
 #include "../Battle/Health.h"
+#include "../Battle/Mana.h"
 
 
 MenuBattleSide::MenuBattleSide(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer, int type) : Menu(ress, surf, lastEventLayer)
@@ -128,6 +129,13 @@ int MenuBattleSide::updateBar(int n, MenuBattleSide::e_menuBattleSideItems type,
 int MenuBattleSide::updateHealth(int n, const Health& hp)
 {
 	return updateBar(n, MenuBattleSide::e_menuBattleSideItems::HP_IMAGE, hp.getPoints(), hp.getMaxPoints());
+}
+
+
+// Update mana bar & text
+int MenuBattleSide::updateMana(int n, const Mana& mp)
+{
+	return updateBar(n, MenuBattleSide::e_menuBattleSideItems::MP_IMAGE, mp.getPoints(), mp.getMaxPoints());
 }
 
 

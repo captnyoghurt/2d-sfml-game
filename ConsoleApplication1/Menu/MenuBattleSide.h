@@ -5,6 +5,7 @@
 #include <vector>
 
 class Health;
+class Mana;
 
 class MenuBattleSide : public Menu
 {
@@ -37,6 +38,8 @@ public:
 	int updateBar(int n, MenuBattleSide::e_menuBattleSideItems type, int act, int max);
 	// Update health bar & text
 	int updateHealth(int n, const Health& hp);
+	// Update mana bar & text
+	int updateMana(int n, const Mana& mp);
 
 	// Load the menu
 	virtual int load(ManageRessources& ress, ManageSurfaces& surf, const int &x, const int &y, const int &w = -1, const int &h = -1);
