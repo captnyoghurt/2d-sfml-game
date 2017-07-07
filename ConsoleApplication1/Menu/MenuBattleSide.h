@@ -6,6 +6,7 @@
 
 class Health;
 class Mana;
+class SkillPoints;
 
 class MenuBattleSide : public Menu
 {
@@ -40,6 +41,8 @@ public:
 	int updateHealth(int n, const Health& hp);
 	// Update mana bar & text
 	int updateMana(int n, const Mana& mp);
+	// Update skillpoints bar & text
+	int updateSkillPoints(int n, const SkillPoints& sp);
 
 	// Load the menu
 	virtual int load(ManageRessources& ress, ManageSurfaces& surf, const int &x, const int &y, const int &w = -1, const int &h = -1);

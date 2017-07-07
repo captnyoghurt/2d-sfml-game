@@ -3,6 +3,7 @@
 #include "MenuBattleSide.h"
 #include "../Battle/Health.h"
 #include "../Battle/Mana.h"
+#include "../Battle/SkillPoints.h"
 
 
 MenuBattleSide::MenuBattleSide(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer, int type) : Menu(ress, surf, lastEventLayer)
@@ -136,6 +137,13 @@ int MenuBattleSide::updateHealth(int n, const Health& hp)
 int MenuBattleSide::updateMana(int n, const Mana& mp)
 {
 	return updateBar(n, MenuBattleSide::e_menuBattleSideItems::MP_IMAGE, mp.getPoints(), mp.getMaxPoints());
+}
+
+
+// Update skillpoints bar & text
+int MenuBattleSide::updateSkillPoints(int n, const SkillPoints& sp)
+{
+	return updateBar(n, MenuBattleSide::e_menuBattleSideItems::TP_IMAGE, sp.getPoints(), sp.getMaxPoints());
 }
 
 
