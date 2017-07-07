@@ -149,6 +149,7 @@ extern int HEALTH_SURFACE_WIDTH;
 extern int HEALTH_SURFACE_HEIGHT;
 
 /// Skill Points
+extern std::string SKILLPOINTS_NAME;
 extern int SKILLPOINTS_MAX_POINTS;
 extern int SKILLPOINTS_SURFACE_BEGIN_X;
 extern int SKILLPOINTS_SURFACE_BEGIN_Y;
