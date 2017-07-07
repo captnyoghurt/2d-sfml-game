@@ -94,5 +94,12 @@ int MenuBattle::af_MenuBattleUp(Game &g)
 
 int MenuBattle::af_MenuBattleEnter(Game &g)
 {
-	return 0;
+	int ret(0);
+
+	if (m_activeMenu == MenuBattle::BM_LEFT || m_activeMenu == MenuBattle::BM_RIGHT)
+	{
+		ret = static_cast<MenuBattleSide*>(m_menus.at(m_activeMenu))->getChoices().at(static_cast<MenuBattleSide*>(m_menus.at(m_activeMenu))->getSelectedChoice())->getAction().getAction()(g);
+	}
+
+	return ret;
 }
