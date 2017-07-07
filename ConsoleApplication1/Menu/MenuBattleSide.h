@@ -4,6 +4,8 @@
 #include "Menu.h"
 #include <vector>
 
+class Health;
+
 class MenuBattleSide : public Menu
 {
 public:
@@ -33,6 +35,8 @@ public:
 
 	// Update the surfaces according to the ressource given
 	int updateBar(int n, MenuBattleSide::e_menuBattleSideItems type, int act, int max);
+	// Update health bar & text
+	int updateHealth(int n, const Health& hp);
 
 	// Load the menu
 	virtual int load(ManageRessources& ress, ManageSurfaces& surf, const int &x, const int &y, const int &w = -1, const int &h = -1);

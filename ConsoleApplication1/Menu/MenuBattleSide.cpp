@@ -1,7 +1,7 @@
 #include "../constants.h"
 #include "../Map/ManageSurfaces.h"
 #include "MenuBattleSide.h"
-
+#include "../Battle/Health.h"
 
 
 MenuBattleSide::MenuBattleSide(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer, int type) : Menu(ress, surf, lastEventLayer)
@@ -121,6 +121,13 @@ int MenuBattleSide::updateBar(int n, MenuBattleSide::e_menuBattleSideItems type,
 	std::dynamic_pointer_cast<SurfaceText>(m_choices.at(n)->getRealRenderTextureManager().getTheSurface((int)(type - 1))->second)->setString(text);
 
 	return 0;
+}
+
+
+// Update health bar & text
+int MenuBattleSide::updateHealth(int n, const Health& hp)
+{
+	return updateBar(n, MenuBattleSide::e_menuBattleSideItems::HP_IMAGE, hp.getPoints(), hp.getMaxPoints());
 }
 
 
