@@ -1,7 +1,9 @@
 #include <memory>
 #include "MenuBattle.h"
+#include "../constants.h"
 #include "../Game.h"
 #include "MenuBattleSide.h"
+#include "MenuDialogBox.h"
 
 
 MenuBattle::MenuBattle(Battle *b)
@@ -118,6 +120,13 @@ int MenuBattle::af_MenuBattleEnter(Game &g)
 	if (m_activeMenu == MenuBattle::BM_LEFT || m_activeMenu == MenuBattle::BM_RIGHT)
 	{
 		ret = static_cast<MenuBattleSide*>(m_menus.at(m_activeMenu))->getChoices().at(static_cast<MenuBattleSide*>(m_menus.at(m_activeMenu))->getSelectedChoice())->getAction().getAction()(g);
+	}
+	else if (m_activeMenu == MenuBattle::BM_DIALOG)
+	{
+		ret = static_cast<MenuDialogBox*>(m_menus.at(m_activeMenu))->continueText(g.getRealRessourcesManager(RESSOURCE_TEXTURE_NUMBER_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER));
+
+		if (ret == 0)
+			m_isBlocking = true;
 	}
 
 	return ret;
