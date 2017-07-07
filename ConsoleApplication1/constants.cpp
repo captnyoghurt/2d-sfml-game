@@ -134,6 +134,7 @@ int MENU_SURFACE_SELECTED_HEIGHT = 32;
 std::string MENU_BATTLE_SURFACE_BAR("data/graphic/others/001-Bar01.png");
 
 /// Health
+std::string HEALTH_NAME("PV");
 int HEALTH_MAX_POINTS = 999999;
 int HEALTH_SURFACE_BEGIN_X = 0;
 int HEALTH_SURFACE_BEGIN_Y = 0;
