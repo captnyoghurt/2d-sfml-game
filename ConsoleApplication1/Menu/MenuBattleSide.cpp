@@ -150,7 +150,10 @@ int MenuBattleSide::updateSkillPoints(int n, const SkillPoints& sp)
 // Load the menu
 int MenuBattleSide::load(ManageRessources& ress, ManageSurfaces& surf, const int &x, const int &y, const int &w, const int &h)
 {
-	// [TODO]
+	m_background->second->setDimensions(x, y, w, h);
+
+	m_initialized = true;
+
 	return 0;
 }
 
