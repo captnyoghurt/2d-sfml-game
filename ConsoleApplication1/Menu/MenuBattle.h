@@ -10,7 +10,7 @@ public:
 	enum { BM_LEFT, BM_RIGHT, BM_DIALOG, BM_CHOICE, BM_TOTAL };
 
 public:
-	MenuBattle(Battle *b);
+	MenuBattle(Battle *b, ManageRessources &ress, ManageSurfaces &surf);
 	~MenuBattle();
 
 public:

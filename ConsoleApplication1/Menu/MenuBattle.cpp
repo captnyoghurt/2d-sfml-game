@@ -6,10 +6,11 @@
 #include "MenuDialogBox.h"
 
 
-MenuBattle::MenuBattle(Battle *b)
+MenuBattle::MenuBattle(Battle *b, ManageRessources &ress, ManageSurfaces &surf)
 {
 	m_updated = true;
 	m_isBlocking = false;
+	m_activeMenu = 0;
 }
 
 
