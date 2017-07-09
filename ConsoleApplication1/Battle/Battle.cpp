@@ -21,6 +21,16 @@ bool Battle::getStarted() const
 }
 
 
+// Return the number of turn since the begining of the battle
+int Battle::getBattleTurn() const
+{
+	if (!m_started)
+		return -1;
+
+	return m_battleTurn;
+}
+
+
 // Return the enemie team
 Enemies Battle::getEnemies() const
 {

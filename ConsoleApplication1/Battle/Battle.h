@@ -18,6 +18,8 @@ public:
 public:
 	// Return if the battle has started
 	bool getStarted() const;
+	// Return the number of turn since the begining of the battle
+	int getBattleTurn() const;
 	// Return the enemie team
 	Enemies getEnemies() const;
 	// Return the allie team
@@ -43,6 +45,7 @@ public:
 
 private:
 	bool m_started;
+	int m_battleTurn;
 	Enemies m_enemieTeam;
 	TeamBattle m_alliesTeam;
 	BattleMenu *m_battleMenu;
