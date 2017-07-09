@@ -4,6 +4,8 @@
 #include "Menu.h"
 #include <vector>
 
+class TeamBattle;
+class Enemies;
 class Health;
 class Mana;
 class SkillPoints;
@@ -43,6 +45,11 @@ public:
 	int updateMana(int n, const Mana& mp);
 	// Update skillpoints bar & text
 	int updateSkillPoints(int n, const SkillPoints& sp);
+
+	// Load with an allie team
+	int loadWithEnemies(const Enemies& enemies);
+	// Load with an enemie team
+	int loadWithAllies(const TeamBattle& allies);
 
 	// Load the menu
 	virtual int load(ManageRessources& ress, ManageSurfaces& surf, const int &x, const int &y, const int &w = -1, const int &h = -1);

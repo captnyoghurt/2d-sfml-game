@@ -4,6 +4,8 @@
 #include "../Battle/Health.h"
 #include "../Battle/Mana.h"
 #include "../Battle/SkillPoints.h"
+#include "../Battle/TeamBattle.h"
+#include "../Battle/Enemies.h"
 
 
 MenuBattleSide::MenuBattleSide(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer, int type) : Menu(ress, surf, lastEventLayer)
@@ -144,6 +146,30 @@ int MenuBattleSide::updateMana(int n, const Mana& mp)
 int MenuBattleSide::updateSkillPoints(int n, const SkillPoints& sp)
 {
 	return updateBar(n, MenuBattleSide::e_menuBattleSideItems::TP_IMAGE, sp.getPoints(), sp.getMaxPoints());
+}
+
+
+// Load with an allie team
+int MenuBattleSide::loadWithEnemies(const Enemies& enemies)
+{
+	if (m_barType != MenuBattleSide::e_menuBattleSideBarType::MENU_BATTLE_ENEMIE)
+		return -1;
+
+	// [TODO]
+
+	return 0;
+}
+
+
+// Load with an enemie team
+int MenuBattleSide::loadWithAllies(const TeamBattle& allies)
+{
+	if (m_barType != MenuBattleSide::e_menuBattleSideBarType::MENU_BATTLE_ALLIE)
+		return -1;
+
+	// [TODO]
+
+	return 0;
 }
 
 
