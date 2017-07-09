@@ -36,6 +36,11 @@ public:
 	int af_MenuBattleDown(Game &g);
 	int af_MenuBattleUp(Game &g);
 	int af_MenuBattleEnter(Game &g);
+
+protected:
+	// Load the different menus
+	int load(Battle *b);
+
 private:
 	std::vector<Menu*> m_menus;
 	int m_activeMenu;

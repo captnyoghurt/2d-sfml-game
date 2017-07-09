@@ -141,3 +141,10 @@ int MenuBattle::af_MenuBattleEnter(Game &g)
 
 	return ret;
 }
+
+
+// Load the different menus
+int MenuBattle::load(Battle *b)
+{
+	return 0;
+}
