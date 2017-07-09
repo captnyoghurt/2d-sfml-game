@@ -6,16 +6,25 @@
 #include "MenuDialogBox.h"
 
 
-MenuBattle::MenuBattle(Battle *b, ManageRessources &ress, ManageSurfaces &surf)
+MenuBattle::MenuBattle(Battle *b, ManageRessources &ress, ManageSurfaces &surf, int lastEventLayer)
 {
 	m_updated = true;
 	m_isBlocking = false;
 	m_activeMenu = 0;
+
+	// Create sub menus
+	m_menus.resize(BM_TOTAL);
+	m_menus.at(BM_LEFT) = new MenuBattleSide(ress, surf, lastEventLayer, MenuBattleSide::e_menuBattleSideBarType::MENU_BATTLE_ENEMIE);
+	m_menus.at(BM_RIGHT) = new MenuBattleSide(ress, surf, lastEventLayer, MenuBattleSide::e_menuBattleSideBarType::MENU_BATTLE_ALLIE);
+	m_menus.at(BM_DIALOG) = new MenuDialogBox(ress, surf, lastEventLayer);
+	m_menus.at(BM_CHOICE) = new MenuChoice(ress, surf, lastEventLayer);
 }
 
 
 MenuBattle::~MenuBattle()
 {
+	for (unsigned int i(0); i < m_menus.size(); i++)
+		delete m_menus.at(i);
 }
 
 
