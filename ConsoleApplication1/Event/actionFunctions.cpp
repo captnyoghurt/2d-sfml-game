@@ -182,6 +182,9 @@ int af_dialogBoxContinue(Game &g)
 int af_battleStart(Game &g)
 {
 	g.getRealBattle().start("data/graphic/battleback/001-grl01.jpg", TeamBattle(), "", g.getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_BATTLE), g.getRealSurfaceManager(BATTLE_MIN_LAYER), g.getEventManager().getKeyEventLayer());
+	
+	g.getRealEventManager().setKeyEventLayer(BATTLE_KEY_EVENT_LAYER);
+
 	return 0;
 }
 
@@ -189,5 +192,7 @@ int af_battleEnd(Game &g)
 {
 	// [TODO]
 
-	return 0;
+	g.getRealEventManager().setKeyEventLayer(0);
+
+	return g.getRealBattle().end(g.getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_BATTLE), g.getRealSurfaceManager(BATTLE_MIN_LAYER));
 }
