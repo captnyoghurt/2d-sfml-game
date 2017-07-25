@@ -18,6 +18,13 @@ Fighter::~Fighter()
 }
 
 
+// Return the name
+std::string Fighter::getName() const
+{
+	return m_name;
+}
+
+
 // Return health
 Health Fighter::getHealth() const
 {
@@ -85,6 +92,15 @@ std::vector<Characteristic>& Fighter::getRealCharacteristics()
 std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& Fighter::getRealSurface()
 {
 	return m_surface;
+}
+
+
+// Modify the name
+int Fighter::setName(const std::string &name)
+{
+	m_name = name;
+
+	return 0;
 }
 
 
