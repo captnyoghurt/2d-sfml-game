@@ -7,6 +7,7 @@
 
 Battle::Battle()
 {
+	m_started = false;
 }
 
 
