@@ -251,11 +251,9 @@ int Game::update()
 {
 	Clock clk;
 	int ret = m_eventManager.updateEvent(*this);
-	//std::cout << "#\t" << clk.getElapsedTime().asMicroseconds();
-	//clk.restart();
+
 	ret += (m_map.update() << 1);
-	//std::cout << "#\t" << clk.getElapsedTime().asMicroseconds();
-	//clk.restart();
+
 	ret += (m_team.update(m_map.getRealCamera()) << 2);
 	if (ret >> 2 == 1)
 		m_map.gotUpdated();
@@ -263,10 +261,10 @@ int Game::update()
 	if(m_menus.size() > 0)
 		ret += (m_menus.front()->update(*this) << 3);
 
-	//std::cout << "#\t" << clk.getElapsedTime().asMicroseconds();
-	//clk.restart();
 	ret += (m_animationManager.update(*this) << 4);
-	//std::cout << "#\t" << clk.getElapsedTime().asMicroseconds() << "\n";
+
+	if (m_battle.getStarted())
+		ret += (m_battle.update(this) << 5);
 
 	return ret;
 }

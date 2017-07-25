@@ -42,7 +42,7 @@ public:
 	// Start a battle according to the arguments
 	int start(const std::string &backgroundFilename, TeamBattle team, std::string enemies, Game *g);
 	// Update the battle
-	int update(ManageRessources &ress, ManageSurfaces& surf);
+	int update(Game *g);
 	// End the battle
 	int end(Game *g);
 

@@ -120,7 +120,7 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 
 
 // Update the battle
-int Battle::update(ManageRessources &ress, ManageSurfaces& surf)
+int Battle::update(Game *g)
 {
 	// [TODO]
 
