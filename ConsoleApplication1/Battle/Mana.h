@@ -10,6 +10,7 @@ class Mana
 public:
 	Mana();
 	Mana(const Mana &mana);
+	Mana(const int &max);
 	~Mana();
 
 public:

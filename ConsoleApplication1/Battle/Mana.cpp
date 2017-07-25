@@ -9,11 +9,20 @@ Mana::Mana()
 	m_points = m_maxPoints;
 }
 
+
 Mana::Mana(const Mana &mana)
 {
 	m_maxPoints = mana.getMaxPoints();
 	m_points = mana.getPoints();
 }
+
+
+Mana::Mana(const int &max)
+{
+	m_maxPoints = max;
+	m_points = max;
+}
+
 
 Mana::~Mana()
 {
