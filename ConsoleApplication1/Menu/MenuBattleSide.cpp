@@ -176,6 +176,10 @@ int MenuBattleSide::loadWithAllies(const TeamBattle& allies)
 // Load the menu
 int MenuBattleSide::load(ManageRessources& ress, ManageSurfaces& surf, const int &x, const int &y, const int &w, const int &h)
 {
+	if (m_initialized)
+		return -1;
+
+	std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->setEnable(true);
 	std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->setScale(w / std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getGlobalBounds().width,
 		h / std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getGlobalBounds().height);
 	m_background->second->setDimensions(x, y, w, h);

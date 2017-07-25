@@ -159,7 +159,7 @@ int MenuBattle::close(ManageSurfaces &surf)
 int MenuBattle::load(Battle *b, ManageRessources &ress, ManageSurfaces &surf)
 {
 	m_menus.at(BM_LEFT)->load(ress, surf, 0, 0, CAMERA_WIDTH / 6, CAMERA_HEIGHT);
-	m_menus.at(BM_RIGHT)->load(ress, surf, 0, 0, CAMERA_WIDTH / 6, CAMERA_HEIGHT);
+	m_menus.at(BM_RIGHT)->load(ress, surf, 5 * CAMERA_WIDTH / 6, 0, CAMERA_WIDTH / 6, CAMERA_HEIGHT);
 	m_menus.at(BM_DIALOG)->load(ress, surf, CAMERA_WIDTH / 6, (4 * CAMERA_HEIGHT / 5), 2 * CAMERA_WIDTH / 3, CAMERA_HEIGHT / 5);
 	m_menus.at(BM_CHOICE)->load(ress, surf, CAMERA_WIDTH / 6, (4 * CAMERA_HEIGHT / 5) - (MENU_SIMPLE_FONTSIZE * 2), 2 * CAMERA_WIDTH / 3, 2 * MENU_SIMPLE_FONTSIZE);
 
