@@ -25,7 +25,7 @@ Map::Map(Game &g)
 	f.loadFromFile(MAP_FONT_TEXT);
 	t.setFont(*g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MAP).addFont(f));
 	t.setPosition(0, 0);
-	m_mapName = g.getRealSurfaceManager().at(MAP_MAX_LAYER-1).addSurface(ManageSurfaces::e_thing::TEXT, std::shared_ptr<Surface>(new SurfaceText(t)));
+	m_mapName = g.getRealSurfaceManager().at(MAP_MAX_LAYER-1).addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>(t));
 	/*if (!m_fontNameText.loadFromFile("expressway rg.ttf"))
 	{
 		std::cout << "Damned\n";

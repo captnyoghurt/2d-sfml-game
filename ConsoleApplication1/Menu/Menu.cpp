@@ -6,7 +6,7 @@
 
 Menu::Menu(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer)
 {
-	m_background = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::shared_ptr<Surface>(new SurfaceSprite));
+	m_background = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::make_shared<SurfaceSprite>());
 	/*if(showCursor)
 		m_cursorSurface = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::shared_ptr<Surface>(new SurfaceSprite));
 	m_selectedChoiceSurface = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::shared_ptr<Surface>(new SurfaceSprite));*/

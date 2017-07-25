@@ -94,7 +94,7 @@ int af_menuOpenSimple(Game &g)
 {
 	g.getRealMap().gotUpdated();
 	af_teamStop(g);
-	g.getRealMenus().push_back(std::shared_ptr<Menu>(new MenuChoice(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getEventManager().getKeyEventLayer())));
+	g.getRealMenus().push_back(std::make_shared<MenuChoice>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getEventManager().getKeyEventLayer()));
 	g.getRealEventManager().setKeyEventLayer(1);
 	
 	return std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), MENU_SIMPLE_TEXT, g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
@@ -144,7 +144,7 @@ int af_bagOpenComplete(Game &g)
 {
 	g.getRealMap().gotUpdated();
 	af_teamStop(g);
-	g.getRealMenus().push_back(std::shared_ptr<Menu>(new MenuChoice(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_BAG_LAYER), g.getEventManager().getKeyEventLayer())));
+	g.getRealMenus().push_back(std::shared_ptr<MenuChoice>(new MenuChoice(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_BAG_LAYER), g.getEventManager().getKeyEventLayer())));
 	g.getRealEventManager().setKeyEventLayer(1);
 
 	return std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_BAG_LAYER), MENU_BAG_TEXT, g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
@@ -156,7 +156,7 @@ int af_dialogBoxOpen(Game &g)
 {
 	g.getRealMap().gotUpdated();
 	af_teamStop(g);
-	g.getRealMenus().push_back(std::shared_ptr<Menu>(new MenuDialogBox(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER), g.getEventManager().getKeyEventLayer())));
+	g.getRealMenus().push_back(std::shared_ptr<MenuDialogBox>(new MenuDialogBox(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER), g.getEventManager().getKeyEventLayer())));
 	g.getRealEventManager().setKeyEventLayer(2);
 
 	return std::dynamic_pointer_cast<MenuDialogBox>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER), "Test this stupid dialog box.\\  And try to switch line or so\\And a new line\\This line is a veeeeeeeeeeeeeery long one because i need to put it on two lines so there is a lot of words there and most of them are useless\\Not the last\\And a last one", g.getMap().getCamera().getX(), g.getMap().getCamera().getY());

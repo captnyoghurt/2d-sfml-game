@@ -6,7 +6,7 @@
 
 MenuDialogBox::MenuDialogBox(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer) : Menu(ress, surf, lastEventLayer)
 {
-	m_cursorSurfaceDown = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::shared_ptr<Surface>(new SurfaceSprite));
+	m_cursorSurfaceDown = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::make_shared<SurfaceSprite>());
 	
 	std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceDown->second)->setTexture(ress.getTheTexture(0));
 	std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceDown->second)->setTextureRect(sf::IntRect(MENU_SURFACE_CURSOR_DOWN_BEGIN_X, MENU_SURFACE_CURSOR_DOWN_BEGIN_Y, MENU_SURFACE_CURSOR_DOWN_WIDTH, MENU_SURFACE_CURSOR_DOWN_HEIGHT));
@@ -82,7 +82,7 @@ int MenuDialogBox::continueText(ManageRessources& ress, ManageSurfaces& surf)
 	if (m_textStream.eof())
 		return 1;
 
-	m_textSurface.push_back(surf.addSurface(ManageSurfaces::e_thing::TEXT, std::shared_ptr<Surface>(new SurfaceText)));
+	m_textSurface.push_back(surf.addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>()));
 	m_textSurface.back()->second->setDimensions(m_x + MENUS_BORDER_X,
 		m_y + MENUS_BORDER_Y,
 		MENU_DIALOG_BOX_WIDTH - 2 * MENUS_BORDER_X,
@@ -231,7 +231,7 @@ int MenuDialogBox::readInstruction(ManageSurfaces& surf)
 // Create a new line
 int MenuDialogBox::newLine(ManageSurfaces& surf)
 {
-	m_textSurface.push_back(surf.addSurface(ManageSurfaces::e_thing::TEXT, std::shared_ptr<Surface>(new SurfaceText)));
+	m_textSurface.push_back(surf.addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>()));
 	m_textSurface.back()->second->setDimensions(m_textSurface.at(m_textSurface.size() - 2)->second->getX(),
 		m_textSurface.at(m_textSurface.size() - 2)->second->getY() + MENUS_GAP_BETWEEN_LINES,
 		m_textSurface.at(m_textSurface.size() - 2)->second->getWidth(),
