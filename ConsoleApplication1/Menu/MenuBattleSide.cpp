@@ -151,7 +151,7 @@ int MenuBattleSide::updateSkillPoints(int n, const SkillPoints& sp)
 
 
 // Load with an allie team
-int MenuBattleSide::loadWithEnemies(const Enemies& enemies)
+int MenuBattleSide::loadWithEnemies(ManageRessources& ress, ManageSurfaces& surf, Enemies enemies)
 {
 	if (m_barType != MenuBattleSide::e_menuBattleSideBarType::MENU_BATTLE_ENEMIE)
 		return -1;
@@ -163,7 +163,7 @@ int MenuBattleSide::loadWithEnemies(const Enemies& enemies)
 
 
 // Load with an enemie team
-int MenuBattleSide::loadWithAllies(const TeamBattle& allies)
+int MenuBattleSide::loadWithAllies(ManageRessources& ress, ManageSurfaces& surf, TeamBattle allies)
 {
 	if (m_barType != MenuBattleSide::e_menuBattleSideBarType::MENU_BATTLE_ALLIE)
 		return -1;
@@ -173,7 +173,7 @@ int MenuBattleSide::loadWithAllies(const TeamBattle& allies)
 	for (unsigned int i(0); i < tm.size(); i++)
 	{
 		M_choice m;
-		m.load(tm.at(i).getName());
+		m.load(surf, tm.at(i).getName(), ress.getTheFont(0), m_background->second->getX(), m_background->second->getY(), true, doNothing);
 	}
 
 	return 0;

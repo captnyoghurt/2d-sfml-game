@@ -25,10 +25,12 @@ Team::Team(Game &g)
 	tm.setHealth(Health(80));
 	tm.setMana(Mana(20));
 	tm.setSkillPoints(SkillPoints(100));
+	tm.setName("Player");
 	m_teamBattle.addMember(tm);
 	tm.setHealth(Health(20));
 	tm.setMana(Mana(44));
 	tm.setSkillPoints(SkillPoints(100));
+	tm.setName("Team mate");
 	m_teamBattle.addMember(tm);
 
 	// Load the textures

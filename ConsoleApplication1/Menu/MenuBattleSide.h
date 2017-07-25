@@ -47,9 +47,9 @@ public:
 	int updateSkillPoints(int n, const SkillPoints& sp);
 
 	// Load with an allie team
-	int loadWithEnemies(const Enemies& enemies);
+	int loadWithEnemies(ManageRessources& ress, ManageSurfaces& surf, Enemies enemies);
 	// Load with an enemie team
-	int loadWithAllies(const TeamBattle& allies);
+	int loadWithAllies(ManageRessources& ress, ManageSurfaces& surf, TeamBattle allies);
 
 	// Load the menu
 	virtual int load(ManageRessources& ress, ManageSurfaces& surf, const int &x, const int &y, const int &w = -1, const int &h = -1);
