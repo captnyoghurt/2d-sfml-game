@@ -3,6 +3,7 @@
 #include <vector>
 #include "../Animation/Animation.h"
 #include "Character.h"
+#include "../Battle/TeamBattle.h"
 
 class Team
 {
@@ -41,6 +42,8 @@ public:
 	short getMaxX() const;
 	// Return the maxY of the team
 	short getMaxY() const;
+	// Return the team battle
+	TeamBattle getTeamBattle() const;
 
 	// Return the team with modifying possibilities
 	std::vector<Character>& getRealTeam();
@@ -48,6 +51,8 @@ public:
 	std::vector<std::list<Animation>::iterator>& getRealAnimations();
 	// Return the walk stand surface with modifying possibilities
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& getRealWalkStand();
+	// Return the team battle with modifying possibilities
+	TeamBattle& getRealTeamBattle();
 
 	// Modify if it is moving
 	int setMoving(const bool &b);
@@ -83,6 +88,7 @@ public:
 
 private:
 	std::vector<Character> m_team;
+	TeamBattle m_teamBattle;
 	e_teamMode m_mode;
 	e_teamDirection m_direction;
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator m_walkStand;

@@ -117,6 +117,13 @@ return m_team;
 }
 
 
+// Return the team battle
+TeamBattle Team::getTeamBattle() const
+{
+	return m_teamBattle;
+}
+
+
 // Return the team with modifying possibilities
 std::vector<Character>& Team::getRealTeam()
 {
@@ -149,6 +156,13 @@ std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterato
 std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& Team::getRealWalkStand()
 {
 	return m_walkStand;
+}
+
+
+// Return the team battle with modifying possibilities
+TeamBattle& Team::getRealTeamBattle()
+{
+	return m_teamBattle;
 }
 
 
