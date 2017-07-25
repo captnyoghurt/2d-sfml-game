@@ -124,6 +124,11 @@ int Battle::update(Game *g)
 {
 	// [TODO]
 
+	m_battleMenu->getRealMenus().at(MenuBattle::BM_LEFT)->update(*g);
+	m_battleMenu->getRealMenus().at(MenuBattle::BM_RIGHT)->update(*g);
+	m_battleMenu->getRealMenus().at(MenuBattle::BM_DIALOG)->update(*g);
+	m_battleMenu->getRealMenus().at(MenuBattle::BM_CHOICE)->update(*g);
+
 	return 0;
 }
 
