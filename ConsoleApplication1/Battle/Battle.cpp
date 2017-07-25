@@ -140,6 +140,7 @@ int Battle::end(ManageRessources &ress, ManageSurfaces& surf)
 	surf.deleteSurface(m_background);
 
 	// Free menus
+	m_battleMenu->close(surf);
 	delete m_battleMenu;
 
 	m_started = false;

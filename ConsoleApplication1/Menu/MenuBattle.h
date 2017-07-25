@@ -37,6 +37,9 @@ public:
 	int af_MenuBattleUp(Game &g);
 	int af_MenuBattleEnter(Game &g);
 
+	// Close all the menus
+	int close(ManageSurfaces &surf);
+
 protected:
 	// Load the different menus
 	int load(Battle *b);

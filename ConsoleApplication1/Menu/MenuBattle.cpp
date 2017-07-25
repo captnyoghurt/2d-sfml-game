@@ -143,6 +143,18 @@ int MenuBattle::af_MenuBattleEnter(Game &g)
 }
 
 
+// Close all the menus
+int MenuBattle::close(ManageSurfaces &surf)
+{
+	for (unsigned int i(0); i < m_menus.size(); i++)
+	{
+		m_menus.at(i)->close(surf);
+	}
+
+	return 0;
+}
+
+
 // Load the different menus
 int MenuBattle::load(Battle *b)
 {
