@@ -4,6 +4,7 @@
 #include "../constants.h"
 #include "../Menu/MenuBattle.h"
 #include "../Game.h"
+#include "../Menu/MenuBattleSide.h"
 
 
 
@@ -115,6 +116,9 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 
 	// Menus
 	m_battleMenu = std::make_shared<MenuBattle>(this, g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_MENU), g->getRealSurfaceManager(BATTLE_MIN_LAYER), BATTLE_KEY_EVENT_LAYER);
+
+	// Load sides
+	std::dynamic_pointer_cast<MenuBattleSide>(m_battleMenu->getRealMenus().at(MenuBattle::BM_RIGHT))->loadWithAllies(*m_alliesTeam);
 
 	m_started = true;
 
