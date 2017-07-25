@@ -22,7 +22,7 @@ public:
 	bool getIsBlocking() const;
 
 	// Return the menus with modifying possibilities
-	std::vector<Menu*>& getRealMenus();
+	std::vector<std::shared_ptr< Menu >>& getRealMenus();
 
 	// Modify the current menu
 	int setActiveMenu(const int &am);
@@ -45,7 +45,7 @@ protected:
 	int load(Battle *b);
 
 private:
-	std::vector<Menu*> m_menus;
+	std::vector < std::shared_ptr< Menu > > m_menus;
 	int m_activeMenu;
 	bool m_updated;
 	bool m_isBlocking;

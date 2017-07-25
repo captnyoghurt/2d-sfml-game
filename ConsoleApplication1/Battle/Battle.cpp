@@ -14,7 +14,7 @@ Battle::Battle()
 
 Battle::~Battle()
 {
-	delete m_battleMenu;
+	//m_battleMenu.reset();
 }
 
 
@@ -110,7 +110,7 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 	m_background->second->setDimensions(0, 0, CAMERA_WIDTH, CAMERA_HEIGHT);
 
 	// Menus
-	m_battleMenu = new MenuBattle(this, ress, surf, BATTLE_KEY_EVENT_LAYER);
+	m_battleMenu = std::make_shared<MenuBattle>(this, ress, surf, BATTLE_KEY_EVENT_LAYER);
 
 	m_started = true;
 
@@ -141,7 +141,7 @@ int Battle::end(ManageRessources &ress, ManageSurfaces& surf)
 
 	// Free menus
 	m_battleMenu->close(surf);
-	delete m_battleMenu;
+	m_battleMenu.reset();
 
 	m_started = false;
 

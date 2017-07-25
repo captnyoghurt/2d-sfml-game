@@ -51,7 +51,7 @@ private:
 	int m_lastKeyEventLayer;
 	Enemies m_enemieTeam;
 	TeamBattle m_alliesTeam;
-	MenuBattle *m_battleMenu;
+	std::shared_ptr<MenuBattle> m_battleMenu;
 	BattleEventManager m_battleEventManager;
 	std::list<sf::Texture>::iterator m_texture;
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator m_background;

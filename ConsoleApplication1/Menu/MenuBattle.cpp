@@ -14,17 +14,15 @@ MenuBattle::MenuBattle(Battle *b, ManageRessources &ress, ManageSurfaces &surf, 
 
 	// Create sub menus
 	m_menus.resize(BM_TOTAL);
-	m_menus.at(BM_LEFT) = new MenuBattleSide(ress, surf, lastEventLayer, MenuBattleSide::e_menuBattleSideBarType::MENU_BATTLE_ENEMIE);
-	m_menus.at(BM_RIGHT) = new MenuBattleSide(ress, surf, lastEventLayer, MenuBattleSide::e_menuBattleSideBarType::MENU_BATTLE_ALLIE);
-	m_menus.at(BM_DIALOG) = new MenuDialogBox(ress, surf, lastEventLayer);
-	m_menus.at(BM_CHOICE) = new MenuChoice(ress, surf, lastEventLayer);
+	m_menus.at(BM_LEFT) = std::make_shared<MenuBattleSide>(ress, surf, lastEventLayer, MenuBattleSide::e_menuBattleSideBarType::MENU_BATTLE_ENEMIE);
+	m_menus.at(BM_RIGHT) = std::make_shared<MenuBattleSide>(ress, surf, lastEventLayer, MenuBattleSide::e_menuBattleSideBarType::MENU_BATTLE_ALLIE);
+	m_menus.at(BM_DIALOG) = std::make_shared<MenuDialogBox>(ress, surf, lastEventLayer);
+	m_menus.at(BM_CHOICE) = std::make_shared<MenuChoice>(ress, surf, lastEventLayer);
 }
 
 
 MenuBattle::~MenuBattle()
 {
-	for (unsigned int i(0); i < m_menus.size(); i++)
-		delete m_menus.at(i);
 }
 
 
@@ -50,7 +48,7 @@ int MenuBattle::getActiveMenu() const
 
 
 // Return the menus with modifying possibilities
-std::vector<Menu*>& MenuBattle::getRealMenus()
+std::vector<std::shared_ptr< Menu >>& MenuBattle::getRealMenus()
 {
 	return m_menus;
 }
@@ -94,9 +92,9 @@ int MenuBattle::af_MenuBattleDown(Game &g)
 	if (m_activeMenu != MenuBattle::BM_LEFT && m_activeMenu != MenuBattle::BM_RIGHT)
 		return 1;
 
-	if ((unsigned)static_cast<MenuBattleSide*>(m_menus.at(m_activeMenu))->getSelectedChoice() <= static_cast<MenuBattleSide*>(m_menus.at(m_activeMenu))->getChoices().size() - 1)
+	if ((unsigned)std::dynamic_pointer_cast<MenuBattleSide>(m_menus.at(m_activeMenu))->getSelectedChoice() <= std::dynamic_pointer_cast<MenuBattleSide>(m_menus.at(m_activeMenu))->getChoices().size() - 1)
 	{
-		static_cast<MenuBattleSide*>(m_menus.at(m_activeMenu))->setSelectedChoice(static_cast<MenuBattleSide*>(m_menus.at(m_activeMenu))->getSelectedChoice() + 1);
+		std::dynamic_pointer_cast<MenuBattleSide>(m_menus.at(m_activeMenu))->setSelectedChoice(std::dynamic_pointer_cast<MenuBattleSide>(m_menus.at(m_activeMenu))->getSelectedChoice() + 1);
 
 		gotUpdated();
 	}
@@ -110,9 +108,9 @@ int MenuBattle::af_MenuBattleUp(Game &g)
 	if (m_activeMenu != MenuBattle::BM_LEFT && m_activeMenu != MenuBattle::BM_RIGHT)
 		return 1;
 
-	if (static_cast<MenuBattleSide*>(m_menus.at(m_activeMenu))->getSelectedChoice() > 0)
+	if (std::dynamic_pointer_cast<MenuBattleSide>(m_menus.at(m_activeMenu))->getSelectedChoice() > 0)
 	{
-		static_cast<MenuBattleSide*>(m_menus.at(m_activeMenu))->setSelectedChoice(static_cast<MenuBattleSide*>(m_menus.at(m_activeMenu))->getSelectedChoice() - 1);
+		std::dynamic_pointer_cast<MenuBattleSide>(m_menus.at(m_activeMenu))->setSelectedChoice(std::dynamic_pointer_cast<MenuBattleSide>(m_menus.at(m_activeMenu))->getSelectedChoice() - 1);
 
 		gotUpdated();
 	}
@@ -129,11 +127,11 @@ int MenuBattle::af_MenuBattleEnter(Game &g)
 
 	if (m_activeMenu == MenuBattle::BM_LEFT || m_activeMenu == MenuBattle::BM_RIGHT)
 	{
-		ret = static_cast<MenuBattleSide*>(m_menus.at(m_activeMenu))->getChoices().at(static_cast<MenuBattleSide*>(m_menus.at(m_activeMenu))->getSelectedChoice())->getAction().getAction()(g);
+		ret = std::dynamic_pointer_cast<MenuBattleSide>(m_menus.at(m_activeMenu))->getChoices().at(std::dynamic_pointer_cast<MenuBattleSide>(m_menus.at(m_activeMenu))->getSelectedChoice())->getAction().getAction()(g);
 	}
 	else if (m_activeMenu == MenuBattle::BM_DIALOG)
 	{
-		ret = static_cast<MenuDialogBox*>(m_menus.at(m_activeMenu))->continueText(g.getRealRessourceManager(RESSOURCE_TEXTURE_NUMBER_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER));
+		ret = std::dynamic_pointer_cast<MenuDialogBox>(m_menus.at(m_activeMenu))->continueText(g.getRealRessourceManager(RESSOURCE_TEXTURE_NUMBER_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER));
 
 		if (ret == 0)
 			m_isBlocking = true;
