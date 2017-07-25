@@ -87,9 +87,10 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 	if (m_started)
 		return -1;
 
-	auto texture = ress.addTexture();
-	texture->loadFromFile(backgroundFilename);
+	m_texture = ress.addTexture();
+	m_texture->loadFromFile(backgroundFilename);
 	m_background = surf.addSurface(ManageSurfaces::SPRITE ,std::shared_ptr<Surface>(new SurfaceSprite));
+	std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->setTexture(*m_texture);
 	std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->setScale(CAMERA_WIDTH / std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getGlobalBounds().width,
 		CAMERA_HEIGHT / std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getGlobalBounds().height);
 	m_background->second->setDimensions(0, 0, CAMERA_WIDTH, CAMERA_HEIGHT);
@@ -110,9 +111,18 @@ int Battle::update(ManageRessources &ress, ManageSurfaces& surf)
 
 
 // End the battle
-int Battle::end()
+int Battle::end(ManageRessources &ress, ManageSurfaces& surf)
 {
 	// [TODO]
+
+	if (!m_started)
+		return -1;
+
+	// Free textures
+	ress.deleteTexture(m_texture);
+	surf.deleteSurface(m_background);
+
+	m_started = false;
 
 	return 0;
 }

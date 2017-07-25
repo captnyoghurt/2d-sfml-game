@@ -41,7 +41,7 @@ public:
 	// Update the battle
 	int update(ManageRessources &ress, ManageSurfaces& surf);
 	// End the battle
-	int end();
+	int end(ManageRessources &ress, ManageSurfaces& surf);
 
 private:
 	bool m_started;
@@ -50,6 +50,7 @@ private:
 	TeamBattle m_alliesTeam;
 	BattleMenu *m_battleMenu;
 	BattleEventManager m_battleEventManager;
+	std::list<sf::Texture>::iterator m_texture;
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator m_background;
 };
 
