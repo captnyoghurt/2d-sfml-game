@@ -128,7 +128,7 @@ int M_choice::load(ManageSurfaces& surf, const std::string &str, sf::Font &f, co
 	m_y = y;
 
 	setAction(act);
-	auto surfaceText = surf.addSurface(ManageSurfaces::e_thing::TEXT, std::shared_ptr<SurfaceText>());
+	auto surfaceText = surf.addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>());
 	std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->setString(str);
 	std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->setFont(f);
 	std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->setCharacterSize(MENU_SIMPLE_FONTSIZE);

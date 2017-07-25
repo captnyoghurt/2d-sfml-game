@@ -117,7 +117,7 @@ int ManageRenderTexture::load(ManageSurfaces& surf, int x, int y, int w, int h, 
 	m_initialized = true;
 
 	m_renderTexture.create(w, h, depthBuffer);
-	m_renderTextureSurface = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::shared_ptr<SurfaceSprite>());
+	m_renderTextureSurface = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::make_shared<SurfaceSprite>());
 	std::dynamic_pointer_cast<SurfaceSprite>(m_renderTextureSurface->second)->setTexture(m_renderTexture.getTexture());
 	m_renderTextureSurface->second->setDimensions(x, y, w, h);
 
