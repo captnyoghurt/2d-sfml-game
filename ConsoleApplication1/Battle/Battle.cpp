@@ -1,6 +1,7 @@
 #include "Battle.h"
 #include "../Map/ManageRessources.h"
 #include "../Map/ManageSurfaces.h"
+#include "../constants.h"
 
 
 
@@ -83,7 +84,18 @@ std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterato
 // Start a battle according to the arguments
 int Battle::start(std::string backgroundFilename, TeamBattle team, std::string enemies, ManageRessources &ress, ManageSurfaces &surf, int lastEventLayer)
 {
-	// [TODO]
+	if (m_started)
+		return -1;
+
+	auto texture = ress.addTexture();
+	texture->loadFromFile(backgroundFilename);
+	m_background = surf.addSurface(ManageSurfaces::SPRITE ,std::shared_ptr<Surface>(new SurfaceSprite));
+	std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->setScale(CAMERA_WIDTH / std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getGlobalBounds().width,
+		CAMERA_HEIGHT / std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getGlobalBounds().height);
+	m_background->second->setDimensions(0, 0, std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getGlobalBounds().width,
+		std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getGlobalBounds().height);
+
+	m_started = true;
 
 	return 0;
 }
