@@ -6,6 +6,7 @@
 #include "../Battle/SkillPoints.h"
 #include "../Battle/TeamBattle.h"
 #include "../Battle/Enemies.h"
+#include "../Game.h"
 
 
 MenuBattleSide::MenuBattleSide(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer, int type) : Menu(ress, surf, lastEventLayer)
@@ -194,6 +195,21 @@ int MenuBattleSide::load(ManageRessources& ress, ManageSurfaces& surf, const int
 int MenuBattleSide::update(Game &g)
 {
 	// [TODO]
+
+	for (unsigned int i(0); i < m_choices.size(); i++)
+	{
+		if (m_barType == MENU_BATTLE_ALLIE)
+		{
+			updateHealth(i, g.getRealBattle().getAllies().getTeam().at(i).getHealth());
+			updateMana(i, g.getRealBattle().getAllies().getTeam().at(i).getMana());
+			updateSkillPoints(i, g.getRealBattle().getAllies().getTeam().at(i).getSkillPoints());
+		}
+		else
+		{
+			//(updateHealth(i, g.getRealBattle().getEnemies().getTeam.at(i).getHealth());
+		}
+	}
+
 	return 0;
 }
 
