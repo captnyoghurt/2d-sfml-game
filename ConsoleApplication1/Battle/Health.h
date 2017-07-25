@@ -10,6 +10,7 @@ class Health
 public:
 	Health();
 	Health(const Health &h);
+	Health(const int &max);
 	~Health();
 
 public:

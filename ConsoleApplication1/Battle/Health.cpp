@@ -18,6 +18,12 @@ Health::Health(const Health &h)
 }
 
 
+Health::Health(const int &max)
+{
+	setMaxPoints(max);
+	setPoints(max);
+}
+
 Health::~Health()
 {
 }
