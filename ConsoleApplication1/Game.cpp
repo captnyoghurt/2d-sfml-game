@@ -225,12 +225,21 @@ int Game::print()
 {
 	int ret(0);
 
-	if (!m_map.getUpdated())
+	if (!m_map.getUpdated() && !m_battle.getStarted())
 		return 1;
 
 	clear();
-	ret = m_map.print(m_window, m_surfaceManager);
-	ret += (m_surfaceManager.at(MENU_SIMPLE_LAYER).print(m_window, m_map.getRealCamera()) << 1);
+
+	if (m_battle.getStarted())
+	{
+		ret = m_surfaceManager.at(BATTLE_MIN_LAYER).print(m_window, Camera(0, 0, CAMERA_WIDTH, CAMERA_HEIGHT, CAMERA_WIDTH, CAMERA_HEIGHT));
+	}
+	else
+	{
+		ret = m_map.print(m_window, m_surfaceManager);
+		ret += (m_surfaceManager.at(MENU_SIMPLE_LAYER).print(m_window, m_map.getRealCamera()) << 1);
+	}
+
 	display();
 
 	return ret;
