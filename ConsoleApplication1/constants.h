@@ -139,6 +139,7 @@ extern int MENU_SURFACE_SELECTED_HEIGHT;
 
 /// General
 extern std::string MENU_BATTLE_SURFACE_BAR;
+extern int BATTLE_MAX_LAYER;
 
 /// Health
 extern std::string HEALTH_NAME;

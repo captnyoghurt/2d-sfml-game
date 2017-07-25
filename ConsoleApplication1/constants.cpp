@@ -132,6 +132,7 @@ int MENU_SURFACE_SELECTED_HEIGHT = 32;
 
 /// General
 std::string MENU_BATTLE_SURFACE_BAR("data/graphic/others/001-Bar01.png");
+int BATTLE_MAX_LAYER = MENU_BAG_LAYER + 4;
 
 /// Health
 std::string HEALTH_NAME("PV");

@@ -37,3 +37,7 @@ int af_bagOpenComplete(Game &g);
 // DialogBox
 int af_dialogBoxOpen(Game &g);
 int af_dialogBoxContinue(Game &g);
+
+// Battle
+int af_battleStart(Game &g);
+int af_battleEnd(Game &g);

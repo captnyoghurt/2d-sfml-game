@@ -15,7 +15,7 @@ using namespace sf;
 class Game
 {
 public:
-	enum e_ressourcesLayer {RESSOURCES_MAP=0, RESSOURCES_CHARACTERS, RESSOURCES_MENU, RESSOURCES_TOTAL};
+	enum e_ressourcesLayer {RESSOURCES_MAP=0, RESSOURCES_CHARACTERS, RESSOURCES_MENU, RESSOURCES_BATTLE, RESSOURCES_TOTAL};
 
 public:
 	Game(VideoMode mode, const String &title, Uint32 style = Style::Default, const ContextSettings &settings = ContextSettings());

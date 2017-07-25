@@ -176,3 +176,18 @@ int af_dialogBoxContinue(Game &g)
 
 	return ret;
 }
+
+
+// Battle
+int af_battleStart(Game &g)
+{
+	g.getRealBattle().start("data/graphic/battleback/001-grl01.jpg", TeamBattle(), "", g.getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_BATTLE), g.getRealSurfaceManager(7), g.getEventManager().getKeyEventLayer());
+	return 0;
+}
+
+int af_battleEnd(Game &g)
+{
+	// [TODO]
+
+	return 0;
+}
