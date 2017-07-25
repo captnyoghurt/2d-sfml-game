@@ -142,6 +142,7 @@ extern std::string MENU_BATTLE_SURFACE_BAR;
 extern int BATTLE_MIN_LAYER;
 extern int BATTLE_NUMBER_OF_LAYER;
 extern int BATTLE_MAX_LAYER;
+extern int BATTLE_KEY_EVENT_LAYER;
 
 /// Health
 extern std::string HEALTH_NAME;
