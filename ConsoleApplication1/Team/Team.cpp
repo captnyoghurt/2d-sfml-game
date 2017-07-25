@@ -20,6 +20,18 @@ Team::Team(Game &g)
 	m_speedX = 0;
 	m_speedY = 0;
 
+	// Load battle team
+	TeamMate tm;
+	tm.setHealth(Health(80));
+	tm.setMana(Mana(20));
+	tm.setSkillPoints(SkillPoints(100));
+	m_teamBattle.addMember(tm);
+	tm.setHealth(Health(620));
+	tm.setMana(Mana(44));
+	tm.setSkillPoints(SkillPoints(100));
+	m_teamBattle.addMember(tm);
+
+	// Load the textures
 	auto texture = g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MAP).addTexture();
 	if (!texture->loadFromFile(TEAM_BASIC_WALKSTAND))
 		std::cout << "Error loading the walk stand\n";
