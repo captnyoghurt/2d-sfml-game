@@ -10,6 +10,7 @@ class SkillPoints
 public:
 	SkillPoints();
 	SkillPoints(const SkillPoints &skp);
+	SkillPoints(const int &max);
 	~SkillPoints();
 
 public:

@@ -15,6 +15,14 @@ SkillPoints::SkillPoints(const SkillPoints &skp)
 	m_points = skp.getPoints();
 }
 
+
+SkillPoints::SkillPoints(const int &max)
+{
+	m_maxPoints = max;
+	m_points = max;
+}
+
+
 SkillPoints::~SkillPoints()
 {
 }
