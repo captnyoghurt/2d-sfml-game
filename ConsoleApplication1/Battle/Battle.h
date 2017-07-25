@@ -24,7 +24,9 @@ public:
 	Enemies getEnemies() const;
 	// Return the allie team
 	TeamBattle getAllies() const;
-	
+	// Return the last key event layer
+	int getLastKeyEventLayer() const;
+
 	// Return the enemie team with modifying possibilities
 	Enemies& getRealEnemies();
 	// Return the allie team with modifiying possibilities
@@ -46,6 +48,7 @@ public:
 private:
 	bool m_started;
 	int m_battleTurn;
+	int m_lastKeyEventLayer;
 	Enemies m_enemieTeam;
 	TeamBattle m_alliesTeam;
 	BattleMenu *m_battleMenu;

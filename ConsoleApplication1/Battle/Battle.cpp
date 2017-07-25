@@ -47,6 +47,13 @@ TeamBattle Battle::getAllies() const
 }
 
 
+// Return the last key event layer
+int Battle::getLastKeyEventLayer() const
+{
+	return m_lastKeyEventLayer;
+}
+
+
 // Return the enemie team with modifying possibilities
 Enemies& Battle::getRealEnemies()
 {
@@ -87,6 +94,8 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 {
 	if (m_started)
 		return -1;
+
+	m_lastKeyEventLayer = lastEventLayer;
 
 	m_texture = ress.addTexture();
 	m_texture->loadFromFile(backgroundFilename);
