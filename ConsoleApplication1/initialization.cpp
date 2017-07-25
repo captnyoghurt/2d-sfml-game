@@ -366,6 +366,8 @@ IG_Action::s_action getActionFromWord(std::string w)
 		return &af_dialogBoxContinue;
 	else if (w == "BATTLE_START")
 		return &af_battleStart;
+	else if (w == "BATTLE_END")
+		return &af_battleEnd;
 
 	else
 		std::cout << "Unknown action : " << w << std::endl;
