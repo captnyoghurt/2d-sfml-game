@@ -181,6 +181,8 @@ int af_dialogBoxContinue(Game &g)
 // Battle
 int af_battleStart(Game &g)
 {
+	af_teamStop(g);
+
 	g.getRealBattle().start("data/graphic/battleback/001-grl01.jpg", TeamBattle(), "", &g);
 	
 	g.getRealEventManager().setKeyEventLayer(BATTLE_KEY_EVENT_LAYER);
