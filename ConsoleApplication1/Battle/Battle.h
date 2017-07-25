@@ -8,6 +8,7 @@
 class MenuBattle;
 class ManageRessources;
 class ManageSurfaces;
+class Game;
 
 class Battle
 {
@@ -39,11 +40,11 @@ public:
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& getRealBackground();
 
 	// Start a battle according to the arguments
-	int start(const std::string &backgroundFilename, TeamBattle team, std::string enemies, ManageRessources &ress, ManageSurfaces &surf, int lastEventLayer);
+	int start(const std::string &backgroundFilename, TeamBattle team, std::string enemies, Game *g);
 	// Update the battle
 	int update(ManageRessources &ress, ManageSurfaces& surf);
 	// End the battle
-	int end(ManageRessources &ress, ManageSurfaces& surf);
+	int end(Game *g);
 
 private:
 	bool m_started;

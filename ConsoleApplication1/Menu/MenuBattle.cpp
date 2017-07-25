@@ -18,6 +18,8 @@ MenuBattle::MenuBattle(Battle *b, ManageRessources &ress, ManageSurfaces &surf, 
 	m_menus.at(BM_RIGHT) = std::make_shared<MenuBattleSide>(ress, surf, lastEventLayer, MenuBattleSide::e_menuBattleSideBarType::MENU_BATTLE_ALLIE);
 	m_menus.at(BM_DIALOG) = std::make_shared<MenuDialogBox>(ress, surf, lastEventLayer);
 	m_menus.at(BM_CHOICE) = std::make_shared<MenuChoice>(ress, surf, lastEventLayer);
+
+	load(b, ress, surf);
 }
 
 
@@ -154,7 +156,12 @@ int MenuBattle::close(ManageSurfaces &surf)
 
 
 // Load the different menus
-int MenuBattle::load(Battle *b)
+int MenuBattle::load(Battle *b, ManageRessources &ress, ManageSurfaces &surf)
 {
+	m_menus.at(BM_LEFT)->load(ress, surf, 0, 0, CAMERA_WIDTH / 6, CAMERA_HEIGHT);
+	m_menus.at(BM_RIGHT)->load(ress, surf, 0, 0, CAMERA_WIDTH / 6, CAMERA_HEIGHT);
+	m_menus.at(BM_DIALOG)->load(ress, surf, CAMERA_WIDTH / 6, (4 * CAMERA_HEIGHT / 5), 2 * CAMERA_WIDTH / 3, CAMERA_HEIGHT / 5);
+	m_menus.at(BM_CHOICE)->load(ress, surf, CAMERA_WIDTH / 6, (4 * CAMERA_HEIGHT / 5) - (MENU_SIMPLE_FONTSIZE * 2), 2 * CAMERA_WIDTH / 3, 2 * MENU_SIMPLE_FONTSIZE);
+
 	return 0;
 }

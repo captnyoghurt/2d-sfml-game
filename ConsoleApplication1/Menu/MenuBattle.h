@@ -42,7 +42,7 @@ public:
 
 protected:
 	// Load the different menus
-	int load(Battle *b);
+	int load(Battle *b, ManageRessources &ress, ManageSurfaces &surf);
 
 private:
 	std::vector < std::shared_ptr< Menu > > m_menus;
