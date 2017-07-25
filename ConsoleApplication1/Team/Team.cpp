@@ -26,7 +26,7 @@ Team::Team(Game &g)
 	tm.setMana(Mana(20));
 	tm.setSkillPoints(SkillPoints(100));
 	m_teamBattle.addMember(tm);
-	tm.setHealth(Health(620));
+	tm.setHealth(Health(20));
 	tm.setMana(Mana(44));
 	tm.setSkillPoints(SkillPoints(100));
 	m_teamBattle.addMember(tm);

@@ -46,7 +46,7 @@ Enemies Battle::getEnemies() const
 // Return the allie team
 TeamBattle Battle::getAllies() const
 {
-	return m_alliesTeam;
+	return *m_alliesTeam;
 }
 
 
@@ -67,7 +67,7 @@ Enemies& Battle::getRealEnemies()
 // Return the allie team with modifiying possibilities
 TeamBattle& Battle::getRealAllies()
 {
-	return m_alliesTeam;
+	return *m_alliesTeam;
 }
 
 

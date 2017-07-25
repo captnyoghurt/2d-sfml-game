@@ -34,8 +34,6 @@ public:
 	ManageAnimation getAnimationManager() const;
 	// Return the team
 	Team getTeam() const;
-	// Return the battle
-	Battle getBattle() const;
 
 	// Return the event manager with modifying possibilities
 	ManageEvent& getRealEventManager();
