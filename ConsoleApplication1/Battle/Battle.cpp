@@ -7,9 +7,12 @@
 
 
 
-Battle::Battle()
+Battle::Battle(TeamBattle &tb)
 {
 	m_started = false;
+	
+	// Team
+	m_alliesTeam = &tb;
 }
 
 

@@ -13,7 +13,7 @@ class Game;
 class Battle
 {
 public:
-	Battle();
+	Battle(TeamBattle &tb);
 	~Battle();
 
 public:
@@ -51,7 +51,7 @@ private:
 	int m_battleTurn;
 	int m_lastKeyEventLayer;
 	Enemies m_enemieTeam;
-	std::unique_ptr<TeamBattle> m_alliesTeam;
+	TeamBattle *m_alliesTeam;
 	std::shared_ptr<MenuBattle> m_battleMenu;
 	BattleEventManager m_battleEventManager;
 	std::list<sf::Texture>::iterator m_texture;

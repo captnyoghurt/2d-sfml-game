@@ -10,7 +10,8 @@ Game::Game(VideoMode mode, const String &title, Uint32 style, const ContextSetti
 	m_surfaceManager(BATTLE_MAX_LAYER + 1),
 	m_ressourceManager(Game::e_ressourcesLayer::RESSOURCES_TOTAL),
 	m_team(*this),
-	m_map(*this)
+	m_map(*this),
+	m_battle(m_team.getRealTeamBattle())
 {
 	loadRessources();
 }
