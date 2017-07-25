@@ -92,8 +92,7 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 	m_background = surf.addSurface(ManageSurfaces::SPRITE ,std::shared_ptr<Surface>(new SurfaceSprite));
 	std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->setScale(CAMERA_WIDTH / std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getGlobalBounds().width,
 		CAMERA_HEIGHT / std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getGlobalBounds().height);
-	m_background->second->setDimensions(0, 0, std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getGlobalBounds().width,
-		std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getGlobalBounds().height);
+	m_background->second->setDimensions(0, 0, CAMERA_WIDTH, CAMERA_HEIGHT);
 
 	m_started = true;
 
