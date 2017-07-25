@@ -194,5 +194,7 @@ int af_battleEnd(Game &g)
 
 	g.getRealEventManager().setKeyEventLayer(0);
 
+	g.getRealMap().gotUpdated();
+
 	return g.getRealBattle().end(g.getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_BATTLE), g.getRealSurfaceManager(BATTLE_MIN_LAYER));
 }
