@@ -168,7 +168,13 @@ int MenuBattleSide::loadWithAllies(const TeamBattle& allies)
 	if (m_barType != MenuBattleSide::e_menuBattleSideBarType::MENU_BATTLE_ALLIE)
 		return -1;
 
-	// [TODO]
+	std::vector<TeamMate>& tm(allies.getRealTeam());
+
+	for (unsigned int i(0); i < tm.size(); i++)
+	{
+		M_choice m;
+		m.load(tm.at(i).getName());
+	}
 
 	return 0;
 }
