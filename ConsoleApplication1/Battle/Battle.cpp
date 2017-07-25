@@ -2,6 +2,7 @@
 #include "../Map/ManageRessources.h"
 #include "../Map/ManageSurfaces.h"
 #include "../constants.h"
+#include "../Menu/MenuBattle.h"
 
 
 
@@ -13,6 +14,7 @@ Battle::Battle()
 
 Battle::~Battle()
 {
+	delete m_battleMenu;
 }
 
 
@@ -69,7 +71,7 @@ TeamBattle& Battle::getRealAllies()
 
 
 // Return the battleMenu with modifying possibilities
-BattleMenu& Battle::getRealBattleMenu()
+MenuBattle& Battle::getRealBattleMenu()
 {
 	return *m_battleMenu;
 }
@@ -95,8 +97,10 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 	if (m_started)
 		return -1;
 
+	// Event layer
 	m_lastKeyEventLayer = lastEventLayer;
 
+	// Texture background
 	m_texture = ress.addTexture();
 	m_texture->loadFromFile(backgroundFilename);
 	m_background = surf.addSurface(ManageSurfaces::SPRITE ,std::shared_ptr<Surface>(new SurfaceSprite));
@@ -104,6 +108,9 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 	std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->setScale(CAMERA_WIDTH / std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getGlobalBounds().width,
 		CAMERA_HEIGHT / std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getGlobalBounds().height);
 	m_background->second->setDimensions(0, 0, CAMERA_WIDTH, CAMERA_HEIGHT);
+
+	// Menus
+	m_battleMenu = new MenuBattle(this, ress, surf, BATTLE_KEY_EVENT_LAYER);
 
 	m_started = true;
 
@@ -131,6 +138,9 @@ int Battle::end(ManageRessources &ress, ManageSurfaces& surf)
 	// Free textures
 	ress.deleteTexture(m_texture);
 	surf.deleteSurface(m_background);
+
+	// Free menus
+	delete m_battleMenu;
 
 	m_started = false;
 

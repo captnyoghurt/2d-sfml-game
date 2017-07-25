@@ -5,7 +5,7 @@
 #include "TeamBattle.h"
 #include "BattleEventManager.h"
 
-class BattleMenu;
+class MenuBattle;
 class ManageRessources;
 class ManageSurfaces;
 
@@ -32,7 +32,7 @@ public:
 	// Return the allie team with modifiying possibilities
 	TeamBattle& getRealAllies();
 	// Return the battleMenu with modifying possibilities
-	BattleMenu& getRealBattleMenu();
+	MenuBattle& getRealBattleMenu();
 	// Return the battleEventManager with modifying possibilities
 	BattleEventManager& getRealBattleEventManager();
 	// Return the background with modifying possibilities
@@ -51,7 +51,7 @@ private:
 	int m_lastKeyEventLayer;
 	Enemies m_enemieTeam;
 	TeamBattle m_alliesTeam;
-	BattleMenu *m_battleMenu;
+	MenuBattle *m_battleMenu;
 	BattleEventManager m_battleEventManager;
 	std::list<sf::Texture>::iterator m_texture;
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator m_background;
