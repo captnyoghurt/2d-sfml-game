@@ -37,7 +37,7 @@ public:
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& getRealBackground();
 
 	// Start a battle according to the arguments
-	int start(std::string backgroundFilename, TeamBattle team, std::string enemies, ManageRessources &ress, ManageSurfaces &surf, int lastEventLayer);
+	int start(const std::string &backgroundFilename, TeamBattle team, std::string enemies, ManageRessources &ress, ManageSurfaces &surf, int lastEventLayer);
 	// Update the battle
 	int update(ManageRessources &ress, ManageSurfaces& surf);
 	// End the battle

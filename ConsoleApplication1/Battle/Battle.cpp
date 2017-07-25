@@ -82,7 +82,7 @@ std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterato
 
 
 // Start a battle according to the arguments
-int Battle::start(std::string backgroundFilename, TeamBattle team, std::string enemies, ManageRessources &ress, ManageSurfaces &surf, int lastEventLayer)
+int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::string enemies, ManageRessources &ress, ManageSurfaces &surf, int lastEventLayer)
 {
 	if (m_started)
 		return -1;
