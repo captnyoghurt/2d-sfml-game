@@ -63,6 +63,13 @@ Team Game::getTeam() const
 }
 
 
+// Return the battle
+Battle Game::getBattle() const
+{
+	return m_battle;
+}
+
+
 // Return the event manager with modifying possibilities
 ManageEvent& Game::getRealEventManager()
 {
@@ -123,6 +130,13 @@ Team& Game::getRealTeam()
 std::list< std::shared_ptr<Menu> >& Game::getRealMenus()
 {
 	return m_menus;
+}
+
+
+// Return the battle with modifying possibilities
+Battle& Game::getRealBattle()
+{
+	return m_battle;
 }
 
 

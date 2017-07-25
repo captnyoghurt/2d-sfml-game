@@ -7,6 +7,8 @@
 #include "Map/ManageSurfaces.h"
 #include "Menu/Menu.h"
 #include "Team/Team.h"
+#include "Battle/Battle.h"
+
 
 using namespace sf;
 
@@ -32,6 +34,8 @@ public:
 	ManageAnimation getAnimationManager() const;
 	// Return the team
 	Team getTeam() const;
+	// Return the battle
+	Battle getBattle() const;
 
 	// Return the event manager with modifying possibilities
 	ManageEvent& getRealEventManager();
@@ -51,6 +55,8 @@ public:
 	Team& getRealTeam();
 	// Return the menus with modifying possibilities
 	std::list< std::shared_ptr<Menu> >& getRealMenus();
+	// Return the battle with modifying possibilities
+	Battle& getRealBattle();
 
 	// Clear
 	void clear();
@@ -83,4 +89,5 @@ private:
 	ManageAnimation m_animationManager;
 	Team m_team;
 	std::list< std::shared_ptr<Menu> > m_menus;
+	Battle m_battle;
 };
