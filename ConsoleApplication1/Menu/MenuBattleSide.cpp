@@ -178,6 +178,8 @@ int MenuBattleSide::loadWithAllies(ManageRessources& ress, ManageSurfaces& surf,
 		m_choices.back()->load(surf, tm.at(i).getName(), ress.getTheFont(0), m_background->second->getX(), m_background->second->getY() + (i * (MENU_SIMPLE_FONTSIZE * 7)), true, doNothing, CAMERA_WIDTH/5, CAMERA_HEIGHT);
 		// HP_TEXT
 		auto hptext = surf.addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>());
+		std::dynamic_pointer_cast<SurfaceText>(hptext->second)->setFont(ress.getTheFont(0));
+		std::dynamic_pointer_cast<SurfaceText>(hptext->second)->setCharacterSize(MENU_SIMPLE_FONTSIZE-2);
 		m_choices.back()->getRealRenderTextureManager().add(hptext, 
 			HEALTH_TEXT_POSITION_X, 
 			HEALTH_TEXT_POSITION_Y);
@@ -188,12 +190,14 @@ int MenuBattleSide::loadWithAllies(ManageRessources& ress, ManageSurfaces& surf,
 		m_choices.back()->getRealRenderTextureManager().add(hpimg,
 			HEALTH_IMAGE_POSITION_X,
 			HEALTH_IMAGE_POSITION_Y);
+
 		// MP_TEXT
 		auto mptext = surf.addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>());
+		std::dynamic_pointer_cast<SurfaceText>(mptext->second)->setFont(ress.getTheFont(0));
+		std::dynamic_pointer_cast<SurfaceText>(mptext->second)->setCharacterSize(MENU_SIMPLE_FONTSIZE - 2);
 		m_choices.back()->getRealRenderTextureManager().add(mptext,
 			MANA_TEXT_POSITION_X,
 			MANA_TEXT_POSITION_Y);
-
 		// MP_IMAGE
 		auto mpimg = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::make_shared<SurfaceSprite>());
 		std::dynamic_pointer_cast<SurfaceSprite>(mpimg->second)->setTexture(ress.getTheTexture(1));
@@ -204,10 +208,11 @@ int MenuBattleSide::loadWithAllies(ManageRessources& ress, ManageSurfaces& surf,
 
 		// TP_TEXT
 		auto tptext = surf.addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>());
+		std::dynamic_pointer_cast<SurfaceText>(tptext->second)->setFont(ress.getTheFont(0));
+		std::dynamic_pointer_cast<SurfaceText>(tptext->second)->setCharacterSize(MENU_SIMPLE_FONTSIZE - 2);
 		m_choices.back()->getRealRenderTextureManager().add(tptext,
 			SKILLPOINTS_TEXT_POSITION_X,
 			SKILLPOINTS_TEXT_POSITION_Y);
-
 		// TP_IMAGE
 		auto tpimg = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::make_shared<SurfaceSprite>());
 		std::dynamic_pointer_cast<SurfaceSprite>(tpimg->second)->setTexture(ress.getTheTexture(1));
