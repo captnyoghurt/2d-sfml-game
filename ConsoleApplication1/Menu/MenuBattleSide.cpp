@@ -175,40 +175,52 @@ int MenuBattleSide::loadWithAllies(ManageRessources& ress, ManageSurfaces& surf,
 		m_choices.push_back(std::make_shared<M_choice>());
 
 		// NAME
-		m_choices.back()->load(surf, tm.at(i).getName(), ress.getTheFont(0), m_background->second->getX(), m_background->second->getY() + (i * (MENU_SIMPLE_FONTSIZE * 7)), true, doNothing);
+		m_choices.back()->load(surf, tm.at(i).getName(), ress.getTheFont(0), m_background->second->getX(), m_background->second->getY() + (i * (MENU_SIMPLE_FONTSIZE * 7)), true, doNothing, CAMERA_WIDTH/5, CAMERA_HEIGHT);
 		// HP_TEXT
 		auto hptext = surf.addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>());
-		hptext->second->setDimensions(HEALTH_TEXT_POSITION_X, HEALTH_TEXT_POSITION_Y + (i * (MENU_SIMPLE_FONTSIZE * 7)),
-			HEALTH_TEXT_WIDTH, HEALTH_TEXT_HEIGHT);
-		m_choices.back()->getRealRenderTextureManager().add(hptext);
+		m_choices.back()->getRealRenderTextureManager().add(hptext, 
+			HEALTH_TEXT_POSITION_X, 
+			HEALTH_TEXT_POSITION_Y);
 		// HP_IMAGE
 		auto hpimg = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::make_shared<SurfaceSprite>());
-		std::dynamic_pointer_cast<SurfaceSprite>(hpimg->second)->setTexture(ress.getTheTexture(2));
-		hpimg->second->setDimensions(HEALTH_IMAGE_POSITION_X, HEALTH_IMAGE_POSITION_Y + (i * (MENU_SIMPLE_FONTSIZE * 7)),
-			HEALTH_IMAGE_WIDTH, HEALTH_IMAGE_HEIGHT);
-		m_choices.back()->getRealRenderTextureManager().add(hpimg);
+		std::dynamic_pointer_cast<SurfaceSprite>(hpimg->second)->setTexture(ress.getTheTexture(1));
+		std::dynamic_pointer_cast<SurfaceSprite>(hpimg->second)->setTextureRect(sf::IntRect(HEALTH_SURFACE_BEGIN_X, HEALTH_SURFACE_BEGIN_Y, HEALTH_SURFACE_WIDTH, HEALTH_SURFACE_HEIGHT));
+		m_choices.back()->getRealRenderTextureManager().add(hpimg,
+			HEALTH_IMAGE_POSITION_X,
+			HEALTH_IMAGE_POSITION_Y);
 		// MP_TEXT
 		auto mptext = surf.addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>());
-		mptext->second->setDimensions(MANA_TEXT_POSITION_X, MANA_TEXT_POSITION_Y + (i * (MENU_SIMPLE_FONTSIZE * 7)),
-			MANA_TEXT_WIDTH, MANA_TEXT_HEIGHT);
-		m_choices.back()->getRealRenderTextureManager().add(mptext);
+		m_choices.back()->getRealRenderTextureManager().add(mptext,
+			MANA_TEXT_POSITION_X,
+			MANA_TEXT_POSITION_Y);
+
 		// MP_IMAGE
 		auto mpimg = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::make_shared<SurfaceSprite>());
-		std::dynamic_pointer_cast<SurfaceSprite>(mpimg->second)->setTexture(ress.getTheTexture(2));
-		mpimg->second->setDimensions(MANA_IMAGE_POSITION_X, MANA_IMAGE_POSITION_Y + (i * (MENU_SIMPLE_FONTSIZE * 7)),
-			MANA_IMAGE_WIDTH, MANA_IMAGE_HEIGHT);
-		m_choices.back()->getRealRenderTextureManager().add(mpimg);
+		std::dynamic_pointer_cast<SurfaceSprite>(mpimg->second)->setTexture(ress.getTheTexture(1));
+		std::dynamic_pointer_cast<SurfaceSprite>(mpimg->second)->setTextureRect(sf::IntRect(MANA_SURFACE_BEGIN_X, MANA_SURFACE_BEGIN_Y, MANA_SURFACE_WIDTH, MANA_SURFACE_HEIGHT));
+		m_choices.back()->getRealRenderTextureManager().add(mpimg,
+			MANA_IMAGE_POSITION_X,
+			MANA_IMAGE_POSITION_Y);
+
 		// TP_TEXT
 		auto tptext = surf.addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>());
-		tptext->second->setDimensions(SKILLPOINTS_TEXT_POSITION_X, SKILLPOINTS_TEXT_POSITION_Y + (i * (MENU_SIMPLE_FONTSIZE * 7)),
-			SKILLPOINTS_TEXT_WIDTH, SKILLPOINTS_TEXT_HEIGHT);
-		m_choices.back()->getRealRenderTextureManager().add(tptext);
+		m_choices.back()->getRealRenderTextureManager().add(tptext,
+			SKILLPOINTS_TEXT_POSITION_X,
+			SKILLPOINTS_TEXT_POSITION_Y);
+
 		// TP_IMAGE
 		auto tpimg = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::make_shared<SurfaceSprite>());
-		std::dynamic_pointer_cast<SurfaceSprite>(tpimg->second)->setTexture(ress.getTheTexture(2));
-		tpimg->second->setDimensions(SKILLPOINTS_IMAGE_POSITION_X, SKILLPOINTS_IMAGE_POSITION_Y + (i * (MENU_SIMPLE_FONTSIZE * 7)),
-			SKILLPOINTS_IMAGE_WIDTH, SKILLPOINTS_IMAGE_HEIGHT);
-		m_choices.back()->getRealRenderTextureManager().add(tpimg);
+		std::dynamic_pointer_cast<SurfaceSprite>(tpimg->second)->setTexture(ress.getTheTexture(1));
+		std::dynamic_pointer_cast<SurfaceSprite>(tpimg->second)->setTextureRect(sf::IntRect(SKILLPOINTS_SURFACE_BEGIN_X, SKILLPOINTS_SURFACE_BEGIN_Y, SKILLPOINTS_SURFACE_WIDTH, SKILLPOINTS_SURFACE_HEIGHT));
+		m_choices.back()->getRealRenderTextureManager().add(tpimg,
+			SKILLPOINTS_IMAGE_POSITION_X,
+			SKILLPOINTS_IMAGE_POSITION_Y);
+
+
+		updateHealth(i, tm.at(i).getHealth());
+		updateMana(i, tm.at(i).getMana());
+		updateSkillPoints(i, tm.at(i).getSkillPoints());
+		m_choices.back()->getRealRenderTextureManager().update();
 	}
 
 	return 0;
