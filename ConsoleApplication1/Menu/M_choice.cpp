@@ -119,7 +119,7 @@ int M_choice::setY(const int &y)
 
 
 // Load the choice
-int M_choice::load(ManageSurfaces& surf, const std::string &str, sf::Font &f, const int &x, const int &y, const bool &sh, IG_Action act)
+int M_choice::load(ManageSurfaces& surf, const std::string &str, sf::Font &f, const int &x, const int &y, const bool &sh, IG_Action act, const int &w, const int &h)
 {
 	if (m_initialized)
 		return -1;
@@ -134,8 +134,8 @@ int M_choice::load(ManageSurfaces& surf, const std::string &str, sf::Font &f, co
 	std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->setCharacterSize(MENU_SIMPLE_FONTSIZE);
 	std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->setDimensions(x,
 																			 y,
-																			 int(std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->getLocalBounds().width),
-																			 int(std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->getLocalBounds().height));
+																			 MAX(int(std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->getLocalBounds().width), w),
+																			 MAX(int(std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->getLocalBounds().height), h));
 	std::dynamic_pointer_cast<SurfaceText>(surfaceText->second)->setPosition(0.0, 0.0);
 
 	m_textureManager.load(surf, x, y, surfaceText->second->getWidth(), MENUS_GAP_BETWEEN_LINES);

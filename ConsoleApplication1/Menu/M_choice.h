@@ -43,7 +43,7 @@ public:
 	int setY(const int &y);
 
 	// Load the choice
-	int load(ManageSurfaces& surf, const std::string &str, sf::Font &f, const int &x, const int &y, const bool &sh, IG_Action act);
+	int load(ManageSurfaces& surf, const std::string &str, sf::Font &f, const int &x, const int &y, const bool &sh, IG_Action act, const int &w = 0, const int &h = 0);
 	// Clear the surfaces of the choice
 	int clear(ManageSurfaces &surf);
 private:
