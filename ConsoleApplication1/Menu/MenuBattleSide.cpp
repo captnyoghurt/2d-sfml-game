@@ -175,7 +175,7 @@ int MenuBattleSide::loadWithAllies(ManageRessources& ress, ManageSurfaces& surf,
 		m_choices.push_back(std::make_shared<M_choice>());
 
 		// NAME
-		m_choices.back()->load(surf, tm.at(i).getName(), ress.getTheFont(0), m_background->second->getX(), m_background->second->getY() + (i * (MENU_SIMPLE_FONTSIZE * 7)), true, doNothing, CAMERA_WIDTH/5, CAMERA_HEIGHT);
+		m_choices.back()->load(surf, tm.at(i).getName(), ress.getTheFont(0), m_background->second->getX() + MENUS_BORDER_X, m_background->second->getY() + (i * (MENU_SIMPLE_FONTSIZE * 7)), true, doNothing, CAMERA_WIDTH/5, CAMERA_HEIGHT);
 		// HP_TEXT
 		auto hptext = surf.addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>());
 		std::dynamic_pointer_cast<SurfaceText>(hptext->second)->setFont(ress.getTheFont(0));
