@@ -156,7 +156,29 @@ int MenuBattleSide::loadWithEnemies(ManageRessources& ress, ManageSurfaces& surf
 	if (m_barType != MenuBattleSide::e_menuBattleSideBarType::MENU_BATTLE_ENEMIE)
 		return -1;
 
-	// [TODO]
+	std::vector<std::shared_ptr<Fighter> > tm(enemies.getTeam());
+
+	for (unsigned int i(0); i < tm.size(); i++)
+	{
+		m_choices.push_back(std::make_shared<M_choice>());
+
+		// NAME
+		m_choices.back()->load(surf, tm.at(i)->getName(), ress.getTheFont(0), m_background->second->getX() + MENUS_BORDER_X, m_background->second->getY() + (i * (MENU_SIMPLE_FONTSIZE * 7)), true, doNothing, CAMERA_WIDTH / 5, CAMERA_HEIGHT);
+		// HP_TEXT
+		auto hptext = surf.addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>());
+		std::dynamic_pointer_cast<SurfaceText>(hptext->second)->setFont(ress.getTheFont(0));
+		std::dynamic_pointer_cast<SurfaceText>(hptext->second)->setCharacterSize(MENU_SIMPLE_FONTSIZE - 2);
+		m_choices.back()->getRealRenderTextureManager().add(hptext,
+			HEALTH_TEXT_POSITION_X,
+			HEALTH_TEXT_POSITION_Y);
+		// HP_IMAGE
+		auto hpimg = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::make_shared<SurfaceSprite>());
+		std::dynamic_pointer_cast<SurfaceSprite>(hpimg->second)->setTexture(ress.getTheTexture(1));
+		std::dynamic_pointer_cast<SurfaceSprite>(hpimg->second)->setTextureRect(sf::IntRect(HEALTH_SURFACE_BEGIN_X, HEALTH_SURFACE_BEGIN_Y, HEALTH_SURFACE_WIDTH, HEALTH_SURFACE_HEIGHT));
+		m_choices.back()->getRealRenderTextureManager().add(hpimg,
+			HEALTH_IMAGE_POSITION_X,
+			HEALTH_IMAGE_POSITION_Y);
+	}
 
 	return 0;
 }
