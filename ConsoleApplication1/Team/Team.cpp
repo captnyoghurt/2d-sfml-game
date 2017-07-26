@@ -23,8 +23,11 @@ Team::Team(Game &g)
 	// Load battle team
 	TeamMate tm;
 	tm.setHealth(Health(80));
+	tm.getRealHealth().setPoints(40);
 	tm.setMana(Mana(20));
+	tm.getRealMana().setPoints(19);
 	tm.setSkillPoints(SkillPoints(100));
+	tm.getRealSkillPoints().setPoints(0);
 	tm.setName("Player");
 	m_teamBattle.addMember(tm);
 	tm.setHealth(Health(20));
