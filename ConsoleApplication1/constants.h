@@ -151,6 +151,14 @@ extern int HEALTH_SURFACE_BEGIN_X;
 extern int HEALTH_SURFACE_BEGIN_Y;
 extern int HEALTH_SURFACE_WIDTH;
 extern int HEALTH_SURFACE_HEIGHT;
+extern int HEALTH_TEXT_POSITION_X;
+extern int HEALTH_TEXT_POSITION_Y;
+extern int HEALTH_TEXT_WIDTH;
+extern int HEALTH_TEXT_HEIGHT;
+extern int HEALTH_IMAGE_POSITION_X;
+extern int HEALTH_IMAGE_POSITION_Y;
+extern int HEALTH_IMAGE_WIDTH;
+extern int HEALTH_IMAGE_HEIGHT;
 
 /// Skill Points
 extern std::string SKILLPOINTS_NAME;
