@@ -6,6 +6,7 @@ class TeamMate : public Fighter
 {
 public:
 	TeamMate();
+	TeamMate(const TeamMate &tm);
 	~TeamMate();
 };
 

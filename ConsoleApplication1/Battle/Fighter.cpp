@@ -13,6 +13,16 @@ Fighter::Fighter()
 }
 
 
+Fighter::Fighter(const Fighter &f)
+{
+	m_name = f.getName();
+	m_characteristics = f.getCharacteristics();
+	m_health = f.getHealth();
+	m_mana = f.getMana();
+	m_skillPoints = f.getSkillPoints();
+}
+
+
 Fighter::~Fighter()
 {
 }

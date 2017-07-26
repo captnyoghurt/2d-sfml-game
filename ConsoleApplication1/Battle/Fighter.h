@@ -16,6 +16,7 @@ class Fighter
 {
 public:
 	Fighter();
+	Fighter(const Fighter &f);
 	~Fighter();
 
 public:
