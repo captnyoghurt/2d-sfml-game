@@ -24,6 +24,8 @@ public:
 
 	// Update the team batttle
 	int update();
+	// Clear the enemy team
+	int clear();
 private:
 	int m_numberFighterAlive;
 	std::vector<std::shared_ptr<Fighter>> m_fighters;

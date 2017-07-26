@@ -55,3 +55,12 @@ int Enemies::update()
 
 	return 0;
 }
+
+
+// Clear the enemy team
+int Enemies::clear()
+{
+	m_fighters.clear();
+
+	return 0;
+}

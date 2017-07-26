@@ -151,19 +151,19 @@ int MenuBattleSide::updateSkillPoints(int n, const SkillPoints& sp)
 
 
 // Load with an allie team
-int MenuBattleSide::loadWithEnemies(ManageRessources& ress, ManageSurfaces& surf, Enemies enemies)
+int MenuBattleSide::loadWithEnemies(ManageRessources& ress, ManageSurfaces& surf, Enemies &enemies)
 {
 	if (m_barType != MenuBattleSide::e_menuBattleSideBarType::MENU_BATTLE_ENEMIE)
 		return -1;
 
-	std::vector<std::shared_ptr<Fighter> > tm(enemies.getTeam());
+	std::vector<std::shared_ptr<Fighter> >& tm(enemies.getRealTeam());
 
 	for (unsigned int i(0); i < tm.size(); i++)
 	{
 		m_choices.push_back(std::make_shared<M_choice>());
 
 		// NAME
-		m_choices.back()->load(surf, tm.at(i)->getName(), ress.getTheFont(0), m_background->second->getX() + MENUS_BORDER_X, m_background->second->getY() + (i * (MENU_SIMPLE_FONTSIZE * 7)), true, doNothing, CAMERA_WIDTH / 5, CAMERA_HEIGHT);
+		m_choices.back()->load(surf, tm.at(i)->getName(), ress.getTheFont(0), m_background->second->getX() + MENUS_BORDER_X, m_background->second->getY() + (i * (MENU_SIMPLE_FONTSIZE * 3)), true, doNothing, CAMERA_WIDTH / 5, CAMERA_HEIGHT);
 		// HP_TEXT
 		auto hptext = surf.addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>());
 		std::dynamic_pointer_cast<SurfaceText>(hptext->second)->setFont(ress.getTheFont(0));
@@ -178,6 +178,9 @@ int MenuBattleSide::loadWithEnemies(ManageRessources& ress, ManageSurfaces& surf
 		m_choices.back()->getRealRenderTextureManager().add(hpimg,
 			HEALTH_IMAGE_POSITION_X,
 			HEALTH_IMAGE_POSITION_Y);
+
+		updateHealth(i, tm.at(i)->getHealth());
+		m_choices.back()->getRealRenderTextureManager().update();
 	}
 
 	return 0;
@@ -185,7 +188,7 @@ int MenuBattleSide::loadWithEnemies(ManageRessources& ress, ManageSurfaces& surf
 
 
 // Load with an enemie team
-int MenuBattleSide::loadWithAllies(ManageRessources& ress, ManageSurfaces& surf, TeamBattle allies)
+int MenuBattleSide::loadWithAllies(ManageRessources& ress, ManageSurfaces& surf, TeamBattle &allies)
 {
 	if (m_barType != MenuBattleSide::e_menuBattleSideBarType::MENU_BATTLE_ALLIE)
 		return -1;
@@ -286,7 +289,7 @@ int MenuBattleSide::update(Game &g)
 		}
 		else
 		{
-			//(updateHealth(i, g.getRealBattle().getEnemies().getTeam.at(i).getHealth());
+			updateHealth(i, g.getRealBattle().getRealEnemies().getTeam().at(i)->getHealth());
 		}
 	}
 
