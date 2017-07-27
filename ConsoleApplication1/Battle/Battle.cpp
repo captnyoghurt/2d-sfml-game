@@ -10,6 +10,7 @@
 
 Battle::Battle(TeamBattle &tb)
 {
+	m_updated = true;
 	m_started = false;
 	
 	// Team
@@ -96,6 +97,15 @@ std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterato
 }
 
 
+// Tell the battle it's updated
+int Battle::gotUpdated()
+{
+	m_updated = true;
+
+	return 0;
+}
+
+
 // Start a battle according to the arguments
 int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::string enemies, Game *g)
 {
@@ -134,6 +144,7 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 	std::dynamic_pointer_cast<MenuBattleSide>(m_battleMenu->getRealMenus().at(MenuBattle::BM_LEFT))->loadWithEnemies(g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_MENU), g->getRealSurfaceManager(BATTLE_MIN_LAYER), m_enemieTeam);
 
 	m_started = true;
+	m_updated = true;
 
 	return 0;
 }
@@ -143,11 +154,15 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 int Battle::update(Game *g)
 {
 	// [TODO]
+	if (!m_updated || !m_started)
+		return 1;
 
 	m_battleMenu->getRealMenus().at(MenuBattle::BM_LEFT)->update(*g);
 	m_battleMenu->getRealMenus().at(MenuBattle::BM_RIGHT)->update(*g);
 	m_battleMenu->getRealMenus().at(MenuBattle::BM_DIALOG)->update(*g);
 	m_battleMenu->getRealMenus().at(MenuBattle::BM_CHOICE)->update(*g);
+
+	m_updated = false;
 
 	return 0;
 }

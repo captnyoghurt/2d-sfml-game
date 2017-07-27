@@ -39,6 +39,9 @@ public:
 	// Return the background with modifying possibilities
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& getRealBackground();
 
+	// Tell the battle it's updated
+	int gotUpdated();
+
 	// Start a battle according to the arguments
 	int start(const std::string &backgroundFilename, TeamBattle team, std::string enemies, Game *g);
 	// Update the battle
@@ -47,6 +50,7 @@ public:
 	int end(Game *g);
 
 private:
+	bool m_updated;
 	bool m_started;
 	int m_battleTurn;
 	int m_lastKeyEventLayer;
