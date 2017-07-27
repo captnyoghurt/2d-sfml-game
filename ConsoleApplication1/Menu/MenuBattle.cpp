@@ -91,7 +91,7 @@ int MenuBattle::gotUpdated()
 // All the action functions for the menus
 int MenuBattle::af_MenuBattleDown(Game &g)
 {
-	if (m_activeMenu != MenuBattle::BM_LEFT && m_activeMenu != MenuBattle::BM_RIGHT)
+	if (m_activeMenu != MenuBattle::BM_LEFT && m_activeMenu != MenuBattle::BM_RIGHT && !m_isBlocking)
 		return 1;
 
 	if ((unsigned)std::dynamic_pointer_cast<MenuBattleSide>(m_menus.at(m_activeMenu))->getSelectedChoice() <= std::dynamic_pointer_cast<MenuBattleSide>(m_menus.at(m_activeMenu))->getChoices().size() - 1)
@@ -107,7 +107,7 @@ int MenuBattle::af_MenuBattleDown(Game &g)
 
 int MenuBattle::af_MenuBattleUp(Game &g)
 {
-	if (m_activeMenu != MenuBattle::BM_LEFT && m_activeMenu != MenuBattle::BM_RIGHT)
+	if (m_activeMenu != MenuBattle::BM_LEFT && m_activeMenu != MenuBattle::BM_RIGHT && !m_isBlocking)
 		return 1;
 
 	if (std::dynamic_pointer_cast<MenuBattleSide>(m_menus.at(m_activeMenu))->getSelectedChoice() > 0)
@@ -124,6 +124,9 @@ int MenuBattle::af_MenuBattleUp(Game &g)
 int MenuBattle::af_MenuBattleEnter(Game &g)
 {
 	int ret(0);
+
+	if (!m_isBlocking)
+		return 1;
 
 	m_isBlocking = false;
 
