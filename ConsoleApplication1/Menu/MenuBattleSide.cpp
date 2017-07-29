@@ -76,8 +76,8 @@ int MenuBattleSide::setSelectedChoice(const int &s)
 		m_cursorSurfaceRight->second->setDimensions(
 			m_choices.at(s)->getX() - MENU_SURFACE_CURSOR_RIGHT_WIDTH,
 			m_choices.at(s)->getY(),
-			std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceRight->second)->getGlobalBounds().width,
-			std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceRight->second)->getGlobalBounds().height
+			(int)std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceRight->second)->getGlobalBounds().width,
+			(int)std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceRight->second)->getGlobalBounds().height
 		);
 
 		return 0;
