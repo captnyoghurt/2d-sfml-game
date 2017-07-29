@@ -35,6 +35,8 @@ public:
 	// All the action functions for the menus
 	int af_MenuBattleDown(Game &g);
 	int af_MenuBattleUp(Game &g);
+	int af_MenuBattleRight(Game &g);
+	int af_MenuBattleLeft(Game &g);
 	int af_MenuBattleEnter(Game &g);
 
 	// Close all the menus

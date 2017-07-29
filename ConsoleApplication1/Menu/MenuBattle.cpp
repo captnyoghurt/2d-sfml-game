@@ -121,6 +121,30 @@ int MenuBattle::af_MenuBattleUp(Game &g)
 }
 
 
+int MenuBattle::af_MenuBattleRight(Game &g)
+{
+	if (!m_isBlocking && m_activeMenu != MenuBattle::BM_CHOICE)
+		return -1;
+
+	std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->setSelectedChoice(std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->setSelectedChoice + 1);
+	std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->resizeChoiceSurface();
+
+	return 0;
+}
+
+
+int MenuBattle::af_MenuBattleLeft(Game &g)
+{
+	if (!m_isBlocking && m_activeMenu != MenuBattle::BM_CHOICE)
+		return -1;
+
+	std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->setSelectedChoice(std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->setSelectedChoice - 1);
+	std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->resizeChoiceSurface();
+
+	return 0;
+}
+
+
 int MenuBattle::af_MenuBattleEnter(Game &g)
 {
 	int ret(0);
