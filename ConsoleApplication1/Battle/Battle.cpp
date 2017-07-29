@@ -176,7 +176,10 @@ int Battle::update(Game *g)
 	if (!m_battleMenu->getIsBlocking())
 	{
 		// [TODO]
-		m_battleEventManager.execute(this);
+		// <debuging>
+		m_battleMenu->setActiveMenu(MenuBattle::BM_CHOICE);
+		// </debuging>
+		//m_battleEventManager.execute(this);
 	}
 
 	m_updated = false;

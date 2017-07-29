@@ -368,6 +368,12 @@ IG_Action::s_action getActionFromWord(std::string w)
 		return &af_battleStart;
 	else if (w == "BATTLE_END")
 		return &af_battleEnd;
+	else if (w == "MENU_BATTLE_DOWN")
+		return &af_menuBattleDown;
+	else if (w == "MENU_BATTLE_UP")
+		return &af_menuBattleUp;
+	else if (w == "MENU_BATTLE_ENTER")
+		return &af_menuBattleEnter;
 
 	else
 		std::cout << "Unknown action : " << w << std::endl;

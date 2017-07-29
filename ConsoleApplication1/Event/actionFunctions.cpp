@@ -2,6 +2,7 @@
 #include "../constants.h"
 #include "../Menu/MenuChoice.h"
 #include "../Menu/MenuDialogBox.h"
+#include "../Menu/MenuBattle.h"
 
 int af_exit(Game &g)
 {
@@ -199,4 +200,25 @@ int af_battleEnd(Game &g)
 	g.getRealMap().gotUpdated();
 
 	return g.getRealBattle().end(&g);
+}
+
+int af_menuBattleDown(Game &g)
+{
+	if (!g.getRealBattle().getStarted())
+		return -1;
+	return g.getRealBattle().getRealBattleMenu().af_MenuBattleDown(g);
+}
+
+int af_menuBattleUp(Game &g)
+{
+	if (!g.getRealBattle().getStarted())
+		return -1;
+	return g.getRealBattle().getRealBattleMenu().af_MenuBattleUp(g);
+}
+
+int af_menuBattleEnter(Game &g)
+{
+	if (!g.getRealBattle().getStarted())
+		return -1;
+	return g.getRealBattle().getRealBattleMenu().af_MenuBattleEnter(g);
 }
