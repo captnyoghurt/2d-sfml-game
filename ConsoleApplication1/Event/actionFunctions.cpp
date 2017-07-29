@@ -236,3 +236,33 @@ int af_menuBattleEnter(Game &g)
 		return -1;
 	return g.getRealBattle().getRealBattleMenu().af_MenuBattleEnter(g);
 }
+
+
+int af_menuBattleUseRight(Game &g)
+{
+	if (!g.getRealBattle().getStarted())
+		return -1;
+
+	return g.getRealBattle().getRealBattleMenu().setActiveMenu(MenuBattle::BM_RIGHT);
+}
+
+int af_menuBattleUseLeft(Game &g)
+{
+	if (!g.getRealBattle().getStarted())
+		return -1;
+	return g.getRealBattle().getRealBattleMenu().setActiveMenu(MenuBattle::BM_LEFT);
+}
+
+int af_menuBattleUseDialogBox(Game &g)
+{
+	if (!g.getRealBattle().getStarted())
+		return -1;
+	return g.getRealBattle().getRealBattleMenu().setActiveMenu(MenuBattle::BM_DIALOG);
+}
+
+int af_menuBattleUseChoice(Game &g)
+{
+	if (!g.getRealBattle().getStarted())
+		return -1;
+	return g.getRealBattle().getRealBattleMenu().setActiveMenu(MenuBattle::BM_CHOICE);
+}

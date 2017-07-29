@@ -378,6 +378,14 @@ IG_Action::s_action getActionFromWord(std::string w)
 		return &af_menuBattleLeft;
 	else if (w == "MENU_BATTLE_ENTER")
 		return &af_menuBattleEnter;
+	else if (w == "MENU_BATTLE_USE_RIGHT")
+		return &af_menuBattleUseRight;
+	else if (w == "MENU_BATTLE_USE_LEFT")
+		return &af_menuBattleUseLeft;
+	else if (w == "MENU_BATTLE_USE_DIALOG_BOX")
+		return &af_menuBattleUseDialogBox;
+	else if (w == "MENU_BATTLE_USE_CHOICE")
+		return &af_menuBattleUseChoice;
 
 	else
 		std::cout << "Unknown action : " << w << std::endl;
