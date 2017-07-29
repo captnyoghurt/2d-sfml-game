@@ -154,6 +154,9 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 	m_battleMenu->setIsBlocking(true);
 	m_battleMenu->setActiveMenu(MenuBattle::BM_DIALOG);
 
+	// Choice
+	m_battleMenu->getRealMenus().at(MenuBattle::BM_CHOICE)->setShown(false);
+
 	m_started = true;
 	m_updated = true;
 
@@ -179,6 +182,7 @@ int Battle::update(Game *g)
 		// <debuging>
 		m_battleMenu->setActiveMenu(MenuBattle::BM_CHOICE);
 		m_battleMenu->setIsBlocking(true);
+		m_battleMenu->getRealMenus().at(MenuBattle::BM_CHOICE)->setShown(true);
 		// </debuging>
 		//m_battleEventManager.execute(this);
 	}
