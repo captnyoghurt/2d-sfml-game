@@ -216,6 +216,20 @@ int af_menuBattleUp(Game &g)
 	return g.getRealBattle().getRealBattleMenu().af_MenuBattleUp(g);
 }
 
+int af_menuBattleRight(Game &g)
+{
+	if (!g.getRealBattle().getStarted())
+		return -1;
+	return g.getRealBattle().getRealBattleMenu().af_MenuBattleRight(g);
+}
+
+int af_menuBattleLeft(Game &g)
+{
+	if (!g.getRealBattle().getStarted())
+		return -1;
+	return g.getRealBattle().getRealBattleMenu().af_MenuBattleLeft(g);
+}
+
 int af_menuBattleEnter(Game &g)
 {
 	if (!g.getRealBattle().getStarted())

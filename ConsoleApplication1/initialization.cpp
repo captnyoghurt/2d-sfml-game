@@ -372,6 +372,10 @@ IG_Action::s_action getActionFromWord(std::string w)
 		return &af_menuBattleDown;
 	else if (w == "MENU_BATTLE_UP")
 		return &af_menuBattleUp;
+	else if (w == "MENU_BATTLE_RIGHT")
+		return &af_menuBattleRight;
+	else if (w == "MENU_BATTLE_LEFT")
+		return &af_menuBattleLeft;
 	else if (w == "MENU_BATTLE_ENTER")
 		return &af_menuBattleEnter;
 
