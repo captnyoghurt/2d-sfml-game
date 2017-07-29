@@ -103,10 +103,10 @@ int MenuChoice::setSelectedChoice(const int	&ch)
 	m_cursorSurfaceDown->second->setEnable((unsigned)m_lastChoiceShown < m_choices.size() - 1);
 	m_cursorSurfaceUp->second->setEnable(m_firstChoiceShown > 0);
 
-	std::dynamic_pointer_cast<SurfaceSprite>(m_selectedChoiceSurface->second)->setDimensions(std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getX(),
+	/*std::dynamic_pointer_cast<SurfaceSprite>(m_selectedChoiceSurface->second)->setDimensions(std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getX(),
 		std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getY() + ((m_selectedChoice - m_firstChoiceShown)*MENUS_GAP_BETWEEN_LINES) + MENUS_BORDER_Y - ((MENU_SURFACE_SELECTED_HEIGHT - MENU_SIMPLE_FONTSIZE) / 4),
 		int(std::dynamic_pointer_cast<SurfaceSprite>(m_selectedChoiceSurface->second)->getGlobalBounds().width),
-		int(std::dynamic_pointer_cast<SurfaceSprite>(m_selectedChoiceSurface->second)->getGlobalBounds().height));
+		int(std::dynamic_pointer_cast<SurfaceSprite>(m_selectedChoiceSurface->second)->getGlobalBounds().height));*/
 
 	for (unsigned int i(0); i < m_choices.size(); i++)
 	{
@@ -119,6 +119,13 @@ int MenuChoice::setSelectedChoice(const int	&ch)
 			m_choices.at(i)->setShown(false, 0, 0);
 		}
 	}
+
+	m_selectedChoiceSurface->second->setDimensions(
+		m_choices.at(m_selectedChoice)->getX() - MENUS_BORDER_X,
+		m_choices.at(m_selectedChoice)->getY() - m_firstChoiceShown*MENUS_GAP_BETWEEN_LINES,
+		int(std::dynamic_pointer_cast<SurfaceSprite>(m_selectedChoiceSurface->second)->getGlobalBounds().width),
+		int(std::dynamic_pointer_cast<SurfaceSprite>(m_selectedChoiceSurface->second)->getGlobalBounds().height)
+	);
 
 	return 1;
 }
