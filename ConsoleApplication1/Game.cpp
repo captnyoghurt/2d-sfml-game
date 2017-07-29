@@ -226,7 +226,8 @@ int Game::print()
 
 	if (m_battle.getStarted())
 	{
-		ret = m_surfaceManager.at(BATTLE_MIN_LAYER).print(m_window, Camera(0, 0, CAMERA_WIDTH, CAMERA_HEIGHT, CAMERA_WIDTH, CAMERA_HEIGHT));
+		for(int i (BATTLE_MIN_LAYER) ; i < BATTLE_MAX_LAYER ; i++)
+			ret = m_surfaceManager.at(i).print(m_window, Camera(0, 0, CAMERA_WIDTH, CAMERA_HEIGHT, CAMERA_WIDTH, CAMERA_HEIGHT));
 	}
 	else
 	{
