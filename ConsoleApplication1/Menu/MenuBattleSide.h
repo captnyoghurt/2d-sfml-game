@@ -31,11 +31,12 @@ public:
 	// Return all the choices with modifying possibilities
 	std::vector< std::shared_ptr<M_choice> >& getChoices();
 
+	// Modify if the menu should be shown or not
+	virtual int setShown(const bool &b);
 	// Modify the current selected choice
 	int setSelectedChoice(const int &s);
 	// Modify the maximum number of choices
 	int setNumberMaxChoices(const int &c);
-
 
 	// Update the surfaces according to the ressource given
 	int updateBar(int n, MenuBattleSide::e_menuBattleSideItems type, int act, int max);

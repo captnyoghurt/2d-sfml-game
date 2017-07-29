@@ -57,6 +57,13 @@ std::vector< std::shared_ptr<M_choice> >& MenuBattleSide::getChoices()
 }
 
 
+// Modify if the menu should be shown or not
+int MenuBattleSide::setShown(const bool &b)
+{
+	m_cursorSurfaceRight->second->setEnable(b);
+}
+
+
 // Modify the current selected choice
 int MenuBattleSide::setSelectedChoice(const int &s)
 {
