@@ -64,6 +64,10 @@ int MenuBattle::setActiveMenu(const int &am)
 
 	m_activeMenu = am;
 
+	m_menus.at(MenuBattle::BM_CHOICE)->setShown(am == MenuBattle::BM_CHOICE);
+	m_menus.at(MenuBattle::BM_LEFT)->setShown(am == MenuBattle::BM_LEFT);
+	m_menus.at(MenuBattle::BM_RIGHT)->setShown(am == MenuBattle::BM_RIGHT);
+
 	gotUpdated();
 
 	return 0;
@@ -170,7 +174,11 @@ int MenuBattle::af_MenuBattleEnter(Game &g)
 		ret = std::dynamic_pointer_cast<MenuDialogBox>(m_menus.at(m_activeMenu))->continueText(g.getRealRessourceManager(RESSOURCE_TEXTURE_NUMBER_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER));
 
 		if (ret == 0)
+		{
 			m_isBlocking = true;
+		}
+		else
+			setActiveMenu(MenuBattle::BM_CHOICE);
 	}
 	else
 	{

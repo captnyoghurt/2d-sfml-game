@@ -180,9 +180,9 @@ int Battle::update(Game *g)
 	{
 		// [TODO]
 		// <debuging>
-		m_battleMenu->setActiveMenu(MenuBattle::BM_CHOICE);
+		//m_battleMenu->setActiveMenu(MenuBattle::BM_CHOICE);
 		m_battleMenu->setIsBlocking(true);
-		m_battleMenu->getRealMenus().at(MenuBattle::BM_CHOICE)->setShown(true);
+		//m_battleMenu->getRealMenus().at(MenuBattle::BM_CHOICE)->setShown(true);
 		// </debuging>
 		//m_battleEventManager.execute(this);
 	}
