@@ -184,11 +184,11 @@ int MenuBattle::af_MenuBattleEnter(Game &g)
 	{
 		ret = std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->getChoices().at(std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->getSelectedChoice())->getAction().getAction()(g);
 		// <debuging>
-		m_menus.at(MenuBattle::BM_CHOICE)->setShown(false);
+		/*m_menus.at(MenuBattle::BM_CHOICE)->setShown(false);
 		m_isBlocking = true;
-		m_activeMenu = MenuBattle::BM_DIALOG;
-		std::dynamic_pointer_cast<MenuDialogBox>(m_menus.at(m_activeMenu))->addText("Selected choice.");
-		std::dynamic_pointer_cast<MenuDialogBox>(m_menus.at(m_activeMenu))->continueText(g.getRealRessourceManager(RESSOURCE_TEXTURE_NUMBER_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER));
+		m_activeMenu = MenuBattle::BM_DIALOG;*/
+		std::dynamic_pointer_cast<MenuDialogBox>(m_menus.at(BM_DIALOG))->addText("Selected choice.");
+		/*std::dynamic_pointer_cast<MenuDialogBox>(m_menus.at(m_activeMenu))->continueText(g.getRealRessourceManager(RESSOURCE_TEXTURE_NUMBER_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER));*/
 
 		// </debuging>
 	}
