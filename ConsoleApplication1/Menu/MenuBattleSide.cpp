@@ -69,7 +69,7 @@ int MenuBattleSide::setShown(const bool &b)
 // Modify the current selected choice
 int MenuBattleSide::setSelectedChoice(const int &s)
 {
-	if ((unsigned)s < (unsigned)m_numberMaxChoices)
+	if ((unsigned)s < m_choices.size())
 	{
 		m_selectedChoice = s;
 
