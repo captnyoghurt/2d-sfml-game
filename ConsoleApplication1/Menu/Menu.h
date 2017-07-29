@@ -14,6 +14,8 @@ public:
 	~Menu();
 
 public:
+	// Return if the menu is shown
+	bool getShown() const;
 	// Return if the menu is initialized
 	bool getInitialized() const;
 	// Return the background with modifying possibilities
@@ -27,6 +29,9 @@ public:
 	// Return the height of the menu
 	int getHeight() const;
 
+	// Modify if the menu should be shown or not
+	virtual int setShown(const bool &b);
+
 	// Load the menu
 	virtual int load(ManageRessources& ress, ManageSurfaces& surf, const int &x, const int &y, const int &w = -1, const int &h = -1);
 	// Update surfaces
@@ -34,6 +39,7 @@ public:
 	// Close the menu
 	virtual int close(ManageSurfaces& surf);
 protected:
+	bool m_shown;
 	bool m_initialized;
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator m_background;
 	int m_lastEventLayer;

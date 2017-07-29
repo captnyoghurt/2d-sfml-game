@@ -30,11 +30,19 @@ Menu::Menu(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer)
 	m_width = 0;
 	m_height = 0;
 	m_initialized = false;
+	m_shown = true;
 }
 
 
 Menu::~Menu()
 {
+}
+
+
+// Return if the menu is shown
+bool Menu::getShown() const
+{
+	return m_shown;
 }
 
 
@@ -121,6 +129,29 @@ int Menu::getHeight() const
 	return m_height;
 }
 
+
+// Modify if the menu should be shown or not
+int Menu::setShown(const bool &b)
+{
+	if (!m_initialized)
+		return -1;
+
+	if (m_shown == b)
+		return 0;
+
+	m_shown = b;
+
+	if (b)
+	{
+		m_background->second->setEnable(true);
+	}
+	else
+	{
+		m_background->second->setEnable(false);
+	}
+
+	return 0;
+}
 /*
 // Modify the selected choice
 int Menu::setSelectedChoice(const int &ch)
