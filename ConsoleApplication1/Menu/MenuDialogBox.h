@@ -23,6 +23,8 @@ public:
 
 	// Modify the global text in the dialog box
 	int setText(const std::string &text);
+	// Add text to the stream
+	int addText(const std::string &text);
 
 	// Keep on reading in the text
 	int continueText(ManageRessources& ress, ManageSurfaces& surf);
@@ -48,7 +50,7 @@ private:
 	std::list < std::pair < ManageSurfaces::e_thing, std::shared_ptr<Surface> > >::iterator m_cursorSurfaceDown;
 	std::vector < std::list < std::pair < ManageSurfaces::e_thing, std::shared_ptr<Surface> > >::iterator > m_textSurface;
 	std::string m_text;
-	std::istringstream m_textStream;
+	std::stringstream m_textStream;
 	int m_firstShownCharacter;
 	int m_lastShownCharacter;
 };

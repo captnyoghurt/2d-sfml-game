@@ -5,6 +5,7 @@
 #include "../Menu/MenuBattle.h"
 #include "../Game.h"
 #include "../Menu/MenuBattleSide.h"
+#include "../Menu/MenuDialogBox.h"
 
 
 
@@ -142,6 +143,13 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 	m_enemieTeam.addMember(f);
 
 	std::dynamic_pointer_cast<MenuBattleSide>(m_battleMenu->getRealMenus().at(MenuBattle::BM_LEFT))->loadWithEnemies(g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_MENU), g->getRealSurfaceManager(BATTLE_MIN_LAYER), m_enemieTeam);
+
+	// Dialog box
+	std::dynamic_pointer_cast<MenuDialogBox>(m_battleMenu->getRealMenus().at(MenuBattle::BM_DIALOG))->addText("Début du combat.\n");
+	std::dynamic_pointer_cast<MenuDialogBox>(m_battleMenu->getRealMenus().at(MenuBattle::BM_DIALOG))->continueText(
+		g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_MENU),
+		g->getRealSurfaceManager(BATTLE_MIN_LAYER)
+	);
 
 	m_started = true;
 	m_updated = true;

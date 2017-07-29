@@ -63,6 +63,15 @@ int MenuDialogBox::setText(const std::string &text)
 }
 
 
+// Add text to the stream
+int MenuDialogBox::addText(const std::string &text)
+{
+	m_textStream << text;
+
+	return 0;
+}
+
+
 // Keep on reading in the text
 int MenuDialogBox::continueText(ManageRessources& ress, ManageSurfaces& surf)
 {
