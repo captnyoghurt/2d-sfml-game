@@ -192,3 +192,8 @@ extern int MANA_IMAGE_POSITION_X;
 extern int MANA_IMAGE_POSITION_Y;
 extern int MANA_IMAGE_WIDTH;
 extern int MANA_IMAGE_HEIGHT;
+
+/// Team
+extern std::string TEAM_BATTLE_CHAR1_NAME;
+extern int TEAM_BATTLE_CHAR1_X;
+extern int TEAM_BATTLE_CHAR1_Y;
