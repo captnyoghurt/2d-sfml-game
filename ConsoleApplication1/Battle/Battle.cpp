@@ -151,6 +151,9 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 		g->getRealSurfaceManager(BATTLE_MIN_LAYER)
 	);
 
+	m_battleMenu->setIsBlocking(true);
+	m_battleMenu->setActiveMenu(MenuBattle::BM_DIALOG);
+
 	m_started = true;
 	m_updated = true;
 
@@ -162,13 +165,19 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 int Battle::update(Game *g)
 {
 	// [TODO]
-	if (!m_updated || !m_started)
+	if ((!m_updated && !m_battleMenu->getUpdated()) || !m_started)
 		return 1;
 
 	m_battleMenu->getRealMenus().at(MenuBattle::BM_LEFT)->update(*g);
 	m_battleMenu->getRealMenus().at(MenuBattle::BM_RIGHT)->update(*g);
 	m_battleMenu->getRealMenus().at(MenuBattle::BM_DIALOG)->update(*g);
 	m_battleMenu->getRealMenus().at(MenuBattle::BM_CHOICE)->update(*g);
+
+	if (!m_battleMenu->getIsBlocking())
+	{
+		// [TODO]
+		m_battleEventManager.execute(this);
+	}
 
 	m_updated = false;
 
