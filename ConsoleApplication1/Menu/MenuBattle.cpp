@@ -126,7 +126,7 @@ int MenuBattle::af_MenuBattleRight(Game &g)
 	if (!m_isBlocking || m_activeMenu != MenuBattle::BM_CHOICE)
 		return -1;
 
-	if (std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->getSelectedChoice() < std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->getChoices().size())
+	if ((unsigned)std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->getSelectedChoice() < std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->getChoices().size())
 	{
 		std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->setSelectedChoice(std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->getSelectedChoice() + 1);
 		std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->resizeChoiceSurface();
@@ -176,6 +176,7 @@ int MenuBattle::af_MenuBattleEnter(Game &g)
 	{
 		ret = std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->getChoices().at(std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->getSelectedChoice())->getAction().getAction()(g);
 		// <debuging>
+		m_menus.at(MenuBattle::BM_CHOICE)->setShown(false);
 		m_isBlocking = true;
 		m_activeMenu = MenuBattle::BM_DIALOG;
 		std::dynamic_pointer_cast<MenuDialogBox>(m_menus.at(m_activeMenu))->addText("Selected choice.");
