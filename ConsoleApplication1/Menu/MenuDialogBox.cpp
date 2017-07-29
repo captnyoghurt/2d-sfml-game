@@ -50,6 +50,18 @@ std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterato
 }
 
 
+// Modify if the menu should be shown or not
+int MenuDialogBox::setShown(const bool &b)
+{
+	if (Menu::setShown(b) >= 0)
+	{
+		for (unsigned int i(0); i < m_textSurface.size(); i++)
+			m_textSurface.at(i)->second->setEnable(b);
+		return 0;
+	}
+	return -1;
+}
+
 // Modify the global text in the dialog box
 int MenuDialogBox::setText(const std::string &text)
 {

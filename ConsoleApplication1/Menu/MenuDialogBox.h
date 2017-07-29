@@ -20,7 +20,9 @@ public:
 
 	// Return the down cursor surface with modifying possibilities
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& getCursorSurfaceDown();
-
+	
+	// Modify if the menu should be shown or not
+	int setShown(const bool &b);
 	// Modify the global text in the dialog box
 	int setText(const std::string &text);
 	// Add text to the stream
