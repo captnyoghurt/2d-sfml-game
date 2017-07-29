@@ -81,6 +81,27 @@ int MenuChoice::getLastChoiceShown() const
 }
 
 
+// Modify if the menu should be shown or not
+int MenuChoice::setShown(const bool &b)
+{
+	if (Menu::setShown(b) >= 0)
+	{
+		m_cursorSurfaceDown->second->setEnable(b);
+		m_cursorSurfaceUp->second->setEnable(b);
+		m_selectedChoiceSurface->second->setEnable(b);
+
+		for (unsigned int i(0); i < m_choices.size(); i++)
+		{
+			m_choices.at(i)->getRealSurface()->second->setEnable(b);
+		}
+		if(b)
+			setSelectedChoice(m_selectedChoice);
+	}
+
+	return -1;
+}
+
+
 // Modify the selected choice
 int MenuChoice::setSelectedChoice(const int	&ch)
 {

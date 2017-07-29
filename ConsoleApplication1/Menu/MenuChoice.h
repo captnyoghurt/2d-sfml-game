@@ -28,6 +28,8 @@ public:
 	// Return the last choice actually shown
 	int getLastChoiceShown() const;
 
+	// Modify if the menu should be shown or not
+	virtual int setShown(const bool &b);
 	// Modify the selected choice
 	int setSelectedChoice(const int &ch);
 
