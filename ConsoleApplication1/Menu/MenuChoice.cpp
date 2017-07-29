@@ -104,7 +104,7 @@ int MenuChoice::setSelectedChoice(const int	&ch)
 	m_cursorSurfaceUp->second->setEnable(m_firstChoiceShown > 0);
 
 	std::dynamic_pointer_cast<SurfaceSprite>(m_selectedChoiceSurface->second)->setDimensions(std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getX(),
-		std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getY() + ((m_selectedChoice - m_firstChoiceShown)*MENUS_GAP_BETWEEN_LINES) + MENUS_BORDER_Y - ((MENU_SURFACE_SELECTED_HEIGHT-MENU_SIMPLE_FONTSIZE)/4),
+		std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getY() + ((m_selectedChoice - m_firstChoiceShown)*MENUS_GAP_BETWEEN_LINES) + MENUS_BORDER_Y - ((MENU_SURFACE_SELECTED_HEIGHT - MENU_SIMPLE_FONTSIZE) / 4),
 		int(std::dynamic_pointer_cast<SurfaceSprite>(m_selectedChoiceSurface->second)->getGlobalBounds().width),
 		int(std::dynamic_pointer_cast<SurfaceSprite>(m_selectedChoiceSurface->second)->getGlobalBounds().height));
 
@@ -121,6 +121,28 @@ int MenuChoice::setSelectedChoice(const int	&ch)
 	}
 
 	return 1;
+}
+
+
+// Resize the ChoiceSurface according to the selected choice
+int MenuChoice::resizeChoiceSurface()
+{
+	float w, h;
+
+	if (!m_initialized)
+		return -1;
+
+	w = (float)m_choices.at(m_selectedChoice)->getRealSurface()->second->getWidth() + 2 * MENUS_BORDER_X;
+	h = (float)m_choices.at(m_selectedChoice)->getRealSurface()->second->getHeight();
+
+	std::dynamic_pointer_cast<SurfaceSprite>(m_selectedChoiceSurface->second)->setWidth((int)w);
+	std::dynamic_pointer_cast<SurfaceSprite>(m_selectedChoiceSurface->second)->setHeight((int)h);
+
+	std::dynamic_pointer_cast<SurfaceSprite>(m_selectedChoiceSurface->second)->scale(
+		w / std::dynamic_pointer_cast<SurfaceSprite>(m_selectedChoiceSurface->second)->getGlobalBounds().width,
+		h / std::dynamic_pointer_cast<SurfaceSprite>(m_selectedChoiceSurface->second)->getGlobalBounds().height
+	);
+	return 0;
 }
 
 

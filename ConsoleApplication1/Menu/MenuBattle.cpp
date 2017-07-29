@@ -166,5 +166,7 @@ int MenuBattle::load(Battle *b, ManageRessources &ress, ManageSurfaces &surf)
 	m_menus.at(BM_DIALOG)->load(ress, surf, CAMERA_WIDTH / 6, (4 * CAMERA_HEIGHT / 5), 2 * CAMERA_WIDTH / 3, CAMERA_HEIGHT / 5);
 	std::dynamic_pointer_cast<MenuChoice>(m_menus.at(BM_CHOICE))->load(ress, surf, MENU_BATTLE_CHOICE_TEXT, 0, 0);/*CAMERA_WIDTH / 6, (4 * CAMERA_HEIGHT / 5) - (MENU_SIMPLE_FONTSIZE * 2));*/
 
+	std::dynamic_pointer_cast<MenuChoice>(m_menus.at(BM_CHOICE))->resizeChoiceSurface();
+
 	return 0;
 }

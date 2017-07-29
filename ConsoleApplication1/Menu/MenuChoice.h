@@ -31,6 +31,9 @@ public:
 	// Modify the selected choice
 	int setSelectedChoice(const int &ch);
 
+	// Resize the ChoiceSurface according to the selected choice
+	int resizeChoiceSurface();
+
 	// Load the menu
 	virtual int load(ManageRessources& ress, ManageSurfaces& surf, const std::string &filename, const int &xcam, const int &ycam);
 	// Update surfaces
