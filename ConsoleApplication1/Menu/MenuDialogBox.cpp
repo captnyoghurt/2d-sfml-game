@@ -78,15 +78,11 @@ int MenuDialogBox::setText(const std::string &text)
 // Add text to the stream
 int MenuDialogBox::addText(const std::string &text)
 {
-	//m_textStream << text.c_str();
 	m_text += text;
-	int pos = m_textStream.tellg();
 	
 	m_textStream.str("");
 	m_textStream.clear();
 	m_textStream << text;
-
-	//m_textStream.seekg(pos);
 
 	return 0;
 }
