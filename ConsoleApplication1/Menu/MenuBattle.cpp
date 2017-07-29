@@ -179,6 +179,8 @@ int MenuBattle::af_MenuBattleEnter(Game &g)
 		m_isBlocking = true;
 		m_activeMenu = MenuBattle::BM_DIALOG;
 		std::dynamic_pointer_cast<MenuDialogBox>(m_menus.at(m_activeMenu))->addText("Selected choice.");
+		std::dynamic_pointer_cast<MenuDialogBox>(m_menus.at(m_activeMenu))->continueText(g.getRealRessourceManager(RESSOURCE_TEXTURE_NUMBER_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER));
+
 		// </debuging>
 	}
 

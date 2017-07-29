@@ -4,7 +4,7 @@
 
 
 
-MenuDialogBox::MenuDialogBox(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer) : Menu(ress, surf, lastEventLayer)
+MenuDialogBox::MenuDialogBox(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer) : Menu(ress, surf, lastEventLayer), m_textStream(std::ios_base::app | std::ios_base::in | std::ios_base::out)
 {
 	m_cursorSurfaceDown = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::make_shared<SurfaceSprite>());
 	
@@ -66,7 +66,10 @@ int MenuDialogBox::setText(const std::string &text)
 // Add text to the stream
 int MenuDialogBox::addText(const std::string &text)
 {
-	m_textStream << text;
+	//m_textStream << text.c_str();
+	m_text += text;
+	m_textStream.clear();
+	m_textStream << m_text;
 
 	return 0;
 }
