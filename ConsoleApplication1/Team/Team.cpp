@@ -36,6 +36,8 @@ Team::Team(Game &g)
 	tm.setName("Team mate");
 	m_teamBattle.addMember(tm);
 
+	m_teamBattle.load(&g);
+	
 	// Load the textures
 	auto texture = g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MAP).addTexture();
 	if (!texture->loadFromFile(TEAM_BASIC_WALKSTAND))
