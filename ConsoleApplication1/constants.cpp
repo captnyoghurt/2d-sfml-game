@@ -190,3 +190,7 @@ int MANA_IMAGE_HEIGHT = MANA_SURFACE_HEIGHT;
 std::string TEAM_BATTLE_CHAR1_NAME("data/graphic/battleset/001-f1.png");
 int TEAM_BATTLE_CHAR1_X = 500;
 int TEAM_BATTLE_CHAR1_Y = 50;
+
+std::string TEAM_BATTLE_CHAR2_NAME("data/graphic/battleset/001-f2.png");
+int TEAM_BATTLE_CHAR2_X = 500;
+int TEAM_BATTLE_CHAR2_Y = 100;

@@ -197,3 +197,7 @@ extern int MANA_IMAGE_HEIGHT;
 extern std::string TEAM_BATTLE_CHAR1_NAME;
 extern int TEAM_BATTLE_CHAR1_X;
 extern int TEAM_BATTLE_CHAR1_Y;
+
+extern std::string TEAM_BATTLE_CHAR2_NAME;
+extern int TEAM_BATTLE_CHAR2_X;
+extern int TEAM_BATTLE_CHAR2_Y;

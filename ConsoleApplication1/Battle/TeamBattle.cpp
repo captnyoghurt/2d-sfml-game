@@ -1,5 +1,5 @@
 #include "TeamBattle.h"
-
+#include "../Game.h"
 
 
 TeamBattle::TeamBattle()
@@ -38,6 +38,15 @@ std::vector<TeamMate>& TeamBattle::getRealTeam()
 int TeamBattle::addMember(TeamMate m)
 {
 	m_team.push_back(m);
+
+	return 0;
+}
+
+
+// Load the team battle
+int TeamBattle::load(Game *g)
+{
+
 
 	return 0;
 }

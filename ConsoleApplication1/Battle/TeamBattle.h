@@ -3,6 +3,8 @@
 #include <vector>
 #include "TeamMate.h"
 
+class Game;
+
 class TeamBattle
 {
 public:
@@ -21,6 +23,8 @@ public:
 	// Add a new member
 	int addMember(TeamMate m);
 
+	// Load the team battle
+	int load(Game *g);
 	// Update the team batttle
 	int update();
 private:
