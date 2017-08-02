@@ -55,7 +55,7 @@ int TeamBattle::load(Game *g)
 		return -1;
 
 	auto texture2 = g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_BATTLE).addTexture();
-	if (!texture2->loadFromFile(TEAM_BATTLE_CHAR1_NAME))
+	if (!texture2->loadFromFile(TEAM_BATTLE_CHAR2_NAME))
 		return -1;
 
 	m_team.at(0).setSurface(g->getRealSurfaceManager(BATTLE_MAX_LAYER - 1).addSurface(ManageSurfaces::e_thing::SPRITE, std::make_shared<SurfaceSprite>()));
