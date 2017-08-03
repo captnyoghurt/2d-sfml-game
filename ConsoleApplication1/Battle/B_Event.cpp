@@ -83,6 +83,13 @@ std::deque< std::shared_ptr<Fighter> >& B_Event::getEnemyDestination()
 }
 
 
+// Return the source of the event with modifying possibilities
+std::shared_ptr<Fighter>& B_Event::getRealSource()
+{
+	return m_source;
+}
+
+
 // Do the event
 int B_Event::execute(Battle *bat)
 {

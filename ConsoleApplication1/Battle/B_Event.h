@@ -32,6 +32,8 @@ public:
 	std::deque< std::shared_ptr<Fighter> >& getAllyDestination();
 	// Return the enemy destination with modifying possibilities
 	std::deque< std::shared_ptr<Fighter> >& getEnemyDestination();
+	// Return the source of the event with modifying possibilities
+	std::shared_ptr<Fighter>& getRealSource();
 
 	// Do the event
 	virtual int execute(Battle *bat);
@@ -41,5 +43,6 @@ protected:
 	int m_numberEnemyDestination;
 	std::deque< std::shared_ptr<Fighter> > m_allyDestination;
 	std::deque< std::shared_ptr<Fighter> > m_enemyDestination;
+	std::shared_ptr<Fighter> m_source;
 };
 
