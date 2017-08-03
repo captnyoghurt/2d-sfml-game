@@ -70,14 +70,14 @@ int B_Event::setNumberEnemyDestination(const int &n)
 
 
 // Return the ally destination with modifying possibilities
-std::deque< std::shared_ptr<Fighter> >& B_Event::getAllyDestination()
+std::deque< std::shared_ptr<Fighter> >& B_Event::getRealAllyDestination()
 {
 	return m_allyDestination;
 }
 
 
 // Return the enemy destination with modifying possibilities
-std::deque< std::shared_ptr<Fighter> >& B_Event::getEnemyDestination()
+std::deque< std::shared_ptr<Fighter> >& B_Event::getRealEnemyDestination()
 {
 	return m_enemyDestination;
 }

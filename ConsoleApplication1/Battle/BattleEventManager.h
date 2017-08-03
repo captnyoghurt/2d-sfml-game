@@ -21,11 +21,14 @@ public:
 
 	// Add an event to the top of the list
 	int addToFront(std::shared_ptr<B_Event> b);
+	// Create an event
+	int createEvent(std::shared_ptr<Fighter> source, std::shared_ptr<B_Event> type);
 
 	// Execute the header event
 	int execute(Battle *b);
 
 private:
 	std::list<std::shared_ptr<B_Event> > m_battleEvents;
+	std::pair<std::shared_ptr<Fighter>, std::shared_ptr<B_Event> > m_eventInConstruction;
 };
 

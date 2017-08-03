@@ -29,9 +29,9 @@ public:
 	int setNumberEnemyDestination(const int &n);
 
 	// Return the ally destination with modifying possibilities
-	std::deque< std::shared_ptr<Fighter> >& getAllyDestination();
+	std::deque< std::shared_ptr<Fighter> >& getRealAllyDestination();
 	// Return the enemy destination with modifying possibilities
-	std::deque< std::shared_ptr<Fighter> >& getEnemyDestination();
+	std::deque< std::shared_ptr<Fighter> >& getRealEnemyDestination();
 	// Return the source of the event with modifying possibilities
 	std::shared_ptr<Fighter>& getRealSource();
 

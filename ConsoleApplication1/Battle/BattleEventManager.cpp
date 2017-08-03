@@ -2,7 +2,7 @@
 
 
 
-BattleEventManager::BattleEventManager()
+BattleEventManager::BattleEventManager() : m_eventInConstruction(nullptr, nullptr)
 {
 }
 
@@ -30,6 +30,20 @@ std::list<std::shared_ptr<B_Event>>& BattleEventManager::getRealBattleEvents()
 int BattleEventManager::addToFront(std::shared_ptr<B_Event> b)
 {
 	m_battleEvents.push_front(b);
+
+	return 0;
+}
+
+
+// Create an event
+int BattleEventManager::createEvent(std::shared_ptr<Fighter> source, std::shared_ptr<B_Event> type)
+{
+	if (m_eventInConstruction.first != nullptr)
+		return -1;
+
+	m_eventInConstruction = std::make_pair(source, type);
+
+
 
 	return 0;
 }
