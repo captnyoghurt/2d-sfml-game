@@ -4,6 +4,8 @@
 
 B_EventEscape::B_EventEscape()
 {
+	m_numberAllyDestination = 0;
+	m_numberEnemyDestination = 0;
 }
 
 

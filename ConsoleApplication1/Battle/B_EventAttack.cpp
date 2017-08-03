@@ -4,6 +4,8 @@
 
 B_EventAttack::B_EventAttack()
 {
+	m_numberAllyDestination = 0;
+	m_numberEnemyDestination = 1;
 }
 
 
@@ -12,6 +14,8 @@ B_EventAttack::B_EventAttack(std::shared_ptr<Fighter> source, std::shared_ptr<Fi
 	m_source = source;
 	m_destination = dest;
 	m_description = description;
+	m_numberAllyDestination = 0;
+	m_numberEnemyDestination = 1;
 }
 
 

@@ -4,6 +4,8 @@
 
 B_EventDefense::B_EventDefense()
 {
+	m_numberAllyDestination = 0;
+	m_numberEnemyDestination = 0;
 }
 
 
@@ -11,6 +13,9 @@ B_EventDefense::B_EventDefense(std::shared_ptr<Fighter> dest, const std::string 
 {
 	m_destination = dest;
 	m_description = description;
+
+	m_numberAllyDestination = 0;
+	m_numberEnemyDestination = 0;
 }
 
 
