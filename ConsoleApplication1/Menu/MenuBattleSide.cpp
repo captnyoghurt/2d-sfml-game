@@ -1,3 +1,4 @@
+#include <functional>
 #include "../constants.h"
 #include "../Map/ManageSurfaces.h"
 #include "MenuBattleSide.h"
@@ -180,7 +181,8 @@ int MenuBattleSide::loadWithEnemies(ManageRessources& ress, ManageSurfaces& surf
 		m_choices.push_back(std::make_shared<M_choice>());
 
 		// NAME
-		m_choices.back()->load(surf, tm.at(i)->getName(), ress.getTheFont(0), m_background->second->getX() + MENUS_BORDER_X, m_background->second->getY() + (i * (MENU_SIMPLE_FONTSIZE * 3)), true, IG_Action(&doNothing), CAMERA_WIDTH / 5, CAMERA_HEIGHT);
+		m_choices.back()->load(surf, tm.at(i)->getName(), ress.getTheFont(0), m_background->second->getX() + MENUS_BORDER_X, m_background->second->getY() + (i * (MENU_SIMPLE_FONTSIZE * 3)),
+			true, IG_Action(std::bind(&af_MenuBattleSideEnemyEnter, i, std::placeholders::_1)), CAMERA_WIDTH / 5, CAMERA_HEIGHT);
 		// HP_TEXT
 		auto hptext = surf.addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>());
 		std::dynamic_pointer_cast<SurfaceText>(hptext->second)->setFont(ress.getTheFont(0));
@@ -217,7 +219,8 @@ int MenuBattleSide::loadWithAllies(ManageRessources& ress, ManageSurfaces& surf,
 		m_choices.push_back(std::make_shared<M_choice>());
 
 		// NAME
-		m_choices.back()->load(surf, tm.at(i).getName(), ress.getTheFont(0), m_background->second->getX() + MENUS_BORDER_X, m_background->second->getY() + (i * (MENU_SIMPLE_FONTSIZE * 7)), true, IG_Action(&doNothing), CAMERA_WIDTH/5, CAMERA_HEIGHT);
+		m_choices.back()->load(surf, tm.at(i).getName(), ress.getTheFont(0), m_background->second->getX() + MENUS_BORDER_X, m_background->second->getY() + (i * (MENU_SIMPLE_FONTSIZE * 7)),
+			true, IG_Action(std::bind(&af_MenuBattleSideAllyEnter, i, std::placeholders::_1)), CAMERA_WIDTH/5, CAMERA_HEIGHT);
 		// HP_TEXT
 		auto hptext = surf.addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>());
 		std::dynamic_pointer_cast<SurfaceText>(hptext->second)->setFont(ress.getTheFont(0));
@@ -327,5 +330,23 @@ int MenuBattleSide::close(ManageSurfaces& surf)
 	surf.deleteSurface(m_background);
 	surf.deleteSurface(m_cursorSurfaceRight);
 
+	return 0;
+}
+
+
+////////////////////////////////////////////////////////////
+
+#include <iostream>
+
+int af_MenuBattleSideAllyEnter(int n, Game &g)
+{
+	std::cout << "Ally : " << n << std::endl;
+	return 0;
+}
+
+
+int af_MenuBattleSideEnemyEnter(int n, Game &g)
+{
+	std::cout << "Ennemy : " << n << std::endl;
 	return 0;
 }

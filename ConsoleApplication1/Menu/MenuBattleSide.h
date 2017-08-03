@@ -66,3 +66,7 @@ private:
 	int m_barType;
 };
 
+////////////////////////////////////////////////////////////
+
+int af_MenuBattleSideAllyEnter(int n, Game &g);
+int af_MenuBattleSideEnemyEnter(int n, Game &g);
