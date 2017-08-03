@@ -1,5 +1,6 @@
 #pragma once
 
+#include <deque>
 #include <memory>
 #include <string>
 #include "Fighter.h"
@@ -27,11 +28,18 @@ public:
 	// Modify the number of destination for "enemy" team
 	int setNumberEnemyDestination(const int &n);
 
+	// Return the ally destination with modifying possibilities
+	std::deque< std::shared_ptr<Fighter> >& getAllyDestination();
+	// Return the enemy destination with modifying possibilities
+	std::deque< std::shared_ptr<Fighter> >& getEnemyDestination();
+
 	// Do the event
 	virtual int execute(Battle *bat);
 protected:
 	std::string  m_description;
 	int m_numberAllyDestination;
 	int m_numberEnemyDestination;
+	std::deque< std::shared_ptr<Fighter> > m_allyDestination;
+	std::deque< std::shared_ptr<Fighter> > m_enemyDestination;
 };
 

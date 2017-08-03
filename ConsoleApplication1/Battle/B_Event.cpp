@@ -69,6 +69,20 @@ int B_Event::setNumberEnemyDestination(const int &n)
 }
 
 
+// Return the ally destination with modifying possibilities
+std::deque< std::shared_ptr<Fighter> >& B_Event::getAllyDestination()
+{
+	return m_allyDestination;
+}
+
+
+// Return the enemy destination with modifying possibilities
+std::deque< std::shared_ptr<Fighter> >& B_Event::getEnemyDestination()
+{
+	return m_enemyDestination;
+}
+
+
 // Do the event
 int B_Event::execute(Battle *bat)
 {
