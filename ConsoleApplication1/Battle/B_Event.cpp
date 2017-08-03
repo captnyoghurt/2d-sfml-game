@@ -90,6 +90,20 @@ std::shared_ptr<Fighter>& B_Event::getRealSource()
 }
 
 
+// Return if the deque for ally is full
+bool B_Event::isAllyDestinationFull() const
+{
+	return (m_allyDestination.size() == m_numberAllyDestination);
+}
+
+
+// Return if the deque for enemy is full
+bool B_Event::isEnemyDestinationFull() const
+{
+	return (m_enemyDestination.size() == m_numberEnemyDestination);
+}
+
+
 // Do the event
 int B_Event::execute(Battle *bat)
 {

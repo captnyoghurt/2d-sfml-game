@@ -35,6 +35,11 @@ public:
 	// Return the source of the event with modifying possibilities
 	std::shared_ptr<Fighter>& getRealSource();
 
+	// Return if the deque for ally is full
+	bool isAllyDestinationFull() const;
+	// Return if the deque for enemy is full
+	bool isEnemyDestinationFull() const;
+
 	// Do the event
 	virtual int execute(Battle *bat);
 protected:
