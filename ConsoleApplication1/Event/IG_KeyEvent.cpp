@@ -2,7 +2,7 @@
 
 IG_KeyEvent::IG_KeyEvent()
 {
-	m_action = &doNothing;
+	m_action = IG_Action(&doNothing);
 }
 
 

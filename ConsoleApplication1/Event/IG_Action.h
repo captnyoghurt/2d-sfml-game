@@ -1,5 +1,6 @@
 #pragma once
 
+#include <functional>
 #include <SFML/Graphics.hpp>
 
 // Break cyclic inclusions
@@ -9,7 +10,7 @@ class Game;
 class IG_Action
 {
 public:
-	typedef int (*s_action)(Game &);
+	typedef std::function<int(Game &)> s_action;
 
 public:
 	IG_Action();
