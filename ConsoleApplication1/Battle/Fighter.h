@@ -59,6 +59,8 @@ public:
 
 	// Make the fighter do an action for the next turn
 	int doAction(std::shared_ptr<B_Event> evt);
+	// True if the fighter is in reality a TeamMate
+	bool isTeamMate() const;
 	// True if the fighter is dead (== 0 HP)
 	bool isDead() const;
 	// Change stance & possibilities

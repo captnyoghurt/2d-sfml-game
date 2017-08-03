@@ -177,6 +177,13 @@ int Fighter::doAction(std::shared_ptr<B_Event> evt)
 }
 
 
+// True if the fighter is in reality a TeamMate
+bool Fighter::isTeamMate() const
+{
+	return false;
+}
+
+
 // True if the fighter is dead (== 0 HP)
 bool Fighter::isDead() const
 {

@@ -8,5 +8,9 @@ public:
 	TeamMate();
 	TeamMate(const TeamMate &tm);
 	~TeamMate();
+
+public:
+	// True if the fighter is in reality a TeamMate
+	bool isTeamMate() const;
 };
 
