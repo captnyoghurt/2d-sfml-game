@@ -29,6 +29,6 @@ public:
 
 private:
 	std::list<std::shared_ptr<B_Event> > m_battleEvents;
-	std::pair<std::shared_ptr<Fighter>, std::shared_ptr<B_Event> > m_eventInConstruction;
+	std::shared_ptr<B_Event> m_eventInConstruction;
 };
 
