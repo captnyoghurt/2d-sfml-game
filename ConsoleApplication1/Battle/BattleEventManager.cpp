@@ -1,4 +1,6 @@
 #include "BattleEventManager.h"
+#include "../Game.h"
+#include "../Event/actionFunctions.h"
 
 
 
@@ -36,7 +38,7 @@ int BattleEventManager::addToFront(std::shared_ptr<B_Event> b)
 
 
 // Create an event
-int BattleEventManager::createEvent(std::shared_ptr<Fighter> source, std::shared_ptr<B_Event> type)
+int BattleEventManager::createEvent(std::shared_ptr<Fighter> source, std::shared_ptr<B_Event> type, Game &g)
 {
 	if (m_eventInConstruction)
 		return -1;
@@ -44,6 +46,27 @@ int BattleEventManager::createEvent(std::shared_ptr<Fighter> source, std::shared
 	m_eventInConstruction = type;
 
 	type->getRealSource() = source;
+
+	askDestination(g);
+
+	return 0;
+}
+
+
+// Add a destination for the event in construction
+int BattleEventManager::addDestinationForEvent(std::shared_ptr<Fighter> f, Game &g)
+{
+	if (!m_eventInConstruction)
+		return -1;
+
+	if (!m_eventInConstruction->isAllyDestinationFull())
+		m_eventInConstruction->getRealAllyDestination().push_back(f);
+	else if (!m_eventInConstruction->isEnemyDestinationFull())
+		m_eventInConstruction->getRealEnemyDestination().push_back(f);
+	else
+		return -1;
+
+	askDestination(g);
 
 	return 0;
 }
@@ -62,6 +85,35 @@ int BattleEventManager::execute(Battle *b)
 	// [TODO]
 	auto it = m_battleEvents.front();
 	m_battleEvents.pop_front();
+
+	return 0;
+}
+
+
+// Tell the battle menu to ask a destination
+int BattleEventManager::askDestination(Game &g)
+{
+	if (!isCreating())
+		return -1;
+
+	if (m_eventInConstruction->getRealSource()->isTeamMate())
+	{
+		if (!m_eventInConstruction->isAllyDestinationFull())
+			af_menuBattleUseRight(g);
+		else if (!m_eventInConstruction->isEnemyDestinationFull())
+			af_menuBattleUseLeft(g);
+		else
+		{
+			m_battleEvents.push_back(m_eventInConstruction);
+			m_eventInConstruction = nullptr;
+
+			return 1;
+		}
+	}
+	else
+	{
+		return 1;
+	}
 
 	return 0;
 }
