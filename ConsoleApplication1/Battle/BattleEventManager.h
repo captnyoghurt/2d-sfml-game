@@ -23,6 +23,8 @@ public:
 	int addToFront(std::shared_ptr<B_Event> b);
 	// Create an event
 	int createEvent(std::shared_ptr<Fighter> source, std::shared_ptr<B_Event> type);
+	// Return if the manager is creating an event
+	bool isCreating() const;
 
 	// Execute the header event
 	int execute(Battle *b);

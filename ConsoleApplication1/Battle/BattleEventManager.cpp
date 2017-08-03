@@ -49,6 +49,13 @@ int BattleEventManager::createEvent(std::shared_ptr<Fighter> source, std::shared
 }
 
 
+// Return if the manager is creating an event
+bool BattleEventManager::isCreating() const
+{
+	return !(!m_eventInConstruction);
+}
+
+
 // Execute the header event
 int BattleEventManager::execute(Battle *b)
 {
