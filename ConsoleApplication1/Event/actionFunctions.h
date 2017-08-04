@@ -54,3 +54,6 @@ int af_menuBattleUseRight(Game &g);
 int af_menuBattleUseLeft(Game &g);
 int af_menuBattleUseDialogBox(Game &g);
 int af_menuBattleUseChoice(Game &g);
+
+/// Event battle
+int af_battleEventCreateAttack(Game &g);

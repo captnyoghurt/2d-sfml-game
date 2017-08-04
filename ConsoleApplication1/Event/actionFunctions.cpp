@@ -3,6 +3,7 @@
 #include "../Menu/MenuChoice.h"
 #include "../Menu/MenuDialogBox.h"
 #include "../Menu/MenuBattle.h"
+#include "../Battle/B_EventAttack.h"
 
 int af_exit(Game &g)
 {
@@ -268,4 +269,18 @@ int af_menuBattleUseChoice(Game &g)
 	if (!g.getRealBattle().getStarted())
 		return -1;
 	return g.getRealBattle().getRealBattleMenu().setActiveMenu(MenuBattle::BM_CHOICE);
+}
+
+
+/// Event battle
+int af_battleEventCreateAttack(Game &g)
+{
+	if (!g.getRealBattle().getStarted())
+		return -1;
+
+	return g.getRealBattle().getRealBattleEventManager().createEvent(
+		g.getRealBattle().getRealBattleOrder().at(g.getRealBattle().getBattleEventCreated()),
+		std::make_shared<B_Event>(B_EventAttack()),
+		g
+	);
 }
