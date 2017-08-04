@@ -232,3 +232,26 @@ int Battle::end(Game *g)
 
 	return 0;
 }
+
+
+// Set m_battleOrder to make the right order
+int Battle::definedOrder(Game *g)
+{
+	if (!m_started)
+		return -1;
+
+	for (unsigned int i(1) ; i < m_battleOrder.size() ; i++)
+	{
+		for (int j(i-1) ; j >= 0 ; j--)
+		{
+			if (m_battleOrder.at(i)->getRealCharacteristics().at(Characteristic::e_characteristics::SPEED).getValue()
+				<= m_battleOrder.at(j)->getRealCharacteristics().at(Characteristic::e_characteristics::SPEED).getValue())
+			{
+				std::swap(m_battleOrder.at(i), m_battleOrder.at(j));
+				j = -1;
+			}
+		}
+	}
+
+	return 0;
+}

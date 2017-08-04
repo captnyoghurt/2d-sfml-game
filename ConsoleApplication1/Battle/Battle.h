@@ -53,6 +53,10 @@ public:
 	// End the battle
 	int end(Game *g);
 
+protected:
+	// Set m_battleOrder to make the right order
+	int definedOrder(Game *g);
+
 private:
 	bool m_updated;
 	bool m_started;
@@ -66,5 +70,6 @@ private:
 	BattleEventManager m_battleEventManager;
 	std::list<sf::Texture>::iterator m_texture;
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator m_background;
+	std::vector< std::shared_ptr<Fighter> > m_battleOrder;
 };
 
