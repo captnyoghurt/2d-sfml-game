@@ -21,6 +21,8 @@ public:
 	bool getStarted() const;
 	// Return if the turn has begun
 	bool getInTurn() const;
+	// Return if the choices for the turn has been made
+	bool getChoicesFinished() const;
 	// Return the number of turn since the begining of the battle
 	int getBattleTurn() const;
 	// Return the enemie team
@@ -55,6 +57,7 @@ private:
 	bool m_updated;
 	bool m_started;
 	bool m_inTurn;
+	bool m_choicesFinished;
 	int m_battleTurn;
 	int m_lastKeyEventLayer;
 	Enemies m_enemieTeam;

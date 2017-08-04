@@ -14,6 +14,7 @@ Battle::Battle(TeamBattle &tb)
 	m_updated = true;
 	m_started = false;
 	m_inTurn = false;
+	m_choicesFinished = false;
 	
 	// Team
 	m_alliesTeam = &tb;
@@ -37,6 +38,13 @@ bool Battle::getStarted() const
 bool Battle::getInTurn() const
 {
 	return m_inTurn;
+}
+
+
+// Return if the choices for the turn has been made
+bool Battle::getChoicesFinished() const
+{
+	return m_choicesFinished;
 }
 
 
