@@ -129,6 +129,7 @@ int Battle::startTurn(Game *g)
 	if (!m_started || m_inTurn)
 		return -1;
 
+	m_battleEventCreated = 0;
 	m_inTurn = true;
 
 	//definedOrder(g);
@@ -191,9 +192,9 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 	m_battleOrder.clear();
 	m_battleOrder.resize(m_alliesTeam->getTeam().size() + m_enemieTeam.getTeam().size());
 	for (unsigned int i(0); i < m_alliesTeam->getTeam().size(); i++)
-		m_battleOrder.at(i) = std::make_shared<Fighter>(&m_alliesTeam->getRealTeam().at(i));
+		m_battleOrder.at(i) = std::make_shared<Fighter>(m_alliesTeam->getRealTeam().at(i));
 	for (unsigned int i(m_alliesTeam->getTeam().size()); i < m_enemieTeam.getTeam().size(); i++)
-		m_battleOrder.at(i) = std::make_shared<Fighter>(&m_alliesTeam->getRealTeam().at(i));
+		m_battleOrder.at(i) = std::make_shared<Fighter>(m_alliesTeam->getRealTeam().at(i));
 
 	m_started = true;
 	m_updated = true;
@@ -273,6 +274,30 @@ int Battle::definedOrder(Game *g)
 				j = -1;
 			}
 		}
+	}
+
+	return 0;
+}
+
+
+// Choose battle event for the next player
+int Battle::chooseBattleEvent(Game *g)
+{
+	if (!m_started || !m_inTurn)
+		return -1;
+
+	if (m_battleOrder.at(m_battleEventCreated)->isTeamMate())
+	{
+		std::string str("Que dois faire ");
+
+		str = str + m_battleOrder.at(m_battleEventCreated)->getName() + " ?";
+
+		std::dynamic_pointer_cast<MenuDialogBox>(m_battleMenu->getRealMenus().at(MenuBattle::BM_DIALOG))->setText(str);
+		std::dynamic_pointer_cast<MenuDialogBox>(m_battleMenu->getRealMenus().at(MenuBattle::BM_DIALOG))->continueText(
+			g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_MENU),
+			g->getRealSurfaceManager(BATTLE_MIN_LAYER)
+		);
+		m_battleMenu->setActiveMenu(MenuBattle::BM_CHOICE);
 	}
 
 	return 0;

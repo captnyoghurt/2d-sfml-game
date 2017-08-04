@@ -59,6 +59,8 @@ public:
 protected:
 	// Set m_battleOrder to make the right order
 	int definedOrder(Game *g);
+	// Choose battle event for the next player
+	int chooseBattleEvent(Game *g);
 
 private:
 	bool m_updated;
@@ -67,6 +69,7 @@ private:
 	bool m_choicesFinished;
 	int m_battleTurn;
 	int m_lastKeyEventLayer;
+	int m_battleEventCreated;
 	Enemies m_enemieTeam;
 	TeamBattle *m_alliesTeam;
 	std::shared_ptr<MenuBattle> m_battleMenu;
