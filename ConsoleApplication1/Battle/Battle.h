@@ -42,6 +42,8 @@ public:
 	BattleEventManager& getRealBattleEventManager();
 	// Return the background with modifying possibilities
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& getRealBackground();
+	// Return the real battle order
+	std::vector< std::shared_ptr<Fighter> >& getRealBattleOrder();
 
 	// Tell the battle it's updated
 	int gotUpdated();

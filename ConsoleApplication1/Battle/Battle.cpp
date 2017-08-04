@@ -115,6 +115,13 @@ std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterato
 }
 
 
+// Return the real battle order
+std::vector< std::shared_ptr<Fighter> >& Battle::getRealBattleOrder()
+{
+	return m_battleOrder;
+}
+
+
 // Tell the battle it's updated
 int Battle::gotUpdated()
 {
