@@ -356,7 +356,7 @@ int af_MenuBattleSideEnemyEnter(int n, Game &g)
 	std::cout << "Ennemy : " << n << std::endl;
 
 	g.getRealBattle().getRealBattleEventManager().addDestinationForEvent(
-		std::make_shared<Fighter>(g.getRealBattle().getRealEnemies().getRealTeam().at(n)),
+		g.getRealBattle().getRealEnemies().getRealTeam().at(n),
 		g
 	);
 
