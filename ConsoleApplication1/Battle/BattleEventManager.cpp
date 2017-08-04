@@ -1,6 +1,7 @@
 #include "BattleEventManager.h"
 #include "../Game.h"
 #include "../Event/actionFunctions.h"
+#include "../Menu/MenuBattle.h"
 
 
 
@@ -106,6 +107,7 @@ int BattleEventManager::askDestination(Game &g)
 		{
 			m_battleEvents.push_back(m_eventInConstruction);
 			m_eventInConstruction = nullptr;
+			g.getRealBattle().getRealBattleMenu().setIsBlocking(false);
 
 			return 1;
 		}

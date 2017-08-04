@@ -177,8 +177,8 @@ int MenuBattle::af_MenuBattleEnter(Game &g)
 		{
 			m_isBlocking = true;
 		}
-		else
-			setActiveMenu(MenuBattle::BM_CHOICE);
+		/*else
+			setActiveMenu(MenuBattle::BM_CHOICE);*/
 	}
 	else
 	{

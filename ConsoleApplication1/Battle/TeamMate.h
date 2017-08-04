@@ -11,6 +11,6 @@ public:
 
 public:
 	// True if the fighter is in reality a TeamMate
-	bool isTeamMate() const;
+	virtual bool isTeamMate() const;
 };
 

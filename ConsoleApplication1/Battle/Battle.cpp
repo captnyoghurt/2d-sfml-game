@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Battle.h"
 #include "../Map/ManageRessources.h"
 #include "../Map/ManageSurfaces.h"
@@ -131,6 +132,7 @@ int Battle::startTurn(Game *g)
 
 	m_battleEventCreated = 0;
 	m_inTurn = true;
+	m_choicesFinished = false;
 
 	//definedOrder(g);
 
@@ -190,11 +192,12 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 
 	// BattleOrder
 	m_battleOrder.clear();
-	m_battleOrder.resize(m_alliesTeam->getTeam().size() + m_enemieTeam.getTeam().size());
-	for (unsigned int i(0); i < m_alliesTeam->getTeam().size(); i++)
-		m_battleOrder.at(i) = std::make_shared<Fighter>(m_alliesTeam->getRealTeam().at(i));
-	for (unsigned int i(m_alliesTeam->getTeam().size()); i < m_enemieTeam.getTeam().size(); i++)
-		m_battleOrder.at(i) = std::make_shared<Fighter>(m_alliesTeam->getRealTeam().at(i));
+	int as(m_alliesTeam->getTeam().size()), es(m_enemieTeam.getTeam().size());
+	m_battleOrder.resize(as + es);
+	for (int i(0); i < as; i++)
+		m_battleOrder.at(i) = std::make_shared<TeamMate>(m_alliesTeam->getRealTeam().at(i));
+	for (int i(as); i < as + es; i++)
+		m_battleOrder.at(i) = m_enemieTeam.getRealTeam().at(i - as);
 
 	m_started = true;
 	m_updated = true;
@@ -217,10 +220,14 @@ int Battle::update(Game *g)
 
 	if (!m_battleMenu->getIsBlocking())
 	{
+		if (!m_inTurn)
+			startTurn(g);
+		if (m_inTurn && !m_choicesFinished)
+			chooseBattleEvent(g);
 		// [TODO]
 		// <debuging>
 		//m_battleMenu->setActiveMenu(MenuBattle::BM_CHOICE);
-		m_battleMenu->setIsBlocking(true);
+		//m_battleMenu->setIsBlocking(true);
 		//m_battleMenu->getRealMenus().at(MenuBattle::BM_CHOICE)->setShown(true);
 		// </debuging>
 		//m_battleEventManager.execute(this);
@@ -286,8 +293,16 @@ int Battle::chooseBattleEvent(Game *g)
 	if (!m_started || !m_inTurn)
 		return -1;
 
+	if (m_battleEventCreated == m_battleOrder.size())
+	{
+		m_choicesFinished = true;
+		return 0;
+	}
+
 	if (m_battleOrder.at(m_battleEventCreated)->isTeamMate())
 	{
+		m_battleMenu->setIsBlocking(true);
+
 		std::string str("Que dois faire ");
 
 		str = str + m_battleOrder.at(m_battleEventCreated)->getName() + " ?";
@@ -299,6 +314,10 @@ int Battle::chooseBattleEvent(Game *g)
 		);
 		m_battleMenu->setActiveMenu(MenuBattle::BM_CHOICE);
 	}
+	else
+		std::cout << "Non teammate" << std::endl;
+
+	m_battleEventCreated++;
 
 	return 0;
 }
