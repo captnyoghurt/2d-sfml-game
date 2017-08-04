@@ -187,6 +187,14 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 	// Choice
 	m_battleMenu->getRealMenus().at(MenuBattle::BM_CHOICE)->setShown(false);
 
+	// BattleOrder
+	m_battleOrder.clear();
+	m_battleOrder.resize(m_alliesTeam->getTeam().size() + m_enemieTeam.getTeam().size());
+	for (unsigned int i(0); i < m_alliesTeam->getTeam().size(); i++)
+		m_battleOrder.at(i) = std::make_shared<Fighter>(&m_alliesTeam->getRealTeam().at(i));
+	for (unsigned int i(m_alliesTeam->getTeam().size()); i < m_enemieTeam.getTeam().size(); i++)
+		m_battleOrder.at(i) = std::make_shared<Fighter>(&m_alliesTeam->getRealTeam().at(i));
+
 	m_started = true;
 	m_updated = true;
 
