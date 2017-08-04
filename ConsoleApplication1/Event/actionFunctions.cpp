@@ -180,6 +180,7 @@ int af_dialogBoxContinue(Game &g)
 
 
 // Battle
+/// General
 int af_battleStart(Game &g)
 {
 	af_teamStop(g);
@@ -202,6 +203,8 @@ int af_battleEnd(Game &g)
 	return g.getRealBattle().end(&g);
 }
 
+
+/// Menu Battle
 int af_menuBattleDown(Game &g)
 {
 	if (!g.getRealBattle().getStarted())

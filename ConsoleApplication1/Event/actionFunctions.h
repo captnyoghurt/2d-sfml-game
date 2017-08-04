@@ -39,8 +39,11 @@ int af_dialogBoxOpen(Game &g);
 int af_dialogBoxContinue(Game &g);
 
 // Battle
+/// General
 int af_battleStart(Game &g);
 int af_battleEnd(Game &g);
+
+/// Menu Battle
 int af_menuBattleDown(Game &g);
 int af_menuBattleUp(Game &g);
 int af_menuBattleRight(Game &g);
