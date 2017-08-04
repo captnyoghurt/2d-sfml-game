@@ -80,6 +80,13 @@ int Battle::getLastKeyEventLayer() const
 }
 
 
+// Return the number of battle event created
+int Battle::getBattleEventCreated() const
+{
+	return m_battleEventCreated;
+}
+
+
 // Return the enemie team with modifying possibilities
 Enemies& Battle::getRealEnemies()
 {
