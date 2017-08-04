@@ -19,6 +19,8 @@ public:
 public:
 	// Return if the battle has started
 	bool getStarted() const;
+	// Return if the turn has begun
+	bool getInTurn() const;
 	// Return the number of turn since the begining of the battle
 	int getBattleTurn() const;
 	// Return the enemie team
@@ -52,6 +54,7 @@ public:
 private:
 	bool m_updated;
 	bool m_started;
+	bool m_inTurn;
 	int m_battleTurn;
 	int m_lastKeyEventLayer;
 	Enemies m_enemieTeam;

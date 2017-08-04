@@ -13,6 +13,7 @@ Battle::Battle(TeamBattle &tb)
 {
 	m_updated = true;
 	m_started = false;
+	m_inTurn = false;
 	
 	// Team
 	m_alliesTeam = &tb;
@@ -29,6 +30,13 @@ Battle::~Battle()
 bool Battle::getStarted() const
 {
 	return m_started;
+}
+
+
+// Return if the turn has begun
+bool Battle::getInTurn() const
+{
+	return m_inTurn;
 }
 
 
