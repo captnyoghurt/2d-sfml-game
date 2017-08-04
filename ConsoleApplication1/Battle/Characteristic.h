@@ -8,7 +8,7 @@ class Spell;
 class Characteristic
 {
 public:
-	enum e_characteristics {STRENGH, INTELLIGENCE, VITALITY, AGILITY, CHARACTERISTICS_TOTAL};
+	enum e_characteristics {STRENGH, INTELLIGENCE, VITALITY, AGILITY, REGEN_MP, ATTACK_PHYSIC, ATTACK_MAGIC, DEFENSE_PHYSIC, DEFENSE_MAGIC, CHARACTERISTICS_TOTAL};
 
 public:
 	Characteristic();
