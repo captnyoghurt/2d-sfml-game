@@ -1,3 +1,4 @@
+#include <iostream>
 #include "BattleEventManager.h"
 #include "../Game.h"
 #include "../Event/actionFunctions.h"
@@ -105,6 +106,7 @@ int BattleEventManager::askDestination(Game &g)
 			af_menuBattleUseLeft(g);
 		else
 		{
+			std::cout << "Battle Event pushed" << std::endl;
 			m_battleEvents.push_back(m_eventInConstruction);
 			m_eventInConstruction = nullptr;
 			g.getRealBattle().getRealBattleMenu().setIsBlocking(false);
