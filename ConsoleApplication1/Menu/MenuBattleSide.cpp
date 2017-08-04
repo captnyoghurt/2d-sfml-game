@@ -341,6 +341,12 @@ int MenuBattleSide::close(ManageSurfaces& surf)
 int af_MenuBattleSideAllyEnter(int n, Game &g)
 {
 	std::cout << "Ally : " << n << std::endl;
+
+	g.getRealBattle().getRealBattleEventManager().addDestinationForEvent(
+		std::make_shared<Fighter>(g.getRealBattle().getRealAllies().getRealTeam().at(n)),
+		g
+	);
+		
 	return 0;
 }
 
@@ -348,5 +354,11 @@ int af_MenuBattleSideAllyEnter(int n, Game &g)
 int af_MenuBattleSideEnemyEnter(int n, Game &g)
 {
 	std::cout << "Ennemy : " << n << std::endl;
+
+	g.getRealBattle().getRealBattleEventManager().addDestinationForEvent(
+		std::make_shared<Fighter>(g.getRealBattle().getRealEnemies().getRealTeam().at(n)),
+		g
+	);
+
 	return 0;
 }
