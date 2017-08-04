@@ -20,6 +20,8 @@ public:
 	int getMaxPoints() const;
 	// Return the actual health bonus
 	int getBonus() const;
+	// Return the total amount of points
+	int getValue() const;
 	// Return all the actual effects
 	std::list<EffectOnCharacteristic> getEffects() const;
 

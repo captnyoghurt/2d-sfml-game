@@ -34,6 +34,13 @@ int Characteristic::getBonus() const
 }
 
 
+// Return the total amount of points
+int Characteristic::getValue() const
+{
+	return m_points + m_bonus;
+}
+
+
 // Return all the actual effects
 std::list<EffectOnCharacteristic> Characteristic::getEffects() const
 {
