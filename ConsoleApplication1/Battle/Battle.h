@@ -45,6 +45,9 @@ public:
 
 	// Tell the battle it's updated
 	int gotUpdated();
+	
+	// Start a new battle turn
+	int startTurn(Game *g);
 
 	// Start a battle according to the arguments
 	int start(const std::string &backgroundFilename, TeamBattle team, std::string enemies, Game *g);

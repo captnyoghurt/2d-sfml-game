@@ -123,6 +123,20 @@ int Battle::gotUpdated()
 }
 
 
+// Start a new battle turn
+int Battle::startTurn(Game *g)
+{
+	if (!m_started || m_inTurn)
+		return -1;
+
+	m_inTurn = true;
+
+	//definedOrder(g);
+
+	return 0;
+}
+
+
 // Start a battle according to the arguments
 int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::string enemies, Game *g)
 {
