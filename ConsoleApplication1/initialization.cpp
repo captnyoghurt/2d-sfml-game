@@ -386,6 +386,8 @@ IG_Action::s_action getActionFromWord(std::string w)
 		return &af_menuBattleUseDialogBox;
 	else if (w == "MENU_BATTLE_USE_CHOICE")
 		return &af_menuBattleUseChoice;
+	else if (w == "BATTLE_EVENT_CREATE_ATTACK")
+		return &af_battleEventCreateAttack;
 
 	else
 		std::cout << "Unknown action : " << w << std::endl;

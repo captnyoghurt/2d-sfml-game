@@ -45,6 +45,8 @@ int BattleEventManager::createEvent(std::shared_ptr<Fighter> source, std::shared
 	if (m_eventInConstruction)
 		return -1;
 
+	std::cout << "BattleEvent created" << std::endl;
+
 	m_eventInConstruction = type;
 
 	type->getRealSource() = source;
@@ -100,6 +102,7 @@ int BattleEventManager::askDestination(Game &g)
 
 	if (m_eventInConstruction->getRealSource()->isTeamMate())
 	{
+		g.getRealBattle().getRealBattleMenu().setIsBlocking(true);
 		if (!m_eventInConstruction->isAllyDestinationFull())
 			af_menuBattleUseRight(g);
 		else if (!m_eventInConstruction->isEnemyDestinationFull())
