@@ -2,7 +2,7 @@
 
 
 
-B_EventAttack::B_EventAttack()
+B_EventAttack::B_EventAttack(const std::string &description)
 {
 	m_numberAllyDestination = 0;
 	m_numberEnemyDestination = 1;
