@@ -119,6 +119,8 @@ int BattleEventManager::askDestination(Game &g)
 	}
 	else
 	{
+		std::cout << "Ask mob" << std::endl;
+		addDestinationForEvent(std::make_shared<Fighter>(g.getRealBattle().getRealAllies().getRealTeam().at(0)), g);
 		return 1;
 	}
 

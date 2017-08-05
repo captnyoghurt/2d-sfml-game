@@ -321,7 +321,7 @@ int Battle::chooseBattleEvent(Game *g)
 
 		str = str + m_battleOrder.at(m_battleEventCreated)->getName() + " ?";
 
-		std::dynamic_pointer_cast<MenuDialogBox>(m_battleMenu->getRealMenus().at(MenuBattle::BM_DIALOG))->setText(str);
+		std::dynamic_pointer_cast<MenuDialogBox>(m_battleMenu->getRealMenus().at(MenuBattle::BM_DIALOG))->addText(str);
 		std::dynamic_pointer_cast<MenuDialogBox>(m_battleMenu->getRealMenus().at(MenuBattle::BM_DIALOG))->continueText(
 			g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_MENU),
 			g->getRealSurfaceManager(BATTLE_MIN_LAYER)
