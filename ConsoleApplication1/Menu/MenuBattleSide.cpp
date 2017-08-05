@@ -311,6 +311,8 @@ int MenuBattleSide::update(Game &g)
 		{
 			updateHealth(i, g.getRealBattle().getRealEnemies().getTeam().at(i)->getHealth());
 		}
+		m_choices.at(i)->getRealRenderTextureManager().gotUpdated();
+		m_choices.at(i)->getRealRenderTextureManager().update();
 	}
 
 	return 0;
