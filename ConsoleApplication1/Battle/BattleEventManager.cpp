@@ -122,7 +122,7 @@ int BattleEventManager::execute(Game &g)
 	if (m_waiting)
 		return 0;
 
-	auto it = m_battleEvents.front();
+	std::shared_ptr<B_Event> it = m_battleEvents.front();
 	m_battleEvents.pop_front();
 
 	g.getRealBattle().getRealBattleMenu().setActiveMenu(MenuBattle::BM_DIALOG);
