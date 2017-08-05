@@ -28,12 +28,14 @@ Team::Team(Game &g)
 	tm.getRealMana().setPoints(19);
 	tm.setSkillPoints(SkillPoints(100));
 	tm.getRealSkillPoints().setPoints(0);
+	tm.setCharacteristic(Characteristic(10, 10000), Characteristic::e_characteristics::ATTACK_PHYSIC);
 	tm.setName("Player");
 	m_teamBattle.addMember(tm);
 	tm.setHealth(Health(20));
 	tm.setMana(Mana(44));
 	tm.setSkillPoints(SkillPoints(100));
 	tm.setName("Team mate");
+	tm.setCharacteristic(Characteristic(2, 10000), Characteristic::e_characteristics::ATTACK_PHYSIC);
 	m_teamBattle.addMember(tm);
 
 	m_teamBattle.load(&g);
