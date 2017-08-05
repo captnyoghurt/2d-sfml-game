@@ -126,7 +126,10 @@ bool Health::enoughFor(const int &points)
 int Health::use(const int &points)
 {
 	if (!enoughFor(points))
-		return -1;
+	{
+		m_points = 0;
+		return 1;
+	}
 
 	m_points -= points;
 
