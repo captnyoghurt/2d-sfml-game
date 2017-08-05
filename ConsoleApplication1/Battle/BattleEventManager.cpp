@@ -26,10 +26,26 @@ std::list<std::shared_ptr<B_Event>> BattleEventManager::getBattleEvents() const
 }
 
 
+// Return if the battle event manager is waiting
+bool BattleEventManager::getWaiting() const
+{
+	return m_waiting;
+}
+
+
 // Return the list of battle events with modifying possibilities
 std::list<std::shared_ptr<B_Event>>& BattleEventManager::getRealBattleEvents()
 {
 	return m_battleEvents;
+}
+
+
+// Modify if the battle event manager is waiting
+int BattleEventManager::setWaiting(const bool& b)
+{
+	m_waiting = b;
+
+	return 0;
 }
 
 
@@ -102,6 +118,9 @@ int BattleEventManager::execute(Game &g)
 	// [TODO]
 	if (m_battleEvents.empty())
 		return -1;
+
+	if (m_waiting)
+		return 0;
 
 	auto it = m_battleEvents.front();
 	m_battleEvents.pop_front();

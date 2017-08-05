@@ -16,9 +16,14 @@ public:
 public:
 	// Return the list of battle events
 	std::list<std::shared_ptr<B_Event>> getBattleEvents() const;
+	// Return if the battle event manager is waiting
+	bool getWaiting() const;
 
 	// Return the list of battle events with modifying possibilities
 	std::list<std::shared_ptr<B_Event>>& getRealBattleEvents();
+
+	// Modify if the battle event manager is waiting
+	int setWaiting(const bool& b);
 
 	// Add an event to the top of the list
 	int addToFront(std::shared_ptr<B_Event> b);
@@ -40,6 +45,7 @@ protected:
 	int askDestination(Game &g);
 
 private:
+	bool m_waiting;
 	std::list<std::shared_ptr<B_Event> > m_battleEvents;
 	std::shared_ptr<B_Event> m_eventInConstruction;
 };
