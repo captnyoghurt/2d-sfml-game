@@ -29,6 +29,8 @@ public:
 
 	// Return if the manager is creating an event
 	bool isCreating() const;
+	// Clear the entire list
+	int clear();
 
 	// Execute the header event
 	int execute(Battle *b);

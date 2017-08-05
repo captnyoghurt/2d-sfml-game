@@ -83,6 +83,16 @@ bool BattleEventManager::isCreating() const
 }
 
 
+// Clear the entire list
+int BattleEventManager::clear()
+{
+	m_battleEvents.clear();
+	m_eventInConstruction = nullptr;
+
+	return 0;
+}
+
+
 // Execute the header event
 int BattleEventManager::execute(Battle *b)
 {
