@@ -279,7 +279,7 @@ int af_battleEventCreateAttack(Game &g)
 		return -1;
 
 	return g.getRealBattle().getRealBattleEventManager().createEvent(
-		g.getRealBattle().getRealBattleOrder().at(g.getRealBattle().getBattleEventCreated()),
+		g.getRealBattle().getRealBattleOrder().at(g.getRealBattle().getBattleEventCreated() - 1),
 		std::make_shared<B_Event>(B_EventAttack()),
 		g
 	);
