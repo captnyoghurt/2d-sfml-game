@@ -160,6 +160,8 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 	if (m_started)
 		return -1;
 
+	clear();
+
 	// Event layer
 	m_lastKeyEventLayer = g->getEventManager().getKeyEventLayer();
 
@@ -334,4 +336,13 @@ int Battle::chooseBattleEvent(Game *g)
 	m_battleEventCreated++;
 
 	return 0;
+}
+
+
+// Clear the battle attribute from last battle
+int Battle::clear()
+{
+	m_battleEventCreated = 0;
+	
+	return m_battleEventManager.clear();
 }

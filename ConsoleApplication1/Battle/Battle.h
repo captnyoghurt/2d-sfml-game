@@ -65,6 +65,8 @@ protected:
 	int definedOrder(Game *g);
 	// Choose battle event for the next player
 	int chooseBattleEvent(Game *g);
+	// Clear the battle attribute from last battle
+	int clear();
 
 private:
 	bool m_updated;
