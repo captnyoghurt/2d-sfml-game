@@ -12,6 +12,8 @@ public:
 
 public:
 	Characteristic();
+	Characteristic(int points, int maxPoints);
+	Characteristic(const Characteristic& c);
 	~Characteristic();
 
 	// Return the number of health points

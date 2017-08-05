@@ -5,6 +5,26 @@
 
 Characteristic::Characteristic()
 {
+	m_points = 0;
+	m_maxPoints = 0;
+	m_bonus = 0;
+}
+
+
+Characteristic::Characteristic(int points, int maxPoints)
+{
+	m_points = points;
+	m_maxPoints = maxPoints;
+	m_bonus = 0;
+}
+
+
+Characteristic::Characteristic(const Characteristic& c)
+{
+	m_points = c.getPoints();
+	m_maxPoints = c.getMaxPoints();
+	m_bonus = c.getBonus();
+	m_effects = c.getEffects();
 }
 
 
