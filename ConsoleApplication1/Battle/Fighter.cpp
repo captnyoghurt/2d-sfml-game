@@ -8,8 +8,10 @@
 
 
 
-Fighter::Fighter()
+Fighter::Fighter() : m_health(0), m_mana(0), m_skillPoints(0)
 {
+	m_name = "Unknown";
+	m_characteristics.resize(Characteristic::e_characteristics::CHARACTERISTICS_TOTAL, Characteristic(0, 0));
 }
 
 
@@ -20,6 +22,7 @@ Fighter::Fighter(const Fighter &f)
 	m_health = f.getHealth();
 	m_mana = f.getMana();
 	m_skillPoints = f.getSkillPoints();
+	m_characteristics.resize(Characteristic::e_characteristics::CHARACTERISTICS_TOTAL, Characteristic(0, 0));
 }
 
 
