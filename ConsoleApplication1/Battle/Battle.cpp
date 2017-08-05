@@ -240,6 +240,12 @@ int Battle::update(Game *g)
 			startTurn(g);
 		if (m_inTurn && !m_choicesFinished)
 			chooseBattleEvent(g);
+
+		else if (m_choicesFinished)
+		{
+			if (m_battleEventManager.execute(*g) < 0)
+				m_inTurn = false;
+		}
 		// [TODO]
 		// <debuging>
 		//m_battleMenu->setActiveMenu(MenuBattle::BM_CHOICE);

@@ -33,7 +33,7 @@ public:
 	int clear();
 
 	// Execute the header event
-	int execute(Battle *b);
+	int execute(Game &g);
 
 protected:
 	// Tell the battle menu to ask a destination

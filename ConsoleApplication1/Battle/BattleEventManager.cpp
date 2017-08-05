@@ -1,8 +1,11 @@
 #include <iostream>
+#include <memory>
 #include "BattleEventManager.h"
+#include "../constants.h"
 #include "../Game.h"
 #include "../Event/actionFunctions.h"
 #include "../Menu/MenuBattle.h"
+#include "../Menu/MenuDialogBox.h"
 
 
 
@@ -94,13 +97,25 @@ int BattleEventManager::clear()
 
 
 // Execute the header event
-int BattleEventManager::execute(Battle *b)
+int BattleEventManager::execute(Game &g)
 {
 	// [TODO]
+	if (m_battleEvents.empty())
+		return -1;
+
 	auto it = m_battleEvents.front();
 	m_battleEvents.pop_front();
 
-	return 0;
+	g.getRealBattle().getRealBattleMenu().setActiveMenu(MenuBattle::BM_DIALOG);
+	std::dynamic_pointer_cast<MenuDialogBox>(g.getRealBattle().getRealBattleMenu().getRealMenus().at(MenuBattle::BM_DIALOG))->addText(it->getDescription());
+	std::dynamic_pointer_cast<MenuDialogBox>(g.getRealBattle().getRealBattleMenu().getRealMenus().at(MenuBattle::BM_DIALOG))->continueText(
+		g.getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_MENU),
+		g.getRealSurfaceManager(BATTLE_MIN_LAYER)
+	);
+
+	g.getRealBattle().getRealBattleMenu().setIsBlocking(true);
+
+	return it->execute(&g.getRealBattle());
 }
 
 
