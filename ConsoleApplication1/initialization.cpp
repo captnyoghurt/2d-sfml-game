@@ -339,7 +339,9 @@ int getCodeFromWord(std::string w)
 
 IG_Action::s_action getActionFromWord(std::string w)
 {
-	if (w == "EXIT")
+	if (w == "NOTHING")
+		return &doNothing;
+	else if (w == "EXIT")
 		return &af_exit;
 	else if (w == "CAMERA_DOWN")
 		return &af_camDown;
