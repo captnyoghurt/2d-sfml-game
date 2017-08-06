@@ -5,6 +5,7 @@
 #include "initialization.h"
 
 #include <iostream>
+#include "Error/debugFunctions.h"
 
 int main()
 {
@@ -12,11 +13,11 @@ int main()
 
 	try
 	{
+		deb_start();
 		initialization();
 		Game game(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), WINDOW_NAME);
 
-		if (initiate_events("data/keyev.conf", game) != 0)
-			return -2;
+		initiate_events("data/keyev.conf", game);
 
 		ret = game.start();
 	}
@@ -24,6 +25,7 @@ int main()
 	{
 		std::cerr << e.what();
 	}
+	deb_end();
 
 	return ret;
 }
