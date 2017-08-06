@@ -6,7 +6,8 @@
 #include "../Event/actionFunctions.h"
 #include "../Menu/MenuBattle.h"
 #include "../Menu/MenuDialogBox.h"
-
+#include "../Error/InitializationException.h"
+#include "../Error/ValueException.h"
 
 
 BattleEventManager::BattleEventManager() : m_eventInConstruction(nullptr)
@@ -62,9 +63,7 @@ int BattleEventManager::addToFront(std::shared_ptr<B_Event> b)
 int BattleEventManager::createEvent(std::shared_ptr<Fighter> source, std::shared_ptr<B_Event> type, Game &g)
 {
 	if (m_eventInConstruction)
-		return -1;
-
-	std::cout << "BattleEvent created" << std::endl;
+		THROW_INIT("BattleEvent already in construction");
 
 	m_eventInConstruction = type;
 
@@ -80,14 +79,14 @@ int BattleEventManager::createEvent(std::shared_ptr<Fighter> source, std::shared
 int BattleEventManager::addDestinationForEvent(std::shared_ptr<Fighter> f, Game &g)
 {
 	if (!m_eventInConstruction)
-		return -1;
+		THROW_INIT("No in construction");
 
 	if (!m_eventInConstruction->isAllyDestinationFull())
 		m_eventInConstruction->getRealAllyDestination().push_back(f);
 	else if (!m_eventInConstruction->isEnemyDestinationFull())
 		m_eventInConstruction->getRealEnemyDestination().push_back(f);
 	else
-		return -1;
+		THROW_VALUE("Too much destination ofr BattleEvent");
 
 	askDestination(g);
 
@@ -117,7 +116,7 @@ int BattleEventManager::execute(Game &g)
 {
 	// [TODO]
 	if (m_battleEvents.empty())
-		return -1;
+		THROW_VALUE("Empty queue for BattleEvent");
 
 	if (m_waiting)
 		return 0;
@@ -142,7 +141,7 @@ int BattleEventManager::execute(Game &g)
 int BattleEventManager::askDestination(Game &g)
 {
 	if (!isCreating())
-		return -1;
+		THROW_INIT("Not creating a BattleEvent");
 
 	if (m_eventInConstruction->getRealSource()->isTeamMate())
 	{
@@ -153,7 +152,6 @@ int BattleEventManager::askDestination(Game &g)
 			af_menuBattleUseLeft(g);
 		else
 		{
-			std::cout << "Battle Event pushed" << std::endl;
 			m_battleEvents.push_back(m_eventInConstruction);
 			m_eventInConstruction = nullptr;
 			g.getRealBattle().getRealBattleMenu().setIsBlocking(false);
@@ -163,7 +161,6 @@ int BattleEventManager::askDestination(Game &g)
 	}
 	else
 	{
-		std::cout << "Ask mob" << std::endl;
 		addDestinationForEvent(std::make_shared<Fighter>(g.getRealBattle().getRealAllies().getRealTeam().at(0)), g);
 		return 1;
 	}
