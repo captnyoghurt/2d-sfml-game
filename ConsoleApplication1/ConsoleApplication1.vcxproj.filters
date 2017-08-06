@@ -55,6 +55,12 @@
     <Filter Include="Fichiers d%27en-tête\Error">
       <UniqueIdentifier>{7b32f50e-1407-4f5f-895e-4e69659344e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Map\Physic">
+      <UniqueIdentifier>{12d5c464-466c-47c0-b977-16f4cd96dbd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Map\Physic">
+      <UniqueIdentifier>{27dadd28-f8e0-4c28-b74a-924081f8f477}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -213,6 +219,12 @@
     <ClCompile Include="Error\InitializationException.cpp">
       <Filter>Fichiers sources\Error</Filter>
     </ClCompile>
+    <ClCompile Include="Map\Physic\ManageHitbox.cpp">
+      <Filter>Fichiers sources\Map\Physic</Filter>
+    </ClCompile>
+    <ClCompile Include="Map\Physic\Hitbox.cpp">
+      <Filter>Fichiers sources\Map\Physic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -367,6 +379,12 @@
     </ClInclude>
     <ClInclude Include="Error\debugFunctions.h">
       <Filter>Fichiers d%27en-tête\Error</Filter>
+    </ClInclude>
+    <ClInclude Include="Map\Physic\ManageHitbox.h">
+      <Filter>Fichiers d%27en-tête\Map\Physic</Filter>
+    </ClInclude>
+    <ClInclude Include="Map\Physic\Hitbox.h">
+      <Filter>Fichiers d%27en-tête\Map\Physic</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
