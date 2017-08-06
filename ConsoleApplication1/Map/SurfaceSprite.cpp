@@ -1,14 +1,18 @@
 #include "SurfaceSprite.h"
+#include "../Error/debugFunctions.h"
 
-#include <iostream>
 
 SurfaceSprite::SurfaceSprite()
 {
-	std::cout << "Create surface Sprite " << this << std::endl;
+#ifdef DEBUG_MODE_ON
+	DEB_ALLOCATED_SPRITE++;
+#endif // DEBUG_MODE_ON
 }
 
 
 SurfaceSprite::~SurfaceSprite()
 {
-	std::cout << "Destroying a surfacesprite " << this << std::endl;
+#ifdef DEBUG_MODE_ON
+	DEB_ALLOCATED_SPRITE--;
+#endif // DEBUG_MODE_ON
 }

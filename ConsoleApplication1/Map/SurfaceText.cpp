@@ -1,21 +1,26 @@
 #include "SurfaceText.h"
-
-#include <iostream>
+#include "../Error/debugFunctions.h"
 
 
 SurfaceText::SurfaceText()
 {
-	std::cout << "Create surface Text " << this << std::endl;
+#ifdef DEBUG_MODE_ON
+	DEB_ALLOCATED_TEXT++;
+#endif // DEBUG_MODE_ON
 }
 
 
 SurfaceText::SurfaceText(sf::Text t) : Text(t)
 {
-	std::cout << "Create surface Text " << this << std::endl;
+#ifdef DEBUG_MODE_ON
+	DEB_ALLOCATED_TEXT++;
+#endif // DEBUG_MODE_ON
 }
 
 
 SurfaceText::~SurfaceText()
 {
-	std::cout << "Destroying a surfacetext " << this << std::endl;
+#ifdef DEBUG_MODE_ON
+	DEB_ALLOCATED_TEXT--;
+#endif // DEBUG_MODE_ON
 }

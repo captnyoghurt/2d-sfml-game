@@ -1,17 +1,21 @@
 #include "Surface.h"
+#include "../Error/debugFunctions.h"
 
-#include <iostream>
 
 Surface::Surface()
 {
 	m_enable = true;
-	std::cout << "Create surface " << this << std::endl;
+#ifdef DEBUG_MODE_ON
+	DEB_ALLOCATED_SURFACE++;
+#endif // DEBUG_MODE_ON
 }
 
 
 Surface::~Surface()
 {
-	std::cout << "Destroying a surfacetext " << this << std::endl;
+#ifdef DEBUG_MODE_ON
+	DEB_ALLOCATED_SURFACE--;
+#endif // DEBUG_MODE_ON
 }
 
 
