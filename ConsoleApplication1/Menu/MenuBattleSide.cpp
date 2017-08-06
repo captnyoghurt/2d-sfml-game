@@ -8,6 +8,8 @@
 #include "../Battle/TeamBattle.h"
 #include "../Battle/Enemies.h"
 #include "../Game.h"
+#include "../Error/InitializationException.h"
+#include "../Error/ValueException.h"
 
 
 MenuBattleSide::MenuBattleSide(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer, int type) : Menu(ress, surf, lastEventLayer)
@@ -158,11 +160,11 @@ int MenuBattleSide::updateBar(int n, MenuBattleSide::e_menuBattleSideItems type,
 		ratio = 0;
 
 	if (!((unsigned)n < m_choices.size()))
-		return -1;
+		THROW_GAME("Bad value " + std::to_string(n));
 	if ((type != MenuBattleSide::e_menuBattleSideItems::HP_IMAGE)
 		&& (type != MenuBattleSide::e_menuBattleSideItems::MP_IMAGE)
 		&& (type != MenuBattleSide::e_menuBattleSideItems::TP_IMAGE))
-		return -1;
+		THROW_VALUE(std::to_string(type));
 
 	// Update the bar surface
 	std::dynamic_pointer_cast<SurfaceSprite>(m_choices.at(n)->getRealRenderTextureManager().getTheSurface((int)type)->second)->setTextureRect(
@@ -216,7 +218,7 @@ int MenuBattleSide::updateSkillPoints(int n, const SkillPoints& sp)
 int MenuBattleSide::loadWithEnemies(ManageRessources& ress, ManageSurfaces& surf, Enemies &enemies)
 {
 	if (m_barType != MenuBattleSide::e_menuBattleSideBarType::MENU_BATTLE_ENEMIE)
-		return -1;
+		THROW_VALUE(std::to_string(m_barType));
 
 	std::vector<std::shared_ptr<Fighter> >& tm(enemies.getRealTeam());
 
@@ -254,7 +256,7 @@ int MenuBattleSide::loadWithEnemies(ManageRessources& ress, ManageSurfaces& surf
 int MenuBattleSide::loadWithAllies(ManageRessources& ress, ManageSurfaces& surf, TeamBattle &allies)
 {
 	if (m_barType != MenuBattleSide::e_menuBattleSideBarType::MENU_BATTLE_ALLIE)
-		return -1;
+		THROW_VALUE(std::to_string(m_barType));
 
 	std::vector<TeamMate>& tm(allies.getRealTeam());
 
@@ -325,7 +327,7 @@ int MenuBattleSide::loadWithAllies(ManageRessources& ress, ManageSurfaces& surf,
 int MenuBattleSide::load(ManageRessources& ress, ManageSurfaces& surf, const int &x, const int &y, const int &w, const int &h)
 {
 	if (m_initialized)
-		return -1;
+		THROW_INIT("Already initiate");
 
 	std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->setEnable(true);
 	std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->setScale(w / std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getGlobalBounds().width,
@@ -384,7 +386,7 @@ int MenuBattleSide::close(ManageSurfaces& surf)
 int MenuBattleSide::useCorrectFont(int i, Game &g)
 {
 	if (!m_initialized || m_choices.size() < (unsigned)i)
-		return -1;
+		THROW_INIT("Bad initiate or bad value : " + std::to_string(i));
 
 	if (m_barType == MENU_BATTLE_ALLIE)
 	{
@@ -433,8 +435,6 @@ int MenuBattleSide::useCorrectFont(int i, Game &g)
 
 int af_MenuBattleSideAllyEnter(int n, Game &g)
 {
-	std::cout << "Ally : " << n << std::endl;
-
 	g.getRealBattle().getRealBattleEventManager().addDestinationForEvent(
 		std::make_shared<Fighter>(g.getRealBattle().getRealAllies().getRealTeam().at(n)),
 		g
@@ -446,8 +446,6 @@ int af_MenuBattleSideAllyEnter(int n, Game &g)
 
 int af_MenuBattleSideEnemyEnter(int n, Game &g)
 {
-	std::cout << "Ennemy : " << n << std::endl;
-
 	g.getRealBattle().getRealBattleEventManager().addDestinationForEvent(
 		g.getRealBattle().getRealEnemies().getRealTeam().at(n),
 		g
