@@ -154,29 +154,44 @@ int Game::start()
 {
 	m_window.setFramerateLimit(WINDOW_FRAMERATES);
 
-	if (loadNewMap(std::string("bite")) == -1)
-		std::cout << "Crotte";
+	loadNewMap(std::string("bite"));
 	
 	int nb(0);
 	Clock clk1, clk2;
 
 	while (m_window.isOpen())
 	{
-		clk2.restart();
-		update();
-		if (m_map.getUpdated())
-			nb++;
-		print();
-
-		if (nb >= 30)
+		try
 		{
-			m_window.setTitle("Framerates : " + std::to_string(float(nb)/clk1.getElapsedTime().asSeconds()));
-			nb = 0;
-			clk1.restart();
-		}
+			clk2.restart();
+			update();
+			if (m_map.getUpdated())
+				nb++;
+			print();
 
-		if (clk2.getElapsedTime().asMilliseconds() < 5)
-			sf::sleep(sf::milliseconds(WINDOW_SLEEPTIME) - clk2.getElapsedTime());
+			if (nb >= 30)
+			{
+				m_window.setTitle("Framerates : " + std::to_string(float(nb) / clk1.getElapsedTime().asSeconds()));
+				nb = 0;
+				clk1.restart();
+			}
+
+			if (clk2.getElapsedTime().asMilliseconds() < 5)
+				sf::sleep(sf::milliseconds(WINDOW_SLEEPTIME) - clk2.getElapsedTime());
+		}
+		catch (GameException &e)
+		{
+			if(e.getLevel() > 1)
+			{
+				e.append("In Game::start");
+				throw e;
+			}
+			else
+			{
+				e.append("#### Didn't stop the process ####");
+				std::cerr << e.what();
+			}
+		}
 	}
 
 	return 0;
@@ -287,7 +302,7 @@ int Game::loadRessources()
 	}
 	catch (GameException &e)
 	{
-		if (e.getLevel() > 2)
+		if (e.getLevel() > 1)
 		{
 			e.append("In Game::loadRessources");
 			throw e;
