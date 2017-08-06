@@ -2,6 +2,7 @@
 #include <memory>
 #include "constants.h"
 #include "Game.h"
+#include "Error/RessourceException.h"
 
 
 
@@ -273,15 +274,30 @@ int Game::loadRessources()
 	std::list<sf::Texture>::iterator it;
 	std::list<sf::Font>::iterator it2;
 
+	try
+	{
+		if (!(it = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addTexture()))->loadFromFile(MENU_SURFACE_NAME))
+			THROW_RESSOURCE("Menu texture not loaded", MENU_SURFACE_NAME);
 
-	if (!(it = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addTexture()))->loadFromFile(MENU_SURFACE_NAME))
-		std::cout << "Cacaaa\n";
+		if (!(it2 = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addFont()))->loadFromFile(MENU_FONT_NAME))
+			THROW_RESSOURCE("Menu font not loaded", MENU_FONT_NAME);
 
-	if (!(it2 = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addFont()))->loadFromFile(MENU_FONT_NAME))
-		std::cout << "Gros caca\n";
-
-	if (!(it = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addTexture()))->loadFromFile(MENU_BATTLE_SURFACE_BAR))
-		std::cout << "Problème\n";
+		if (!(it = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addTexture()))->loadFromFile(MENU_BATTLE_SURFACE_BAR))
+			THROW_RESSOURCE("Menu battle bar not loaded", MENU_BATTLE_SURFACE_BAR);
+	}
+	catch (GameException &e)
+	{
+		if (e.getLevel() > 2)
+		{
+			e.append("In Game::loadRessources");
+			throw e;
+		}
+		else
+		{
+			e.append("Didn't stop the process");
+			std::cerr << e.what();
+		}
+	}
 
 	return 0;
 }
