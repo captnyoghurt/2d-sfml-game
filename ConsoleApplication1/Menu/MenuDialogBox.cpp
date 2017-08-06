@@ -1,6 +1,8 @@
 #include <iostream>
 #include "../constants.h"
 #include "MenuDialogBox.h"
+#include "../Error/InitializationException.h"
+#include "../Error/ValueException.h"
 
 
 
@@ -59,6 +61,9 @@ int MenuDialogBox::setShown(const bool &b)
 			m_textSurface.at(i)->second->setEnable(b);
 		return 0;
 	}
+
+	THROW_GAME("Menu::setShown error");
+
 	return -1;
 }
 
@@ -66,7 +71,7 @@ int MenuDialogBox::setShown(const bool &b)
 int MenuDialogBox::setText(const std::string &text)
 {
 	if (m_initialized)
-		return -1;
+		THROW_INIT("Dialog box already initiate : " + text);
 
 	m_text = text;
 	m_textStream.str(text);
@@ -178,7 +183,7 @@ int MenuDialogBox::load(ManageRessources& ress, ManageSurfaces& surf, const std:
 {
 	// Initialization
 	if (m_initialized)
-		return -1;
+		THROW_INIT("Already initiate");
 	setText(text);
 	m_initialized = true;
 
