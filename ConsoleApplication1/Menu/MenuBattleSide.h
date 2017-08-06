@@ -58,6 +58,10 @@ public:
 	virtual int update(Game &g);
 	// Close the menu
 	virtual int close(ManageSurfaces& surf);
+
+protected:
+	int useCorrectFont(int i, Game &g);
+
 private:
 	std::vector < std::shared_ptr<M_choice> > m_choices;
 	std::list < std::pair < ManageSurfaces::e_thing, std::shared_ptr<Surface> > >::iterator m_cursorSurfaceRight;

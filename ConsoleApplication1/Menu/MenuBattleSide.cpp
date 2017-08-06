@@ -301,6 +301,7 @@ int MenuBattleSide::update(Game &g)
 
 	for (unsigned int i(0); i < m_choices.size(); i++)
 	{
+		useCorrectFont(i, g);
 		if (m_barType == MENU_BATTLE_ALLIE)
 		{
 			updateHealth(i, g.getRealBattle().getAllies().getTeam().at(i).getHealth());
@@ -331,6 +332,52 @@ int MenuBattleSide::close(ManageSurfaces& surf)
 
 	surf.deleteSurface(m_background);
 	surf.deleteSurface(m_cursorSurfaceRight);
+
+	return 0;
+}
+
+
+int MenuBattleSide::useCorrectFont(int i, Game &g)
+{
+	if (!m_initialized || m_choices.size() < (unsigned)i)
+		return -1;
+
+	if (m_barType == MENU_BATTLE_ALLIE)
+	{
+		if (m_choices.at(i)->getEnabled() && g.getRealBattle().getRealAllies().getTeam().at(i).getHealth().getPoints() <= 0)
+		{
+			m_choices.at(i)->setEnabled(false);
+			std::dynamic_pointer_cast<SurfaceText>(m_choices.at(i)->getRealRenderTextureManager().getRealSurfaces().at(NAME)->second)->setFillColor(MENU_FONT_COLOR_DISABLED_CHOICE);
+			std::dynamic_pointer_cast<SurfaceText>(m_choices.at(i)->getRealRenderTextureManager().getRealSurfaces().at(HP_TEXT)->second)->setFillColor(MENU_FONT_COLOR_DISABLED_CHOICE);
+
+			std::dynamic_pointer_cast<SurfaceText>(m_choices.at(i)->getRealRenderTextureManager().getRealSurfaces().at(MP_TEXT)->second)->setFillColor(MENU_FONT_COLOR_DISABLED_CHOICE);
+			std::dynamic_pointer_cast<SurfaceText>(m_choices.at(i)->getRealRenderTextureManager().getRealSurfaces().at(TP_TEXT)->second)->setFillColor(MENU_FONT_COLOR_DISABLED_CHOICE);
+		}
+		else if (!m_choices.at(i)->getEnabled() && g.getRealBattle().getRealAllies().getTeam().at(i).getHealth().getPoints() > 0)
+		{
+			m_choices.at(i)->setEnabled(true);
+			std::dynamic_pointer_cast<SurfaceText>(m_choices.at(i)->getRealRenderTextureManager().getRealSurfaces().at(NAME)->second)->setFillColor(MENU_FONT_COLOR);
+			std::dynamic_pointer_cast<SurfaceText>(m_choices.at(i)->getRealRenderTextureManager().getRealSurfaces().at(HP_TEXT)->second)->setFillColor(MENU_FONT_COLOR);
+
+			std::dynamic_pointer_cast<SurfaceText>(m_choices.at(i)->getRealRenderTextureManager().getRealSurfaces().at(MP_TEXT)->second)->setFillColor(MENU_FONT_COLOR);
+			std::dynamic_pointer_cast<SurfaceText>(m_choices.at(i)->getRealRenderTextureManager().getRealSurfaces().at(TP_TEXT)->second)->setFillColor(MENU_FONT_COLOR);
+		}
+	}
+	else
+	{
+		if (m_choices.at(i)->getEnabled() && g.getRealBattle().getRealEnemies().getTeam().at(i)->getHealth().getPoints() <= 0)
+		{
+			m_choices.at(i)->setEnabled(false);
+			std::dynamic_pointer_cast<SurfaceText>(m_choices.at(i)->getRealRenderTextureManager().getRealSurfaces().at(NAME)->second)->setFillColor(MENU_FONT_COLOR_DISABLED_CHOICE);
+			std::dynamic_pointer_cast<SurfaceText>(m_choices.at(i)->getRealRenderTextureManager().getRealSurfaces().at(HP_TEXT)->second)->setFillColor(MENU_FONT_COLOR_DISABLED_CHOICE);
+		}
+		else if (!m_choices.at(i)->getEnabled() && g.getRealBattle().getRealEnemies().getTeam().at(i)->getHealth().getPoints() > 0)
+		{
+			m_choices.at(i)->setEnabled(true);
+			std::dynamic_pointer_cast<SurfaceText>(m_choices.at(i)->getRealRenderTextureManager().getRealSurfaces().at(NAME)->second)->setFillColor(MENU_FONT_COLOR);
+			std::dynamic_pointer_cast<SurfaceText>(m_choices.at(i)->getRealRenderTextureManager().getRealSurfaces().at(HP_TEXT)->second)->setFillColor(MENU_FONT_COLOR);
+		}
+	}
 
 	return 0;
 }
