@@ -1,6 +1,7 @@
 #pragma once
 #include "GameException.h"
 
+#define THROW_INIT(str) throw InitializationException(str, __LINE__, __FILE__, __func__);
 
 class InitializationException :
 	public GameException
