@@ -62,7 +62,17 @@ std::vector< std::shared_ptr<M_choice> >& MenuBattleSide::getChoices()
 int MenuBattleSide::setShown(const bool &b)
 {
 	if (b)
-		setSelectedChoice(0);
+	{
+		int temp = 0;
+		while (!m_choices.at(temp)->getEnabled())
+		{
+			temp++;
+			if ((unsigned)temp >= m_choices.size())
+				return -1;
+		}
+		setSelectedChoice(temp);
+	}
+
 	return m_cursorSurfaceRight->second->setEnable(b);
 }
 
@@ -72,11 +82,45 @@ int MenuBattleSide::setSelectedChoice(const int &s)
 {
 	if ((unsigned)s < m_choices.size())
 	{
-		m_selectedChoice = s;
+		int temp = s;
+		// Set choices to down
+		if (m_selectedChoice < s)
+		{
+			while (!m_choices.at(temp)->getEnabled())
+			{
+				temp++;
+				if ((unsigned)temp >= m_choices.size())
+					return -1;
+			}
+		}
+		// Set choices to up
+		else if (m_selectedChoice > s)
+		{
+			while (!m_choices.at(temp)->getEnabled())
+			{
+				temp--;
+				if (temp < 0)
+					return -1;
+			}
+		}
+		else
+		{
+			while (!m_choices.at(temp)->getEnabled())
+			{
+				temp++;
+				if ((unsigned)temp >= m_choices.size())
+					temp = 0;
+				if (temp == s)
+					return -1;
+			}
+		}
+
+		m_selectedChoice = temp;
+
 
 		m_cursorSurfaceRight->second->setDimensions(
-			m_choices.at(s)->getX() - MENU_SURFACE_CURSOR_RIGHT_WIDTH,
-			m_choices.at(s)->getY(),
+			m_choices.at(temp)->getX() - MENU_SURFACE_CURSOR_RIGHT_WIDTH,
+			m_choices.at(temp)->getY(),
 			(int)std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceRight->second)->getGlobalBounds().width,
 			(int)std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceRight->second)->getGlobalBounds().height
 		);
