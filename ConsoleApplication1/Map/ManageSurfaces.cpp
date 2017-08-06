@@ -1,5 +1,6 @@
 #include <iostream>
 #include "ManageSurfaces.h"
+#include "../Error/ValueException.h"
 
 
 ManageSurfaces::ManageSurfaces()
@@ -63,7 +64,7 @@ int ManageSurfaces::print(sf::RenderWindow &win, const Camera &cam)
 	{
 		if ((it->second) == NULL)
 		{
-			std::cout << "Error when managing a surface" << std::endl;
+			THROW_VALUE("Error when managing a surface");
 			it = m_surfaces.erase(it);
 			--it;
 		}
@@ -84,7 +85,7 @@ int ManageSurfaces::print(sf::RenderWindow &win, const Camera &cam)
 				win.draw(*std::dynamic_pointer_cast<SurfaceSprite>(it->second));
 				break;
 			default:
-				std::cout << "Error when blitting a unknown surface " << it->first << std::endl;
+				THROW_VALUE("Error when blitting a surface " + std::to_string(it->first));
 				break;
 			}
 		}
