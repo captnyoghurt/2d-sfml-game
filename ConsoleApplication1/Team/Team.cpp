@@ -2,7 +2,8 @@
 #include "../constants.h"
 #include "../Game.h"
 #include "Team.h"
-#include <iostream>
+#include "../Error/RessourceException.h"
+#include "../Error/ValueException.h"
 
 
 Team::Team(Game &g)
@@ -43,7 +44,7 @@ Team::Team(Game &g)
 	// Load the textures
 	auto texture = g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MAP).addTexture();
 	if (!texture->loadFromFile(TEAM_BASIC_WALKSTAND))
-		std::cout << "Error loading the walk stand\n";
+		THROW_RESSOURCE("Walkstand of the team", TEAM_BASIC_WALKSTAND);
 
 	setWalkStand(g.getRealSurfaceManager().at(TEAM_WALK_LAYER).addSurface(ManageSurfaces::SPRITE, std::make_shared<SurfaceSprite>()));
 	std::dynamic_pointer_cast<SurfaceSprite>(m_walkStand->second)->setTexture(*texture);
@@ -221,7 +222,7 @@ int Team::setCameraFollowing(const bool &b)
 int Team::setX(const unsigned short &x)
 {
 	if (x < 0)
-		return -1;
+		THROW_VALUE(std::to_string(x));
 
 	m_x = x;
 	return 0;
@@ -232,7 +233,7 @@ int Team::setX(const unsigned short &x)
 int Team::setY(const unsigned short &y)
 {
 	if (y < 0)
-		return -1;
+		THROW_VALUE(std::to_string(y));
 
 	m_y = y;
 	return 0;
@@ -243,7 +244,7 @@ int Team::setY(const unsigned short &y)
 int Team::setWidth(const short &w)
 {
 	if (w < 0)
-		return -1;
+		THROW_VALUE(std::to_string(w));
 
 	m_width = w;
 	return 0;
@@ -254,7 +255,7 @@ int Team::setWidth(const short &w)
 int Team::setHeight(const short &h)
 {
 	if (h < 0)
-		return -1;
+		THROW_VALUE(std::to_string(h));
 
 	m_height = h;
 	return 0;
@@ -283,6 +284,7 @@ int Team::setMode(Team::e_teamMode m)
 			m_team.at(i).getRealCombatStand()->second->setEnable(true);
 		break;
 	default:
+		THROW_VALUE("Unknown TeamMode " + std::to_string(m));
 		break;
 	}
 
@@ -328,6 +330,7 @@ int Team::setDirection(Team::e_teamDirection dir)
 			std::dynamic_pointer_cast<SurfaceSprite>(m_walkStand->second)->setTextureRect(sf::IntRect(m_movementAnimation.at(Team::RIGHT)->getRectSprites().at(0).left, m_movementAnimation.at(Team::RIGHT)->getRectSprites().at(0).top, m_movementAnimation.at(Team::RIGHT)->getRectSprites().at(0).width, m_movementAnimation.at(Team::RIGHT)->getRectSprites().at(0).height));
 			break;
 		default:
+			THROW_VALUE("Unknown team orientation " + std::to_string(dir));
 			break;
 		}
 	}
