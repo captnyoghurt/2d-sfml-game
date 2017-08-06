@@ -1,4 +1,6 @@
 #include "IG_KeyEvent.h"
+#include "../Error/ValueException.h"
+
 
 IG_KeyEvent::IG_KeyEvent()
 {
@@ -46,6 +48,6 @@ int IG_KeyEvent::setIGAction(IG_Action act)
 int IG_KeyEvent::doAction(Game &game)
 {
 	if (m_action.getAction() == NULL)
-		return -1;
+		THROW_VALUE("Null action");
 	return m_action.getAction()(game);
 }
