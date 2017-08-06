@@ -8,6 +8,7 @@ public:
 	Hitbox();
 	Hitbox(const int &id, const int &x, const int &y, const int &w, const int &h);
 	Hitbox(const int &id, const sf::Rect<int> &r);
+	Hitbox(const Hitbox &hb);
 	~Hitbox();
 
 public:

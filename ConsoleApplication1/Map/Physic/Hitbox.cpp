@@ -26,6 +26,10 @@ Hitbox::Hitbox(const int &id, const sf::Rect<int> &r) :
 {
 }
 
+Hitbox::Hitbox(const Hitbox &hb) :
+	Hitbox(hb.getId(), hb.getX(), hb.getY(), hb.getWidth(), hb.getHeight())
+{
+}
 
 Hitbox::~Hitbox()
 {
