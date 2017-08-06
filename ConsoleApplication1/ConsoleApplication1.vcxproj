@@ -172,6 +172,7 @@
     <ClCompile Include="Battle\TeamMate.cpp" />
     <ClCompile Include="constants.cpp" />
     <ClCompile Include="Error\GameException.cpp" />
+    <ClCompile Include="Error\RessourceException.cpp" />
     <ClCompile Include="Event\actionFunctions.cpp" />
     <ClCompile Include="Event\IG_Action.cpp" />
     <ClCompile Include="Event\IG_KeyEvent.cpp" />
@@ -222,6 +223,7 @@
     <ClInclude Include="Battle\TeamMate.h" />
     <ClInclude Include="constants.h" />
     <ClInclude Include="Error\GameException.h" />
+    <ClInclude Include="Error\RessourceException.h" />
     <ClInclude Include="Event\actionFunctions.h" />
     <ClInclude Include="Event\IG_Action.h" />
     <ClInclude Include="Event\IG_KeyEvent.h" />
