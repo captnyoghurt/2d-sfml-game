@@ -1,4 +1,5 @@
 #include "ManageRenderTexture.h"
+#include "../Error/InitializationException.h"
 
 
 
@@ -129,7 +130,7 @@ int ManageRenderTexture::load(ManageSurfaces& surf, int x, int y, int w, int h, 
 int ManageRenderTexture::update()
 {
 	if (!m_initialized)
-		return -1;
+		THROW_INIT("Not initiate");
 	if (!m_updated)
 		return 1;
 
@@ -162,7 +163,7 @@ int ManageRenderTexture::update()
 int ManageRenderTexture::clear(ManageSurfaces& surf)
 {
 	if (!m_initialized)
-		return -1;
+		THROW_INIT("Already initiate");
 
 	m_renderTexture.clear();
 	surf.deleteSurface(m_renderTextureSurface);
