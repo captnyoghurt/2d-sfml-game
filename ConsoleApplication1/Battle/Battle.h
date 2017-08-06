@@ -13,7 +13,7 @@ class Game;
 class Battle
 {
 public:
-	enum e_BattleExit {BATTLE_EXIT_WIN, BATTLE_EXIT_LOSE, BATTLE_EXIT_RUN, BATTLE_EXIT_TOTAL};
+	enum e_BattleExit {BATTLE_EXIT_WIN = 10, BATTLE_EXIT_LOSE, BATTLE_EXIT_RUN, BATTLE_EXIT_TOTAL};
 
 public:
 	Battle(TeamBattle &tb);
@@ -36,6 +36,8 @@ public:
 	int getLastKeyEventLayer() const;
 	// Return the number of battle event created
 	int getBattleEventCreated() const;
+	// Return the battle exit
+	e_BattleExit getBattleExit() const;
 
 	// Return the enemie team with modifying possibilities
 	Enemies& getRealEnemies();
@@ -49,6 +51,9 @@ public:
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& getRealBackground();
 	// Return the real battle order
 	std::vector< std::shared_ptr<Fighter> >& getRealBattleOrder();
+
+	// Modify the battle exit
+	int setBattleExit(const Battle::e_BattleExit &be);
 
 	// Tell the battle it's updated
 	int gotUpdated();
@@ -79,6 +84,7 @@ private:
 	int m_battleTurn;
 	int m_lastKeyEventLayer;
 	int m_battleEventCreated;
+	e_BattleExit m_battleExit;
 	Enemies m_enemieTeam;
 	TeamBattle *m_alliesTeam;
 	std::shared_ptr<MenuBattle> m_battleMenu;

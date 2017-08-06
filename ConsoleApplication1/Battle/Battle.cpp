@@ -16,6 +16,7 @@ Battle::Battle(TeamBattle &tb)
 	m_started = false;
 	m_inTurn = false;
 	m_choicesFinished = false;
+	m_battleExit = Battle::e_BattleExit::BATTLE_EXIT_TOTAL;
 	
 	// Team
 	m_alliesTeam = &tb;
@@ -87,6 +88,13 @@ int Battle::getBattleEventCreated() const
 }
 
 
+// Return the battle exit
+Battle::e_BattleExit Battle::getBattleExit() const
+{
+	return m_battleExit;
+}
+
+
 // Return the enemie team with modifying possibilities
 Enemies& Battle::getRealEnemies()
 {
@@ -126,6 +134,20 @@ std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterato
 std::vector< std::shared_ptr<Fighter> >& Battle::getRealBattleOrder()
 {
 	return m_battleOrder;
+}
+
+
+// Modify the battle exit
+int Battle::setBattleExit(const Battle::e_BattleExit &be)
+{
+	if (be >= Battle::e_BattleExit::BATTLE_EXIT_WIN
+		&& be <= Battle::e_BattleExit::BATTLE_EXIT_TOTAL)
+	{
+		m_battleExit = be;
+		return 0;
+	}
+
+	return -1;
 }
 
 
@@ -229,6 +251,24 @@ int Battle::update(Game *g)
 	// [TODO]
 	if ((!m_updated && !m_battleMenu->getUpdated()) || !m_started)
 		return 1;
+
+	// <debuging>
+	if (m_alliesTeam->getNumberTeamMateAlive() <= 0)
+		m_battleExit = BATTLE_EXIT_LOSE;
+	else if (m_enemieTeam.getNumberFighterAlive() <= 0)
+		m_battleExit = BATTLE_EXIT_WIN;
+	// </debuging>
+
+	if (m_battleExit != Battle::e_BattleExit::BATTLE_EXIT_TOTAL)
+	{
+		end(g);
+
+		g->getRealEventManager().setKeyEventLayer(0);
+
+		g->getRealMap().gotUpdated();
+
+		return m_battleExit;
+	}
 
 	m_battleMenu->getRealMenus().at(MenuBattle::BM_LEFT)->update(*g);
 	m_battleMenu->getRealMenus().at(MenuBattle::BM_RIGHT)->update(*g);
@@ -350,6 +390,7 @@ int Battle::chooseBattleEvent(Game *g)
 int Battle::clear()
 {
 	m_battleEventCreated = 0;
+	m_battleExit = Battle::e_BattleExit::BATTLE_EXIT_TOTAL;
 	
 	return m_battleEventManager.clear();
 }
