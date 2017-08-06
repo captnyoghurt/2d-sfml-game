@@ -1,4 +1,5 @@
 #include <SFML/System.hpp>
+#include <SFML/Graphics.hpp>
 #include <string>
 
 // Window constants
@@ -69,6 +70,8 @@ int TEAM_BATTLE_MAX_NUMBER = 5;
 
 /// Font
 std::string MENU_FONT_NAME("monofonto.ttf");
+sf::Color MENU_FONT_COLOR(0, 0, 0);
+sf::Color MENU_FONT_COLOR_DISABLED_CHOICE(64, 64, 64);
 
 /// Surface
 std::string MENU_SURFACE_NAME("data/graphic/others/001-Blue01.png");

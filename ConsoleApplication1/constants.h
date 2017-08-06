@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/System.hpp>
+#include <SFML/Graphics.hpp>
 #include <string>
 
 #define ABSOLUTE(x)	(((x) > 0) ? (x) : (-x))
@@ -76,6 +77,8 @@ extern int TEAM_BATTLE_MAX_NUMBER;
 
 /// Font
 extern std::string MENU_FONT_NAME;
+extern sf::Color MENU_FONT_COLOR;
+extern sf::Color MENU_FONT_COLOR_DISABLED_CHOICE;
 
 /// Surface
 extern std::string MENU_SURFACE_NAME;
