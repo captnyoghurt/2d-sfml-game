@@ -1,5 +1,6 @@
 #include "ManageEvent.h"
 #include "../Game.h"
+#include "../Error/ValueException.h"
 
 ManageEvent::ManageEvent()
 {
@@ -43,6 +44,9 @@ int ManageEvent::setKeyEventLayer(const int &l)
 		m_keyEventLayer = l;
 		return 0;
 	}
+
+	THROW_VALUE(std::to_string(l));
+
 	return -1;
 }
 
@@ -60,6 +64,9 @@ int ManageEvent::setKeyEvent(int layer, int code, unsigned short matchCode, bool
 			m_keyEventList.at(layer).at(code).second = matchCode;
 		return 0;
 	}
+
+	THROW_VALUE(std::to_string(layer));
+
 	return -1;
 }
 
