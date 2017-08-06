@@ -21,7 +21,15 @@ Enemies::~Enemies()
 // Return the number of team mate alive
 int Enemies::getNumberFighterAlive() const
 {
-	return m_numberFighterAlive;
+	int n = 0;
+
+	for (unsigned int i(0); i < m_fighters.size(); i++)
+	{
+		if (m_fighters.at(i)->getHealth().getPoints() > 0)
+			n++;
+	}
+
+	return n;
 }
 
 
