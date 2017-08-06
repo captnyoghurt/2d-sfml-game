@@ -9,6 +9,8 @@ extern int DEB_ALLOCATED_SURFACE;
 extern int DEB_ALLOCATED_TEXT;
 extern int DEB_ALLOCATED_SPRITE;
 
+extern int DEB_ALLOCATED_ANIMATION;
+
 void deb_start();
 void deb_end();
 
