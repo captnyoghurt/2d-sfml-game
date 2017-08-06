@@ -1,4 +1,5 @@
 #include "../constants.h"
+#include "../Error/ValueException.h"
 #include "Tile.h"
 
 Tile::Tile()
@@ -88,7 +89,7 @@ int Tile::setEmpty(const bool &b)
 int Tile::setX(const unsigned short &x)
 {
 	if (x < 0)
-		return -1;
+		THROW_VALUE(std::to_string(x));
 	
 	m_x = x;
 	return 0;
@@ -98,7 +99,7 @@ int Tile::setX(const unsigned short &x)
 int Tile::setY(const unsigned short &y)
 {
 	if (y < 0)
-		return -1;
+		THROW_VALUE(std::to_string(y));
 
 	m_y = y;
 	return 0;
@@ -108,7 +109,7 @@ int Tile::setY(const unsigned short &y)
 int Tile::setWidth(const short &w)
 {
 	if (w < 0)
-		return -1;
+		THROW_VALUE(std::to_string(w));
 
 	m_width = w;
 	return 0;
@@ -118,7 +119,7 @@ int Tile::setWidth(const short &w)
 int Tile::setHeight(const short &h)
 {
 	if (h < 0)
-		return -1;
+		THROW_VALUE(std::to_string(h));
 
 	m_height = h;
 	return 0;
