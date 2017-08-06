@@ -5,6 +5,9 @@
 #include "../Event/IG_Action.h"
 #include "../initialization.h"
 #include "MenuChoice.h"
+#include "../Error/InitializationException.h"
+#include "../Error/ValueException.h"
+#include "../Error/RessourceException.h"
 
 
 MenuChoice::MenuChoice(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer) : Menu(ress, surf, lastEventLayer)
@@ -96,7 +99,11 @@ int MenuChoice::setShown(const bool &b)
 		}
 		if(b)
 			setSelectedChoice(m_selectedChoice);
+
+		return 0;
 	}
+
+	THROW_GAME("Menu::setShown error");
 
 	return -1;
 }
@@ -158,7 +165,7 @@ int MenuChoice::resizeChoiceSurface()
 	float w, h;
 
 	if (!m_initialized)
-		return -1;
+		THROW_INIT("Not initiate");
 
 	w = (float)m_choices.at(m_selectedChoice)->getRealSurface()->second->getWidth() + 2 * MENUS_BORDER_X;
 	h = (float)m_choices.at(m_selectedChoice)->getRealSurface()->second->getHeight();
@@ -178,7 +185,7 @@ int MenuChoice::resizeChoiceSurface()
 int MenuChoice::load(ManageRessources& ress, ManageSurfaces& surf, const std::string &filename, const int &xcam, const int &ycam)
 {
 	if (m_initialized)
-		return -1;
+		THROW_INIT("Already initiate");
 
 	bool autoPlacement(false);
 	sf::Font& f(ress.getTheFont(RESSOURCE_FONT_NUMBER_MONO));
@@ -188,7 +195,7 @@ int MenuChoice::load(ManageRessources& ress, ManageSurfaces& surf, const std::st
 	IG_Action act;
 
 	if (!file.is_open())
-		return -1;
+		THROW_RESSOURCE("File for menu choice", filename);
 
 	// Doesn't read the header with commentary
 	while (std::getline(file, firstLine) && ((firstLine.size() > 0 && firstLine[0] == '#') || firstLine.size() == 0));
