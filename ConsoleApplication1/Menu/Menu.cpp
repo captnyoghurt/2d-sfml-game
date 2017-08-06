@@ -1,6 +1,7 @@
 #include "../constants.h"
 #include "../Game.h"
 #include "Menu.h"
+#include "../Error/InitializationException.h"
 
 
 
@@ -134,7 +135,7 @@ int Menu::getHeight() const
 int Menu::setShown(const bool &b)
 {
 	if (!m_initialized)
-		return -1;
+		THROW_INIT("Shown " + std::to_string(b));
 
 	if (m_shown == b)
 		return 0;
@@ -169,7 +170,7 @@ int Menu::setSelectedChoice(const int &ch)
 int Menu::load(ManageRessources& ress, ManageSurfaces& surf, const int &x, const int &y, const int &w, const int &h)
 {
 	if (m_initialized)
-		return -1;
+		THROW_INIT("Already initiate");
 	
 	m_x = x;
 	m_y = y;
