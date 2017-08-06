@@ -19,6 +19,8 @@ public:
 	bool getInitialized() const;
 	// Return if the choice should be shown
 	bool getShown() const;
+	// Return if the choice is enabled
+	bool getEnabled() const;
 	// Return the surface of the choice
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator getSurface();
 	// Return the action made by the choice
@@ -35,6 +37,8 @@ public:
 
 	// Modify if the choice should be shown
 	int setShown(const bool &b, const int &dx, const int &dy);
+	// Modify if the choice should be enabled
+	int setEnabled(const bool &b);
 	// Modify the action made by the choice
 	int setAction(IG_Action act);
 	// Modify the position X of the choice on the screen
@@ -49,6 +53,7 @@ public:
 private:
 	bool m_initialized;
 	bool m_shown;
+	bool m_enabled;
 	ManageRenderTexture m_textureManager;
 	IG_Action m_action;
 	int m_x;

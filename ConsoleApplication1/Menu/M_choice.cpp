@@ -7,6 +7,7 @@ M_choice::M_choice()
 {
 	m_initialized = false;
 	m_shown = false;
+	m_enabled = true;
 }
 
 
@@ -14,6 +15,7 @@ M_choice::M_choice(const M_choice & ch)
 {
 	m_initialized = ch.getInitialized();
 	m_shown = ch.getShown();
+	m_enabled = true;
 }
 
 
@@ -34,6 +36,13 @@ bool M_choice::getInitialized() const
 bool M_choice::getShown() const
 {
 	return m_shown;
+}
+
+
+// Return if the choice is enabled
+bool M_choice::getEnabled() const
+{
+	return m_enabled;
 }
 
 
@@ -89,6 +98,15 @@ int M_choice::setShown(const bool &b, const int &dx, const int &dy)
 	m_shown = b;
 	m_textureManager.getRealRenderTextureSurface()->second->setDimensions(m_x + dx, m_y + dy, m_textureManager.getRealRenderTextureSurface()->second->getWidth(), m_textureManager.getRealRenderTextureSurface()->second->getHeight());
 	m_textureManager.getRealRenderTextureSurface()->second->setEnable(b);
+	return 0;
+}
+
+
+// Modify if the choice should be enabled
+int M_choice::setEnabled(const bool &b)
+{
+	m_enabled = b;
+
 	return 0;
 }
 
