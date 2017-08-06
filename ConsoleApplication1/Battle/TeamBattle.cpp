@@ -17,7 +17,15 @@ TeamBattle::~TeamBattle()
 // Return the number of team mate alive
 int TeamBattle::getNumberTeamMateAlive() const
 {
-	return m_numberTeamMateAlive;
+	int n = 0;
+
+	for (unsigned int i(0); i < m_team.size(); i++)
+	{
+		if (m_team.at(i).getHealth().getPoints() > 0)
+			n++;
+	}
+
+	return n;
 }
 
 
