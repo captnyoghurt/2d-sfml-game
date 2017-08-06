@@ -49,6 +49,12 @@
     <Filter Include="Fichiers sources\Battle">
       <UniqueIdentifier>{fe012bf3-e1ce-4dba-bb36-061830f939cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Error">
+      <UniqueIdentifier>{d3641cd0-118f-419b-b4c1-de163a3084a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Error">
+      <UniqueIdentifier>{7b32f50e-1407-4f5f-895e-4e69659344e6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -192,6 +198,9 @@
     <ClCompile Include="Battle\TeamBattle.cpp">
       <Filter>Fichiers sources\Battle</Filter>
     </ClCompile>
+    <ClCompile Include="Error\GameException.cpp">
+      <Filter>Fichiers sources\Error</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -331,6 +340,9 @@
     </ClInclude>
     <ClInclude Include="Battle\TeamBattle.h">
       <Filter>Fichiers d%27en-tête\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="Error\GameException.h">
+      <Filter>Fichiers d%27en-tête\Error</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
