@@ -15,6 +15,8 @@ public:
 	virtual	const char* what() const throw();
 
 	void append(const std::string &desc) throw();
+
+	e_ExceptionLevel getLevel() const throw();
 protected:
 	std::string m_description;
 	e_ExceptionLevel m_level;

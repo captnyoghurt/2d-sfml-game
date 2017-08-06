@@ -41,3 +41,9 @@ void GameException::append(const std::string &desc) throw()
 {
 	m_description += ("\n\t" + desc);
 }
+
+
+e_ExceptionLevel GameException::getLevel() const throw()
+{
+	return m_level;
+}
