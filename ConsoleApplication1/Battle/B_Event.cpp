@@ -1,5 +1,6 @@
 #include "B_Event.h"
 #include "Battle.h"
+#include "../Error/ValueException.h"
 
 
 B_Event::B_Event()
@@ -49,7 +50,7 @@ int B_Event::setDescription(const std::string &description)
 int B_Event::setNumberAllyDestination(const int &n)
 {
 	if (n < 0)
-		return -1;
+		THROW_VALUE(std::to_string(n));
 
 	m_numberAllyDestination = n;
 
@@ -61,7 +62,7 @@ int B_Event::setNumberAllyDestination(const int &n)
 int B_Event::setNumberEnemyDestination(const int &n)
 {
 	if (n < 0)
-		return -1;
+		THROW_VALUE(std::to_string(n));
 
 	m_numberEnemyDestination = n;
 
