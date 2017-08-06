@@ -6,8 +6,8 @@ class Hitbox
 {
 public:
 	Hitbox();
-	Hitbox(const int id, const int x, const int y, const int w, const int h);
-	Hitbox(const int id, const sf::Rect<int> &r);
+	Hitbox(const int &id, const int &x, const int &y, const int &w, const int &h);
+	Hitbox(const int &id, const sf::Rect<int> &r);
 	~Hitbox();
 
 public:
@@ -23,7 +23,7 @@ public:
 	int getHeight() const;
 
 	// Modify the id of the Hitbox
-	int setId() const;
+	int setId(const int &id);
 	// Modify the abciss of the Hitbox
 	int setX(const int &x);
 	// Modify the y position of the Hitbox
