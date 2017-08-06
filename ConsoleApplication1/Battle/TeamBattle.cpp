@@ -1,6 +1,8 @@
 #include "TeamBattle.h"
 #include "../Game.h"
 #include "../constants.h"
+#include "../Error/RessourceException.h"
+#include "../Error/ValueException.h"
 
 
 TeamBattle::TeamBattle()
@@ -56,15 +58,15 @@ int TeamBattle::addMember(TeamMate m)
 int TeamBattle::load(Game *g)
 {
 	if (m_team.size() < 2)
-		return -1;
+		THROW_VALUE("Size too small " + std::to_string(m_team.size()));
 
 	auto texture = g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_BATTLE).addTexture();
-	if(!texture->loadFromFile(TEAM_BATTLE_CHAR1_NAME))
-		return -1;
+	if (!texture->loadFromFile(TEAM_BATTLE_CHAR1_NAME))
+		THROW_RESSOURCE("Player 1 battle texture", TEAM_BATTLE_CHAR1_NAME);
 
 	auto texture2 = g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_BATTLE).addTexture();
 	if (!texture2->loadFromFile(TEAM_BATTLE_CHAR2_NAME))
-		return -1;
+		THROW_RESSOURCE("Player 2 battle texture", TEAM_BATTLE_CHAR2_NAME);
 
 	m_team.at(0).setSurface(g->getRealSurfaceManager(BATTLE_MAX_LAYER - 1).addSurface(ManageSurfaces::e_thing::SPRITE, std::make_shared<SurfaceSprite>()));
 	std::dynamic_pointer_cast<SurfaceSprite>(m_team.at(0).getRealSurface()->second)->setTexture(*texture);
