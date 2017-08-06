@@ -204,6 +204,9 @@
     <ClCompile Include="Error\RessourceException.cpp">
       <Filter>Fichiers sources\Error</Filter>
     </ClCompile>
+    <ClCompile Include="Error\ValueException.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -349,6 +352,9 @@
     </ClInclude>
     <ClInclude Include="Error\RessourceException.h">
       <Filter>Fichiers d%27en-tête\Error</Filter>
+    </ClInclude>
+    <ClInclude Include="Error\ValueException.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
