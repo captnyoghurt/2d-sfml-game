@@ -173,6 +173,7 @@
     <ClCompile Include="constants.cpp" />
     <ClCompile Include="Error\debugFunctions.cpp" />
     <ClCompile Include="Error\GameException.cpp" />
+    <ClCompile Include="Error\InitializationException.cpp" />
     <ClCompile Include="Error\RessourceException.cpp" />
     <ClCompile Include="Error\ValueException.cpp" />
     <ClCompile Include="Event\actionFunctions.cpp" />
@@ -226,6 +227,7 @@
     <ClInclude Include="constants.h" />
     <ClInclude Include="Error\debugFunctions.h" />
     <ClInclude Include="Error\GameException.h" />
+    <ClInclude Include="Error\InitializationException.h" />
     <ClInclude Include="Error\RessourceException.h" />
     <ClInclude Include="Error\ValueException.h" />
     <ClInclude Include="Event\actionFunctions.h" />
