@@ -4,6 +4,8 @@
 #include "../Menu/MenuDialogBox.h"
 #include "../Menu/MenuBattle.h"
 #include "../Battle/B_EventAttack.h"
+#include "../Error/ValueException.h"
+#include "../Error/InitializationException.h"
 
 int af_exit(Game &g)
 {
@@ -113,7 +115,7 @@ int af_menuCloseSimple(Game &g)
 int af_menuChoiceUp(Game &g)
 {
 	if (g.getRealMenus().size() == 0)
-		return -1;
+		THROW_INIT("No menu");
 	int ret = std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->setSelectedChoice(std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->getSelectedChoice() - 1);
 	if (ret > 0)
 		g.getRealMap().gotUpdated();
@@ -123,7 +125,7 @@ int af_menuChoiceUp(Game &g)
 int af_menuChoiceDown(Game &g)
 {
 	if (g.getRealMenus().size() == 0)
-		return -1;
+		THROW_INIT("No menu");
 	int ret = std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->setSelectedChoice(std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->getSelectedChoice() + 1);
 	if (ret > 0)
 		g.getRealMap().gotUpdated();
@@ -133,7 +135,7 @@ int af_menuChoiceDown(Game &g)
 int af_menuChoiceAction(Game &g)
 {
 	if (g.getRealMenus().size() == 0)
-		return -1;
+		THROW_INIT("No menu");
 	/*int i = ;
 	std::shared_ptr<MenuChoice> m(std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back()));
 	M_choice *mc((std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back()))->getChoices().at(std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->getSelectedChoice()));*/
@@ -167,7 +169,7 @@ int af_dialogBoxOpen(Game &g)
 int af_dialogBoxContinue(Game &g)
 {
 	if (g.getRealMenus().size() == 0)
-		return -1;
+		THROW_INIT("No dialog box");
 
 	g.getRealMap().gotUpdated();
 
@@ -209,35 +211,35 @@ int af_battleEnd(Game &g)
 int af_menuBattleDown(Game &g)
 {
 	if (!g.getRealBattle().getStarted())
-		return -1;
+		THROW_INIT("No battle started");
 	return g.getRealBattle().getRealBattleMenu().af_MenuBattleDown(g);
 }
 
 int af_menuBattleUp(Game &g)
 {
 	if (!g.getRealBattle().getStarted())
-		return -1;
+		THROW_INIT("No battle started");
 	return g.getRealBattle().getRealBattleMenu().af_MenuBattleUp(g);
 }
 
 int af_menuBattleRight(Game &g)
 {
 	if (!g.getRealBattle().getStarted())
-		return -1;
+		THROW_INIT("No battle started");
 	return g.getRealBattle().getRealBattleMenu().af_MenuBattleRight(g);
 }
 
 int af_menuBattleLeft(Game &g)
 {
 	if (!g.getRealBattle().getStarted())
-		return -1;
+		THROW_INIT("No battle started");
 	return g.getRealBattle().getRealBattleMenu().af_MenuBattleLeft(g);
 }
 
 int af_menuBattleEnter(Game &g)
 {
 	if (!g.getRealBattle().getStarted())
-		return -1;
+		THROW_INIT("No battle started");
 	return g.getRealBattle().getRealBattleMenu().af_MenuBattleEnter(g);
 }
 
@@ -245,29 +247,28 @@ int af_menuBattleEnter(Game &g)
 int af_menuBattleUseRight(Game &g)
 {
 	if (!g.getRealBattle().getStarted())
-		return -1;
-
+		THROW_INIT("No battle started");
 	return g.getRealBattle().getRealBattleMenu().setActiveMenu(MenuBattle::BM_RIGHT);
 }
 
 int af_menuBattleUseLeft(Game &g)
 {
 	if (!g.getRealBattle().getStarted())
-		return -1;
+		THROW_INIT("No battle started");
 	return g.getRealBattle().getRealBattleMenu().setActiveMenu(MenuBattle::BM_LEFT);
 }
 
 int af_menuBattleUseDialogBox(Game &g)
 {
 	if (!g.getRealBattle().getStarted())
-		return -1;
+		THROW_INIT("No battle started");
 	return g.getRealBattle().getRealBattleMenu().setActiveMenu(MenuBattle::BM_DIALOG);
 }
 
 int af_menuBattleUseChoice(Game &g)
 {
 	if (!g.getRealBattle().getStarted())
-		return -1;
+		THROW_INIT("No battle started");
 	return g.getRealBattle().getRealBattleMenu().setActiveMenu(MenuBattle::BM_CHOICE);
 }
 
@@ -276,7 +277,7 @@ int af_menuBattleUseChoice(Game &g)
 int af_battleEventCreateAttack(Game &g)
 {
 	if (!g.getRealBattle().getStarted())
-		return -1;
+		THROW_INIT("No battle started");
 
 	return g.getRealBattle().getRealBattleEventManager().createEvent(
 		g.getRealBattle().getRealBattleOrder().at(g.getRealBattle().getBattleEventCreated() - 1),
