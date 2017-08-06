@@ -287,7 +287,8 @@ int Battle::update(Game *g)
 
 		else if (m_choicesFinished)
 		{
-			if (m_battleEventManager.execute(*g) < 0)
+			m_battleEventManager.execute(*g);
+			if(m_battleEventManager.getRealBattleEvents().size() == 0)
 				m_inTurn = false;
 		}
 		// [TODO]
