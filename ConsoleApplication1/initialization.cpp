@@ -20,7 +20,7 @@ int initialization()
 	}
 	catch (GameException &e)
 	{
-		if (e.getLevel > 1)
+		if (e.getLevel() > 1)
 		{
 			e.append("During initialization");
 			throw e;
