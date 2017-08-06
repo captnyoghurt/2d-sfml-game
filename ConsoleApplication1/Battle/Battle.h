@@ -13,6 +13,9 @@ class Game;
 class Battle
 {
 public:
+	enum e_BattleExit {BATTLE_EXIT_WIN, BATTLE_EXIT_LOSE, BATTLE_EXIT_RUN, BATTLE_EXIT_TOTAL};
+
+public:
 	Battle(TeamBattle &tb);
 	~Battle();
 
