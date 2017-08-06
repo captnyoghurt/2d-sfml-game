@@ -1,6 +1,8 @@
 #include <memory>
 #include "../constants.h"
 #include "../Game.h"
+#include "../Error/ValueException.h"
+#include "../Error/RessourceException.h"
 #include "Map.h"
 #include "ManageSurfaces.h"
 
@@ -139,7 +141,7 @@ int Map::setPaused(const bool &b)
 int Map::setWitdth(const int &w)
 {
 	if (w < 0)
-		return -1;
+		THROW_VALUE(std::to_string(w));
 
 	m_width = w;
 
@@ -151,7 +153,7 @@ int Map::setWitdth(const int &w)
 int Map::setHeight(const int &h)
 {
 	if (h < 0)
-		return -1;
+		THROW_VALUE(std::to_string(h));
 
 	m_height = h;
 
@@ -163,7 +165,7 @@ int Map::setHeight(const int &h)
 int Map::setName(std::string name)
 {
 	if (name.length() <= 0)
-		return -1;
+		THROW_VALUE("Empty string");
 
 	m_name = name;
 
@@ -191,7 +193,7 @@ int Map::setFont(Font f)
 int Map::setTileset(std::string filename)
 {
 	if (!m_tileset.loadFromFile(filename))
-		return -1;
+		THROW_RESSOURCE("Map tileset", filename);
 
 	return 0;
 }
@@ -244,8 +246,7 @@ int Map::load(std::string filename, Game &g)
 	}
 
 	// Get the Tileset
-	if (setTileset(string("data/graphic/tileset/001-Grassland01.png")) == -1)
-		return -1;
+	setTileset(string("data/graphic/tileset/001-Grassland01.png"));
 
 	// Read the data
 	for (int i(0) ; i < m_width ; i++)
