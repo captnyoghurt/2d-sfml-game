@@ -1,4 +1,5 @@
 #include "Layer.h"
+#include "../Error/ValueException.h"
 
 using namespace sf;
 using namespace std;
@@ -72,7 +73,7 @@ Tile& Layer::getTile(int x, int y)
 int Layer::setWitdth(const int &w)
 {
 	if (w < 0)
-		return -1;
+		THROW_VALUE(std::to_string(w));
 
 	m_width = w;
 
@@ -86,7 +87,7 @@ int Layer::setWitdth(const int &w)
 int Layer::setHeight(const int &h)
 {
 	if (h < 0)
-		return -1;
+		THROW_VALUE(std::to_string(h));
 
 	m_height = h;
 
@@ -102,7 +103,7 @@ int Layer::setHeight(const int &h)
 int Layer::resize(const int &w, const int &h)
 {
 	if (w < 0 || h < 0)
-		return -1;
+		THROW_VALUE(std::to_string(w) + "/" + std::to_string(h));
 
 	m_width = w;
 	m_height = h;
