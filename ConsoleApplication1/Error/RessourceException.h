@@ -1,6 +1,7 @@
 #pragma once
 #include "GameException.h"
 
+#define THROW_RESSOURCE(str, fname) throw RessourceException(str, __LINE__, __FILE__, __func__, fname)
 
 class RessourceException :
 	public GameException
