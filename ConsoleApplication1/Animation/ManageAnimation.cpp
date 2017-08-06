@@ -1,6 +1,7 @@
 #include "../constants.h"
 #include "../Game.h"
 #include "ManageAnimation.h"
+#include "../Error/debugFunctions.h"
 
 
 
@@ -35,6 +36,11 @@ std::list<Animation>::iterator ManageAnimation::addAnimation(Animation a)
 	m_animations.push_back(a);
 	auto it(m_animations.end());
 	--it;
+
+#ifdef DEBUG_MODE_ON
+	// Construction with copy constructor
+	DEB_ALLOCATED_ANIMATION++;
+#endif // DEBUG_MODE_ON
 
 	return it;
 }

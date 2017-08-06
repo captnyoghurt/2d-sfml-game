@@ -1,5 +1,6 @@
 #include "Animation.h"
-
+#include "../Error/ValueException.h"
+#include "../Error/debugFunctions.h"
 
 
 Animation::Animation(int refreshTime, std::vector<sf::Rect<short>> rects, std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator surf)
@@ -10,6 +11,10 @@ Animation::Animation(int refreshTime, std::vector<sf::Rect<short>> rects, std::l
 	m_surface = surf;
 	m_finished = true;
 	m_killWhenDone = false;
+#ifdef DEBUG_MODE_ON
+	DEB_ALLOCATED_ANIMATION++;
+#endif // DEBUG_MODE_ON
+
 }
 Animation::Animation(int refreshTime, std::vector<sf::Rect<short>> rects, std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator surf, int loop, bool killWhenDone)
 {
@@ -21,6 +26,9 @@ Animation::Animation(int refreshTime, std::vector<sf::Rect<short>> rects, std::l
 	m_killWhenDone = killWhenDone;
 	m_finished = false;
 	m_clock.restart();
+#ifdef DEBUG_MODE_ON
+	DEB_ALLOCATED_ANIMATION++;
+#endif // DEBUG_MODE_ON
 }
 Animation::Animation(int refreshTime, std::vector<sf::Rect<short>> rects, std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator surf, int endX, int endY, int manDist, int loop, bool killWhenDone)
 {
@@ -35,10 +43,16 @@ Animation::Animation(int refreshTime, std::vector<sf::Rect<short>> rects, std::l
 	m_endY = endY;
 	m_manathanDistance = manDist;
 	m_clock.restart();
+#ifdef DEBUG_MODE_ON
+	DEB_ALLOCATED_ANIMATION++;
+#endif // DEBUG_MODE_ON
 }
 
 Animation::~Animation()
 {
+#ifdef DEBUG_MODE_ON
+	DEB_ALLOCATED_ANIMATION--;
+#endif // DEBUG_MODE_ON
 }
 
 
@@ -109,7 +123,7 @@ std::vector<sf::Rect<short>> Animation::getRectSprites() const
 int Animation::setRefreshTime(const int &t)
 {
 	if (t <= 0)
-		return -1;
+		THROW_VALUE(std::to_string(t));
 
 	m_refreshTime = t;
 
@@ -148,6 +162,10 @@ int Animation::kill()
 	m_finished = true;
 
 	m_killWhenDone = true;
+
+#ifdef DEBUG_MODE_ON
+	DEB_ALLOCATED_ANIMATION--;
+#endif // DEBUG_MODE_ON
 
 	return 1;
 }
