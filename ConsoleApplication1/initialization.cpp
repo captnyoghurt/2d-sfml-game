@@ -6,14 +6,31 @@
 #include "Game.h"
 #include "Event\IG_Action.h"
 #include "initialization.h"
+#include "Error\RessourceException.h"
+#include "Error\ValueException.h"
 
 // Initiate everything in the program
 int initialization()
 {
 	int ret = 0;
 
-	if ((ret = initiate_constants("param.conf")) != 0)
-		return -1;
+	try
+	{
+		ret = initiate_constants("param.conf");
+	}
+	catch (GameException &e)
+	{
+		if (e.getLevel > 1)
+		{
+			e.append("During initialization");
+			throw e;
+		}
+		else
+		{
+			e.append("Didn't stop the process");
+			e.what();
+		}
+	}
 
 	return 0;
 }
@@ -27,7 +44,7 @@ int initiate_constants(std::string filename)
 	std::string line, word;
 
 	if (!file.is_open())
-		return -1;
+		THROW_RESSOURCE("Constant file", filename);
 
 	while (std::getline(file, line))
 	{
@@ -180,7 +197,7 @@ int initiate_constants(std::string filename)
 			}
 			else
 			{
-				std::cout << "Unknown constant : " << word << std::endl;
+				THROW_VALUE("Unknown constant " + word)
 			}
 		}
 	}
@@ -198,12 +215,12 @@ int initiate_events(std::string filename, Game &g)
 	int nb, pressed;
 
 	if (!file.is_open())
-		return -1;
+		THROW_RESSOURCE("Events file", filename);
 
 	file >> nb;
 
 	if (nb <= 0)
-		return -2;
+		THROW_VALUE("Number of event layer incorrect");
 
 	g.getRealEventManager().createLayers(nb);
 
@@ -237,7 +254,7 @@ int initiate_events(std::string filename, Game &g)
 			}
 			else
 			{
-				std::cout << "Impossible value of layer event : " << layer << std::endl;
+				THROW_VALUE("Impossible value of layer event : " + std::to_string(layer));
 			}
 		}
 	}
@@ -315,7 +332,7 @@ int getCodeFromWord(std::string w)
 		return sf::Keyboard::Key::Return;
 
 	else
-		std::cout << "Unknown key : " << w << std::endl;
+		THROW_VALUE(std::string("Unknown key : " + w));
 
 	return 0;
 }
@@ -390,7 +407,7 @@ IG_Action::s_action getActionFromWord(std::string w)
 		return &af_battleEventCreateAttack;
 
 	else
-		std::cout << "Unknown action : " << w << std::endl;
+		THROW_VALUE(std::string("Unknown action : " + w));
 
 	return &doNothing;
 }
