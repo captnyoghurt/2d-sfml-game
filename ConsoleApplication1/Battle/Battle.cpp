@@ -7,7 +7,8 @@
 #include "../Game.h"
 #include "../Menu/MenuBattleSide.h"
 #include "../Menu/MenuDialogBox.h"
-
+#include "../Error/InitializationException.h"
+#include "../Error/ValueException.h"
 
 
 Battle::Battle(TeamBattle &tb)
@@ -54,7 +55,7 @@ bool Battle::getChoicesFinished() const
 int Battle::getBattleTurn() const
 {
 	if (!m_started)
-		return -1;
+		THROW_INIT("Battle not started");
 
 	return m_battleTurn;
 }
@@ -147,6 +148,8 @@ int Battle::setBattleExit(const Battle::e_BattleExit &be)
 		return 0;
 	}
 
+	THROW_VALUE(std::to_string(be));
+
 	return -1;
 }
 
@@ -164,7 +167,7 @@ int Battle::gotUpdated()
 int Battle::startTurn(Game *g)
 {
 	if (!m_started || m_inTurn)
-		return -1;
+		THROW_INIT("Battle not started");
 
 	m_battleEventCreated = 0;
 	m_inTurn = true;
@@ -181,7 +184,7 @@ int Battle::startTurn(Game *g)
 int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::string enemies, Game *g)
 {
 	if (m_started)
-		return -1;
+		THROW_INIT("Battle already started");
 
 	clear();
 
@@ -308,7 +311,7 @@ int Battle::end(Game *g)
 	// [TODO]
 
 	if (!m_started)
-		return -1;
+		THROW_INIT("Battle not started");
 
 	// Free textures
 	g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_BATTLE).deleteTexture(m_texture);
@@ -331,7 +334,7 @@ int Battle::end(Game *g)
 int Battle::definedOrder(Game *g)
 {
 	if (!m_started)
-		return -1;
+		THROW_INIT("Battle not started");
 
 	for (unsigned int i(1) ; i < m_battleOrder.size() ; i++)
 	{
@@ -354,7 +357,7 @@ int Battle::definedOrder(Game *g)
 int Battle::chooseBattleEvent(Game *g)
 {
 	if (!m_started || !m_inTurn)
-		return -1;
+		THROW_INIT("Battle not started");
 
 	if (m_battleEventCreated == m_battleOrder.size())
 	{
@@ -378,7 +381,8 @@ int Battle::chooseBattleEvent(Game *g)
 		m_battleMenu->setActiveMenu(MenuBattle::BM_CHOICE);
 	}
 	else
-		std::cout << "Non teammate" << std::endl;
+	{
+	}
 
 	m_battleEventCreated++;
 
