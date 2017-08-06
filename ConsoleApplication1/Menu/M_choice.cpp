@@ -1,6 +1,7 @@
 #include "../constants.h"
 #include "M_choice.h"
-
+#include "../Error/ValueException.h"
+#include "../Error/InitializationException.h"
 
 
 M_choice::M_choice()
@@ -64,7 +65,7 @@ IG_Action M_choice::getAction() const
 int M_choice::getX() const
 {
 	if (!m_initialized)
-		return -1;
+		THROW_INIT("getter");
 	return m_x;
 }
 
@@ -73,7 +74,7 @@ int M_choice::getX() const
 int M_choice::getY() const
 {
 	if (!m_initialized)
-		return -1;
+		THROW_INIT("getter");
 	return m_y;
 }
 
@@ -140,7 +141,7 @@ int M_choice::setY(const int &y)
 int M_choice::load(ManageSurfaces& surf, const std::string &str, sf::Font &f, const int &x, const int &y, const bool &sh, IG_Action act, const int &w, const int &h)
 {
 	if (m_initialized)
-		return -1;
+		THROW_INIT("Already initiate");
 
 	m_x = x;
 	m_y = y;
