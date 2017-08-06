@@ -1,5 +1,6 @@
 #include "B_EventAttack.h"
 #include "../Battle/Battle.h"
+#include "../Error/ValueException.h"
 
 
 B_EventAttack::B_EventAttack(const std::string &description)
@@ -25,7 +26,7 @@ int B_EventAttack::execute(Battle *bat)
 	// Check if destinations are chosen
 	if (m_enemyDestination.size() < (unsigned)m_numberEnemyDestination
 		|| m_allyDestination.size() < (unsigned)m_numberAllyDestination)
-		return -1;
+		THROW_VALUE("Not enough destination " + std::to_string(m_enemyDestination.size()) + "/" + std::to_string(m_allyDestination.size()));
 
 	// <debuging>
 	bat->getRealBattleEventManager().setWaiting(false);
