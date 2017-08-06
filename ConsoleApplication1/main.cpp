@@ -8,13 +8,22 @@
 
 int main()
 {
-	initialization();
-	Game game(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), WINDOW_NAME);
+	int ret(0);
 
-	if (initiate_events("data/keyev.conf", game) != 0)
-		return -2;
+	try
+	{
+		initialization();
+		Game game(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), WINDOW_NAME);
 
-	int ret = game.start();
+		if (initiate_events("data/keyev.conf", game) != 0)
+			return -2;
+
+		ret = game.start();
+	}
+	catch(const std::exception & e)
+	{
+		std::cerr << e.what();
+	}
 
 	return ret;
 }
