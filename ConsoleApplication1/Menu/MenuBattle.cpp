@@ -4,6 +4,8 @@
 #include "../Game.h"
 #include "MenuBattleSide.h"
 #include "MenuDialogBox.h"
+#include "../Error/InitializationException.h"
+#include "../Error/ValueException.h"
 
 
 MenuBattle::MenuBattle(Battle *b, ManageRessources &ress, ManageSurfaces &surf, int lastEventLayer)
@@ -60,7 +62,7 @@ std::vector<std::shared_ptr< Menu >>& MenuBattle::getRealMenus()
 int MenuBattle::setActiveMenu(const int &am)
 {
 	if (!((unsigned)am < MenuBattle::BM_TOTAL))
-		return -1;
+		THROW_VALUE(std::to_string(am));
 
 	m_activeMenu = am;
 
@@ -143,7 +145,7 @@ int MenuBattle::af_MenuBattleRight(Game &g)
 int MenuBattle::af_MenuBattleLeft(Game &g)
 {
 	if (!m_isBlocking || m_activeMenu != MenuBattle::BM_CHOICE)
-		return -1;
+		return 1;
 
 	if (std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->getSelectedChoice() > 0)
 	{
