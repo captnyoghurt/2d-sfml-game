@@ -10,8 +10,8 @@ Game::Game(VideoMode mode, const String &title, Uint32 style, const ContextSetti
 	m_window(mode, title, style, settings),
 	m_surfaceManager(BATTLE_MAX_LAYER + 1),
 	m_ressourceManager(Game::e_ressourcesLayer::RESSOURCES_TOTAL),
-	m_team(*this),
 	m_map(*this),
+	m_team(*this),
 	m_battle(m_team.getRealTeamBattle())
 {
 	loadRessources();
@@ -265,7 +265,7 @@ int Game::update()
 
 	ret += (m_map.update() << 1);
 
-	ret += (m_team.update(m_map.getRealCamera()) << 2);
+	ret += (m_team.update(m_map.getRealCamera(), m_map.getRealHitboxManager()) << 2);
 	if (ret >> 2 == 1)
 		m_map.gotUpdated();
 

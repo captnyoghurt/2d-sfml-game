@@ -7,6 +7,7 @@
 #include "Layer.h"
 #include "ManageSurfaces.h"
 #include "Tile.h"
+#include "Physic/ManageHitbox.h"
 
 class Game;
 
@@ -39,9 +40,13 @@ public:
 	Texture getTileset() const;
 	// Return the camera
 	Camera getCamera()	const;
+	// Return the hitbox manager
+	ManageHitbox getHitboxManager() const;
 
 	// Return the camera with modifying possibilities
 	Camera& getRealCamera();
+	// Return the hitbox manager with modifying possibilities
+	ManageHitbox& getRealHitboxManager();
 
 	// Modify if the map is paused (won't be printed)
 	int setPaused(const bool &b);
@@ -68,7 +73,6 @@ public:
 private:
 	bool m_paused;
 	bool m_updated;
-	//Font m_fontNameText;
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator m_mapName;
 	std::string m_name;
 	std::vector<Layer> m_layers;
@@ -77,7 +81,7 @@ private:
 	int m_height;
 	Texture m_tileset;
 	Camera m_camera;
-	//ManageAnimation m_animationManager;
+	ManageHitbox m_hitboxManager;
 	//Musique
 };
 

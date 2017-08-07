@@ -189,6 +189,8 @@
     <ClCompile Include="Map\ManageRessources.cpp" />
     <ClCompile Include="Map\ManageSurfaces.cpp" />
     <ClCompile Include="Map\Map.cpp" />
+    <ClCompile Include="Map\Physic\Hitbox.cpp" />
+    <ClCompile Include="Map\Physic\ManageHitbox.cpp" />
     <ClCompile Include="Map\Surface.cpp" />
     <ClCompile Include="Map\SurfaceSprite.cpp" />
     <ClCompile Include="Map\SurfaceText.cpp" />
@@ -242,6 +244,8 @@
     <ClInclude Include="Map\ManageRessources.h" />
     <ClInclude Include="Map\ManageSurfaces.h" />
     <ClInclude Include="Map\Map.h" />
+    <ClInclude Include="Map\Physic\Hitbox.h" />
+    <ClInclude Include="Map\Physic\ManageHitbox.h" />
     <ClInclude Include="Map\Surface.h" />
     <ClInclude Include="Map\SurfaceSprite.h" />
     <ClInclude Include="Map\SurfaceText.h" />

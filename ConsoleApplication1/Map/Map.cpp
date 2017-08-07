@@ -28,12 +28,6 @@ Map::Map(Game &g)
 	t.setFont(*g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MAP).addFont(f));
 	t.setPosition(0, 0);
 	m_mapName = g.getRealSurfaceManager().at(MAP_MAX_LAYER-1).addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>(t));
-	/*if (!m_fontNameText.loadFromFile("expressway rg.ttf"))
-	{
-		std::cout << "Damned\n";
-		return;
-	}
-	m_textName.setFont(m_fontNameText);*/
 
 	setName("No name");
 }
@@ -121,10 +115,24 @@ Camera Map::getCamera()	const
 }
 
 
+// Return the hitbox manager
+ManageHitbox Map::getHitboxManager() const
+{
+	return m_hitboxManager;
+}
+
+
 // Return the camera with modifying possibilities
 Camera& Map::getRealCamera()
 {
 	return m_camera;
+}
+
+
+// Return the hitbox manager with modifying possibilities
+ManageHitbox& Map::getRealHitboxManager()
+{
+	return m_hitboxManager;
 }
 
 
@@ -258,6 +266,7 @@ int Map::load(std::string filename, Game &g)
 	}
 
 	m_layers.at(1).setTile(5, 5, Tile(32, 64, 32, 32));
+	m_hitboxManager.addTileHitbox(5, 5, Hitbox(-1, 1, 1, 30, 30));
 
 	m_updated = true;
 

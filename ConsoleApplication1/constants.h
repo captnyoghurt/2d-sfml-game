@@ -69,6 +69,10 @@ extern int TEAM_WALK_DOWN_POSITION_Y;
 extern int TEAM_WALK_RIGHT_POSITION_Y;
 extern int TEAM_WALK_LEFT_POSITION_Y;
 extern int TEAM_WALK_LAYER;
+extern int TEAM_WALK_HITBOX_X;
+extern int TEAM_WALK_HITBOX_Y;
+extern int TEAM_WALK_HITBOX_WIDTH;
+extern int TEAM_WALK_HITBOX_HEIGHT;
 
 /// Combat
 extern int TEAM_BATTLE_MAX_NUMBER;
