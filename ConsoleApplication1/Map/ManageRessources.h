@@ -57,6 +57,8 @@ public:
 	int deleteImage(std::list<sf::Image>::iterator it);
 	// Delete a texture ressource
 	int deleteTexture(std::list<sf::Texture>::iterator it);
+	// Delete a sound buffer
+	int deleteSoundBuffer(std::list<sf::SoundBuffer>::iterator it);
 
 	// Clear all the ressources
 	int clear();

@@ -218,6 +218,16 @@ int ManageRessources::deleteTexture(std::list<sf::Texture>::iterator it)
 	return 0;
 }
 
+
+// Delete a sound buffer
+int ManageRessources::deleteSoundBuffer(std::list<sf::SoundBuffer>::iterator it)
+{
+	m_soundBuffers.erase(it);
+
+	return 0;
+}
+
+
 // Clear all the ressources
 int ManageRessources::clear()
 {
