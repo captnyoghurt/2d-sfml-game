@@ -35,6 +35,8 @@ public:
 	// Give the tile hitbox
 	Hitbox& at(const int &tx, const int &ty);
 
+	// Return the rect of tile where the hitbox is
+	sf::Rect<int> rectTilePosition(const Hitbox &hb);
 	// Return if the two hitbox are colliding
 	e_CollisionType areColliding(const Hitbox &hb1, const Hitbox &hb2);
 
