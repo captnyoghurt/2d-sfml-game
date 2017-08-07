@@ -5,6 +5,7 @@
 #include "B_EventDefense.h"
 #include "B_EventEscape.h"
 #include "B_EventSpell.h"
+#include "../Error/ValueException.h"
 
 
 
@@ -167,6 +168,15 @@ int Fighter::setSurface(std::list<std::pair<ManageSurfaces::e_thing, std::shared
 	m_surface = it;
 
 	return 0;
+}
+
+
+// Take a decision for the next battle action
+std::shared_ptr<B_Event> Fighter::chooseEvent(Battle &b)
+{
+	THROW_VALUE("Simple B_Event");
+
+	return std::make_shared<B_Event>(B_Event());
 }
 
 
