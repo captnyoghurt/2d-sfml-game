@@ -235,6 +235,7 @@ int ManageRessources::clear()
 	m_fonts.clear();
 	m_images.clear();
 	m_textures.clear();
+	m_soundBuffers.clear();
 
 	return ret;
 }
