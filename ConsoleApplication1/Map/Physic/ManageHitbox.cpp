@@ -89,7 +89,7 @@ Hitbox& ManageHitbox::at(const int &tx, const int &ty)
 
 
 // Return the rect of tile where the hitbox is
-sf::Rect<int> rectTilePosition(const Hitbox &hb)
+sf::Rect<int> ManageHitbox::rectTilePosition(const Hitbox &hb)
 {
 	sf::Rect<int> rect(0, 0, 0, 0);
 
