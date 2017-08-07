@@ -85,3 +85,16 @@ Hitbox& ManageHitbox::at(const int &tx, const int &ty)
 
 	return it->second;
 }
+
+
+// Return if the two hitbox are colliding
+ManageHitbox::e_CollisionType ManageHitbox::areColliding(const Hitbox &hb1, const Hitbox &hb2)
+{
+	if (hb1.getX() < hb2.getX() + hb2.getWidth()
+		&& hb1.getX() + hb1.getWidth() > hb2.getX()
+		&& hb1.getY() < hb2.getY() + hb2.getHeight()
+		&& hb1.getY + hb1.getHeight() > hb2.getY())
+		return ManageHitbox::e_CollisionType::COLLISION_HARD;
+
+	return ManageHitbox::e_CollisionType::COLLISION_NONE;
+}

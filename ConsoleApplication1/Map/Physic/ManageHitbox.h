@@ -8,6 +8,9 @@
 class ManageHitbox
 {
 public:
+	enum e_CollisionType { COLLISION_NONE, COLLISION_WATER, COLLISION_HARD };
+
+public:
 	ManageHitbox();
 	~ManageHitbox();
 
@@ -31,6 +34,9 @@ public:
 
 	// Give the tile hitbox
 	Hitbox& at(const int &tx, const int &ty);
+
+	// Return if the two hitbox are colliding
+	e_CollisionType areColliding(const Hitbox &hb1, const Hitbox &hb2);
 
 private:
 	int m_idCount;
