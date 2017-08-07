@@ -239,7 +239,7 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 	int as(m_alliesTeam->getTeam().size()), es(m_enemieTeam.getTeam().size());
 	m_battleOrder.resize(as + es);
 	for (int i(0); i < as; i++)
-		m_battleOrder.at(i) = std::make_shared<TeamMate>(m_alliesTeam->getRealTeam().at(i));
+		m_battleOrder.at(i) = m_alliesTeam->getRealTeam().at(i);
 	for (int i(as); i < as + es; i++)
 		m_battleOrder.at(i) = m_enemieTeam.getRealTeam().at(i - as);
 

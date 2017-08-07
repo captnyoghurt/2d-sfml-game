@@ -23,13 +23,13 @@ std::shared_ptr<B_Event> EnemiBasic::chooseEvent(Battle &b)
 
 	for (unsigned int i(0); i < b.getAllies().getTeam().size(); i++)
 	{
-		if (!b.getAllies().getTeam().at(i).isDead())
+		if (!b.getAllies().getTeam().at(i)->isDead())
 			n--;
 
 		if (n == 0)
 		{
 			B_EventAttack evt(this->getName() + " attaque !");
-			evt.getRealEnemyDestination().push_back(std::make_shared<TeamMate>(b.getRealAllies().getRealTeam().at(i)));
+			evt.getRealEnemyDestination().push_back(b.getRealAllies().getRealTeam().at(i));
 			evt.getRealSource() = std::make_shared<EnemiBasic>(*this);
 
 			return std::make_shared<B_EventAttack>(evt);

@@ -47,12 +47,12 @@ int B_EventAttack::execute(Battle *bat)
 		}
 		else
 		{
-			std::vector< TeamMate >&fighters = bat->getRealAllies().getRealTeam();
+			std::vector< std::shared_ptr<TeamMate> >&fighters = bat->getRealAllies().getRealTeam();
 
 			for (unsigned int i(0); i < fighters.size(); i++)
-				if (fighters.at(i).getHealth().getPoints() > 0)
+				if (fighters.at(i)->getHealth().getPoints() > 0)
 				{
-					m_enemyDestination.at(0) = std::make_shared<TeamMate>(fighters.at(i));
+					m_enemyDestination.at(0) = fighters.at(i);
 					break;
 				}
 		}

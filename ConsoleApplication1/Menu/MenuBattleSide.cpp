@@ -258,14 +258,14 @@ int MenuBattleSide::loadWithAllies(ManageRessources& ress, ManageSurfaces& surf,
 	if (m_barType != MenuBattleSide::e_menuBattleSideBarType::MENU_BATTLE_ALLIE)
 		THROW_VALUE(std::to_string(m_barType));
 
-	std::vector<TeamMate>& tm(allies.getRealTeam());
+	std::vector< std::shared_ptr<TeamMate> >& tm(allies.getRealTeam());
 
 	for (unsigned int i(0); i < tm.size(); i++)
 	{
 		m_choices.push_back(std::make_shared<M_choice>());
 
 		// NAME
-		m_choices.back()->load(surf, tm.at(i).getName(), ress.getTheFont(0), m_background->second->getX() + MENUS_BORDER_X, m_background->second->getY() + (i * (MENU_SIMPLE_FONTSIZE * 7)),
+		m_choices.back()->load(surf, tm.at(i)->getName(), ress.getTheFont(0), m_background->second->getX() + MENUS_BORDER_X, m_background->second->getY() + (i * (MENU_SIMPLE_FONTSIZE * 7)),
 			true, IG_Action(std::bind(&af_MenuBattleSideAllyEnter, i, std::placeholders::_1)), CAMERA_WIDTH/5, CAMERA_HEIGHT);
 		// HP_TEXT
 		auto hptext = surf.addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>());
@@ -313,9 +313,9 @@ int MenuBattleSide::loadWithAllies(ManageRessources& ress, ManageSurfaces& surf,
 			SKILLPOINTS_IMAGE_POSITION_Y);
 
 
-		updateHealth(i, tm.at(i).getHealth());
-		updateMana(i, tm.at(i).getMana());
-		updateSkillPoints(i, tm.at(i).getSkillPoints());
+		updateHealth(i, tm.at(i)->getHealth());
+		updateMana(i, tm.at(i)->getMana());
+		updateSkillPoints(i, tm.at(i)->getSkillPoints());
 		m_choices.back()->getRealRenderTextureManager().update();
 	}
 
@@ -350,9 +350,9 @@ int MenuBattleSide::update(Game &g)
 		useCorrectFont(i, g);
 		if (m_barType == MENU_BATTLE_ALLIE)
 		{
-			updateHealth(i, g.getRealBattle().getAllies().getTeam().at(i).getHealth());
-			updateMana(i, g.getRealBattle().getAllies().getTeam().at(i).getMana());
-			updateSkillPoints(i, g.getRealBattle().getAllies().getTeam().at(i).getSkillPoints());
+			updateHealth(i, g.getRealBattle().getAllies().getTeam().at(i)->getHealth());
+			updateMana(i, g.getRealBattle().getAllies().getTeam().at(i)->getMana());
+			updateSkillPoints(i, g.getRealBattle().getAllies().getTeam().at(i)->getSkillPoints());
 		}
 		else
 		{
@@ -390,7 +390,7 @@ int MenuBattleSide::useCorrectFont(int i, Game &g)
 
 	if (m_barType == MENU_BATTLE_ALLIE)
 	{
-		if (m_choices.at(i)->getEnabled() && g.getRealBattle().getRealAllies().getTeam().at(i).getHealth().getPoints() <= 0)
+		if (m_choices.at(i)->getEnabled() && g.getRealBattle().getRealAllies().getTeam().at(i)->getHealth().getPoints() <= 0)
 		{
 			m_choices.at(i)->setEnabled(false);
 			std::dynamic_pointer_cast<SurfaceText>(m_choices.at(i)->getRealRenderTextureManager().getRealSurfaces().at(NAME)->second)->setFillColor(MENU_FONT_COLOR_DISABLED_CHOICE);
@@ -399,7 +399,7 @@ int MenuBattleSide::useCorrectFont(int i, Game &g)
 			std::dynamic_pointer_cast<SurfaceText>(m_choices.at(i)->getRealRenderTextureManager().getRealSurfaces().at(MP_TEXT)->second)->setFillColor(MENU_FONT_COLOR_DISABLED_CHOICE);
 			std::dynamic_pointer_cast<SurfaceText>(m_choices.at(i)->getRealRenderTextureManager().getRealSurfaces().at(TP_TEXT)->second)->setFillColor(MENU_FONT_COLOR_DISABLED_CHOICE);
 		}
-		else if (!m_choices.at(i)->getEnabled() && g.getRealBattle().getRealAllies().getTeam().at(i).getHealth().getPoints() > 0)
+		else if (!m_choices.at(i)->getEnabled() && g.getRealBattle().getRealAllies().getTeam().at(i)->getHealth().getPoints() > 0)
 		{
 			m_choices.at(i)->setEnabled(true);
 			std::dynamic_pointer_cast<SurfaceText>(m_choices.at(i)->getRealRenderTextureManager().getRealSurfaces().at(NAME)->second)->setFillColor(MENU_FONT_COLOR);
@@ -436,7 +436,7 @@ int MenuBattleSide::useCorrectFont(int i, Game &g)
 int af_MenuBattleSideAllyEnter(int n, Game &g)
 {
 	g.getRealBattle().getRealBattleEventManager().addDestinationForEvent(
-		std::make_shared<Fighter>(g.getRealBattle().getRealAllies().getRealTeam().at(n)),
+		g.getRealBattle().getRealAllies().getRealTeam().at(n),
 		g
 	);
 		

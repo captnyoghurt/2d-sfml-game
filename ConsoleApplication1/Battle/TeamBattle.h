@@ -15,10 +15,10 @@ public:
 	// Return the number of team mate alive
 	int getNumberTeamMateAlive() const;
 	// Return the team mate vector
-	std::vector<TeamMate> getTeam() const;
+	std::vector< std::shared_ptr<TeamMate> > getTeam() const;
 
 	// Return the team mate vector with modifying possibilities
-	std::vector<TeamMate>& getRealTeam();
+	std::vector< std::shared_ptr<TeamMate> >& getRealTeam();
 
 	// Add a new member
 	int addMember(TeamMate m);
@@ -29,6 +29,6 @@ public:
 	int update();
 private:
 	int m_numberTeamMateAlive;
-	std::vector<TeamMate> m_team;
+	std::vector< std::shared_ptr<TeamMate> > m_team;
 };
 
