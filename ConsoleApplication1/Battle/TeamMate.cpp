@@ -1,4 +1,6 @@
 #include "TeamMate.h"
+#include "B_Event.h"
+#include "../Error/GameException.h"
 
 
 
@@ -15,6 +17,15 @@ TeamMate::TeamMate(const TeamMate &tm) : Fighter(tm)
 
 TeamMate::~TeamMate()
 {
+}
+
+
+// Take a decision for the next battle action
+std::shared_ptr<B_Event> TeamMate::chooseEvent(Battle &b)
+{
+	THROW_GAME("Shouldn't be ever called");
+
+	return std::make_shared<B_Event>(B_Event());
 }
 
 
