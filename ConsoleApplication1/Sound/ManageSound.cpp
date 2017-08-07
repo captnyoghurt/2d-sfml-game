@@ -46,13 +46,15 @@ std::stack<std::shared_ptr<sf::Music>>& ManageSound::getRealMusics()
 // Add a new sound
 int ManageSound::addSound(sf::Sound s)
 {
-	m_sounds.push_back(std::make_shared<sf::Sound>(sf::Sound(s)));
+	m_sounds.push_back(std::make_shared<sf::Sound>(s));
+	m_sounds.back()->play();
 
 	return 0;
 }
 int ManageSound::addSound(const sf::SoundBuffer &sbuffer)
 {
-	m_sounds.push_back(std::make_shared<sf::Sound>(sf::Sound(sbuffer)));
+	m_sounds.push_back(std::make_shared<sf::Sound>(sbuffer));
+	m_sounds.back()->play();
 
 	return 0;
 }
@@ -63,7 +65,8 @@ int ManageSound::addSound(const std::string &filename, ManageRessources &ress)
 	if (!sbuffer->loadFromFile(filename))
 		THROW_RESSOURCE("BufferSound in manager", filename);
 
-	m_sounds.push_back(std::make_shared<sf::Sound>(sf::Sound(*sbuffer)));
+	m_sounds.push_back(std::make_shared<sf::Sound>(*sbuffer));
+	m_sounds.back()->play();
 
 	return 0;
 }
