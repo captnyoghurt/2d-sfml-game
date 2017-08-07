@@ -34,6 +34,13 @@ std::list<sf::Texture> ManageRessources::getTextures() const
 }
 
 
+// Return all the sound buffers
+std::list<sf::SoundBuffer> ManageRessources::getSoundBuffers() const
+{
+	return m_soundBuffers;
+}
+
+
 // Return a font
 sf::Font& ManageRessources::getTheFont(int n)
 {
@@ -70,6 +77,18 @@ sf::Texture& ManageRessources::getTheTexture(int n)
 }
 
 
+// Return a sound buffer
+sf::SoundBuffer& ManageRessources::getTheSoundBuffer(int n)
+{
+	int i(0);
+
+	for (auto it(m_soundBuffers.begin()); it != m_soundBuffers.end(); ++it, i++)
+		if (i == n)
+			return *it;
+	return *m_soundBuffers.begin();
+}
+
+
 // Return all the fonts with modifying possibilities
 std::list<sf::Font>& ManageRessources::getRealFonts()
 {
@@ -87,6 +106,13 @@ std::list<sf::Image>& ManageRessources::getRealImages()
 std::list<sf::Texture>& ManageRessources::getRealTextures()
 {
 	return m_textures;
+}
+
+
+// Return all the sound buffers with modifying possibilities
+std::list<sf::SoundBuffer>& ManageRessources::getRealSoundBuffers()
+{
+	return m_soundBuffers;
 }
 
 
@@ -147,6 +173,25 @@ std::list<sf::Texture>::iterator ManageRessources::addTexture()
 }
 
 
+// Add a sound buffer
+std::list<sf::SoundBuffer>::iterator ManageRessources::addSoundBuffer(sf::SoundBuffer sbuffer)
+{
+	m_soundBuffers.push_back(sbuffer);
+	auto it(m_soundBuffers.end());
+	--it;
+
+	return it;
+}
+std::list<sf::SoundBuffer>::iterator ManageRessources::addSoundBuffer()
+{
+	m_soundBuffers.push_back(sf::SoundBuffer());
+	auto it(m_soundBuffers.end());
+	--it;
+
+	return it;
+}
+
+
 // Delete a font ressource
 int ManageRessources::deleteFont(std::list<sf::Font>::iterator it)
 {
@@ -173,6 +218,16 @@ int ManageRessources::deleteTexture(std::list<sf::Texture>::iterator it)
 	return 0;
 }
 
+
+// Delete a sound buffer
+int ManageRessources::deleteSoundBuffer(std::list<sf::SoundBuffer>::iterator it)
+{
+	m_soundBuffers.erase(it);
+
+	return 0;
+}
+
+
 // Clear all the ressources
 int ManageRessources::clear()
 {
@@ -180,6 +235,7 @@ int ManageRessources::clear()
 	m_fonts.clear();
 	m_images.clear();
 	m_textures.clear();
+	m_soundBuffers.clear();
 
 	return ret;
 }
