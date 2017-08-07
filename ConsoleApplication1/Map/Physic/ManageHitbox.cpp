@@ -106,6 +106,37 @@ sf::Rect<int> ManageHitbox::rectTilePosition(const Hitbox &hb)
 }
 
 
+// Return if the hitbox is colliding
+ManageHitbox::e_CollisionType ManageHitbox::collision(const Hitbox &hb)
+{
+	sf::Rect<int> rect(rectTilePosition(hb));
+	ManageHitbox::e_CollisionType maxCollision(COLLISION_NONE);
+	ManageHitbox::e_CollisionType temp(COLLISION_NONE);
+
+	for(int i(rect.left) ; i < rect.left + rect.width ; i++)
+		for (int j(rect.top); j < rect.top + rect.height; j++)
+		{
+			auto it(m_tileHitbox.find(std::make_pair(i, j)));
+			if (it != m_tileHitbox.end())
+			{
+				temp = areColliding(hb, it->second);
+				maxCollision = MAX(maxCollision, temp);
+			}
+		}
+
+	for (auto it(m_hitbox.begin()); it != m_hitbox.end(); it++)
+	{
+		if (it->getId() != hb.getId() && hb.getId() != -1)
+		{
+			temp = areColliding(hb, *it);
+			maxCollision = MAX(maxCollision, temp);
+		}
+	}
+
+	return maxCollision;
+}
+
+
 // Return if the two hitbox are colliding
 ManageHitbox::e_CollisionType ManageHitbox::areColliding(const Hitbox &hb1, const Hitbox &hb2)
 {
