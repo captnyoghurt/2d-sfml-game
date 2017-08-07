@@ -1,4 +1,5 @@
 #include "B_EventAttack.h"
+#include "../constants.h"
 #include "../Battle/Battle.h"
 #include "../Error/ValueException.h"
 
@@ -30,11 +31,37 @@ int B_EventAttack::execute(Battle *bat)
 
 	// <debuging>
 	bat->getRealBattleEventManager().setWaiting(false);
-	
-	m_enemyDestination.at(0)->getRealHealth().use(
+
+	if (m_enemyDestination.at(0)->getHealth().getPoints() <= 0)
+	{
+		if (!m_enemyDestination.at(0)->isTeamMate())
+		{
+			std::vector< std::shared_ptr<Fighter> >&fighters = bat->getRealEnemies().getRealTeam();
+
+			for (unsigned int i(0); i < fighters.size(); i++)
+				if (fighters.at(i)->getHealth().getPoints() > 0)
+				{
+					m_enemyDestination.at(0) = fighters.at(i);
+					break;
+				}
+		}
+		else
+		{
+			std::vector< TeamMate >&fighters = bat->getRealAllies().getRealTeam();
+
+			for (unsigned int i(0); i < fighters.size(); i++)
+				if (fighters.at(i).getHealth().getPoints() > 0)
+				{
+					m_enemyDestination.at(0) = std::make_shared<TeamMate>(fighters.at(i));
+					break;
+				}
+		}
+	}
+
+	m_enemyDestination.at(0)->getRealHealth().use(MAX(0,
 		m_source->getCharacteristics().at(Characteristic::e_characteristics::ATTACK_PHYSIC).getValue() -
 		m_enemyDestination.at(0)->getCharacteristics().at(Characteristic::e_characteristics::DEFENSE_PHYSIC).getValue()
-	);
+	));
 
 	return 0;
 }
