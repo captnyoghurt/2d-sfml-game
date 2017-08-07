@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML\Graphics.hpp>
+#include <SFML\Audio.hpp>
 #include <list>
 
 class ManageRessources
@@ -54,5 +55,6 @@ private:
 	std::list<sf::Font> m_fonts;
 	std::list<sf::Image> m_images;
 	std::list<sf::Texture> m_textures;
+	std::list<sf::SoundBuffer> m_soundBuffers;
 };
 
