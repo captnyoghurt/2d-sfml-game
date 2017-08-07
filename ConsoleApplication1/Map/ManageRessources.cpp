@@ -77,6 +77,18 @@ sf::Texture& ManageRessources::getTheTexture(int n)
 }
 
 
+// Return a sound buffer
+sf::SoundBuffer& ManageRessources::getTheSoundBuffer(int n)
+{
+	int i(0);
+
+	for (auto it(m_soundBuffers.begin()); it != m_soundBuffers.end(); ++it, i++)
+		if (i == n)
+			return *it;
+	return *m_soundBuffers.begin();
+}
+
+
 // Return all the fonts with modifying possibilities
 std::list<sf::Font>& ManageRessources::getRealFonts()
 {

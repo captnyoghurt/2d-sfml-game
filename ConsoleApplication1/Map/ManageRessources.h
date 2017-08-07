@@ -26,6 +26,8 @@ public:
 	sf::Image& getTheImage(int n);
 	// Return a texture
 	sf::Texture& getTheTexture(int n);
+	// Return a sound buffer
+	sf::SoundBuffer& getTheSoundBuffer(int n);
 
 	// Return all the fonts with modifying possibilities
 	std::list<sf::Font>& getRealFonts();
