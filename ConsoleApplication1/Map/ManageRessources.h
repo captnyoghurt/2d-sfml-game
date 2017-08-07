@@ -17,6 +17,8 @@ public:
 	std::list<sf::Image> getImages() const;
 	// Return all the textures
 	std::list<sf::Texture> getTextures() const;
+	// Return all the sound buffers
+	std::list<sf::SoundBuffer> getSoundBuffers() const;
 
 	// Return a font
 	sf::Font& getTheFont(int n);
@@ -31,6 +33,8 @@ public:
 	std::list<sf::Image>& getRealImages();
 	// Return all the textures with modifying possibilities
 	std::list<sf::Texture>& getRealTextures();
+	// Return all the sound buffers with modifying possibilities
+	std::list<sf::SoundBuffer>& getRealSoundBuffers();
 
 	// Add a font ressource
 	std::list<sf::Font>::iterator addFont(sf::Font f);

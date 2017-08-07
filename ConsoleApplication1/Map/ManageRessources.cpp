@@ -34,6 +34,13 @@ std::list<sf::Texture> ManageRessources::getTextures() const
 }
 
 
+// Return all the sound buffers
+std::list<sf::SoundBuffer> ManageRessources::getSoundBuffers() const
+{
+	return m_soundBuffers;
+}
+
+
 // Return a font
 sf::Font& ManageRessources::getTheFont(int n)
 {
@@ -87,6 +94,13 @@ std::list<sf::Image>& ManageRessources::getRealImages()
 std::list<sf::Texture>& ManageRessources::getRealTextures()
 {
 	return m_textures;
+}
+
+
+// Return all the sound buffers with modifying possibilities
+std::list<sf::SoundBuffer>& ManageRessources::getRealSoundBuffers()
+{
+	return m_soundBuffers;
 }
 
 
