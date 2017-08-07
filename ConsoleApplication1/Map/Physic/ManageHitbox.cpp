@@ -5,6 +5,7 @@
 
 ManageHitbox::ManageHitbox()
 {
+	m_idCount = 0;
 }
 
 
@@ -12,6 +13,13 @@ ManageHitbox::~ManageHitbox()
 {
 	m_hitbox.clear();
 	m_tileHitbox.clear();
+}
+
+
+// Return the id counter
+int ManageHitbox::getIdCount() const
+{
+	return m_idCount;
 }
 
 
@@ -59,6 +67,9 @@ std::shared_ptr<Hitbox> ManageHitbox::addTileHitbox(const int &tx, const int &ty
 std::shared_ptr<Hitbox> ManageHitbox::addHitbox(const Hitbox& hb, const int &id)
 {
 	m_hitbox.push_back(hb);
+
+	if (id == -1)
+		m_hitbox.back().setId(++m_idCount);
 
 	return std::make_shared<Hitbox>(m_hitbox.back());
 }
