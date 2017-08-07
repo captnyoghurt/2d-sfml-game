@@ -27,6 +27,7 @@ public:
 	// Add a new sound
 	int addSound(sf::Sound s);
 	int addSound(const sf::SoundBuffer &sbuffer);
+	int addSound(const std::string &filename, ManageRessources &ress);
 
 public:
 	std::list<std::shared_ptr<sf::Sound>> m_sounds;

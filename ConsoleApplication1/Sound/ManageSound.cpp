@@ -1,5 +1,6 @@
 #include "ManageSound.h"
 #include "../Map/ManageRessources.h"
+#include "../Error/RessourceException.h"
 
 
 
@@ -51,6 +52,17 @@ int ManageSound::addSound(sf::Sound s)
 int ManageSound::addSound(const sf::SoundBuffer &sbuffer)
 {
 	m_sounds.push_back(std::make_shared<sf::Sound>(sf::Sound(sbuffer)));
+
+	return 0;
+}
+int ManageSound::addSound(const std::string &filename, ManageRessources &ress)
+{
+	auto sbuffer = ress.addSoundBuffer();
+
+	if (!sbuffer->loadFromFile(filename))
+		THROW_RESSOURCE("BufferSound in manager", filename);
+
+	m_sounds.push_back(std::make_shared<sf::Sound>(sf::Sound(*sbuffer)));
 
 	return 0;
 }
