@@ -1,4 +1,5 @@
 #include "ManageSound.h"
+#include "../Map/ManageRessources.h"
 
 
 
@@ -37,4 +38,19 @@ std::list<std::shared_ptr<sf::Sound>>& ManageSound::getRealSounds()
 std::stack<std::shared_ptr<sf::Music>>& ManageSound::getRealMusics()
 {
 	return m_musics;
+}
+
+
+// Add a new sound
+int ManageSound::addSound(sf::Sound s)
+{
+	m_sounds.push_back(std::make_shared<sf::Sound>(sf::Sound(s)));
+
+	return 0;
+}
+int ManageSound::addSound(const sf::SoundBuffer &sbuffer)
+{
+	m_sounds.push_back(std::make_shared<sf::Sound>(sf::Sound(sbuffer)));
+
+	return 0;
 }

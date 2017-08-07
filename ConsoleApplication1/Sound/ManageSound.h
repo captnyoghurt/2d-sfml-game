@@ -5,6 +5,8 @@
 #include <stack>
 #include <SFML/Audio.hpp>
 
+class ManageRessources;
+
 class ManageSound
 {
 public:
@@ -21,6 +23,10 @@ public:
 	std::list<std::shared_ptr<sf::Sound>>& getRealSounds();
 	// Return the stack of musics with modifying possibilities
 	std::stack<std::shared_ptr<sf::Music>>& getRealMusics();
+
+	// Add a new sound
+	int addSound(sf::Sound s);
+	int addSound(const sf::SoundBuffer &sbuffer);
 
 public:
 	std::list<std::shared_ptr<sf::Sound>> m_sounds;
