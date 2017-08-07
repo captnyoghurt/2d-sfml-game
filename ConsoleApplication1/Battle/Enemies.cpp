@@ -54,6 +54,12 @@ int Enemies::addMember(Fighter m)
 
 	return 0;
 }
+int Enemies::addMember(std::shared_ptr<Fighter> f)
+{
+	m_fighters.push_back(f);
+
+	return 0;
+}
 
 
 // Update the team batttle

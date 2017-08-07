@@ -21,6 +21,7 @@ public:
 
 	// Add a new member
 	int addMember(Fighter m);
+	int addMember(std::shared_ptr<Fighter> f);
 
 	// Update the team batttle
 	int update();
