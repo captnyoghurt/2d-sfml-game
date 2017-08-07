@@ -27,6 +27,8 @@ public:
 	// Return the normal hitbox with modifying possibilities
 	std::deque< Hitbox >& getRealHitbox();
 
+	// Add a tile hitbox with checking the other layer
+	std::shared_ptr<Hitbox> addTopTileHitbox(const int &tx, const int &ty, const Hitbox& hb);
 	// Add a tile hitbox
 	std::shared_ptr<Hitbox> addTileHitbox(const int &tx, const int &ty, const Hitbox& hb);
 	// Add a hitbox
@@ -37,7 +39,6 @@ public:
 
 	// Return the rect of tile where the hitbox is
 	sf::Rect<int> rectTilePosition(const Hitbox &hb);
-
 
 	// Return if the hitbox will collide
 	e_CollisionType willCollide(const Hitbox &hb, const int &dx, const int &dy);

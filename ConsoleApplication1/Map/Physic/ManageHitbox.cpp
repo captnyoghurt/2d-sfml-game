@@ -52,6 +52,24 @@ std::deque< Hitbox >& ManageHitbox::getRealHitbox()
 }
 
 
+// Add a tile hitbox with checking the other layer
+std::shared_ptr<Hitbox> ManageHitbox::addTopTileHitbox(const int &tx, const int &ty, const Hitbox& hb)
+{
+	auto it(m_tileHitbox.find(std::make_pair(tx, ty)));
+
+	if (it == m_tileHitbox.end())
+		return addTileHitbox(tx, ty, hb);
+
+	it->second.setWidth(MAX(it->second.getX() + it->second.getWidth(), hb.getX() + hb.getWidth()) - it->second.getX());
+	it->second.setHeight(MAX(it->second.getY() + it->second.getHeight(), hb.getY() + hb.getHeight()) - it->second.getY());
+
+	it->second.setX(MIN(it->second.getX(), hb.getX()));
+	it->second.setY(MIN(it->second.getY(), hb.getY()));
+
+	return std::make_shared<Hitbox>(it->second);
+}
+
+
 // Add a tile hitbox
 std::shared_ptr<Hitbox> ManageHitbox::addTileHitbox(const int &tx, const int &ty, const Hitbox& hb)
 {
