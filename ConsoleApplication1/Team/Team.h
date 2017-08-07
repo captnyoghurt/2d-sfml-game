@@ -89,7 +89,7 @@ public:
 	int stopMoving(Team::e_teamDirection dir = UNKNOWN);
 	//int moveWithCamera(const short &dx, const short &dy, Camera &c, e_teamDirection direction = UNKNOWN);
 	// Update the movement
-	int update(Camera &c);
+	int update(Camera &c, ManageHitbox &hm);
 
 private:
 	std::vector<Character> m_team;

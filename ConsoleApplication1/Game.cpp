@@ -265,7 +265,7 @@ int Game::update()
 
 	ret += (m_map.update() << 1);
 
-	ret += (m_team.update(m_map.getRealCamera()) << 2);
+	ret += (m_team.update(m_map.getRealCamera(), m_map.getRealHitboxManager()) << 2);
 	if (ret >> 2 == 1)
 		m_map.gotUpdated();
 

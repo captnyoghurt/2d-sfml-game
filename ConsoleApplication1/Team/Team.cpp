@@ -456,7 +456,7 @@ int Team::stopMoving(Team::e_teamDirection dir)
 
 
 // Update the movement
-int Team::update(Camera &c)
+int Team::update(Camera &c, ManageHitbox &hm)
 {
 	if (!m_moving || (m_speedY != 0 && m_clock.getElapsedTime().asMicroseconds() < 1000000 * TEAM_MOVING_Y / ABSOLUTE(m_speedY)) || (m_speedX != 0 && m_clock.getElapsedTime().asMicroseconds() < 1000000*TEAM_MOVING_X/ABSOLUTE(m_speedX)))
 		return 0;
