@@ -42,13 +42,13 @@ Team::Team(Game &g)
 	m_teamBattle.load(&g);
 
 	// Load the hitbox
-	m_hitbox = g.getRealMap().getRealHitboxManager().addHitbox(Hitbox(
+	m_hitbox = std::make_shared<Hitbox>(g.getRealMap().getRealHitboxManager().addHitbox(Hitbox(
 		-1,
 		TEAM_WALK_HITBOX_X,
 		TEAM_WALK_HITBOX_Y,
 		TEAM_WALK_HITBOX_WIDTH,
 		TEAM_WALK_HITBOX_HEIGHT
-	));
+	)));
 	
 	// Load the textures
 	auto texture = g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MAP).addTexture();
@@ -465,6 +465,11 @@ int Team::update(Camera &c, ManageHitbox &hm)
 	m_clock.restart();
 	///
 
+	if (hm.willCollide(*m_hitbox, 
+		(m_speedX != 0) ? TEAM_MOVING_X*SIGNE(m_speedX) : 0, 
+		(m_speedY != 0) ? TEAM_MOVING_Y*SIGNE(m_speedY) : 0) > ManageHitbox::e_CollisionType::COLLISION_NONE)
+		return 0;
+
 	if (m_speedX != 0)
 	{
 		if (m_x + TEAM_MOVING_X*SIGNE(m_speedX) <= 0)
@@ -483,6 +488,9 @@ int Team::update(Camera &c, ManageHitbox &hm)
 		else
 			m_y += (TEAM_MOVING_Y*SIGNE(m_speedY));
 	}
+
+	m_hitbox->setX(m_x + TEAM_WALK_HITBOX_X);
+	m_hitbox->setY(m_y + TEAM_WALK_HITBOX_Y);
 
 	m_walkStand->second->setX(m_x);
 	m_walkStand->second->setY(m_y);
