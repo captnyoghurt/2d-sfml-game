@@ -126,3 +126,10 @@ int Hitbox::move(const int &dx, const int &dy)
 {
 	return setX(m_x + dx) + setY(m_y + dy);
 }
+
+
+// Move to a position
+int Hitbox::moveTo(const int &x, const int &y)
+{
+	return setX(x) + setY(y);
+}

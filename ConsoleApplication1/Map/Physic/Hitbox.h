@@ -36,6 +36,8 @@ public:
 
 	// Modify x & y of the Hitbox
 	int move(const int &dx, const int &dy);
+	// Move to a position
+	int moveTo(const int &x, const int &y);
 
 public:
 	int m_id;
