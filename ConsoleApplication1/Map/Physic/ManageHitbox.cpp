@@ -73,3 +73,15 @@ std::shared_ptr<Hitbox> ManageHitbox::addHitbox(const Hitbox& hb, const int &id)
 
 	return std::make_shared<Hitbox>(m_hitbox.back());
 }
+
+
+// Give the tile hitbox
+Hitbox& ManageHitbox::at(const int &tx, const int &ty)
+{
+	auto it = m_tileHitbox.find(std::make_pair(tx, ty));
+
+	if (it == m_tileHitbox.end())
+		THROW_VALUE("TileHitbox doesn't exist : " + std::to_string(tx) + std::to_string(ty));
+
+	return it->second;
+}

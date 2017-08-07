@@ -29,6 +29,9 @@ public:
 	// Add a hitbox
 	std::shared_ptr<Hitbox> addHitbox(const Hitbox& hb, const int &id = -1);
 
+	// Give the tile hitbox
+	Hitbox& at(const int &tx, const int &ty);
+
 private:
 	int m_idCount;
 	std::map< std::pair<int, int>, Hitbox > m_tileHitbox;
