@@ -11,6 +11,7 @@ ManageSound::ManageSound()
 
 ManageSound::~ManageSound()
 {
+	clear();
 }
 
 
@@ -102,6 +103,18 @@ int ManageSound::deleteMusic()
 
 	if(played == sf::Music::Status::Playing)
 		m_musics.top()->play();
+
+	return 0;
+}
+
+
+// Clear all the sounds and music
+int ManageSound::clear()
+{
+	m_sounds.clear();
+	
+	while (!m_musics.empty())
+		m_musics.pop();
 
 	return 0;
 }

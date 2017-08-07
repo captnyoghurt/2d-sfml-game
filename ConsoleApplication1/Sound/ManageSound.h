@@ -34,6 +34,9 @@ public:
 	// Delete the top music
 	int deleteMusic();
 
+	// Clear all the sounds and music
+	int clear();
+
 public:
 	std::list<std::shared_ptr<sf::Sound>> m_sounds;
 	std::stack<std::shared_ptr<sf::Music>> m_musics;
