@@ -106,6 +106,17 @@ sf::Rect<int> ManageHitbox::rectTilePosition(const Hitbox &hb)
 }
 
 
+// Return if the hitbox will collide
+ManageHitbox::e_CollisionType ManageHitbox::willCollide(const Hitbox &hb, const int &dx, const int &dy)
+{
+	Hitbox newHb(hb);
+	newHb.setX(newHb.getX() + dx);
+	newHb.setY(newHb.getY() + dy);
+
+	return collision(newHb);
+}
+
+
 // Return if the hitbox is colliding
 ManageHitbox::e_CollisionType ManageHitbox::collision(const Hitbox &hb)
 {
