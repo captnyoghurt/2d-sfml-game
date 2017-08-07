@@ -80,3 +80,25 @@ int ManageSound::addMusic(const std::string &filename, bool loop)
 
 	return 0;
 }
+
+
+// Delete the top music
+int ManageSound::deleteMusic()
+{
+	if (m_musics.empty())
+		THROW_GAME("Empty stack of music");
+
+	sf::Music::Status played(m_musics.top()->getStatus());
+
+	m_musics.top()->stop();
+
+	m_musics.pop();
+
+	if (m_musics.empty())
+		return 1;
+
+	if(played == sf::Music::Status::Playing)
+		m_musics.top()->play();
+
+	return 0;
+}

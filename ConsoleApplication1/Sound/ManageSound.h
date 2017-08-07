@@ -31,6 +31,9 @@ public:
 	// Add a new music
 	int addMusic(const std::string &filename, bool loop = true);
 
+	// Delete the top music
+	int deleteMusic();
+
 public:
 	std::list<std::shared_ptr<sf::Sound>> m_sounds;
 	std::stack<std::shared_ptr<sf::Music>> m_musics;
