@@ -108,6 +108,24 @@ int ManageSound::deleteMusic()
 }
 
 
+// Update the manager
+int ManageSound::update()
+{
+	// Delete all the stopped sounds
+
+	for (auto it(m_sounds.begin()); it != m_sounds.end(); it++)
+	{
+		if ((*it)->getStatus() == sf::Sound::Status::Stopped)
+		{
+			it = m_sounds.erase(it);
+			it--;
+		}
+	}
+
+	return 0;
+}
+
+
 // Clear all the sounds and music
 int ManageSound::clear()
 {

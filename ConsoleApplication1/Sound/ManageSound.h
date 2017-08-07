@@ -34,6 +34,8 @@ public:
 	// Delete the top music
 	int deleteMusic();
 
+	// Update the manager
+	int update();
 	// Clear all the sounds and music
 	int clear();
 
