@@ -61,6 +61,12 @@
     <Filter Include="Fichiers d%27en-tête\Map\Physic">
       <UniqueIdentifier>{27dadd28-f8e0-4c28-b74a-924081f8f477}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Sound">
+      <UniqueIdentifier>{79e1137d-57b1-4bde-8acf-499dd42e693c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Sound">
+      <UniqueIdentifier>{671cefc2-5c82-4408-907a-4e9d5f2750ed}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -225,6 +231,9 @@
     <ClCompile Include="Map\Physic\Hitbox.cpp">
       <Filter>Fichiers sources\Map\Physic</Filter>
     </ClCompile>
+    <ClCompile Include="Sound\ManageSound.cpp">
+      <Filter>Fichiers sources\Sound</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -385,6 +394,9 @@
     </ClInclude>
     <ClInclude Include="Map\Physic\Hitbox.h">
       <Filter>Fichiers d%27en-tête\Map\Physic</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound\ManageSound.h">
+      <Filter>Fichiers d%27en-tête\Sound</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

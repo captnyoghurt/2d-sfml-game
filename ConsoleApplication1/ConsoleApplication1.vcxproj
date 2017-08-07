@@ -201,6 +201,7 @@
     <ClCompile Include="Menu\MenuChoice.cpp" />
     <ClCompile Include="Menu\MenuDialogBox.cpp" />
     <ClCompile Include="Menu\M_choice.cpp" />
+    <ClCompile Include="Sound\ManageSound.cpp" />
     <ClCompile Include="Team\Character.cpp" />
     <ClCompile Include="Team\Team.cpp" />
   </ItemGroup>
@@ -256,6 +257,7 @@
     <ClInclude Include="Menu\MenuChoice.h" />
     <ClInclude Include="Menu\MenuDialogBox.h" />
     <ClInclude Include="Menu\M_choice.h" />
+    <ClInclude Include="Sound\ManageSound.h" />
     <ClInclude Include="Team\Character.h" />
     <ClInclude Include="Team\Team.h" />
   </ItemGroup>
