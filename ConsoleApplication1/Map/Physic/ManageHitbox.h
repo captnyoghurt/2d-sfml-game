@@ -28,11 +28,11 @@ public:
 	std::deque< Hitbox >& getRealHitbox();
 
 	// Add a tile hitbox with checking the other layer
-	std::shared_ptr<Hitbox> addTopTileHitbox(const int &tx, const int &ty, const Hitbox& hb);
+	Hitbox& addTopTileHitbox(const int &tx, const int &ty, const Hitbox& hb);
 	// Add a tile hitbox
-	std::shared_ptr<Hitbox> addTileHitbox(const int &tx, const int &ty, const Hitbox& hb);
+	Hitbox& addTileHitbox(const int &tx, const int &ty, const Hitbox& hb);
 	// Add a hitbox
-	std::shared_ptr<Hitbox> addHitbox(const Hitbox& hb, const int &id = -1);
+	Hitbox& addHitbox(const Hitbox& hb, const int &id = -1);
 
 	// Give the tile hitbox
 	Hitbox& at(const int &tx, const int &ty);

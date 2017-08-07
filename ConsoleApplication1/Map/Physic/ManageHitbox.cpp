@@ -53,7 +53,7 @@ std::deque< Hitbox >& ManageHitbox::getRealHitbox()
 
 
 // Add a tile hitbox with checking the other layer
-std::shared_ptr<Hitbox> ManageHitbox::addTopTileHitbox(const int &tx, const int &ty, const Hitbox& hb)
+Hitbox& ManageHitbox::addTopTileHitbox(const int &tx, const int &ty, const Hitbox& hb)
 {
 	auto it(m_tileHitbox.find(std::make_pair(tx, ty)));
 
@@ -66,31 +66,35 @@ std::shared_ptr<Hitbox> ManageHitbox::addTopTileHitbox(const int &tx, const int 
 	it->second.setX(MIN(it->second.getX(), hb.getX()));
 	it->second.setY(MIN(it->second.getY(), hb.getY()));
 
-	return std::make_shared<Hitbox>(it->second);
+	return it->second;
 }
 
 
 // Add a tile hitbox
-std::shared_ptr<Hitbox> ManageHitbox::addTileHitbox(const int &tx, const int &ty, const Hitbox& hb)
+Hitbox& ManageHitbox::addTileHitbox(const int &tx, const int &ty, const Hitbox& hb)
 {
 	if (tx < 0 || ty < 0)
 		THROW_VALUE("Wrong tile hitbox position : " + std::to_string(tx) + std::to_string(ty));
 
-	m_tileHitbox.insert(std::make_pair(std::make_pair(tx, ty), hb));
+	m_tileHitbox.insert(std::make_pair(std::make_pair(tx, ty), Hitbox(hb)));
 
-	return std::make_shared<Hitbox>(m_tileHitbox.at(std::make_pair(tx, ty)));
+	Hitbox& ret(m_tileHitbox.at(std::make_pair(tx, ty)));
+
+	ret.move(tx*TILE_WIDTH, ty*TILE_HEIGHT);
+
+	return ret;
 }
 
 
 // Add a hitbox
-std::shared_ptr<Hitbox> ManageHitbox::addHitbox(const Hitbox& hb, const int &id)
+Hitbox& ManageHitbox::addHitbox(const Hitbox& hb, const int &id)
 {
 	m_hitbox.push_back(hb);
 
 	if (id == -1)
 		m_hitbox.back().setId(++m_idCount);
 
-	return std::make_shared<Hitbox>(m_hitbox.back());
+	return m_hitbox.back();
 }
 
 
@@ -115,10 +119,10 @@ sf::Rect<int> ManageHitbox::rectTilePosition(const Hitbox &hb)
 	rect.top = hb.getY() / TILE_HEIGHT;
 
 	// Get the width
-	for (rect.width = 0; (rect.left + 1 + rect.width)*TILE_WIDTH >= hb.getX() + hb.getWidth(); rect.width++);
+	for (rect.width = 1; (rect.left + rect.width)*TILE_WIDTH < hb.getX() + hb.getWidth(); rect.width++);
 
 	// Get the height
-	for (rect.height = 0; (rect.top + 1 + rect.height)*TILE_HEIGHT >= hb.getY() + hb.getHeight(); rect.height++);
+	for (rect.height = 1; (rect.top + rect.height)*TILE_HEIGHT < hb.getY() + hb.getHeight(); rect.height++);
 
 	return rect;
 }
