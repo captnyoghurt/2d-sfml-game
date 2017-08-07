@@ -40,6 +40,15 @@ Team::Team(Game &g)
 	m_teamBattle.addMember(tm);
 
 	m_teamBattle.load(&g);
+
+	// Load the hitbox
+	m_hitbox = g.getRealMap().getRealHitboxManager().addHitbox(Hitbox(
+		-1,
+		TEAM_WALK_HITBOX_X,
+		TEAM_WALK_HITBOX_Y,
+		TEAM_WALK_HITBOX_WIDTH,
+		TEAM_WALK_HITBOX_HEIGHT
+	));
 	
 	// Load the textures
 	auto texture = g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MAP).addTexture();
@@ -174,10 +183,24 @@ std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterato
 }
 
 
+// Return the hitbox
+Hitbox Team::getHitbox() const
+{
+	return *m_hitbox;
+}
+
+
 // Return the walk stand surface with modifying possibilities
 std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& Team::getRealWalkStand()
 {
 	return m_walkStand;
+}
+
+
+// Return the hitbox with modifying possibilities
+Hitbox& Team::getRealHitbox()
+{
+	return *m_hitbox;
 }
 
 

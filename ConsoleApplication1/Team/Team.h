@@ -4,6 +4,7 @@
 #include "../Animation/Animation.h"
 #include "Character.h"
 #include "../Battle/TeamBattle.h"
+#include "../Map/Physic/Hitbox.h"
 
 class Team
 {
@@ -38,6 +39,8 @@ public:
 	std::vector<std::list<Animation>::iterator> getAnimations() const;
 	// Return the walk stand surface
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator getWalkStand() const;
+	// Return the hitbox
+	Hitbox getHitbox() const;
 	// Return the maxX of the team
 	short getMaxX() const;
 	// Return the maxY of the team
@@ -51,6 +54,8 @@ public:
 	std::vector<std::list<Animation>::iterator>& getRealAnimations();
 	// Return the walk stand surface with modifying possibilities
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& getRealWalkStand();
+	// Return the hitbox with modifying possibilities
+	Hitbox& getRealHitbox();
 	// Return the team battle with modifying possibilities
 	TeamBattle& getRealTeamBattle();
 
@@ -94,6 +99,7 @@ private:
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator m_walkStand;
 	std::vector<std::list<Animation>::iterator> m_movementAnimation;
 	sf::Clock m_clock;
+	std::shared_ptr<Hitbox> m_hitbox;
 	bool m_defined;
 	bool m_moving;
 	bool m_cameraFollowing;
