@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Battle.h"
+#include "EnemiBasic.h"
 #include "../Map/ManageRessources.h"
 #include "../Map/ManageSurfaces.h"
 #include "../constants.h"
@@ -206,16 +207,17 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 	// Load sides
 	std::dynamic_pointer_cast<MenuBattleSide>(m_battleMenu->getRealMenus().at(MenuBattle::BM_RIGHT))->loadWithAllies(g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_MENU), g->getRealSurfaceManager(BATTLE_MIN_LAYER), *m_alliesTeam);
 	
-	Fighter f;
+	EnemiBasic f;
+	f.setCharacteristic(Characteristic(5, 10000), Characteristic::e_characteristics::ATTACK_PHYSIC);
 	f.setHealth(30);
 	f.setMana(10);
 	f.setName("Monstre simple");
-	m_enemieTeam.addMember(f);
+	m_enemieTeam.addMember(std::make_shared<EnemiBasic>(f));
 	f.setHealth(50);
 	f.setName("Monstre 2");
-	m_enemieTeam.addMember(f);
+	m_enemieTeam.addMember(std::make_shared<EnemiBasic>(f));
 	f.setName("Monstre 3");
-	m_enemieTeam.addMember(f);
+	m_enemieTeam.addMember(std::make_shared<EnemiBasic>(f));
 
 	std::dynamic_pointer_cast<MenuBattleSide>(m_battleMenu->getRealMenus().at(MenuBattle::BM_LEFT))->loadWithEnemies(g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_MENU), g->getRealSurfaceManager(BATTLE_MIN_LAYER), m_enemieTeam);
 
@@ -383,6 +385,7 @@ int Battle::chooseBattleEvent(Game *g)
 	}
 	else
 	{
+		m_battleEventManager.getRealBattleEvents().push_back(m_battleOrder.at(m_battleEventCreated)->chooseEvent(*this));
 	}
 
 	m_battleEventCreated++;
