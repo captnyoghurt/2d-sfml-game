@@ -34,6 +34,9 @@ public:
 	// Modify the height of the Hitbox
 	int setHeight(const int &h);
 
+	// Modify x & y of the Hitbox
+	int move(const int &dx, const int &dy);
+
 public:
 	int m_id;
 	int m_x;

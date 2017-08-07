@@ -119,3 +119,10 @@ int Hitbox::setHeight(const int &h)
 	m_height = h;
 	return 0;
 }
+
+
+// Modify x & y of the Hitbox
+int Hitbox::move(const int &dx, const int &dy)
+{
+	return setX(m_x + dx) + setY(m_y + dy);
+}
