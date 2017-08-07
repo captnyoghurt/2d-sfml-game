@@ -71,6 +71,9 @@ int ManageSound::addSound(const std::string &filename, ManageRessources &ress)
 // Add a new music
 int ManageSound::addMusic(const std::string &filename, bool loop)
 {
+	if (!m_musics.empty())
+		m_musics.top()->stop();
+
 	m_musics.push(std::make_shared<sf::Music>());
 
 	if (!m_musics.top()->openFromFile(filename))
