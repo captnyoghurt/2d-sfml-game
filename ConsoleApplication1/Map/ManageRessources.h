@@ -47,6 +47,9 @@ public:
 	// Add a texture ressource
 	std::list<sf::Texture>::iterator addTexture(sf::Texture texture);
 	std::list<sf::Texture>::iterator addTexture();
+	// Add a sound buffer
+	std::list<sf::SoundBuffer>::iterator addSoundBuffer(sf::SoundBuffer sbuffer);
+	std::list<sf::SoundBuffer>::iterator addSoundBuffer();
 
 	// Delete a font ressource
 	int deleteFont(std::list<sf::Font>::iterator it);

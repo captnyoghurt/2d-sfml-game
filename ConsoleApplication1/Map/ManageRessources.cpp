@@ -173,6 +173,25 @@ std::list<sf::Texture>::iterator ManageRessources::addTexture()
 }
 
 
+// Add a sound buffer
+std::list<sf::SoundBuffer>::iterator ManageRessources::addSoundBuffer(sf::SoundBuffer sbuffer)
+{
+	m_soundBuffers.push_back(sbuffer);
+	auto it(m_soundBuffers.end());
+	--it;
+
+	return it;
+}
+std::list<sf::SoundBuffer>::iterator ManageRessources::addSoundBuffer()
+{
+	m_soundBuffers.push_back(sf::SoundBuffer());
+	auto it(m_soundBuffers.end());
+	--it;
+
+	return it;
+}
+
+
 // Delete a font ressource
 int ManageRessources::deleteFont(std::list<sf::Font>::iterator it)
 {
