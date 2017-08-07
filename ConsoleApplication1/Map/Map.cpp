@@ -130,7 +130,7 @@ Camera& Map::getRealCamera()
 
 
 // Return the hitbox manager with modifying possibilities
-ManageHitbox Map::getRealHitboxManager()
+ManageHitbox& Map::getRealHitboxManager()
 {
 	return m_hitboxManager;
 }
@@ -266,6 +266,7 @@ int Map::load(std::string filename, Game &g)
 	}
 
 	m_layers.at(1).setTile(5, 5, Tile(32, 64, 32, 32));
+	m_hitboxManager.addTileHitbox(5, 5, Hitbox(-1, 1, 1, 30, 30));
 
 	m_updated = true;
 

@@ -46,7 +46,7 @@ public:
 	// Return the camera with modifying possibilities
 	Camera& getRealCamera();
 	// Return the hitbox manager with modifying possibilities
-	ManageHitbox getRealHitboxManager();
+	ManageHitbox& getRealHitboxManager();
 
 	// Modify if the map is paused (won't be printed)
 	int setPaused(const bool &b);
