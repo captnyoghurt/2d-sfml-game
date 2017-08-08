@@ -8,6 +8,7 @@
 #include "Menu/Menu.h"
 #include "Team/Team.h"
 #include "Battle/Battle.h"
+#include "Sound/ManageSound.h"
 
 
 using namespace sf;
@@ -32,6 +33,8 @@ public:
 	std::vector<ManageRessources> getRessourceManager() const;
 	// Return the animation manager
 	ManageAnimation getAnimationManager() const;
+	// Return the sound manager
+	ManageSound getSoundManager() const;
 	// Return the team
 	Team getTeam() const;
 
@@ -49,6 +52,8 @@ public:
 	ManageRessources& getRealRessourceManager(int n);
 	// Return the animation manager with modifying possibilities
 	ManageAnimation& getRealAnimationManager();
+	// Return the sound manager with modifying possibilities
+	ManageSound& getRealSoundManager();
 	// Return the team with modifying possibilities
 	Team& getRealTeam();
 	// Return the menus with modifying possibilities
@@ -85,6 +90,7 @@ private:
 	Map m_map;
 	ManageEvent m_eventManager;
 	ManageAnimation m_animationManager;
+	ManageSound m_soundManager;
 	Team m_team;
 	std::list< std::shared_ptr<Menu> > m_menus;
 	Battle m_battle;

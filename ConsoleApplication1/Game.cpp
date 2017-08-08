@@ -58,6 +58,13 @@ ManageAnimation Game::getAnimationManager() const
 }
 
 
+// Return the sound manager
+ManageSound Game::getSoundManager() const
+{
+	return m_soundManager;
+}
+
+
 // Return the team
 Team Game::getTeam() const
 {
@@ -111,6 +118,13 @@ ManageRessources& Game::getRealRessourceManager(int n)
 ManageAnimation& Game::getRealAnimationManager()
 {
 	return m_animationManager;
+}
+
+
+// Return the sound manager with modifying possibilities
+ManageSound& Game::getRealSoundManager()
+{
+	return m_soundManager;
 }
 
 
