@@ -6,6 +6,9 @@
 class DatabaseJson
 {
 public:
+	enum e_JsonDatabase {JD_MONSTERS, JD_MONSTERS_SPELLS, JD_SPELLS, JD_SPELLS_EFFECTS, JD_EFFECTS, JD_TOTAL};
+
+public:
 	DatabaseJson();
 	~DatabaseJson();
 
