@@ -11,7 +11,7 @@ public:
 
 public:
 	// Take a decision for the next battle action
-	virtual std::shared_ptr<B_Event> chooseEvent(Battle &b);
+	virtual std::shared_ptr<B_Event> chooseEvent(Game *g);
 	// True if the fighter is in reality a TeamMate
 	virtual bool isTeamMate() const;
 };
