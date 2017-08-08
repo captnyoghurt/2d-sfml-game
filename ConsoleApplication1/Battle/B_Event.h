@@ -38,7 +38,7 @@ public:
 	// Return the source of the event with modifying possibilities
 	std::shared_ptr<Fighter>& getRealSource();
 	// Return the sound buffer with modifying possitilities
-	std::shared_ptr<sf::SoundBuffer> getRealSound();
+	std::shared_ptr<sf::SoundBuffer>& getRealSound();
 
 	// Return if the deque for ally is full
 	bool isAllyDestinationFull() const;

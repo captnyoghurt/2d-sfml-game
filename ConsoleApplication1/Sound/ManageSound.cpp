@@ -51,9 +51,10 @@ int ManageSound::addSound(sf::Sound s)
 
 	return 0;
 }
-int ManageSound::addSound(const sf::SoundBuffer &sbuffer)
+int ManageSound::addSound(sf::SoundBuffer &sbuffer)
 {
-	m_sounds.push_back(std::make_shared<sf::Sound>(sbuffer));
+	m_sounds.push_back(std::make_shared<sf::Sound>());
+	m_sounds.back()->setBuffer(sbuffer);
 	m_sounds.back()->play();
 
 	return 0;

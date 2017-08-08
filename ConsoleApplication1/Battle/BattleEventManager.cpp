@@ -34,6 +34,13 @@ bool BattleEventManager::getWaiting() const
 }
 
 
+// Return if the execute has started
+bool BattleEventManager::getExecuteStarted() const
+{
+	return m_executeStarted;
+}
+
+
 // Return the list of battle events with modifying possibilities
 std::list<std::shared_ptr<B_Event>>& BattleEventManager::getRealBattleEvents()
 {
@@ -45,6 +52,15 @@ std::list<std::shared_ptr<B_Event>>& BattleEventManager::getRealBattleEvents()
 int BattleEventManager::setWaiting(const bool& b)
 {
 	m_waiting = b;
+
+	return 0;
+}
+
+
+// Modify if the execute has started
+int BattleEventManager::setExecuteStarted(const bool &b)
+{
+	m_executeStarted = b;
 
 	return 0;
 }
@@ -106,6 +122,7 @@ int BattleEventManager::clear()
 {
 	m_battleEvents.clear();
 	m_eventInConstruction = nullptr;
+	m_executeStarted = false;
 
 	return 0;
 }
@@ -121,8 +138,16 @@ int BattleEventManager::execute(Game &g)
 	if (m_waiting)
 		return 0;
 
+	if (m_executeStarted)
+		m_battleEvents.pop_front();
+	else
+		m_executeStarted = true;
+
+	if (m_battleEvents.empty())
+		return 0;
+
 	std::shared_ptr<B_Event> it = m_battleEvents.front();
-	m_battleEvents.pop_front();
+	
 
 	g.getRealBattle().getRealBattleMenu().setActiveMenu(MenuBattle::BM_DIALOG);
 	std::dynamic_pointer_cast<MenuDialogBox>(g.getRealBattle().getRealBattleMenu().getRealMenus().at(MenuBattle::BM_DIALOG))->addText(it->getDescription());

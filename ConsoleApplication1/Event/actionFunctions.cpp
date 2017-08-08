@@ -279,9 +279,12 @@ int af_battleEventCreateAttack(Game &g)
 	if (!g.getRealBattle().getStarted())
 		THROW_INIT("No battle started");
 
+	std::shared_ptr<B_EventAttack> evt = std::make_shared<B_EventAttack>(B_EventAttack(g.getRealBattle().getRealBattleOrder().at(g.getRealBattle().getBattleEventCreated() - 1)->getName() + " attaque"));
+	evt->getRealSound() = std::make_shared<sf::SoundBuffer>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_BATTLE).getTheSoundBuffer(0));
+
 	return g.getRealBattle().getRealBattleEventManager().createEvent(
 		g.getRealBattle().getRealBattleOrder().at(g.getRealBattle().getBattleEventCreated() - 1),
-		std::make_shared<B_EventAttack>(B_EventAttack(g.getRealBattle().getRealBattleOrder().at(g.getRealBattle().getBattleEventCreated() - 1)->getName() + " attaque")),
+		evt,
 		g
 	);
 }

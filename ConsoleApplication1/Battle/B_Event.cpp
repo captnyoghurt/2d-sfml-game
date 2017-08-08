@@ -92,7 +92,7 @@ std::shared_ptr<Fighter>& B_Event::getRealSource()
 
 
 // Return the sound buffer with modifying possitilities
-std::shared_ptr<sf::SoundBuffer> B_Event::getRealSound()
+std::shared_ptr<sf::SoundBuffer>& B_Event::getRealSound()
 {
 	return m_sound;
 }

@@ -17,6 +17,7 @@ B_EventAttack::~B_EventAttack()
 {
 }
 
+extern sf::SoundBuffer GLOB_sbuffer;
 // Do the event
 int B_EventAttack::execute(Battle *bat, ManageSound& snd)
 {
@@ -57,6 +58,9 @@ int B_EventAttack::execute(Battle *bat, ManageSound& snd)
 				}
 		}
 	}
+
+	if (m_sound != nullptr)
+		snd.addSound(*m_sound);
 
 	m_enemyDestination.at(0)->getRealHealth().use(MAX(0,
 		m_source->getCharacteristics().at(Characteristic::e_characteristics::ATTACK_PHYSIC).getValue() -

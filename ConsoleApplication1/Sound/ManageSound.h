@@ -26,7 +26,7 @@ public:
 
 	// Add a new sound
 	int addSound(sf::Sound s);
-	int addSound(const sf::SoundBuffer &sbuffer);
+	int addSound(sf::SoundBuffer &sbuffer);
 	int addSound(const std::string &filename, ManageRessources &ress);
 	// Add a new music
 	int addMusic(const std::string &filename, bool loop = true);

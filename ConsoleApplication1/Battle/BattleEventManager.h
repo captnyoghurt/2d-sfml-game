@@ -18,12 +18,16 @@ public:
 	std::list<std::shared_ptr<B_Event>> getBattleEvents() const;
 	// Return if the battle event manager is waiting
 	bool getWaiting() const;
+	// Return if the execute has started
+	bool getExecuteStarted() const;
 
 	// Return the list of battle events with modifying possibilities
 	std::list<std::shared_ptr<B_Event>>& getRealBattleEvents();
 
 	// Modify if the battle event manager is waiting
 	int setWaiting(const bool& b);
+	// Modify if the execute has started
+	int setExecuteStarted(const bool &b);
 
 	// Add an event to the top of the list
 	int addToFront(std::shared_ptr<B_Event> b);
@@ -46,6 +50,7 @@ protected:
 
 private:
 	bool m_waiting;
+	bool m_executeStarted;
 	std::list<std::shared_ptr<B_Event> > m_battleEvents;
 	std::shared_ptr<B_Event> m_eventInConstruction;
 };

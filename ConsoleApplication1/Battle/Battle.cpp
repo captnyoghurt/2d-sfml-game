@@ -174,6 +174,7 @@ int Battle::startTurn(Game *g)
 	m_inTurn = true;
 	m_choicesFinished = false;
 	m_battleEventManager.setWaiting(false);
+	m_battleEventManager.setExecuteStarted(false);
 
 	//definedOrder(g);
 
