@@ -1,0 +1,10 @@
+/**
+ Export to JSON plugin for PHPMyAdmin
+ @version 4.6.4
+ */
+
+// Database 'test'
+
+// test.monsters
+
+[{"id":"1","name":"Rat des campagnes","type":"0","health":"32","mana":"0","strength":"5","intelligence":"2","vitality":"3","agility":"2","speed":"0","regen_mp":"0","attack_physic":"0","attack_magic":"0","defense_physic":"1","defense_magic":"1","resistance_sleep":"0","resistance_poison":"0","resistance_paralysis":"0","resistance_mute":"0"}, {"id":"2","name":"Rat mutant","type":"0","health":"51","mana":"20","strength":"8","intelligence":"2","vitality":"4","agility":"4","speed":"0","regen_mp":"1","attack_physic":"2","attack_magic":"1","defense_physic":"1","defense_magic":"1","resistance_sleep":"0","resistance_poison":"0","resistance_paralysis":"0","resistance_mute":"0"}]

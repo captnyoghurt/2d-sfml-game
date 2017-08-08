@@ -1,0 +1,10 @@
+/**
+ Export to JSON plugin for PHPMyAdmin
+ @version 4.6.4
+ */
+
+// Database 'test'
+
+// test.spells-effects
+
+[{"id_spells":"2","id_effects":"1"}]
