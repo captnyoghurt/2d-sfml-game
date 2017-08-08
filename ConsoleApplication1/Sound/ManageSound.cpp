@@ -87,6 +87,7 @@ int ManageSound::addMusic(const std::string &filename, bool loop)
 	m_musics.top()->play();
 
 	m_musics.top()->setLoop(loop);
+	m_musics.top()->setVolume(50);
 
 	return 0;
 }
