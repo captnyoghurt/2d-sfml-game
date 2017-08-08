@@ -302,6 +302,7 @@ int Game::loadRessources()
 {
 	std::list<sf::Texture>::iterator it;
 	std::list<sf::Font>::iterator it2;
+	std::list<sf::SoundBuffer>::iterator it3;
 
 	try
 	{
@@ -313,6 +314,9 @@ int Game::loadRessources()
 
 		if (!(it = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addTexture()))->loadFromFile(MENU_BATTLE_SURFACE_BAR))
 			THROW_RESSOURCE("Menu battle bar not loaded", MENU_BATTLE_SURFACE_BAR);
+
+		if (!(it3 = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_BATTLE).addSoundBuffer()))->loadFromFile("data/audio/se/001-Attack01.ogg"))
+			THROW_RESSOURCE("Battle attack sound", "data/audio/se/001-Attack01.ogg");
 	}
 	catch (GameException &e)
 	{
