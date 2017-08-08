@@ -83,6 +83,8 @@ int ManageSound::addMusic(const std::string &filename, bool loop)
 	if (!m_musics.top()->openFromFile(filename))
 		THROW_RESSOURCE("Music in manager", filename);
 
+	m_musics.top()->play();
+
 	m_musics.top()->setLoop(loop);
 
 	return 0;
