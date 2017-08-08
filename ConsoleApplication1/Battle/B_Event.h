@@ -3,6 +3,7 @@
 #include <deque>
 #include <memory>
 #include <string>
+#include <SFML/Audio.hpp>
 #include "Fighter.h"
 
 class Battle;
@@ -34,6 +35,8 @@ public:
 	std::deque< std::shared_ptr<Fighter> >& getRealEnemyDestination();
 	// Return the source of the event with modifying possibilities
 	std::shared_ptr<Fighter>& getRealSource();
+	// Return the sound buffer with modifying possitilities
+	std::shared_ptr<sf::SoundBuffer> getRealSound();
 
 	// Return if the deque for ally is full
 	bool isAllyDestinationFull() const;
@@ -49,5 +52,6 @@ protected:
 	std::deque< std::shared_ptr<Fighter> > m_allyDestination;
 	std::deque< std::shared_ptr<Fighter> > m_enemyDestination;
 	std::shared_ptr<Fighter> m_source;
+	std::shared_ptr<sf::SoundBuffer> m_sound;
 };
 
