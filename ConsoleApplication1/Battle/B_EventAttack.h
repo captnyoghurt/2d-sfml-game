@@ -13,7 +13,7 @@ public:
 public:
 
 	// Do the event
-	virtual int execute(Battle *bat);
+	virtual int execute(Battle *bat, ManageSound& snd);
 private:
 
 };

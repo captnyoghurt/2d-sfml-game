@@ -40,7 +40,7 @@ int B_EventDefense::setDestination(std::shared_ptr<Fighter> dest)
 
 
 // Do the event
-int B_EventDefense::execute(Battle *bat)
+int B_EventDefense::execute(Battle *bat, ManageSound& snd)
 {
 	// [TODO]
 	// Effet de +50%

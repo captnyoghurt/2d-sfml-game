@@ -5,6 +5,8 @@
 #include <string>
 #include <SFML/Audio.hpp>
 #include "Fighter.h"
+#include "../Sound/ManageSound.h"
+
 
 class Battle;
 
@@ -44,7 +46,7 @@ public:
 	bool isEnemyDestinationFull() const;
 
 	// Do the event
-	virtual int execute(Battle *bat);
+	virtual int execute(Battle *bat, ManageSound& snd);
 protected:
 	std::string  m_description;
 	int m_numberAllyDestination;

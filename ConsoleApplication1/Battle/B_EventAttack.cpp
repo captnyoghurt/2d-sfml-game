@@ -18,7 +18,7 @@ B_EventAttack::~B_EventAttack()
 }
 
 // Do the event
-int B_EventAttack::execute(Battle *bat)
+int B_EventAttack::execute(Battle *bat, ManageSound& snd)
 {
 	// [TODO]
 	// L'attaque

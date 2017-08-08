@@ -113,7 +113,7 @@ bool B_Event::isEnemyDestinationFull() const
 
 
 // Do the event
-int B_Event::execute(Battle *bat)
+int B_Event::execute(Battle *bat, ManageSound& snd)
 {
 	return 0;
 }
