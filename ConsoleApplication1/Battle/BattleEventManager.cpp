@@ -133,7 +133,7 @@ int BattleEventManager::execute(Game &g)
 
 	g.getRealBattle().getRealBattleMenu().setIsBlocking(true);
 
-	return it->execute(&g.getRealBattle());
+	return it->execute(&g.getRealBattle(), g.getRealSoundManager());
 }
 
 
