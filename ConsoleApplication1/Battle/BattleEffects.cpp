@@ -37,3 +37,22 @@ int BattleEffects::setCharacteristic(const Characteristic::e_characteristics &c)
 
 	return 0;
 }
+
+
+// Return the chance
+int BattleEffects::getChance() const
+{
+	return m_chance;
+}
+
+
+// Modify the chance
+int BattleEffects::setChance(const int &ch)
+{
+	if (ch < 0 || ch > 100)
+		THROW_VALUE("Impossible value of chance " + std::to_string(ch));
+
+	m_chance = ch;
+
+	return 0;
+}
