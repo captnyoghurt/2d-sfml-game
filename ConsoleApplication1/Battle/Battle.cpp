@@ -243,6 +243,8 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 	for (int i(as); i < as + es; i++)
 		m_battleOrder.at(i) = m_enemieTeam.getRealTeam().at(i - as);
 
+	g->getRealSoundManager().addMusic("data/audio/bgm/002-Battle01.flac");
+
 	m_started = true;
 	m_updated = true;
 
@@ -326,6 +328,8 @@ int Battle::end(Game *g)
 
 	// Free enemies
 	m_enemieTeam.clear();
+	
+	g->getRealSoundManager().deleteMusic();
 
 	m_started = false;
 
