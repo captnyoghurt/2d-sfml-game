@@ -234,6 +234,9 @@
     <ClCompile Include="Sound\ManageSound.cpp">
       <Filter>Fichiers sources\Sound</Filter>
     </ClCompile>
+    <ClCompile Include="Battle\BattleEffects.cpp">
+      <Filter>Fichiers sources\Battle</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -397,6 +400,9 @@
     </ClInclude>
     <ClInclude Include="Sound\ManageSound.h">
       <Filter>Fichiers d%27en-tête\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\BattleEffects.h">
+      <Filter>Fichiers d%27en-tête\Battle</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
