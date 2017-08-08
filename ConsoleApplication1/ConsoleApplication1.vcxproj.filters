@@ -257,6 +257,8 @@
     </ClCompile>
     <ClCompile Include="Database\DatabaseJson.cpp">
       <Filter>Fichiers sources\Database</Filter>
+    <ClCompile Include="Battle\BattleEffects.cpp">
+      <Filter>Fichiers sources\Battle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -466,5 +468,8 @@
     <None Include="Database\json_valueiterator.inl">
       <Filter>Fichiers d%27en-tête\Database</Filter>
     </None>
+    <ClInclude Include="Battle\BattleEffects.h">
+      <Filter>Fichiers d%27en-tête\Battle</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
