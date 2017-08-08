@@ -208,3 +208,13 @@ extern int TEAM_BATTLE_CHAR1_Y;
 extern std::string TEAM_BATTLE_CHAR2_NAME;
 extern int TEAM_BATTLE_CHAR2_X;
 extern int TEAM_BATTLE_CHAR2_Y;
+
+
+// Database constants
+
+/// Json
+extern std::string DATABASE_JSON_NAME_MONSTERS;
+extern std::string DATABASE_JSON_NAME_MONSTERS_SPELLS;
+extern std::string DATABASE_JSON_NAME_SPELLS;
+extern std::string DATABASE_JSON_NAME_SPELLS_EFFECTS;
+extern std::string DATABASE_JSON_NAME_EFFECTS;

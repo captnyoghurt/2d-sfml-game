@@ -201,3 +201,13 @@ int TEAM_BATTLE_CHAR1_Y = 230;
 std::string TEAM_BATTLE_CHAR2_NAME("data/graphic/battleset/001-f02.png");
 int TEAM_BATTLE_CHAR2_X = 580;
 int TEAM_BATTLE_CHAR2_Y = 280;
+
+
+// Database constants
+
+/// Json
+std::string DATABASE_JSON_NAME_MONSTERS("data/jdb/monsters.json");
+std::string DATABASE_JSON_NAME_MONSTERS_SPELLS("data/jdb/monsters-spells.json");
+std::string DATABASE_JSON_NAME_SPELLS("data/jdb/spells.json");
+std::string DATABASE_JSON_NAME_SPELLS_EFFECTS("data/jdb/spells-effects.json");
+std::string DATABASE_JSON_NAME_EFFECTS("data/jdb/effects.json");
