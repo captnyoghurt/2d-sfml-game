@@ -10,6 +10,7 @@
 #include "Spell.h"
 
 class Battle;
+class Game;
 class B_Event;
 
 class Fighter
@@ -58,7 +59,7 @@ public:
 	int setSurface(std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator it);
 
 	// Take a decision for the next battle action
-	virtual std::shared_ptr<B_Event> chooseEvent(Battle &b);
+	virtual std::shared_ptr<B_Event> chooseEvent(Game *g);
 	// Make the fighter do an action for the next turn
 	int doAction(std::shared_ptr<B_Event> evt);
 	// True if the fighter is in reality a TeamMate
