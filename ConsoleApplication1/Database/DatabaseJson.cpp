@@ -4,6 +4,8 @@
 
 DatabaseJson::DatabaseJson()
 {
+	m_roots.resize(DatabaseJson::e_JsonDatabase::JD_TOTAL);
+	m_readers.resize(DatabaseJson::e_JsonDatabase::JD_TOTAL);
 }
 
 
