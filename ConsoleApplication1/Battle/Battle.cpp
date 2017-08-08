@@ -390,7 +390,7 @@ int Battle::chooseBattleEvent(Game *g)
 	}
 	else
 	{
-		m_battleEventManager.getRealBattleEvents().push_back(m_battleOrder.at(m_battleEventCreated)->chooseEvent(*this));
+		m_battleEventManager.getRealBattleEvents().push_back(m_battleOrder.at(m_battleEventCreated)->chooseEvent(g));
 	}
 
 	m_battleEventCreated++;
