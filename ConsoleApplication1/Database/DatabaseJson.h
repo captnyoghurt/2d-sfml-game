@@ -18,6 +18,9 @@ public:
 	// Return the readers with modifying possibilities
 	std::vector<Json::Reader>& getRealReaders();
 
+protected:
+	int loadDatabase(int i, const std::string &filename);
+
 private:
 	std::vector<Json::Value> m_roots;
 	std::vector<Json::Reader> m_readers;
