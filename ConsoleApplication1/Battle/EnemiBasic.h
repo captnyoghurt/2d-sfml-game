@@ -3,6 +3,8 @@
 #include <random>
 #include "Fighter.h"
 
+class Game;
+
 class EnemiBasic : public Fighter
 {
 public:
@@ -11,7 +13,7 @@ public:
 
 public:
 	// Take a decision for the next battle action
-	virtual std::shared_ptr<B_Event> chooseEvent(Battle &b);
+	virtual std::shared_ptr<B_Event> chooseEvent(Game *g);
 
 private:
 	std::default_random_engine m_generator;
