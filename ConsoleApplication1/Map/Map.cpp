@@ -243,6 +243,7 @@ int Map::load(std::string filename, Game &g)
 	m_height = 40;
 	m_camera.setMaxX(m_width*TILE_WIDTH);
 	m_camera.setMaxY(m_height*TILE_HEIGHT);
+	g.getRealSoundManager().addMusic("data/audio/bgm/001-Field01.flac");
 
 	m_layers.resize(m_nbLayers);
 
