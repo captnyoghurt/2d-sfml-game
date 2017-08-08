@@ -27,6 +27,27 @@ Characteristic::e_characteristics BattleEffects::getCharacteristic() const
 }
 
 
+// Return the chance
+int BattleEffects::getChance() const
+{
+	return m_chance;
+}
+
+
+// Return the target type
+BattleEffects::e_EffectsTarget BattleEffects::getTargetType() const
+{
+	return m_targetType;
+}
+
+
+// Return the number of people
+int BattleEffects::getNumberOfPeople() const
+{
+	return m_numberOfPeople;
+}
+
+
 // Modify the characteristic
 int BattleEffects::setCharacteristic(const Characteristic::e_characteristics &c)
 {
@@ -39,13 +60,6 @@ int BattleEffects::setCharacteristic(const Characteristic::e_characteristics &c)
 }
 
 
-// Return the chance
-int BattleEffects::getChance() const
-{
-	return m_chance;
-}
-
-
 // Modify the chance
 int BattleEffects::setChance(const int &ch)
 {
@@ -53,6 +67,27 @@ int BattleEffects::setChance(const int &ch)
 		THROW_VALUE("Impossible value of chance " + std::to_string(ch));
 
 	m_chance = ch;
+
+	return 0;
+}
+
+
+// Modify the target type
+int BattleEffects::setTargetType(const BattleEffects::e_EffectsTarget &et)
+{
+	if (et < 0 || et > BattleEffects::e_EffectsTarget::ET_ALL)
+		THROW_VALUE("Impossible value of effects target" + std::to_string(et));
+
+	m_targetType = et;
+
+	return 0;
+}
+
+
+// Modify the number of people
+int BattleEffects::setNumberOfPeople(const int &n)
+{
+	m_numberOfPeople = n;
 
 	return 0;
 }
