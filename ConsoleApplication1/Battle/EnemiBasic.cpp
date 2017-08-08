@@ -32,6 +32,7 @@ std::shared_ptr<B_Event> EnemiBasic::chooseEvent(Game *g)
 			B_EventAttack evt(this->getName() + " attaque !");
 			evt.getRealEnemyDestination().push_back(g->getRealBattle().getRealAllies().getRealTeam().at(i));
 			evt.getRealSource() = std::make_shared<EnemiBasic>(*this);
+			evt.getRealSound() = std::make_shared<sf::SoundBuffer>(g->getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_BATTLE).getTheSoundBuffer(0));
 
 			return std::make_shared<B_EventAttack>(evt);
 		}
