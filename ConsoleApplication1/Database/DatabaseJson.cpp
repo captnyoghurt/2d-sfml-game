@@ -5,6 +5,7 @@
 #include "../Error/InitializationException.h"
 #include "../Error/ValueException.h"
 #include "../Battle/BattleEffects.h"
+#include "../Battle/Spell.h"
 
 
 
@@ -57,6 +58,33 @@ BattleEffects DatabaseJson::getBattleEffects(int id)
 	be.setNumberOfPeople(m_roots.at(JD_EFFECTS)[id].get("numberOfPeople", "ASCII").asInt());
 
 	return be;
+}
+
+
+// Return the spell
+Spell DatabaseJson::getSpell(int id)
+{
+	std::string strId(std::to_string(id));
+
+	if (id <= 0)
+		THROW_VALUE("Wrong id " + strId);
+
+	Spell sp(
+		id,
+		m_roots.at(JD_SPELLS)[id].get("name", "ASCII").asString(),
+		m_roots.at(JD_SPELLS)[id].get("damage", "ASCII").asInt(),
+		m_roots.at(JD_SPELLS)[id].get("ally_destination", "ASCII").asInt(),
+		m_roots.at(JD_SPELLS)[id].get("enemi_destination", "ASCII").asInt(),
+		m_roots.at(JD_SPELLS)[id].get("cost_hp", "ASCII").asInt(),
+		m_roots.at(JD_SPELLS)[id].get("cost_mp", "ASCII").asInt(),
+		m_roots.at(JD_SPELLS)[id].get("cost_tp", "ASCII").asInt(),
+		m_roots.at(JD_SPELLS)[id].get("chance_sleep", "ASCII").asInt(),
+		m_roots.at(JD_SPELLS)[id].get("chance_poison", "ASCII").asInt(),
+		m_roots.at(JD_SPELLS)[id].get("chance_paralysis", "ASCII").asInt(),
+		m_roots.at(JD_SPELLS)[id].get("chance_mute", "ASCII").asInt()
+	);
+
+	return sp;
 }
 
 

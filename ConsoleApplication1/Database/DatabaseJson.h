@@ -4,6 +4,7 @@
 #include "json/json.h"
 
 class BattleEffects;
+class Spell;
 
 class DatabaseJson
 {
@@ -22,6 +23,8 @@ public:
 
 	// Return the battle effect
 	BattleEffects getBattleEffects(int id);
+	// Return the spell
+	Spell getSpell(int id);
 
 protected:
 	int loadDatabase(int i, const std::string &filename);
