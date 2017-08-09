@@ -6,6 +6,7 @@
 #include "../Error/ValueException.h"
 #include "../Battle/BattleEffects.h"
 #include "../Battle/Spell.h"
+#include "../Battle/Fighter.h"
 
 
 
@@ -67,7 +68,7 @@ Spell DatabaseJson::getSpell(int id)
 {
 	std::string strId(std::to_string(id));
 
-	if (id <= 0)
+	if (id < 0)
 		THROW_VALUE("Wrong id " + strId);
 
 	Spell sp(
@@ -86,6 +87,36 @@ Spell DatabaseJson::getSpell(int id)
 	);
 
 	return sp;
+}
+
+
+// Return the monster
+Fighter DatabaseJson::getFighter(int id)
+{
+	Fighter f;
+	std::string strId(std::to_string(id));
+
+	if (id < 0)
+		THROW_VALUE("Wrong id " + strId);
+
+	f.setName(m_roots.at(JD_MONSTERS)[id].get("name", 0).asString());
+	f.setHealth(Health((int)(m_roots.at(JD_MONSTERS)[id].get("health", 0).asInt())));
+	f.setMana(Mana((int)(m_roots.at(JD_MONSTERS)[id].get("mana", 0).asInt())));
+	f.getRealCharacteristics().at(Characteristic::e_characteristics::STRENGH) = Characteristic(m_roots.at(JD_MONSTERS)[id].get("strengh", 0).asInt(), CHARACTERISTIC_STRENGH_MAX);
+	f.getRealCharacteristics().at(Characteristic::e_characteristics::AGILITY) = Characteristic(m_roots.at(JD_MONSTERS)[id].get("agility", 0).asInt(), CHARACTERISTIC_AGILITY_MAX);
+	f.getRealCharacteristics().at(Characteristic::e_characteristics::INTELLIGENCE) = Characteristic(m_roots.at(JD_MONSTERS)[id].get("intelligence", 0).asInt(), CHARACTERISTIC_INTELLIGENCE_MAX);
+	f.getRealCharacteristics().at(Characteristic::e_characteristics::VITALITY) = Characteristic(m_roots.at(JD_MONSTERS)[id].get("vitality", 0).asInt(), CHARACTERISTIC_VITALITY_MAX);
+	f.getRealCharacteristics().at(Characteristic::e_characteristics::REGEN_MP) = Characteristic(m_roots.at(JD_MONSTERS)[id].get("regen_mp", 0).asInt(), CHARACTERISTIC_REGEN_MP_MAX);
+	f.getRealCharacteristics().at(Characteristic::e_characteristics::ATTACK_PHYSIC) = Characteristic(m_roots.at(JD_MONSTERS)[id].get("attack_physic", 0).asInt(), CHARACTERISTIC_ATTACK_PHYSIC_MAX);
+	f.getRealCharacteristics().at(Characteristic::e_characteristics::ATTACK_MAGIC) = Characteristic(m_roots.at(JD_MONSTERS)[id].get("attack_magic", 0).asInt(), CHARACTERISTIC_ATTACK_MAGIC_MAX);
+	f.getRealCharacteristics().at(Characteristic::e_characteristics::DEFENSE_PHYSIC) = Characteristic(m_roots.at(JD_MONSTERS)[id].get("defense_physic", 0).asInt(), CHARACTERISTIC_DEFENSE_PHYSIC_MAX);
+	f.getRealCharacteristics().at(Characteristic::e_characteristics::DEFENSE_MAGIC) = Characteristic(m_roots.at(JD_MONSTERS)[id].get("defense_magic", 0).asInt(), CHARACTERISTIC_DEFENSE_MAGIC_MAX);
+	f.getRealCharacteristics().at(Characteristic::e_characteristics::RESISTANCE_SLEEP) = Characteristic(m_roots.at(JD_MONSTERS)[id].get("resistance_sleep", 0).asInt(), CHARACTERISTIC_RESISTANCE_SLEEP_MAX);
+	f.getRealCharacteristics().at(Characteristic::e_characteristics::RESISTANCE_PARALYSIS) = Characteristic(m_roots.at(JD_MONSTERS)[id].get("resistance_paralysis", 0).asInt(), CHARACTERISTIC_RESISTANCE_PARALYSIS_MAX);
+	f.getRealCharacteristics().at(Characteristic::e_characteristics::RESISTANCE_POISON) = Characteristic(m_roots.at(JD_MONSTERS)[id].get("resistance_poison", 0).asInt(), CHARACTERISTIC_RESISTANCE_POISON_MAX);
+	f.getRealCharacteristics().at(Characteristic::e_characteristics::RESISTANCE_MUTE) = Characteristic(m_roots.at(JD_MONSTERS)[id].get("resistance_mute", 0).asInt(), CHARACTERISTIC_RESISTANCE_MUTE_MAX);
+
+	return f;
 }
 
 

@@ -5,6 +5,7 @@
 
 class BattleEffects;
 class Spell;
+class Fighter;
 
 class DatabaseJson
 {
@@ -25,6 +26,8 @@ public:
 	BattleEffects getBattleEffects(int id);
 	// Return the spell
 	Spell getSpell(int id);
+	// Return the monster
+	Fighter getFighter(int id);
 
 	// Return the spell with the effects
 	Spell getFullSpell(int id);
