@@ -7,7 +7,7 @@ Spell::Spell()
 {
 }
 
-Spell::Spell(int id, std::string name, int damage, int allyDestination, int enemiDestination, int costHP, int costMP, int costTP, int chanceSleep, int chancePoison, int chanceParalysis, int chanceMute) :
+Spell::Spell(int id, std::string name, int damage, int allyDestination, int enemiDestination, int costHP, int costMP, int costTP, int chanceSleep, int chancePoison, int chanceParalysis, int chanceMute, const std::string &desc) :
 	m_id(id),
 	m_name(name),
 	m_damage(damage),
@@ -19,14 +19,15 @@ Spell::Spell(int id, std::string name, int damage, int allyDestination, int enem
 	m_chanceSleep(chanceSleep),
 	m_chancePoison(chancePoison),
 	m_chanceParalysis(chanceParalysis),
-	m_chanceMute(chanceMute)
+	m_chanceMute(chanceMute),
+	m_description(desc)
 {
 
 }
 
 
 Spell::Spell(const Spell &sp) :
-	Spell(sp.getId(), sp.getName(), sp.getDamage(), sp.getAllyDestination(), sp.getEnemiDestination(), sp.getCostHP(), sp.getCostMP(), sp.getCostTP(), sp.getChanceSleep(), sp.getChancePoison(), sp.getChanceParalysis(), sp.getChanceMute())
+	Spell(sp.getId(), sp.getName(), sp.getDamage(), sp.getAllyDestination(), sp.getEnemiDestination(), sp.getCostHP(), sp.getCostMP(), sp.getCostTP(), sp.getChanceSleep(), sp.getChancePoison(), sp.getChanceParalysis(), sp.getChanceMute(), sp.getDescription())
 {
 	m_effects = sp.getEffects();
 }
@@ -125,6 +126,13 @@ int Spell::getChanceMute() const
 std::deque<BattleEffects> Spell::getEffects() const
 {
 	return m_effects;
+}
+
+
+// Return the description
+std::string Spell::getDescription() const
+{
+	return m_description;
 }
 
 
@@ -262,6 +270,15 @@ int Spell::setChanceMute(const int &chance)
 		THROW_VALUE(std::to_string(chance));
 
 	m_chanceMute = chance;
+
+	return 0;
+}
+
+
+// Modify the description
+int Spell::setDescription(const std::string &des)
+{
+	m_description = des;
 
 	return 0;
 }
