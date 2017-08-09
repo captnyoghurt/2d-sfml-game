@@ -7,7 +7,7 @@ class Spell
 {
 public:
 	Spell();
-	Spell(int id, std::string name, int damage, int allyDestination, int enemiDestination, int costHP, int costMP, int costTP, int chanceSleep, int chancePoison, int chanceParalysis, int chanceMute);
+	Spell(int id, std::string name, int damage, int allyDestination, int enemiDestination, int costHP, int costMP, int costTP, int chanceSleep, int chancePoison, int chanceParalysis, int chanceMute, const std::string &desc);
 	Spell(const Spell &sp);
 	~Spell();
 
@@ -38,6 +38,8 @@ public:
 	int getChanceMute() const;
 	// Return the battle effects
 	std::deque<BattleEffects> getEffects() const;
+	// Return the description
+	std::string getDescription() const;
 
 	// Return the battle effects with modifying possibilities
 	std::deque<BattleEffects>& getRealEffects();
@@ -66,6 +68,8 @@ public:
 	int setChanceParalysis(const int &chance);
 	// Modify the chance of mute
 	int setChanceMute(const int &chance);
+	// Modify the description
+	int setDescription(const std::string &des);
 
 	// Add an effect
 	int addEffect(const BattleEffects &be);
@@ -84,5 +88,6 @@ public:
 	int m_chanceParalysis;
 	int m_chanceMute;
 	std::deque<BattleEffects> m_effects;
+	std::string m_description;
 };
 

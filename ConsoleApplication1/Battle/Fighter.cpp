@@ -24,6 +24,7 @@ Fighter::Fighter(const Fighter &f)
 	m_health = f.getHealth();
 	m_mana = f.getMana();
 	m_skillPoints = f.getSkillPoints();
+	m_spells = f.getSpells();
 	m_characteristics.resize(Characteristic::e_characteristics::CHARACTERISTICS_TOTAL, Characteristic(0, 0));
 }
 
@@ -68,6 +69,13 @@ std::vector<Characteristic> Fighter::getCharacteristics() const
 }
 
 
+// Return all the spells
+std::vector<Spell> Fighter::getSpells() const
+{
+	return m_spells;
+}
+
+
 // Return the surface
 std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator Fighter::getSurface()
 {
@@ -100,6 +108,13 @@ SkillPoints& Fighter::getRealSkillPoints()
 std::vector<Characteristic>& Fighter::getRealCharacteristics()
 {
 	return m_characteristics;
+}
+
+
+// Return the spells with modifying possibilities
+std::vector<Spell>& Fighter::getRealSpells()
+{
+	return m_spells;
 }
 
 

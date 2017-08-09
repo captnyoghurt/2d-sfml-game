@@ -9,6 +9,7 @@ class EnemiBasic : public Fighter
 {
 public:
 	EnemiBasic();
+	EnemiBasic(const Fighter &f);
 	~EnemiBasic();
 
 public:
