@@ -76,7 +76,7 @@ int BattleEffects::getNumberOfPeople() const
 // Modify the id
 int BattleEffects::setId(const int &id)
 {
-	if (id <= 0)
+	if (id < 0)
 		THROW_VALUE(std::to_string(id));
 
 	m_id = id;
