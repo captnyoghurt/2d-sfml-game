@@ -48,6 +48,18 @@ int BattleEffects::getNumberOfPeople() const
 }
 
 
+// Modify the id
+int BattleEffects::setId(const int &id)
+{
+	if (id <= 0)
+		THROW_VALUE(std::to_string(id));
+
+	m_id = id;
+
+	return 0;
+}
+
+
 // Modify the characteristic
 int BattleEffects::setCharacteristic(const Characteristic::e_characteristics &c)
 {

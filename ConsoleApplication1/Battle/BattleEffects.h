@@ -23,6 +23,8 @@ public:
 	// Return the number of people
 	int getNumberOfPeople() const;
 
+	// Modify the id
+	int setId(const int &id);
 	// Modify the characteristic
 	int setCharacteristic(const Characteristic::e_characteristics &c);
 	// Modify the chance
