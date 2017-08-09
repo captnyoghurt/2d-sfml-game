@@ -49,10 +49,10 @@ BattleEffects DatabaseJson::getBattleEffects(int id)
 	if (id <= 0)
 		THROW_VALUE("Wrong id " + strId);
 
-	//be.setId(id);
+	be.setId(id);
 	be.setCharacteristic(Characteristic::e_characteristics(m_roots.at(JD_EFFECTS)[id].get("type", "ASCII").asInt()));
 	be.setChance(m_roots.at(JD_EFFECTS)[id].get("chance", "ASCII").asInt());
-	//be.setPower(m_roots.at(JD_EFFECTS)[id].get("quantity", "ASCII").asInt());
+	be.setPower(m_roots.at(JD_EFFECTS)[id].get("quantity", "ASCII").asInt());
 	be.setTargetType(BattleEffects::e_EffectsTarget(m_roots.at(JD_EFFECTS)[id].get("target", "ASCII").asInt()));
 	be.setNumberOfPeople(m_roots.at(JD_EFFECTS)[id].get("numberOfPeople", "ASCII").asInt());
 
