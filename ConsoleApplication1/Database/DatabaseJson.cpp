@@ -48,7 +48,7 @@ BattleEffects DatabaseJson::getBattleEffects(int id)
 	BattleEffects be;
 	std::string strId(std::to_string(id));
 
-	if (id <= 0)
+	if (id < 0)
 		THROW_VALUE("Wrong id " + strId);
 
 	be.setId(id);
@@ -131,11 +131,12 @@ int DatabaseJson::loadMatching(std::vector< std::vector<int> > &v, const std::st
 	for (Json::ValueConstIterator it = root.begin(); it != root.end(); ++it)
 	{
 		const Json::Value& val = *it;
+		int azerty(val.get(key1, 0).asInt());
 		
-		if ((unsigned)val.get(key1, 0).asInt() > v.size())
-			v.resize(val.get(key1, 0).asInt());
+		if ((unsigned)val.get(key1, 0).asInt() > v.size() + 1)
+			v.resize(val.get(key1, 0).asInt() + 1);
 			
-		v.at(val.get(key1, 0).asInt() - 1).push_back(val.get(key2, 0).asInt());
+		v.at(val.get(key1, 0).asInt()).push_back(val.get(key2, 0).asInt());
 	}
 
 	return 0;
