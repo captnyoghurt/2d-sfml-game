@@ -8,6 +8,24 @@ BattleEffects::BattleEffects()
 }
 
 
+BattleEffects::BattleEffects(const int id, const Characteristic::e_characteristics &c, const int &chance, const int &power, const e_EffectsTarget &et, const int &people)
+{
+	m_id = id;
+	m_characteristic = c;
+	m_chance = chance;
+	m_power = power;
+	m_targetType = et;
+	m_numberOfPeople = people;
+}
+
+
+BattleEffects::BattleEffects(const BattleEffects &be) :
+	BattleEffects(be.getId(), be.getCharacteristic(), be.getChance(), be.getPower(), be.getTargetType(), be.getNumberOfPeople())
+{
+
+}
+
+
 BattleEffects::~BattleEffects()
 {
 }

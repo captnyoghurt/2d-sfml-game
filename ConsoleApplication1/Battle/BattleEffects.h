@@ -9,6 +9,8 @@ public:
 
 public:
 	BattleEffects();
+	BattleEffects(const int id, const Characteristic::e_characteristics &c, const int &chance, const int &power, const e_EffectsTarget &et, const int &people);
+	BattleEffects(const BattleEffects &be);
 	~BattleEffects();
 
 public:
