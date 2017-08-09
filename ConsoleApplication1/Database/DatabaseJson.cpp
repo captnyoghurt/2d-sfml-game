@@ -17,6 +17,9 @@ DatabaseJson::DatabaseJson()
 	loadDatabase(DatabaseJson::e_JsonDatabase::JD_MONSTERS, DATABASE_JSON_NAME_MONSTERS);
 	loadDatabase(DatabaseJson::e_JsonDatabase::JD_SPELLS, DATABASE_JSON_NAME_SPELLS);
 	loadDatabase(DatabaseJson::e_JsonDatabase::JD_EFFECTS, DATABASE_JSON_NAME_EFFECTS);
+
+	loadMatching(m_matchSpellsEffects, DATABASE_JSON_NAME_SPELLS_EFFECTS, "id_spells", "id_effects");
+	loadMatching(m_matchMonstersSpells, DATABASE_JSON_NAME_MONSTERS_SPELLS, "id_monsters", "id_spells");
 }
 
 
@@ -97,6 +100,31 @@ int DatabaseJson::loadDatabase(int i, const std::string &filename)
 
 	if (!m_readers.at(i).parse(file, m_roots.at(i), false))
 		THROW_INIT("Couldn't parse JDB");
+
+	return 0;
+}
+
+
+int DatabaseJson::loadMatching(std::vector< std::vector<int> > &v, const std::string &filename, const std::string &key1, const std::string &key2)
+{
+	Json::Value root;
+	Json::Reader reader;
+	std::ifstream file(filename);
+	if (!file.is_open())
+		THROW_RESSOURCE("JDB", filename);
+
+	if (!reader.parse(file, root, false))
+		THROW_INIT("Couldn't parse JDB");
+
+	for (Json::ValueConstIterator it = root.begin(); it != root.end(); ++it)
+	{
+		const Json::Value& val = *it;
+		
+		if ((unsigned)val.get(key1, 0).asInt() > v.size())
+			v.resize(val.get(key1, 0).asInt());
+			
+		v.at(val.get(key1, 0).asInt() - 1).push_back(val.get(key2, 0).asInt());
+	}
 
 	return 0;
 }
