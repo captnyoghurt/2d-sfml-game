@@ -11,6 +11,12 @@ EnemiBasic::EnemiBasic()
 }
 
 
+EnemiBasic::EnemiBasic(const Fighter &f) : Fighter(f)
+{
+
+}
+
+
 EnemiBasic::~EnemiBasic()
 {
 }
