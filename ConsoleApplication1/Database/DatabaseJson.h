@@ -11,6 +11,7 @@ class DatabaseJson
 {
 public:
 	enum e_JsonDatabase {JD_MONSTERS, JD_SPELLS, JD_EFFECTS, JD_TOTAL};
+	enum e_JsonMatching {JD_MATCH_MONSTERS_SPELLS, JD_MATCH_SPELLS_EFFECTS, JD_MATCH_TOTAL};
 
 public:
 	DatabaseJson();
@@ -41,7 +42,6 @@ protected:
 private:
 	std::vector<Json::Value> m_roots;
 	std::vector<Json::Reader> m_readers;
-	std::vector< std::vector<int> > m_matchSpellsEffects;
-	std::vector< std::vector<int> > m_matchMonstersSpells;
+	std::vector< std::vector< std::vector<int> > > m_matching;
 };
 
