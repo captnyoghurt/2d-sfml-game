@@ -7,6 +7,30 @@ Spell::Spell()
 {
 }
 
+Spell::Spell(int id, std::string name, int damage, int allyDestination, int enemiDestination, int costHP, int costMP, int costTP, int chanceSleep, int chancePoison, int chanceParalysis, int chanceMute) :
+	m_id(id),
+	m_name(name),
+	m_damage(damage),
+	m_allyDestination(allyDestination),
+	m_enemiDestination(enemiDestination),
+	m_costHP(costHP),
+	m_costMP(costMP),
+	m_costTP(costTP),
+	m_chanceSleep(chanceSleep),
+	m_chancePoison(chancePoison),
+	m_chanceParalysis(chanceParalysis),
+	m_chanceMute(chanceMute)
+{
+
+}
+
+
+Spell::Spell(const Spell &sp) :
+	Spell(sp.getId(), sp.getName(), sp.getDamage(), sp.getAllyDestination(), sp.getEnemiDestination(), sp.getCostHP(), sp.getCostMP(), sp.getCostTP(), sp.getChanceSleep(), sp.getChancePoison(), sp.getChanceParalysis(), sp.getChanceMute())
+{
+
+}
+
 
 Spell::~Spell()
 {
@@ -66,6 +90,34 @@ int Spell::getCostMP() const
 int Spell::getCostTP() const
 {
 	return m_costTP;
+}
+
+
+// Return the chance of sleep
+int Spell::getChanceSleep() const
+{
+	return m_chanceParalysis;
+}
+
+
+// Return the chance of poison
+int Spell::getChancePoison() const
+{
+	return m_chancePoison;
+}
+
+
+// Return the chance of paralysis
+int Spell::getChanceParalysis() const
+{
+	return m_chanceParalysis;
+}
+
+
+// Return the chance of mute
+int Spell::getChanceMute() const
+{
+	return m_chanceMute;
 }
 
 
@@ -148,6 +200,54 @@ int Spell::setCostMP(const int &cost)
 int Spell::setCostTP(const int &cost)
 {
 	m_costTP = cost;
+
+	return 0;
+}
+
+
+// Modify the chance of sleep
+int Spell::setChanceSleep(const int &chance)
+{
+	if (chance < 0 || chance > 100)
+		THROW_VALUE(std::to_string(chance));
+
+	m_chanceSleep = chance;
+
+	return 0;
+}
+
+
+// Modify the chance of poison
+int Spell::setChancePoison(const int &chance)
+{
+	if (chance < 0 || chance > 100)
+		THROW_VALUE(std::to_string(chance));
+
+	m_chancePoison = chance;
+
+	return 0;
+}
+
+
+// Modify the chance of paralysis
+int Spell::setChanceParalysis(const int &chance)
+{
+	if (chance < 0 || chance > 100)
+		THROW_VALUE(std::to_string(chance));
+
+	m_chanceParalysis = chance;
+
+	return 0;
+}
+
+
+// Modify the chance of mute
+int Spell::setChanceMute(const int &chance)
+{
+	if (chance < 0 || chance > 100)
+		THROW_VALUE(std::to_string(chance));
+
+	m_chanceMute = chance;
 
 	return 0;
 }

@@ -6,6 +6,8 @@ class Spell
 {
 public:
 	Spell();
+	Spell(int id, std::string name, int damage, int allyDestination, int enemiDestination, int costHP, int costMP, int costTP, int chanceSleep, int chancePoison, int chanceParalysis, int chanceMute);
+	Spell(const Spell &sp);
 	~Spell();
 
 public:
@@ -25,6 +27,14 @@ public:
 	int getCostMP() const;
 	// Return the tp cost
 	int getCostTP() const;
+	// Return the chance of sleep
+	int getChanceSleep() const;
+	// Return the chance of poison
+	int getChancePoison() const;
+	// Return the chance of paralysis
+	int getChanceParalysis() const;
+	// Return the chance of mute
+	int getChanceMute() const;
 
 	// Modify the id
 	int setId(const int &id);
@@ -42,6 +52,14 @@ public:
 	int setCostMP(const int &cost);
 	// Modify the tp cost
 	int setCostTP(const int &cost);
+	// Modify the chance of sleep
+	int setChanceSleep(const int &chance);
+	// Modify the chance of poison
+	int setChancePoison(const int &chance);
+	// Modify the chance of paralysis
+	int setChanceParalysis(const int &chance);
+	// Modify the chance of mute
+	int setChanceMute(const int &chance);
 
 public:
 	int m_id;
@@ -52,5 +70,9 @@ public:
 	int m_costHP;
 	int m_costMP;
 	int m_costTP;
+	int m_chanceSleep;
+	int m_chancePoison;
+	int m_chanceParalysis;
+	int m_chanceMute;
 };
 
