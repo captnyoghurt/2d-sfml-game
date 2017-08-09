@@ -34,6 +34,13 @@ int BattleEffects::getChance() const
 }
 
 
+// Return the power
+int BattleEffects::getPower() const
+{
+	return m_power;
+}
+
+
 // Return the target type
 BattleEffects::e_EffectsTarget BattleEffects::getTargetType() const
 {
@@ -79,6 +86,15 @@ int BattleEffects::setChance(const int &ch)
 		THROW_VALUE("Impossible value of chance " + std::to_string(ch));
 
 	m_chance = ch;
+
+	return 0;
+}
+
+
+// Modify the power
+int BattleEffects::setPower(const int &po)
+{
+	m_power = po;
 
 	return 0;
 }
