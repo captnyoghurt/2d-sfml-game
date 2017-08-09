@@ -15,9 +15,7 @@ DatabaseJson::DatabaseJson()
 	m_readers.resize(DatabaseJson::e_JsonDatabase::JD_TOTAL);
 
 	loadDatabase(DatabaseJson::e_JsonDatabase::JD_MONSTERS, DATABASE_JSON_NAME_MONSTERS);
-	loadDatabase(DatabaseJson::e_JsonDatabase::JD_MONSTERS_SPELLS, DATABASE_JSON_NAME_MONSTERS_SPELLS);
 	loadDatabase(DatabaseJson::e_JsonDatabase::JD_SPELLS, DATABASE_JSON_NAME_SPELLS);
-	loadDatabase(DatabaseJson::e_JsonDatabase::JD_SPELLS_EFFECTS, DATABASE_JSON_NAME_SPELLS_EFFECTS);
 	loadDatabase(DatabaseJson::e_JsonDatabase::JD_EFFECTS, DATABASE_JSON_NAME_EFFECTS);
 }
 
