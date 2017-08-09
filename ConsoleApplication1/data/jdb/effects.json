@@ -7,4 +7,4 @@
 
 // test.effects
 
-[{"id":"1","type":"0","chance":"100","quantity":"12","target":"1","numberOfPeople":"1"}]
+[{"id":0},{"id":1,"type":0,"chance":100,"quantity":12,"target":1,"numberOfPeople":1}]

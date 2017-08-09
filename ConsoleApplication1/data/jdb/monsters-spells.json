@@ -7,4 +7,4 @@
 
 // test.monsters-spells
 
-[{"id_monsters":"2","id_spells":"1"}, {"id_monsters":"2","id_spells":"2"}]
+[{"id_monsters":2,"id_spells":1}, {"id_monsters":2,"id_spells":2}]
