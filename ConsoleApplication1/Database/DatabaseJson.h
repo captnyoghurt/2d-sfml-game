@@ -3,6 +3,8 @@
 #include <vector>
 #include "json/json.h"
 
+class BattleEffects;
+
 class DatabaseJson
 {
 public:
@@ -17,6 +19,9 @@ public:
 	std::vector<Json::Value>& getRealRoots();
 	// Return the readers with modifying possibilities
 	std::vector<Json::Reader>& getRealReaders();
+
+	// Return the battle effect
+	BattleEffects getBattleEffects(int id);
 
 protected:
 	int loadDatabase(int i, const std::string &filename);
