@@ -14,6 +14,7 @@ DatabaseJson::DatabaseJson()
 {
 	m_roots.resize(DatabaseJson::e_JsonDatabase::JD_TOTAL);
 	m_readers.resize(DatabaseJson::e_JsonDatabase::JD_TOTAL);
+	m_matching.resize(DatabaseJson::e_JsonMatching::JD_MATCH_TOTAL);
 
 	loadDatabase(DatabaseJson::e_JsonDatabase::JD_MONSTERS, DATABASE_JSON_NAME_MONSTERS);
 	loadDatabase(DatabaseJson::e_JsonDatabase::JD_SPELLS, DATABASE_JSON_NAME_SPELLS);

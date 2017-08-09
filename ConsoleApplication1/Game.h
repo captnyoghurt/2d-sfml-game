@@ -9,6 +9,7 @@
 #include "Team/Team.h"
 #include "Battle/Battle.h"
 #include "Sound/ManageSound.h"
+#include "Database/DatabaseJson.h"
 
 
 using namespace sf;
@@ -60,6 +61,8 @@ public:
 	std::list< std::shared_ptr<Menu> >& getRealMenus();
 	// Return the battle with modifying possibilities
 	Battle& getRealBattle();
+	// Return the json database with modifying possibilities
+	DatabaseJson& getRealDatabaseJson();
 
 	// Clear
 	void clear();
@@ -94,4 +97,5 @@ private:
 	Team m_team;
 	std::list< std::shared_ptr<Menu> > m_menus;
 	Battle m_battle;
+	DatabaseJson m_jdb;
 };

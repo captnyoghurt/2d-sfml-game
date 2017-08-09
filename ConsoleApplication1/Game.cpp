@@ -149,6 +149,13 @@ Battle& Game::getRealBattle()
 }
 
 
+// Return the json database with modifying possibilities
+DatabaseJson& Game::getRealDatabaseJson()
+{
+	return m_jdb;
+}
+
+
 // Clear
 void Game::clear()
 {
