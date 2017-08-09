@@ -48,6 +48,27 @@ int Spell::getEnemiDestination() const
 }
 
 
+// Return the hp cost
+int Spell::getCostHP() const
+{
+	return m_costHP;
+}
+
+
+// Return the mp cost
+int Spell::getCostMP() const
+{
+	return m_costMP;
+}
+
+
+// Return the tp cost
+int Spell::getCostTP() const
+{
+	return m_costTP;
+}
+
+
 // Modify the id
 int Spell::setId(const int &id)
 {
@@ -100,6 +121,33 @@ int Spell::setEnemiDestination(const int &ed)
 		THROW_VALUE(std::to_string(ed));
 
 	m_enemiDestination = ed;
+
+	return 0;
+}
+
+
+// Modify the hp cost
+int Spell::setCostHP(const int &cost)
+{
+	m_costHP = cost;
+
+	return 0;
+}
+
+
+// Modify the mp cost
+int Spell::setCostMP(const int &cost)
+{
+	m_costMP = cost;
+
+	return 0;
+}
+
+
+// Modify the tp cost
+int Spell::setCostTP(const int &cost)
+{
+	m_costTP = cost;
 
 	return 0;
 }
