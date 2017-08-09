@@ -103,6 +103,13 @@ std::vector<Characteristic>& Fighter::getRealCharacteristics()
 }
 
 
+// Return the spells with modifying possibilities
+std::vector<Spell>& Fighter::getRealSpells()
+{
+	return m_spells;
+}
+
+
 // Return the surface with modifying possibilities
 std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& Fighter::getRealSurface()
 {
