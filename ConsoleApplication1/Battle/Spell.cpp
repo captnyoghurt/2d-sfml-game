@@ -34,6 +34,20 @@ int Spell::getDamage() const
 }
 
 
+// Return ally destination
+int Spell::getAllyDestination() const
+{
+	return m_allyDestination;
+}
+
+
+// Return the enemi destination
+int Spell::getEnemiDestination() const
+{
+	return m_enemiDestination;
+}
+
+
 // Modify the id
 int Spell::setId(const int &id)
 {
@@ -62,6 +76,30 @@ int Spell::setDamage(const int &d)
 		THROW_VALUE(std::to_string(d));
 
 	m_damage = d;
+
+	return 0;
+}
+
+
+// Return ally destination
+int Spell::setAllyDestination(const int &ad)
+{
+	if (ad < 0)
+		THROW_VALUE(std::to_string(ad));
+
+	m_allyDestination = ad;
+
+	return 0;
+}
+
+
+// Return enemi destination
+int Spell::setEnemiDestination(const int &ed)
+{
+	if (ed < 0)
+		THROW_VALUE(std::to_string(ed));
+
+	m_enemiDestination = ed;
 
 	return 0;
 }
