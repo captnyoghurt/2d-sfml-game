@@ -89,6 +89,18 @@ Spell DatabaseJson::getSpell(int id)
 }
 
 
+// Return the spell with the effects
+Spell DatabaseJson::getFullSpell(int id)
+{
+	Spell sp(getSpell(id));
+
+	for (unsigned int i(0); i < m_matchSpellsEffects.at(id).size(); i++)
+		sp.addEffect(getBattleEffects(m_matchSpellsEffects.at(id).at(i)));
+
+	return sp;
+}
+
+
 int DatabaseJson::loadDatabase(int i, const std::string &filename)
 {
 	if (i < 0 || i >= DatabaseJson::e_JsonDatabase::JD_TOTAL)

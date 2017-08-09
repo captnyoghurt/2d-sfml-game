@@ -26,6 +26,9 @@ public:
 	// Return the spell
 	Spell getSpell(int id);
 
+	// Return the spell with the effects
+	Spell getFullSpell(int id);
+
 protected:
 	int loadDatabase(int i, const std::string &filename);
 	int loadMatching(std::vector< std::vector<int> > &v, const std::string &filename, const std::string &key1, const std::string &key2);
