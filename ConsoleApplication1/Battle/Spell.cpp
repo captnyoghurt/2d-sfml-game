@@ -28,7 +28,7 @@ Spell::Spell(int id, std::string name, int damage, int allyDestination, int enem
 Spell::Spell(const Spell &sp) :
 	Spell(sp.getId(), sp.getName(), sp.getDamage(), sp.getAllyDestination(), sp.getEnemiDestination(), sp.getCostHP(), sp.getCostMP(), sp.getCostTP(), sp.getChanceSleep(), sp.getChancePoison(), sp.getChanceParalysis(), sp.getChanceMute())
 {
-
+	m_effects = sp.getEffects();
 }
 
 
@@ -118,6 +118,20 @@ int Spell::getChanceParalysis() const
 int Spell::getChanceMute() const
 {
 	return m_chanceMute;
+}
+
+
+// Return the battle effects
+std::deque<BattleEffects> Spell::getEffects() const
+{
+	return m_effects;
+}
+
+
+// Return the battle effects with modifying possibilities
+std::deque<BattleEffects>& Spell::getRealEffects()
+{
+	return m_effects;
 }
 
 
@@ -248,6 +262,15 @@ int Spell::setChanceMute(const int &chance)
 		THROW_VALUE(std::to_string(chance));
 
 	m_chanceMute = chance;
+
+	return 0;
+}
+
+
+// Add an effect
+int Spell::addEffect(const BattleEffects &be)
+{
+	m_effects.push_back(be);
 
 	return 0;
 }

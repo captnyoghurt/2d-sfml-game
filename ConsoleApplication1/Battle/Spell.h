@@ -1,5 +1,6 @@
 #pragma once
 
+#include <deque>
 #include "BattleEffects.h"
 
 class Spell
@@ -35,6 +36,11 @@ public:
 	int getChanceParalysis() const;
 	// Return the chance of mute
 	int getChanceMute() const;
+	// Return the battle effects
+	std::deque<BattleEffects> getEffects() const;
+
+	// Return the battle effects with modifying possibilities
+	std::deque<BattleEffects>& getRealEffects();
 
 	// Modify the id
 	int setId(const int &id);
@@ -61,6 +67,9 @@ public:
 	// Modify the chance of mute
 	int setChanceMute(const int &chance);
 
+	// Add an effect
+	int addEffect(const BattleEffects &be);
+
 public:
 	int m_id;
 	std::string m_name;
@@ -74,5 +83,6 @@ public:
 	int m_chancePoison;
 	int m_chanceParalysis;
 	int m_chanceMute;
+	std::deque<BattleEffects> m_effects;
 };
 
