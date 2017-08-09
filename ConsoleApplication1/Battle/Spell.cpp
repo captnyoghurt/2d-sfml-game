@@ -27,6 +27,13 @@ std::string Spell::getName() const
 }
 
 
+// Return the damage
+int Spell::getDamage() const
+{
+	return m_damage;
+}
+
+
 // Modify the id
 int Spell::setId(const int &id)
 {
@@ -43,6 +50,18 @@ int Spell::setId(const int &id)
 int Spell::setName(const std::string &name)
 {
 	m_name = name;
+
+	return 0;
+}
+
+
+// Modify the damage
+int Spell::setDamage(const int &d)
+{
+	if (d < 0)
+		THROW_VALUE(std::to_string(d));
+
+	m_damage = d;
 
 	return 0;
 }
