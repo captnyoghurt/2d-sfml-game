@@ -31,6 +31,8 @@ public:
 	SkillPoints getSkillPoints() const;
 	// Return all the characteristics
 	std::vector<Characteristic> getCharacteristics() const;
+	// Return all the spells
+	std::vector<Spell> getSpells() const;
 	// Return the surface
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator getSurface();
 

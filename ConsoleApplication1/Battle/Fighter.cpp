@@ -24,6 +24,7 @@ Fighter::Fighter(const Fighter &f)
 	m_health = f.getHealth();
 	m_mana = f.getMana();
 	m_skillPoints = f.getSkillPoints();
+	m_spells = f.getSpells();
 	m_characteristics.resize(Characteristic::e_characteristics::CHARACTERISTICS_TOTAL, Characteristic(0, 0));
 }
 
@@ -65,6 +66,13 @@ SkillPoints Fighter::getSkillPoints() const
 std::vector<Characteristic> Fighter::getCharacteristics() const
 {
 	return m_characteristics;
+}
+
+
+// Return all the spells
+std::vector<Spell> Fighter::getSpells() const
+{
+	return m_spells;
 }
 
 
