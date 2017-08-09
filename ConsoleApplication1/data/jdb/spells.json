@@ -7,4 +7,4 @@
 
 // test.spells
 
-[{"id":0},{"id":1,"name":"Crocs","damage":10,"ally_destination":0,"enemi_destination":1,"cost_hp":0,"cost_mp":10,"cost_tp":0,"chance_sleep":0,"chance_poison":20,"chance_paralysis":0,"chance_mute":0}, {"id":2,"name":"Restauration mutante","damage":0,"ally_destination":0,"enemi_destination":1,"cost_hp":0,"cost_mp":5,"cost_tp":0,"chance_sleep":0,"chance_poison":0,"chance_paralysis":0,"chance_mute":0}]
+[{"id":0},{"id":1,"name":"Crocs","damage":10,"ally_destination":0,"enemi_destination":1,"cost_hp":0,"cost_mp":10,"cost_tp":0,"chance_sleep":0,"chance_poison":20,"chance_paralysis":0,"chance_mute":0,"description":"Useless description"}, {"id":2,"name":"Restauration mutante","damage":0,"ally_destination":0,"enemi_destination":1,"cost_hp":0,"cost_mp":5,"cost_tp":0,"chance_sleep":0,"chance_poison":0,"chance_paralysis":0,"chance_mute":0,"description":"Other description"}]

@@ -83,7 +83,8 @@ Spell DatabaseJson::getSpell(int id)
 		m_roots.at(JD_SPELLS)[id].get("chance_sleep", 0).asInt(),
 		m_roots.at(JD_SPELLS)[id].get("chance_poison", 0).asInt(),
 		m_roots.at(JD_SPELLS)[id].get("chance_paralysis", 0).asInt(),
-		m_roots.at(JD_SPELLS)[id].get("chance_mute", 0).asInt()
+		m_roots.at(JD_SPELLS)[id].get("chance_mute", 0).asInt(),
+		m_roots.at(JD_SPELLS)[id].get("description", 0).asString()
 	);
 
 	return sp;
@@ -129,6 +130,18 @@ Spell DatabaseJson::getFullSpell(int id)
 		sp.addEffect(getBattleEffects(m_matchSpellsEffects.at(id).at(i)));
 
 	return sp;
+}
+
+
+// Return the monster with the full spells
+Fighter DatabaseJson::getFullFighter(int id)
+{
+	Fighter f(getFighter(id));
+
+	for (unsigned int i(0); i < m_matchMonstersSpells.at(id).size(); i++)
+		f.getRealSpells().push_back(getFullSpell(m_matchMonstersSpells.at(id).at(i)));
+
+	return f;
 }
 
 

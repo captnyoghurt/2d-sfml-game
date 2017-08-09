@@ -31,6 +31,8 @@ public:
 
 	// Return the spell with the effects
 	Spell getFullSpell(int id);
+	// Return the monster with the full spells
+	Fighter getFullFighter(int id);
 
 protected:
 	int loadDatabase(int i, const std::string &filename);
