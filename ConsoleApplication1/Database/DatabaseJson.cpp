@@ -51,11 +51,11 @@ BattleEffects DatabaseJson::getBattleEffects(int id)
 		THROW_VALUE("Wrong id " + strId);
 
 	be.setId(id);
-	be.setCharacteristic(Characteristic::e_characteristics(m_roots.at(JD_EFFECTS)[id].get("type", "ASCII").asInt()));
-	be.setChance(m_roots.at(JD_EFFECTS)[id].get("chance", "ASCII").asInt());
-	be.setPower(m_roots.at(JD_EFFECTS)[id].get("quantity", "ASCII").asInt());
-	be.setTargetType(BattleEffects::e_EffectsTarget(m_roots.at(JD_EFFECTS)[id].get("target", "ASCII").asInt()));
-	be.setNumberOfPeople(m_roots.at(JD_EFFECTS)[id].get("numberOfPeople", "ASCII").asInt());
+	be.setCharacteristic(Characteristic::e_characteristics(m_roots.at(JD_EFFECTS)[id].get("type", 0).asInt()));
+	be.setChance(m_roots.at(JD_EFFECTS)[id].get("chance", 0).asInt());
+	be.setPower(m_roots.at(JD_EFFECTS)[id].get("quantity", 0).asInt());
+	be.setTargetType(BattleEffects::e_EffectsTarget(m_roots.at(JD_EFFECTS)[id].get("target", 0).asInt()));
+	be.setNumberOfPeople(m_roots.at(JD_EFFECTS)[id].get("numberOfPeople", 0).asInt());
 
 	return be;
 }
@@ -72,16 +72,16 @@ Spell DatabaseJson::getSpell(int id)
 	Spell sp(
 		id,
 		m_roots.at(JD_SPELLS)[id].get("name", "ASCII").asString(),
-		m_roots.at(JD_SPELLS)[id].get("damage", "ASCII").asInt(),
-		m_roots.at(JD_SPELLS)[id].get("ally_destination", "ASCII").asInt(),
-		m_roots.at(JD_SPELLS)[id].get("enemi_destination", "ASCII").asInt(),
-		m_roots.at(JD_SPELLS)[id].get("cost_hp", "ASCII").asInt(),
-		m_roots.at(JD_SPELLS)[id].get("cost_mp", "ASCII").asInt(),
-		m_roots.at(JD_SPELLS)[id].get("cost_tp", "ASCII").asInt(),
-		m_roots.at(JD_SPELLS)[id].get("chance_sleep", "ASCII").asInt(),
-		m_roots.at(JD_SPELLS)[id].get("chance_poison", "ASCII").asInt(),
-		m_roots.at(JD_SPELLS)[id].get("chance_paralysis", "ASCII").asInt(),
-		m_roots.at(JD_SPELLS)[id].get("chance_mute", "ASCII").asInt()
+		m_roots.at(JD_SPELLS)[id].get("damage", 0).asInt(),
+		m_roots.at(JD_SPELLS)[id].get("ally_destination", 0).asInt(),
+		m_roots.at(JD_SPELLS)[id].get("enemi_destination", 0).asInt(),
+		m_roots.at(JD_SPELLS)[id].get("cost_hp", 0).asInt(),
+		m_roots.at(JD_SPELLS)[id].get("cost_mp", 0).asInt(),
+		m_roots.at(JD_SPELLS)[id].get("cost_tp", 0).asInt(),
+		m_roots.at(JD_SPELLS)[id].get("chance_sleep", 0).asInt(),
+		m_roots.at(JD_SPELLS)[id].get("chance_poison", 0).asInt(),
+		m_roots.at(JD_SPELLS)[id].get("chance_paralysis", 0).asInt(),
+		m_roots.at(JD_SPELLS)[id].get("chance_mute", 0).asInt()
 	);
 
 	return sp;
