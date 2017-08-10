@@ -219,6 +219,55 @@ int af_menuSpellsClose(Game &g)
 	return g.stopMenu();
 }
 
+int af_menuSpellUp(Game &g)
+{
+	if (g.getRealMenus().size() == 0)
+		THROW_INIT("No menu");
+	int ret = std::dynamic_pointer_cast<MenuSpells>(g.getRealMenus().back())->getRealMenuChoices().setSelectedChoice(
+		std::dynamic_pointer_cast<MenuSpells>(g.getRealMenus().back())->getRealMenuChoices().getSelectedChoice() - 1
+	);
+	if (ret > 0)
+	{
+		g.getRealMap().gotUpdated();
+		g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(0));
+
+		ret += std::dynamic_pointer_cast<MenuSpells>(g.getRealMenus().back())->getRealDialogBox().addText(
+			std::dynamic_pointer_cast<MenuSpells>(g.getRealMenus().back())->getSpells().at(std::dynamic_pointer_cast<MenuSpells>(
+				g.getRealMenus().back())->getRealMenuChoices().getSelectedChoice()
+			).getDescription()
+		);
+		ret += std::dynamic_pointer_cast<MenuSpells>(g.getRealMenus().back())->getRealDialogBox().continueText(
+			g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER)
+		);
+	}
+	return ret;
+}
+
+int af_menuSpellDown(Game &g)
+{
+	if (g.getRealMenus().size() == 0)
+		THROW_INIT("No menu");
+	int ret = std::dynamic_pointer_cast<MenuSpells>(g.getRealMenus().back())->getRealMenuChoices().setSelectedChoice(
+		std::dynamic_pointer_cast<MenuSpells>(g.getRealMenus().back())->getRealMenuChoices().getSelectedChoice() + 1
+	);
+
+	if (ret > 0)
+	{
+		g.getRealMap().gotUpdated();
+		g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(0));
+
+		ret += std::dynamic_pointer_cast<MenuSpells>(g.getRealMenus().back())->getRealDialogBox().addText(
+			std::dynamic_pointer_cast<MenuSpells>(g.getRealMenus().back())->getSpells().at(std::dynamic_pointer_cast<MenuSpells>(
+				g.getRealMenus().back())->getRealMenuChoices().getSelectedChoice()
+			).getDescription()
+		);
+		ret += std::dynamic_pointer_cast<MenuSpells>(g.getRealMenus().back())->getRealDialogBox().continueText(
+			g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER)
+		);
+	}
+	return ret;
+}
+
 // Battle
 /// General
 int af_battleStart(Game &g)

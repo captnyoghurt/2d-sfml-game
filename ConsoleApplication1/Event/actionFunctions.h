@@ -41,6 +41,8 @@ int af_dialogBoxContinue(Game &g);
 // Spells
 int af_menuSpellsOpen(Game &g);
 int af_menuSpellsClose(Game &g);
+int af_menuSpellUp(Game &g);
+int af_menuSpellDown(Game &g);
 
 // Battle
 /// General

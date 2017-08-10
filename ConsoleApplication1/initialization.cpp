@@ -411,6 +411,10 @@ IG_Action::s_action getActionFromWord(std::string w)
 		return &af_menuSpellsOpen;
 	else if (w == "MENU_SPELLS_CLOSE")
 		return &af_menuSpellsClose;
+	else if (w == "MENU_SPELLS_DOWN")
+		return &af_menuSpellDown;
+	else if (w == "MENU_SPELLS_UP")
+		return &af_menuSpellUp;
 
 	else
 		THROW_VALUE(std::string("Unknown action : " + w));
