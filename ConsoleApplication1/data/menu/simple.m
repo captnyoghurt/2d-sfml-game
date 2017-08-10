@@ -8,6 +8,8 @@ Equipe
 BAG_OPEN_COMPLETE
 Inventaire
 NOTHING
+Sorts
+NOTHING
 Sauvegarder
 EXIT
 Quitter
