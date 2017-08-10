@@ -67,6 +67,15 @@
     <Filter Include="Fichiers sources\Sound">
       <UniqueIdentifier>{671cefc2-5c82-4408-907a-4e9d5f2750ed}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Database">
+      <UniqueIdentifier>{ecd2259c-06da-4e3f-a2cb-7761b057ebd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Database">
+      <UniqueIdentifier>{49cd8285-470d-4d3e-b3a4-5a1ee6bf87e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Database\json">
+      <UniqueIdentifier>{a22797ac-e26e-4309-a207-593a3ad626f2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -234,6 +243,21 @@
     <ClCompile Include="Sound\ManageSound.cpp">
       <Filter>Fichiers sources\Sound</Filter>
     </ClCompile>
+    <ClCompile Include="Battle\BattleEffects.cpp">
+      <Filter>Fichiers sources\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="Database\DatabaseJson.cpp">
+      <Filter>Fichiers sources\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="Database\json_reader.cpp">
+      <Filter>Fichiers sources\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="Database\json_value.cpp">
+      <Filter>Fichiers sources\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="Database\json_writer.cpp">
+      <Filter>Fichiers sources\Database</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -398,5 +422,52 @@
     <ClInclude Include="Sound\ManageSound.h">
       <Filter>Fichiers d%27en-tête\Sound</Filter>
     </ClInclude>
+    <ClInclude Include="Battle\BattleEffects.h">
+      <Filter>Fichiers d%27en-tête\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="Database\DatabaseJson.h">
+      <Filter>Fichiers d%27en-tête\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="Database\json_tool.h">
+      <Filter>Fichiers d%27en-tête\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="Database\json\allocator.h">
+      <Filter>Fichiers d%27en-tête\Database\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Database\json\assertions.h">
+      <Filter>Fichiers d%27en-tête\Database\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Database\json\autolink.h">
+      <Filter>Fichiers d%27en-tête\Database\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Database\json\config.h">
+      <Filter>Fichiers d%27en-tête\Database\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Database\json\features.h">
+      <Filter>Fichiers d%27en-tête\Database\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Database\json\forwards.h">
+      <Filter>Fichiers d%27en-tête\Database\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Database\json\json.h">
+      <Filter>Fichiers d%27en-tête\Database\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Database\json\reader.h">
+      <Filter>Fichiers d%27en-tête\Database\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Database\json\value.h">
+      <Filter>Fichiers d%27en-tête\Database\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Database\json\version.h">
+      <Filter>Fichiers d%27en-tête\Database\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Database\json\writer.h">
+      <Filter>Fichiers d%27en-tête\Database\json</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Database\json_valueiterator.inl">
+      <Filter>Fichiers d%27en-tête\Database</Filter>
+    </None>
   </ItemGroup>
 </Project>

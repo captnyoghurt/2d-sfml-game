@@ -152,6 +152,7 @@
     <ClCompile Include="Animation\Animation.cpp" />
     <ClCompile Include="Animation\ManageAnimation.cpp" />
     <ClCompile Include="Battle\Battle.cpp" />
+    <ClCompile Include="Battle\BattleEffects.cpp" />
     <ClCompile Include="Battle\BattleEventManager.cpp" />
     <ClCompile Include="Battle\B_Event.cpp" />
     <ClCompile Include="Battle\B_EventAttack.cpp" />
@@ -171,6 +172,10 @@
     <ClCompile Include="Battle\TeamBattle.cpp" />
     <ClCompile Include="Battle\TeamMate.cpp" />
     <ClCompile Include="constants.cpp" />
+    <ClCompile Include="Database\DatabaseJson.cpp" />
+    <ClCompile Include="Database\json_reader.cpp" />
+    <ClCompile Include="Database\json_value.cpp" />
+    <ClCompile Include="Database\json_writer.cpp" />
     <ClCompile Include="Error\debugFunctions.cpp" />
     <ClCompile Include="Error\GameException.cpp" />
     <ClCompile Include="Error\InitializationException.cpp" />
@@ -209,6 +214,7 @@
     <ClInclude Include="Animation\Animation.h" />
     <ClInclude Include="Animation\ManageAnimation.h" />
     <ClInclude Include="Battle\Battle.h" />
+    <ClInclude Include="Battle\BattleEffects.h" />
     <ClInclude Include="Battle\BattleEventManager.h" />
     <ClInclude Include="Battle\B_Event.h" />
     <ClInclude Include="Battle\B_EventAttack.h" />
@@ -228,6 +234,19 @@
     <ClInclude Include="Battle\TeamBattle.h" />
     <ClInclude Include="Battle\TeamMate.h" />
     <ClInclude Include="constants.h" />
+    <ClInclude Include="Database\DatabaseJson.h" />
+    <ClInclude Include="Database\json\allocator.h" />
+    <ClInclude Include="Database\json\assertions.h" />
+    <ClInclude Include="Database\json\autolink.h" />
+    <ClInclude Include="Database\json\config.h" />
+    <ClInclude Include="Database\json\features.h" />
+    <ClInclude Include="Database\json\forwards.h" />
+    <ClInclude Include="Database\json\json.h" />
+    <ClInclude Include="Database\json\reader.h" />
+    <ClInclude Include="Database\json\value.h" />
+    <ClInclude Include="Database\json\version.h" />
+    <ClInclude Include="Database\json\writer.h" />
+    <ClInclude Include="Database\json_tool.h" />
     <ClInclude Include="Error\debugFunctions.h" />
     <ClInclude Include="Error\GameException.h" />
     <ClInclude Include="Error\InitializationException.h" />
@@ -260,6 +279,9 @@
     <ClInclude Include="Sound\ManageSound.h" />
     <ClInclude Include="Team\Character.h" />
     <ClInclude Include="Team\Team.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Database\json_valueiterator.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
