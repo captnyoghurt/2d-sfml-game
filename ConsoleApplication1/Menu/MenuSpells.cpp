@@ -57,7 +57,7 @@ int MenuSpells::load(ManageRessources& ress, ManageSurfaces& surf, const int &xc
 		THROW_VALUE("No spells");
 
 	m_dialogBox.load(ress, surf, "Menu des sorts et techniques", xcam, ycam, MENU_SPELLS_DIALOG_BOX_X, MENU_SPELLS_DIALOG_BOX_Y, MENU_SPELLS_DIALOG_BOX_WIDTH, MENU_SPELLS_DIALOG_BOX_HEIGHT);
-	m_choices.loadFromStream(ress, surf, makeChoicesSS(spells), xcam, ycam);
+	m_choices.loadFromStream(ress, surf, makeChoicesSS(spells), xcam, ycam, MENU_SPELLS_CHOICES_WIDTH - (2 * MENUS_BORDER_X), MENUS_GAP_BETWEEN_LINES);
 
 	m_spells = std::make_unique<std::vector<Spell>>(spells);
 
@@ -73,7 +73,7 @@ int MenuSpells::load(ManageRessources& ress, ManageSurfaces& surf, const int &xc
 		std::dynamic_pointer_cast<SurfaceText>(costtp->second)->setString(std::to_string(spells.at(i).getCostTP()));
 		m_choices.getChoices().at(i)->getRealRenderTextureManager().add(
 			costtp,
-			MENU_SPELLS_CHOICES_WIDTH - (MENU_SPELLS_FONTSIZE),
+			MENU_SPELLS_CHOICES_WIDTH - (3*MENU_SPELLS_FONTSIZE),
 			0
 			);
 
@@ -85,7 +85,7 @@ int MenuSpells::load(ManageRessources& ress, ManageSurfaces& surf, const int &xc
 		std::dynamic_pointer_cast<SurfaceText>(costmp->second)->setString(std::to_string(spells.at(i).getCostMP()));
 		m_choices.getChoices().at(i)->getRealRenderTextureManager().add(
 			costmp,
-			MENU_SPELLS_CHOICES_WIDTH - (3*MENU_SPELLS_FONTSIZE),
+			MENU_SPELLS_CHOICES_WIDTH - (8*MENU_SPELLS_FONTSIZE),
 			0
 		);
 
@@ -97,9 +97,11 @@ int MenuSpells::load(ManageRessources& ress, ManageSurfaces& surf, const int &xc
 		std::dynamic_pointer_cast<SurfaceText>(costhp->second)->setString(std::to_string(spells.at(i).getCostHP()));
 		m_choices.getChoices().at(i)->getRealRenderTextureManager().add(
 			costhp,
-			MENU_SPELLS_CHOICES_WIDTH - (3 * MENU_SPELLS_FONTSIZE),
+			MENU_SPELLS_CHOICES_WIDTH - (13 * MENU_SPELLS_FONTSIZE),
 			0
 		);
+
+		m_choices.getChoices().at(i)->getRealRenderTextureManager().update();
 	}
 
 	m_initialized = true;
