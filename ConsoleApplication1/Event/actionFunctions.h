@@ -38,6 +38,10 @@ int af_bagOpenComplete(Game &g);
 int af_dialogBoxOpen(Game &g);
 int af_dialogBoxContinue(Game &g);
 
+// Spells
+int af_menuSpellsOpen(Game &g);
+int af_menuSpellsClose(Game &g);
+
 // Battle
 /// General
 int af_battleStart(Game &g);

@@ -3,6 +3,7 @@
 #include "../Menu/MenuChoice.h"
 #include "../Menu/MenuDialogBox.h"
 #include "../Menu/MenuBattle.h"
+#include "../Menu/MenuSpells.h"
 #include "../Battle/B_EventAttack.h"
 #include "../Error/ValueException.h"
 #include "../Error/InitializationException.h"
@@ -190,6 +191,33 @@ int af_dialogBoxContinue(Game &g)
 	return ret;
 }
 
+
+// Spells
+int af_menuSpellsOpen(Game &g)
+{
+	g.getRealMap().gotUpdated();
+	af_teamStop(g);
+	g.getRealMenus().push_back(std::make_shared<MenuSpells>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER), g.getEventManager().getKeyEventLayer()));
+	g.getRealEventManager().setKeyEventLayer(3);
+
+	/////
+	std::vector<Spell> sp(3);
+	sp.at(0) = g.getRealDatabaseJson().getSpell(1);
+	sp.at(1) = g.getRealDatabaseJson().getSpell(2);
+	sp.at(2) = g.getRealDatabaseJson().getSpell(1);
+	/////
+
+	return std::dynamic_pointer_cast<MenuSpells>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getMap().getCamera().getX(), g.getMap().getCamera().getY(), sp);
+}
+
+int af_menuSpellsClose(Game &g)
+{
+	g.getRealMap().gotUpdated();
+
+	g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(2));
+
+	return g.stopMenu();
+}
 
 // Battle
 /// General
