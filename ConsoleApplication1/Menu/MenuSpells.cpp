@@ -1,6 +1,7 @@
 #include "MenuSpells.h"
 #include "../constants.h"
 #include "../Error/ValueException.h"
+#include "../Error/InitializationException.h"
 
 
 
@@ -10,6 +11,7 @@ MenuSpells::MenuSpells(ManageRessources& ress, ManageSurfaces& surf, int lastEve
 	m_choices(ress, surf, lastEventLayer),
 	m_initialized(false)
 {
+	surf.deleteSurface(m_background);
 }
 
 
@@ -87,6 +89,29 @@ int MenuSpells::load(ManageRessources& ress, ManageSurfaces& surf, const int &xc
 	}
 
 	m_initialized = true;
+
+	return 0;
+}
+
+
+// Update surfaces
+int MenuSpells::update(Game &g)
+{
+	m_dialogBox.update(g);
+	m_choices.update(g);
+
+	return 0;
+}
+
+
+// Close the menu
+int MenuSpells::close(ManageSurfaces &surf)
+{
+	if (!m_initialized)
+		THROW_INIT("MenuSpells not initiate");
+
+	m_dialogBox.close(surf);
+	m_choices.close(surf);
 
 	return 0;
 }
