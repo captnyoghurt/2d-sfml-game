@@ -274,7 +274,6 @@ int Game::print()
 // Update everything in the game
 int Game::update()
 {
-	Clock clk;
 	int ret = m_eventManager.updateEvent(*this);
 
 	ret += (m_map.update() << 1);
@@ -290,6 +289,8 @@ int Game::update()
 
 	if (m_battle.getStarted())
 		ret += (m_battle.update(this) << 5);
+
+	ret += (m_soundManager.update() << 6);
 
 	return ret;
 }
