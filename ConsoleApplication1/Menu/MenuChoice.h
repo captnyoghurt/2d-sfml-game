@@ -37,8 +37,8 @@ public:
 	int resizeChoiceSurface();
 
 	// Load the menu
-	virtual int loadFromStream(ManageRessources& ress, ManageSurfaces& surf, std::stringstream &ss, const int &xcam, const int &ycam);
-	virtual int loadFromFile(ManageRessources& ress, ManageSurfaces& surf, const std::string &filename, const int &xcam, const int &ycam);
+	virtual int loadFromStream(ManageRessources& ress, ManageSurfaces& surf, std::stringstream &ss, const int &xcam, const int &ycam, const int &wchoice = 0, const int &hchoice = 0);
+	virtual int loadFromFile(ManageRessources& ress, ManageSurfaces& surf, const std::string &filename, const int &xcam, const int &ycam, const int &wchoice = 0, const int &hchoice = 0);
 	// Update surfaces
 	virtual int update(Game &g);
 	// Close the menu

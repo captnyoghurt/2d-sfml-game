@@ -182,7 +182,7 @@ int MenuChoice::resizeChoiceSurface()
 
 
 // Load the menu
-int MenuChoice::loadFromStream(ManageRessources& ress, ManageSurfaces& surf, std::stringstream &ss, const int &xcam, const int &ycam)
+int MenuChoice::loadFromStream(ManageRessources& ress, ManageSurfaces& surf, std::stringstream &ss, const int &xcam, const int &ycam, const int &wchoice, const int &hchoice)
 {
 	if (m_initialized)
 		THROW_INIT("Already initiate");
@@ -232,7 +232,7 @@ int MenuChoice::loadFromStream(ManageRessources& ress, ManageSurfaces& surf, std
 			act.setAction(getActionFromWord(word));
 		}
 		// Second line used for the string
-		m_choices.back()->load(surf, secondLine, f, cx, cy, true, act);
+		m_choices.back()->load(surf, secondLine, f, cx, cy, true, act, wchoice, hchoice);
 
 		numberOfChoices++;
 	}
@@ -255,7 +255,7 @@ int MenuChoice::loadFromStream(ManageRessources& ress, ManageSurfaces& surf, std
 
 	return 0;
 }
-int MenuChoice::loadFromFile(ManageRessources& ress, ManageSurfaces& surf, const std::string &filename, const int &xcam, const int &ycam)
+int MenuChoice::loadFromFile(ManageRessources& ress, ManageSurfaces& surf, const std::string &filename, const int &xcam, const int &ycam, const int &wchoice, const int &hchoice)
 {
 	if (m_initialized)
 		THROW_INIT("Already initiate");
@@ -268,7 +268,7 @@ int MenuChoice::loadFromFile(ManageRessources& ress, ManageSurfaces& surf, const
 
 	ss << file.rdbuf();
 
-	return loadFromStream(ress, surf, ss, xcam, ycam);
+	return loadFromStream(ress, surf, ss, xcam, ycam, wchoice, hchoice);
 }
 
 
