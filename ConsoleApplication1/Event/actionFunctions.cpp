@@ -107,7 +107,9 @@ int af_menuOpenSimple(Game &g)
 int af_menuCloseSimple(Game &g)
 {
 	g.getRealMap().gotUpdated();
-	//std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->close(g.getRealSurfaceManager().at(MENU_SIMPLE_LAYER));
+	
+	g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(2));
+
 	return g.stopMenu();
 }
 
@@ -118,7 +120,10 @@ int af_menuChoiceUp(Game &g)
 		THROW_INIT("No menu");
 	int ret = std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->setSelectedChoice(std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->getSelectedChoice() - 1);
 	if (ret > 0)
+	{
 		g.getRealMap().gotUpdated();
+		g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(0));
+	}
 	return 0;
 }
 
@@ -128,7 +133,10 @@ int af_menuChoiceDown(Game &g)
 		THROW_INIT("No menu");
 	int ret = std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->setSelectedChoice(std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->getSelectedChoice() + 1);
 	if (ret > 0)
+	{
 		g.getRealMap().gotUpdated();
+		g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(0));
+	}
 	return 0;
 }
 
@@ -136,9 +144,9 @@ int af_menuChoiceAction(Game &g)
 {
 	if (g.getRealMenus().size() == 0)
 		THROW_INIT("No menu");
-	/*int i = ;
-	std::shared_ptr<MenuChoice> m(std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back()));
-	M_choice *mc((std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back()))->getChoices().at(std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->getSelectedChoice()));*/
+	
+	g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(1));
+	
 	return (std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back()))->getChoices().at(std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->getSelectedChoice())->getAction().getAction()(g);
 }
 
