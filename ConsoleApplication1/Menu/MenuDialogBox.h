@@ -32,7 +32,7 @@ public:
 	int continueText(ManageRessources& ress, ManageSurfaces& surf);
 
 	// Load the menu
-	virtual int load(ManageRessources& ress, ManageSurfaces& surf, const std::string &text, const int &xcam, const int &ycam);
+	virtual int load(ManageRessources& ress, ManageSurfaces& surf, const std::string &text, const int &xcam, const int &ycam, const int &x = -1, const int &y = -1, const int &w = -1, const int &h = -1);
 	// Update surfaces
 	virtual int update(Game &g);
 	// Close the menu

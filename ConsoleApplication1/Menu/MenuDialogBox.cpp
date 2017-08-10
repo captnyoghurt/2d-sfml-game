@@ -179,7 +179,7 @@ int MenuDialogBox::continueText(ManageRessources& ress, ManageSurfaces& surf)
 
 
 // Load the menu
-int MenuDialogBox::load(ManageRessources& ress, ManageSurfaces& surf, const std::string &text, const int &xcam, const int &ycam)
+int MenuDialogBox::load(ManageRessources& ress, ManageSurfaces& surf, const std::string &text, const int &xcam, const int &ycam, const int &x, const int &y, const int &w, const int &h)
 {
 	// Initialization
 	if (m_initialized)
@@ -188,10 +188,20 @@ int MenuDialogBox::load(ManageRessources& ress, ManageSurfaces& surf, const std:
 	m_initialized = true;
 
 	// Set the dimensions
-	m_x = MENU_DIALOG_BOX_X + xcam;
-	m_y = MENU_DIALOG_BOX_Y + ycam;
-	m_width = MENU_DIALOG_BOX_WIDTH;
-	m_height = MENU_DIALOG_BOX_HEIGHT;
+	if (x == -1 || y == -1 || w == -1 || h == -1)
+	{
+		m_x = MENU_DIALOG_BOX_X + xcam;
+		m_y = MENU_DIALOG_BOX_Y + ycam;
+		m_width = MENU_DIALOG_BOX_WIDTH;
+		m_height = MENU_DIALOG_BOX_HEIGHT;
+	}
+	else
+	{
+		m_x = x + xcam;
+		m_y = y + ycam;
+		m_width = w;
+		m_height = h;
+	}
 
 	// Place the background
 	std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->setEnable(true);
