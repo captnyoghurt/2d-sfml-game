@@ -113,6 +113,21 @@ extern std::string MENU_BAG_TEXT;
 extern int MENU_BAG_FONTSIZE;
 extern int MENU_BAG_LAYER;
 
+/// Spells
+extern int MENU_SPELLS_FONTSIZE;
+extern int MENU_SPELLS_LAYER;
+extern int MENU_SPELLS_DIALOG_BOX_X;
+extern int MENU_SPELLS_DIALOG_BOX_Y;
+extern int MENU_SPELLS_DIALOG_BOX_WIDTH;
+extern int MENU_SPELLS_DIALOG_BOX_HEIGHT;
+extern int MENU_SPELLS_CHOICES_X;
+extern int MENU_SPELLS_CHOICES_Y;
+extern int MENU_SPELLS_CHOICES_WIDTH;
+extern int MENU_SPELLS_CHOICES_HEIGHT;
+extern sf::Color MENU_SPELLS_COLOR_HP;
+extern sf::Color MENU_SPELLS_COLOR_MP;
+extern sf::Color MENU_SPELLS_COLOR_TP;
+
 /// Cursor
 //// Up
 extern int MENU_SURFACE_CURSOR_UP_BEGIN_X;
