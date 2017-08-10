@@ -182,7 +182,7 @@ int MenuChoice::resizeChoiceSurface()
 
 
 // Load the menu
-int MenuChoice::load(ManageRessources& ress, ManageSurfaces& surf, const std::string &filename, const int &xcam, const int &ycam)
+int MenuChoice::loadFromFile(ManageRessources& ress, ManageSurfaces& surf, const std::string &filename, const int &xcam, const int &ycam)
 {
 	if (m_initialized)
 		THROW_INIT("Already initiate");

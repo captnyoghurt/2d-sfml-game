@@ -101,7 +101,7 @@ int af_menuOpenSimple(Game &g)
 	g.getRealMenus().push_back(std::make_shared<MenuChoice>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getEventManager().getKeyEventLayer()));
 	g.getRealEventManager().setKeyEventLayer(1);
 	
-	return std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), MENU_SIMPLE_TEXT, g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
+	return std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->loadFromFile(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), MENU_SIMPLE_TEXT, g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
 }
 
 int af_menuCloseSimple(Game &g)
@@ -159,7 +159,7 @@ int af_bagOpenComplete(Game &g)
 	g.getRealMenus().push_back(std::shared_ptr<MenuChoice>(new MenuChoice(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_BAG_LAYER), g.getEventManager().getKeyEventLayer())));
 	g.getRealEventManager().setKeyEventLayer(1);
 
-	return std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_BAG_LAYER), MENU_BAG_TEXT, g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
+	return std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->loadFromFile(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_BAG_LAYER), MENU_BAG_TEXT, g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
 }
 
 
