@@ -258,6 +258,9 @@
     <ClCompile Include="Database\json_writer.cpp">
       <Filter>Fichiers sources\Database</Filter>
     </ClCompile>
+    <ClCompile Include="Menu\MenuSpells.cpp">
+      <Filter>Fichiers sources\Menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -463,6 +466,9 @@
     </ClInclude>
     <ClInclude Include="Database\json\writer.h">
       <Filter>Fichiers d%27en-tête\Database\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu\MenuSpells.h">
+      <Filter>Fichiers d%27en-tête\Menu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -205,6 +205,7 @@
     <ClCompile Include="Menu\MenuBattleSide.cpp" />
     <ClCompile Include="Menu\MenuChoice.cpp" />
     <ClCompile Include="Menu\MenuDialogBox.cpp" />
+    <ClCompile Include="Menu\MenuSpells.cpp" />
     <ClCompile Include="Menu\M_choice.cpp" />
     <ClCompile Include="Sound\ManageSound.cpp" />
     <ClCompile Include="Team\Character.cpp" />
@@ -275,6 +276,7 @@
     <ClInclude Include="Menu\MenuBattleSide.h" />
     <ClInclude Include="Menu\MenuChoice.h" />
     <ClInclude Include="Menu\MenuDialogBox.h" />
+    <ClInclude Include="Menu\MenuSpells.h" />
     <ClInclude Include="Menu\M_choice.h" />
     <ClInclude Include="Sound\ManageSound.h" />
     <ClInclude Include="Team\Character.h" />
