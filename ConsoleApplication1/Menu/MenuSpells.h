@@ -13,10 +13,15 @@ public:
 	~MenuSpells();
 
 public:
+	// Return the spells
+	std::vector<Spell> getSpells() const;
+
 	// Return the dialog box with modifying possibilities
 	MenuDialogBox& getRealDialogBox();
 	// Return the menu choice with modifying possibilities
 	MenuChoice& getRealMenuChoices();
+	// Return the spells with modifying possibilities
+	std::vector<Spell>& getRealSpells();
 
 	// Load the menu
 	virtual int load(ManageRessources& ress, ManageSurfaces& surf, const int &xcam, const int &ycam, std::vector<Spell> &spells);

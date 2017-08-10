@@ -20,6 +20,13 @@ MenuSpells::~MenuSpells()
 }
 
 
+// Return the spells
+std::vector<Spell> MenuSpells::getSpells() const
+{
+	return *m_spells;
+}
+
+
 // Return the dialog box with modifying possibilities
 MenuDialogBox& MenuSpells::getRealDialogBox()
 {
@@ -31,6 +38,13 @@ MenuDialogBox& MenuSpells::getRealDialogBox()
 MenuChoice& MenuSpells::getRealMenuChoices()
 {
 	return m_choices;
+}
+
+
+// Return the spells with modifying possibilities
+std::vector<Spell>& MenuSpells::getRealSpells()
+{
+	return *m_spells;
 }
 
 
