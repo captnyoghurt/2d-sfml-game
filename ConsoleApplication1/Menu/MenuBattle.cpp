@@ -105,6 +105,7 @@ int MenuBattle::af_MenuBattleDown(Game &g)
 		std::dynamic_pointer_cast<MenuBattleSide>(m_menus.at(m_activeMenu))->setSelectedChoice(std::dynamic_pointer_cast<MenuBattleSide>(m_menus.at(m_activeMenu))->getSelectedChoice() + 1);
 
 		gotUpdated();
+		g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(0));
 	}
 
 	return 0;
@@ -121,6 +122,7 @@ int MenuBattle::af_MenuBattleUp(Game &g)
 		std::dynamic_pointer_cast<MenuBattleSide>(m_menus.at(m_activeMenu))->setSelectedChoice(std::dynamic_pointer_cast<MenuBattleSide>(m_menus.at(m_activeMenu))->getSelectedChoice() - 1);
 
 		gotUpdated();
+		g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(0));
 	}
 
 	return 0;
@@ -136,6 +138,7 @@ int MenuBattle::af_MenuBattleRight(Game &g)
 	{
 		std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->setSelectedChoice(std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->getSelectedChoice() + 1);
 		std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->resizeChoiceSurface();
+		g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(0));
 	}
 
 	return 0;
@@ -151,6 +154,7 @@ int MenuBattle::af_MenuBattleLeft(Game &g)
 	{
 		std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->setSelectedChoice(std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->getSelectedChoice() - 1);
 		std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->resizeChoiceSurface();
+		g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(0));
 	}
 
 	return 0;
@@ -166,6 +170,8 @@ int MenuBattle::af_MenuBattleEnter(Game &g)
 
 	m_isBlocking = false;
 	m_updated = true;
+
+	g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(1));
 
 	if (m_activeMenu == MenuBattle::BM_LEFT || m_activeMenu == MenuBattle::BM_RIGHT)
 	{

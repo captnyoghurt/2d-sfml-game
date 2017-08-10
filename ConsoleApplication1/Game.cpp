@@ -274,7 +274,6 @@ int Game::print()
 // Update everything in the game
 int Game::update()
 {
-	Clock clk;
 	int ret = m_eventManager.updateEvent(*this);
 
 	ret += (m_map.update() << 1);
@@ -290,6 +289,8 @@ int Game::update()
 
 	if (m_battle.getStarted())
 		ret += (m_battle.update(this) << 5);
+
+	ret += (m_soundManager.update() << 6);
 
 	return ret;
 }
@@ -317,6 +318,15 @@ int Game::loadRessources()
 
 		if (!(it3 = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_BATTLE).addSoundBuffer()))->loadFromFile("data/audio/se/001-Attack01.ogg"))
 			THROW_RESSOURCE("Battle attack sound", "data/audio/se/001-Attack01.ogg");
+
+		if (!(it3 = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addSoundBuffer()))->loadFromFile("data/audio/se/002-System02.ogg"))
+			THROW_RESSOURCE("Menu switch sound", "data/audio/se/002-System02.ogg");
+
+		if (!(it3 = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addSoundBuffer()))->loadFromFile("data/audio/se/003-System03.ogg"))
+			THROW_RESSOURCE("Menu ok sound", "data/audio/se/003-System03.ogg");
+
+		if (!(it3 = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addSoundBuffer()))->loadFromFile("data/audio/se/007-System07.ogg"))
+			THROW_RESSOURCE("Menu ok sound", "data/audio/se/007-System07.ogg");
 	}
 	catch (GameException &e)
 	{
