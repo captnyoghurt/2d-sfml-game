@@ -182,7 +182,7 @@ int MenuChoice::resizeChoiceSurface()
 
 
 // Load the menu
-int MenuChoice::load(ManageRessources& ress, ManageSurfaces& surf, const std::string &filename, const int &xcam, const int &ycam)
+int MenuChoice::loadFromStream(ManageRessources& ress, ManageSurfaces& surf, std::stringstream &ss, const int &xcam, const int &ycam)
 {
 	if (m_initialized)
 		THROW_INIT("Already initiate");
@@ -190,33 +190,29 @@ int MenuChoice::load(ManageRessources& ress, ManageSurfaces& surf, const std::st
 	bool autoPlacement(false);
 	sf::Font& f(ress.getTheFont(RESSOURCE_FONT_NUMBER_MONO));
 	int numberOfChoices(0);
-	std::ifstream file(filename);
 	std::string firstLine, secondLine;
 	IG_Action act;
 
-	if (!file.is_open())
-		THROW_RESSOURCE("File for menu choice", filename);
-
 	// Doesn't read the header with commentary
-	while (std::getline(file, firstLine) && ((firstLine.size() > 0 && firstLine[0] == '#') || firstLine.size() == 0));
+	while (std::getline(ss, firstLine) && ((firstLine.size() > 0 && firstLine[0] == '#') || firstLine.size() == 0));
 
 	if (firstLine == "AUTO")
 		autoPlacement = true;
 
-	file >> m_lastChoiceShown >> m_x >> m_y >> m_width >> m_height;
-	std::getline(file, firstLine);
+	ss >> m_lastChoiceShown >> m_x >> m_y >> m_width >> m_height;
+	std::getline(ss, firstLine);
 
 	// Place the cursors for the scrolling menu
 	m_cursorSurfaceUp->second->setDimensions(xcam + m_x + (m_width / 2) - int(std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceUp->second)->getGlobalBounds().width),
-												ycam + m_y,
-												int(std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceUp->second)->getGlobalBounds().width),
-												int(std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceUp->second)->getGlobalBounds().height));
+		ycam + m_y,
+		int(std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceUp->second)->getGlobalBounds().width),
+		int(std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceUp->second)->getGlobalBounds().height));
 	m_cursorSurfaceDown->second->setDimensions(xcam + m_x + (m_width / 2) - int(std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceDown->second)->getGlobalBounds().width),
-												ycam + m_y + m_height - int(std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceDown->second)->getGlobalBounds().height),
-												int(std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceDown->second)->getGlobalBounds().width),
-												int(std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceDown->second)->getGlobalBounds().height));
+		ycam + m_y + m_height - int(std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceDown->second)->getGlobalBounds().height),
+		int(std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceDown->second)->getGlobalBounds().width),
+		int(std::dynamic_pointer_cast<SurfaceSprite>(m_cursorSurfaceDown->second)->getGlobalBounds().height));
 
-	while (std::getline(file, firstLine) && std::getline(file, secondLine))
+	while (std::getline(ss, firstLine) && std::getline(ss, secondLine))
 	{
 		m_choices.push_back(std::shared_ptr<M_choice>(new M_choice));
 		int cx, cy;
@@ -246,18 +242,33 @@ int MenuChoice::load(ManageRessources& ress, ManageSurfaces& surf, const std::st
 	m_initialized = true;
 
 	m_firstChoiceShown = 0;
-	
+
 	if (m_lastChoiceShown >= 0)
-		m_lastChoiceShown = MIN(m_lastChoiceShown-1, numberOfChoices - 1);
+		m_lastChoiceShown = MIN(m_lastChoiceShown - 1, numberOfChoices - 1);
 	else
 		m_lastChoiceShown = numberOfChoices - 1;
 
 	std::dynamic_pointer_cast<SurfaceSprite>(m_selectedChoiceSurface->second)->setScale(float(m_width) / (MENU_SURFACE_SELECTED_WIDTH),
-																						float(std::dynamic_pointer_cast<SurfaceSprite>(m_choices.at(0)->getRealSurface()->second)->getGlobalBounds().height) / (MENU_SURFACE_SELECTED_HEIGHT));
+		float(std::dynamic_pointer_cast<SurfaceSprite>(m_choices.at(0)->getRealSurface()->second)->getGlobalBounds().height) / (MENU_SURFACE_SELECTED_HEIGHT));
 
 	setSelectedChoice(0);
 
 	return 0;
+}
+int MenuChoice::loadFromFile(ManageRessources& ress, ManageSurfaces& surf, const std::string &filename, const int &xcam, const int &ycam)
+{
+	if (m_initialized)
+		THROW_INIT("Already initiate");
+
+	std::ifstream file(filename);
+	std::stringstream ss;
+
+	if (!file.is_open())
+		THROW_RESSOURCE("File for menu choice", filename);
+
+	ss << file.rdbuf();
+
+	return loadFromStream(ress, surf, ss, xcam, ycam);
 }
 
 

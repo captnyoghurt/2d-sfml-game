@@ -105,6 +105,7 @@ int MenuBattle::af_MenuBattleDown(Game &g)
 		std::dynamic_pointer_cast<MenuBattleSide>(m_menus.at(m_activeMenu))->setSelectedChoice(std::dynamic_pointer_cast<MenuBattleSide>(m_menus.at(m_activeMenu))->getSelectedChoice() + 1);
 
 		gotUpdated();
+		g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(0));
 	}
 
 	return 0;
@@ -121,6 +122,7 @@ int MenuBattle::af_MenuBattleUp(Game &g)
 		std::dynamic_pointer_cast<MenuBattleSide>(m_menus.at(m_activeMenu))->setSelectedChoice(std::dynamic_pointer_cast<MenuBattleSide>(m_menus.at(m_activeMenu))->getSelectedChoice() - 1);
 
 		gotUpdated();
+		g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(0));
 	}
 
 	return 0;
@@ -136,6 +138,7 @@ int MenuBattle::af_MenuBattleRight(Game &g)
 	{
 		std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->setSelectedChoice(std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->getSelectedChoice() + 1);
 		std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->resizeChoiceSurface();
+		g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(0));
 	}
 
 	return 0;
@@ -151,6 +154,7 @@ int MenuBattle::af_MenuBattleLeft(Game &g)
 	{
 		std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->setSelectedChoice(std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->getSelectedChoice() - 1);
 		std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->resizeChoiceSurface();
+		g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(0));
 	}
 
 	return 0;
@@ -166,6 +170,8 @@ int MenuBattle::af_MenuBattleEnter(Game &g)
 
 	m_isBlocking = false;
 	m_updated = true;
+
+	g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(1));
 
 	if (m_activeMenu == MenuBattle::BM_LEFT || m_activeMenu == MenuBattle::BM_RIGHT)
 	{
@@ -217,7 +223,7 @@ int MenuBattle::load(Battle *b, ManageRessources &ress, ManageSurfaces &surf)
 	m_menus.at(BM_LEFT)->load(ress, surf, 0, 0, CAMERA_WIDTH / 6, CAMERA_HEIGHT);
 	m_menus.at(BM_RIGHT)->load(ress, surf, 5 * CAMERA_WIDTH / 6, 0, CAMERA_WIDTH / 6, CAMERA_HEIGHT);
 	m_menus.at(BM_DIALOG)->load(ress, surf, CAMERA_WIDTH / 6, (4 * CAMERA_HEIGHT / 5), 2 * CAMERA_WIDTH / 3, CAMERA_HEIGHT / 5);
-	std::dynamic_pointer_cast<MenuChoice>(m_menus.at(BM_CHOICE))->load(ress, surf, MENU_BATTLE_CHOICE_TEXT, 0, 0);/*CAMERA_WIDTH / 6, (4 * CAMERA_HEIGHT / 5) - (MENU_SIMPLE_FONTSIZE * 2));*/
+	std::dynamic_pointer_cast<MenuChoice>(m_menus.at(BM_CHOICE))->loadFromFile(ress, surf, MENU_BATTLE_CHOICE_TEXT, 0, 0);/*CAMERA_WIDTH / 6, (4 * CAMERA_HEIGHT / 5) - (MENU_SIMPLE_FONTSIZE * 2));*/
 
 	std::dynamic_pointer_cast<MenuChoice>(m_menus.at(BM_CHOICE))->resizeChoiceSurface();
 

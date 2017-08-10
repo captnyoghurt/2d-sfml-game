@@ -119,15 +119,29 @@ int ManageSound::deleteMusic()
 int ManageSound::update()
 {
 	// Delete all the stopped sounds
+	if (m_clock.getElapsedTime().asMilliseconds() < 1000)
+		return 0;
 
-	for (auto it(m_sounds.begin()); it != m_sounds.end(); it++)
+	m_clock.restart();
+
+	auto it(m_sounds.begin());
+	while (it != m_sounds.end())
 	{
 		if ((*it)->getStatus() == sf::Sound::Status::Stopped)
 		{
 			it = m_sounds.erase(it);
-			it--;
 		}
+		else
+			++it;
 	}
+	/*for (auto it(m_sounds.begin()); it != m_sounds.end(); it++)
+	{
+		if ((*it)->getStatus() == sf::Sound::Status::Stopped)
+		{
+			it = m_sounds.erase(it);
+			//it--;
+		}
+	}*/
 
 	return 0;
 }

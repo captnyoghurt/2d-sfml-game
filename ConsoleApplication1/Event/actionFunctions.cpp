@@ -101,13 +101,15 @@ int af_menuOpenSimple(Game &g)
 	g.getRealMenus().push_back(std::make_shared<MenuChoice>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getEventManager().getKeyEventLayer()));
 	g.getRealEventManager().setKeyEventLayer(1);
 	
-	return std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), MENU_SIMPLE_TEXT, g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
+	return std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->loadFromFile(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), MENU_SIMPLE_TEXT, g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
 }
 
 int af_menuCloseSimple(Game &g)
 {
 	g.getRealMap().gotUpdated();
-	//std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->close(g.getRealSurfaceManager().at(MENU_SIMPLE_LAYER));
+	
+	g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(2));
+
 	return g.stopMenu();
 }
 
@@ -118,7 +120,10 @@ int af_menuChoiceUp(Game &g)
 		THROW_INIT("No menu");
 	int ret = std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->setSelectedChoice(std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->getSelectedChoice() - 1);
 	if (ret > 0)
+	{
 		g.getRealMap().gotUpdated();
+		g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(0));
+	}
 	return 0;
 }
 
@@ -128,7 +133,10 @@ int af_menuChoiceDown(Game &g)
 		THROW_INIT("No menu");
 	int ret = std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->setSelectedChoice(std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->getSelectedChoice() + 1);
 	if (ret > 0)
+	{
 		g.getRealMap().gotUpdated();
+		g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(0));
+	}
 	return 0;
 }
 
@@ -136,9 +144,9 @@ int af_menuChoiceAction(Game &g)
 {
 	if (g.getRealMenus().size() == 0)
 		THROW_INIT("No menu");
-	/*int i = ;
-	std::shared_ptr<MenuChoice> m(std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back()));
-	M_choice *mc((std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back()))->getChoices().at(std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->getSelectedChoice()));*/
+	
+	g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(1));
+	
 	return (std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back()))->getChoices().at(std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->getSelectedChoice())->getAction().getAction()(g);
 }
 
@@ -151,7 +159,7 @@ int af_bagOpenComplete(Game &g)
 	g.getRealMenus().push_back(std::shared_ptr<MenuChoice>(new MenuChoice(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_BAG_LAYER), g.getEventManager().getKeyEventLayer())));
 	g.getRealEventManager().setKeyEventLayer(1);
 
-	return std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_BAG_LAYER), MENU_BAG_TEXT, g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
+	return std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->loadFromFile(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_BAG_LAYER), MENU_BAG_TEXT, g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
 }
 
 
@@ -172,6 +180,7 @@ int af_dialogBoxContinue(Game &g)
 		THROW_INIT("No dialog box");
 
 	g.getRealMap().gotUpdated();
+	g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(1));
 
 	int ret = std::dynamic_pointer_cast<MenuDialogBox>(g.getRealMenus().back())->continueText(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER));
 	

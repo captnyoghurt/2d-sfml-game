@@ -42,5 +42,6 @@ public:
 public:
 	std::list<std::shared_ptr<sf::Sound>> m_sounds;
 	std::stack<std::shared_ptr<sf::Music>> m_musics;
+	sf::Clock m_clock;
 };
 
