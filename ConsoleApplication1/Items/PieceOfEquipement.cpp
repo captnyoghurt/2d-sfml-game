@@ -3,8 +3,28 @@
 
 
 
-PieceOfEquipement::PieceOfEquipement()
+PieceOfEquipement::PieceOfEquipement() :
+	Item()
 {
+	m_position = PieceOfEquipement::e_POEPosition::POE_TOTAL;
+	m_mateId = TeamMate::e_MateId::MATE_ID_ALL;
+}
+
+PieceOfEquipement::PieceOfEquipement(const Item &item, const e_POEPosition &pos, const TeamMate::e_MateId &mid) : 
+	Item(item)
+{
+	setPosition(pos);
+	setMateId(mid);
+}
+
+PieceOfEquipement::PieceOfEquipement(const PieceOfEquipement &poe) :
+	PieceOfEquipement(
+		Item(poe.getId(), poe.getName(), poe.getDescription(), poe.getPriceBuy(), poe.getPriceSell(), poe.getType()),
+		poe.getPosition(),
+		poe.getMateId()
+	)
+{
+
 }
 
 

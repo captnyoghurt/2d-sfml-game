@@ -12,6 +12,8 @@ public:
 
 public:
 	PieceOfEquipement();
+	PieceOfEquipement(const Item &item, const e_POEPosition &pos, const TeamMate::e_MateId &mid);
+	PieceOfEquipement(const PieceOfEquipement &poe);
 	~PieceOfEquipement();
 
 public:
