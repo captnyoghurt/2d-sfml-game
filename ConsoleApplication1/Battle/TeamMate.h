@@ -5,6 +5,9 @@
 class TeamMate : public Fighter
 {
 public:
+	enum e_MateId {MATE_ID_CHAR1 = 0b00001, MATE_ID_CHAR2 = 0b00010, MATE_ID_CHAR3 = 0b00100, MATE_ID_CHAR4 = 0b01000, MATE_ID_CHAR5 = 0b10000, MATE_ID_ALL = 0b11111};
+
+public:
 	TeamMate();
 	TeamMate(const TeamMate &tm);
 	~TeamMate();
