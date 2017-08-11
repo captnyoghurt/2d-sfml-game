@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Item.h"
+#include "../Battle/TeamMate.h"
 
 class PieceOfEquipement :
 	public Item
@@ -16,11 +17,16 @@ public:
 public:
 	// Return the position of the piece of equipement
 	e_POEPosition getPosition() const;
+	// Return the mate id possible
+	TeamMate::e_MateId getMateId() const;
 
 	// Modify the position of the piece of equipement
 	int setPosition(const e_POEPosition &pos);
+	// Return the mate id possible
+	int setMateId(const TeamMate::e_MateId &mid);
 
 private:
 	e_POEPosition m_position;
+	TeamMate::e_MateId m_mateId;
 };
 
