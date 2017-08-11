@@ -188,6 +188,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="initialization.cpp" />
     <ClCompile Include="Items\Inventory.cpp" />
+    <ClCompile Include="Items\Item.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map\Camera.cpp" />
     <ClCompile Include="Map\Layer.cpp" />
@@ -261,6 +262,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="initialization.h" />
     <ClInclude Include="Items\Inventory.h" />
+    <ClInclude Include="Items\Item.h" />
     <ClInclude Include="Map\Camera.h" />
     <ClInclude Include="Map\Layer.h" />
     <ClInclude Include="Map\ManageRenderTexture.h" />
