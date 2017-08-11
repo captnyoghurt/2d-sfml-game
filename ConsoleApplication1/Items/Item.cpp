@@ -13,6 +13,23 @@ Item::Item() :
 {
 }
 
+Item::Item(const int &id, const std::string &name, const std::string &description, const int &priceBuy, const int &priceSell, const Item::e_ItemType &type) :
+	m_id(id),
+	m_name(name),
+	m_description(description),
+	m_priceBuy(priceBuy),
+	m_priceSell(priceSell),
+	m_type(type)
+{
+
+}
+
+Item::Item(const Item &item) :
+	Item(item.getId(), item.getName(), item.getDescription(), item.getPriceBuy(), item.getPriceSell(), item.getType())
+{
+	m_effects = item.getEffects();
+}
+
 
 Item::~Item()
 {

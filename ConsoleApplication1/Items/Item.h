@@ -12,6 +12,8 @@ public:
 
 public:
 	Item();
+	Item(const int &id, const std::string &name, const std::string &description, const int &priceBuy, const int &priceSell, const Item::e_ItemType &type);
+	Item(const Item &item);
 	~Item();
 
 public:
