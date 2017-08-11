@@ -3,7 +3,13 @@
 
 
 
-Item::Item()
+Item::Item() :
+	m_id(-1),
+	m_name(""),
+	m_description(""),
+	m_priceBuy(0),
+	m_priceSell(0),
+	m_type(Item::e_ItemType::ITEM_CLASSIC)
 {
 }
 
