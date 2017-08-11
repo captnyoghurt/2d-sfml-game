@@ -8,6 +8,9 @@
 class Item
 {
 public:
+	enum e_ItemType { ITEM_CLASSIC, ITEM_CONSUMABLE_BATTLE, ITEM_CONSUMABLE_OUT, ITEM_CONSUMABLE, ITEM_EQUIPEMENT, ITEM_TOTAL };
+
+public:
 	Item();
 	~Item();
 
@@ -22,6 +25,8 @@ public:
 	int getPriceBuy() const;
 	// Return the price when sold
 	int getPriceSell() const;
+	// Return the type of the item
+	e_ItemType getType() const;
 	// Return the effects
 	std::deque<BattleEffects> getEffects() const;
 
@@ -38,7 +43,8 @@ public:
 	int setPriceBuy(const int &p);
 	// Modify the price when sold
 	int setPriceSell(const int &p);
-	
+	// Modify the type of the item
+	int setType(const e_ItemType &t);
 
 private:
 	int m_id;
@@ -46,6 +52,7 @@ private:
 	std::string m_description;
 	int m_priceBuy;
 	int m_priceSell;
+	e_ItemType m_type;
 	std::deque<BattleEffects> m_effects;
 };
 

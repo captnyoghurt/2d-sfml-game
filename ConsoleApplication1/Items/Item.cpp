@@ -48,6 +48,13 @@ int Item::getPriceSell() const
 }
 
 
+// Return the type of the item
+Item::e_ItemType Item::getType() const
+{
+	return m_type;
+}
+
+
 // Return the effects
 std::deque<BattleEffects> Item::getEffects() const
 {
@@ -111,6 +118,18 @@ int Item::setPriceSell(const int &p)
 		THROW_VALUE("Impossible price : " + std::to_string(p));
 
 	m_priceSell = p;
+
+	return 0;
+}
+
+
+// Modify the type of the item
+int Item::setType(const Item::e_ItemType &t)
+{
+	if (t < 0 || t >= Item::e_ItemType::ITEM_TOTAL)
+		THROW_VALUE("Impossible type of item value : " + std::to_string(t));
+
+	m_type = t;
 
 	return 0;
 }
