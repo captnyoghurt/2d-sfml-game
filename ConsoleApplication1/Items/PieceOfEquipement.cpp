@@ -47,6 +47,13 @@ TeamMate::e_MateId PieceOfEquipement::getMateId() const
 }
 
 
+// Return if the piece is equiped
+bool PieceOfEquipement::getEquiped() const
+{
+	return m_equiped;
+}
+
+
 // Modify the position of the piece of equipement
 int PieceOfEquipement::setPosition(const PieceOfEquipement::e_POEPosition &pos)
 {
@@ -66,6 +73,15 @@ int PieceOfEquipement::setMateId(const TeamMate::e_MateId &mid)
 		THROW_VALUE("Impossible value of mate id : " + std::to_string(mid));
 
 	m_mateId = mid;
+
+	return 0;
+}
+
+
+// Modify if the piece is equiped
+int PieceOfEquipement::setEquiped(const bool &b)
+{
+	m_equiped = b;
 
 	return 0;
 }

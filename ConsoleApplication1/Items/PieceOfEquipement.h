@@ -21,14 +21,19 @@ public:
 	e_POEPosition getPosition() const;
 	// Return the mate id possible
 	TeamMate::e_MateId getMateId() const;
+	// Return if the piece is equiped
+	bool getEquiped() const;
 
 	// Modify the position of the piece of equipement
 	int setPosition(const e_POEPosition &pos);
 	// Return the mate id possible
 	int setMateId(const TeamMate::e_MateId &mid);
+	// Modify if the piece is equiped
+	int setEquiped(const bool &b);
 
 private:
 	e_POEPosition m_position;
 	TeamMate::e_MateId m_mateId;
+	bool m_equiped;
 };
 
