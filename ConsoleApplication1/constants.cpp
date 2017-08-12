@@ -242,3 +242,5 @@ std::string DATABASE_JSON_NAME_MONSTERS_SPELLS("data/jdb/monsters-spells.json");
 std::string DATABASE_JSON_NAME_SPELLS("data/jdb/spells.json");
 std::string DATABASE_JSON_NAME_SPELLS_EFFECTS("data/jdb/spells-effects.json");
 std::string DATABASE_JSON_NAME_EFFECTS("data/jdb/effects.json");
+std::string DATABASE_JSON_NAME_ITEMS("data/jdb/items.json");
+std::string DATABASE_JSON_NAME_ITEMS_EFFECTS("data/jdb/items-effects.json");

@@ -6,12 +6,13 @@
 class BattleEffects;
 class Spell;
 class Fighter;
+class Item;
 
 class DatabaseJson
 {
 public:
-	enum e_JsonDatabase {JD_MONSTERS, JD_SPELLS, JD_EFFECTS, JD_TOTAL};
-	enum e_JsonMatching {JD_MATCH_MONSTERS_SPELLS, JD_MATCH_SPELLS_EFFECTS, JD_MATCH_TOTAL};
+	enum e_JsonDatabase {JD_MONSTERS, JD_SPELLS, JD_EFFECTS, JD_ITEMS, JD_TOTAL};
+	enum e_JsonMatching {JD_MATCH_MONSTERS_SPELLS, JD_MATCH_SPELLS_EFFECTS, JD_MATCH_ITEMS_EFFECTS, JD_MATCH_TOTAL};
 
 public:
 	DatabaseJson();
@@ -29,11 +30,15 @@ public:
 	Spell getSpell(int id);
 	// Return the monster
 	Fighter getFighter(int id);
+	// Return the item
+	Item getItem(int id);
 
 	// Return the spell with the effects
 	Spell getFullSpell(int id);
 	// Return the monster with the full spells
 	Fighter getFullFighter(int id);
+	// Return the item with the effects
+	Item getFullItem(int id);
 
 protected:
 	int loadDatabase(int i, const std::string &filename);
