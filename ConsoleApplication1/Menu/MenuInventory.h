@@ -25,11 +25,14 @@ public:
 	std::vector<Item>& getRealItems();
 
 	// Load the menu
-	virtual int load(ManageRessources& ress, ManageSurfaces& surf, const int &xcam, const int &ycam, std::vector<Item> &spells);
+	virtual int load(ManageRessources& ress, ManageSurfaces& surf, const int &xcam, const int &ycam, std::vector<Item> &items);
 	// Update surfaces
 	virtual int update(Game &g);
 	// Close the menu
 	virtual int close(ManageSurfaces &surf);
+
+protected:
+	std::stringstream makeChoicesSS(std::vector<Item> &items);
 
 private:
 	bool m_initialized;
