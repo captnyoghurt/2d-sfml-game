@@ -2,7 +2,7 @@
 #include "MenuInventory.h"
 #include "../constants.h"
 #include "../Error/ValueException.h"
-#include "../Error/GameException.h"
+#include "../Error/InitializationException.h"
 
 
 
@@ -78,8 +78,15 @@ int MenuInventory::update(Game &g)
 // Close the menu
 int MenuInventory::close(ManageSurfaces &surf)
 {
+	if (!m_initialized)
+		THROW_INIT("MenuSpells not initiate");
+
+	m_dialogBox.close(surf);
+	m_choices.close(surf);
+
 	return 0;
 }
+
 
 // Make a stringstream
 std::stringstream MenuInventory::makeChoicesSS(std::vector<Item> &items)
