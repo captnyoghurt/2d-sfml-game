@@ -1,0 +1,10 @@
+/**
+ Export to JSON plugin for PHPMyAdmin
+ @version 4.6.4
+ */
+
+// Database 'test'
+
+// test.items
+
+[{"id":0},{"id":1,"name":"Potion","description":"Soigne un membre de l'\u00e9quipe.","price_buy":40,"price_sell":20,"type":3}, {"id":2,"name":"Petite pierre brillante","description":"Un pierre brillante de petite taille. Peut \u00eatre vendue chez un marchand.","price_buy":4,"price_sell":2,"type":0}]
