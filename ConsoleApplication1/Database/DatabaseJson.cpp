@@ -7,6 +7,7 @@
 #include "../Battle/BattleEffects.h"
 #include "../Battle/Spell.h"
 #include "../Battle/Fighter.h"
+#include "../Items/Item.h"
 
 
 
@@ -19,9 +20,11 @@ DatabaseJson::DatabaseJson()
 	loadDatabase(DatabaseJson::e_JsonDatabase::JD_MONSTERS, DATABASE_JSON_NAME_MONSTERS);
 	loadDatabase(DatabaseJson::e_JsonDatabase::JD_SPELLS, DATABASE_JSON_NAME_SPELLS);
 	loadDatabase(DatabaseJson::e_JsonDatabase::JD_EFFECTS, DATABASE_JSON_NAME_EFFECTS);
+	loadDatabase(DatabaseJson::e_JsonDatabase::JD_ITEMS, DATABASE_JSON_NAME_ITEMS);
 
 	loadMatching(m_matching.at(JD_MATCH_SPELLS_EFFECTS), DATABASE_JSON_NAME_SPELLS_EFFECTS, "id_spells", "id_effects");
 	loadMatching(m_matching.at(JD_MATCH_MONSTERS_SPELLS), DATABASE_JSON_NAME_MONSTERS_SPELLS, "id_monsters", "id_spells");
+	loadMatching(m_matching.at(JD_MATCH_ITEMS_EFFECTS), DATABASE_JSON_NAME_ITEMS_EFFECTS, "id_items", "id_effects");
 }
 
 
@@ -122,6 +125,27 @@ Fighter DatabaseJson::getFighter(int id)
 }
 
 
+// Return the item
+Item DatabaseJson::getItem(int id)
+{
+	Item item;
+
+	std::string strId(std::to_string(id));
+
+	if (id < 0)
+		THROW_VALUE("Wrong id " + strId);
+
+	item.setId(id);
+	item.setName(m_roots.at(JD_ITEMS)[id].get("name", "Unknown").asString());
+	item.setDescription(m_roots.at(JD_ITEMS)[id].get("description", "Unknown").asString());
+	item.setPriceBuy(m_roots.at(JD_ITEMS)[id].get("price_buy", 0).asInt());
+	item.setPriceSell(m_roots.at(JD_ITEMS)[id].get("price_sell", 0).asInt());
+	item.setType(Item::e_ItemType(m_roots.at(JD_ITEMS)[id].get("type", 0).asInt()));
+
+	return item;
+}
+
+
 // Return the spell with the effects
 Spell DatabaseJson::getFullSpell(int id)
 {
@@ -178,7 +202,7 @@ int DatabaseJson::loadMatching(std::vector< std::vector<int> > &v, const std::st
 		const Json::Value& val = *it;
 		int azerty(val.get(key1, 0).asInt());
 		
-		if ((unsigned)val.get(key1, 0).asInt() > v.size() + 1)
+		if ((unsigned)val.get(key1, 0).asInt() > v.size())
 			v.resize(val.get(key1, 0).asInt() + 1);
 			
 		v.at(val.get(key1, 0).asInt()).push_back(val.get(key2, 0).asInt());
