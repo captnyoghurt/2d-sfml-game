@@ -5,6 +5,7 @@
 #include "Character.h"
 #include "../Battle/TeamBattle.h"
 #include "../Map/Physic/Hitbox.h"
+#include "../Items/Inventory.h"
 
 class Team
 {
@@ -41,6 +42,8 @@ public:
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator getWalkStand() const;
 	// Return the hitbox
 	Hitbox getHitbox() const;
+	// Return the inventory
+	Inventory getInventory() const;
 	// Return the maxX of the team
 	short getMaxX() const;
 	// Return the maxY of the team
@@ -56,6 +59,8 @@ public:
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& getRealWalkStand();
 	// Return the hitbox with modifying possibilities
 	Hitbox& getRealHitbox();
+	// Return the inventory with modifying possibilities
+	Inventory& getRealInventory();
 	// Return the team battle with modifying possibilities
 	TeamBattle& getRealTeamBattle();
 
@@ -100,6 +105,7 @@ private:
 	std::vector<std::list<Animation>::iterator> m_movementAnimation;
 	sf::Clock m_clock;
 	std::shared_ptr<Hitbox> m_hitbox;
+	Inventory m_inventory;
 	bool m_defined;
 	bool m_moving;
 	bool m_cameraFollowing;

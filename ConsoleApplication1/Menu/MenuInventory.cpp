@@ -65,6 +65,24 @@ int MenuInventory::load(ManageRessources& ress, ManageSurfaces& surf, const int 
 	m_items.reserve(items.size());
 	std::copy(std::begin(items), std::end(items), std::back_inserter(m_items));
 
+	for (unsigned int i(0); i < m_items.size(); i++)
+	{
+		m_choices.getChoices().at(i)->getRealRenderTextureManager().getRealRenderTextureSurface()->second->setWidth(MENU_SPELLS_CHOICES_WIDTH - (2 * MENUS_GAP_BETWEEN_LINES));
+		
+		// Add number of item
+		auto number = surf.addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>());
+		std::dynamic_pointer_cast<SurfaceText>(number->second)->setFont(ress.getTheFont(0));
+		std::dynamic_pointer_cast<SurfaceText>(number->second)->setCharacterSize(MENU_SPELLS_FONTSIZE);
+		std::dynamic_pointer_cast<SurfaceText>(number->second)->setString(std::to_string(m_items.at(i).second));
+		m_choices.getChoices().at(i)->getRealRenderTextureManager().add(
+			number,
+			MENU_SPELLS_CHOICES_WIDTH - (3 * MENU_SPELLS_FONTSIZE),
+			0
+		);
+		
+		m_choices.getChoices().at(i)->getRealRenderTextureManager().update();
+	}
+
 	m_initialized = true;
 
 	return 0;

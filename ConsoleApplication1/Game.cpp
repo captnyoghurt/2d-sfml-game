@@ -7,6 +7,7 @@
 
 
 Game::Game(VideoMode mode, const String &title, Uint32 style, const ContextSettings &settings) :
+	m_jdb(),
 	m_window(mode, title, style, settings),
 	m_surfaceManager(BATTLE_MAX_LAYER + 1),
 	m_ressourceManager(Game::e_ressourcesLayer::RESSOURCES_TOTAL),

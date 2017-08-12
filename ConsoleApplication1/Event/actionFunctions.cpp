@@ -279,14 +279,7 @@ int af_menuInventoryOpen(Game &g)
 	g.getRealMenus().push_back(std::make_shared<MenuInventory>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER), g.getEventManager().getKeyEventLayer()));
 	g.getRealEventManager().setKeyEventLayer(6);
 
-	/////
-	std::list< std::pair<Item, int> > it;
-	it.push_back(std::make_pair(g.getRealDatabaseJson().getFullItem(1), 2));
-	it.push_back(std::make_pair(g.getRealDatabaseJson().getFullItem(2), 5));
-	it.push_back(std::make_pair(g.getRealDatabaseJson().getFullItem(1), 8));
-	/////
-
-	return std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getMap().getCamera().getX(), g.getMap().getCamera().getY(), it);
+	return std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getMap().getCamera().getX(), g.getMap().getCamera().getY(), g.getRealTeam().getRealInventory().getItems());
 }
 
 int af_menuInventoryClose(Game &g)
