@@ -170,6 +170,18 @@ Fighter DatabaseJson::getFullFighter(int id)
 }
 
 
+// Return the item with the effects
+Item DatabaseJson::getFullItem(int id)
+{
+	Item item(getItem(id));
+
+	for (unsigned int i(0); i < m_matching.at(JD_MATCH_ITEMS_EFFECTS).at(id).size(); i++)
+		item.getRealEffects().push_back(getBattleEffects(m_matching.at(JD_MATCH_ITEMS_EFFECTS).at(id).at(i)));
+
+	return item;
+}
+
+
 int DatabaseJson::loadDatabase(int i, const std::string &filename)
 {
 	if (i < 0 || i >= DatabaseJson::e_JsonDatabase::JD_TOTAL)
