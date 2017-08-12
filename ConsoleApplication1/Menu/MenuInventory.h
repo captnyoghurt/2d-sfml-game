@@ -15,29 +15,29 @@ public:
 
 public:
 	// Return the spells
-	std::vector<Item> getItems() const;
+	std::vector< std::pair<Item, int> > getItems() const;
 
 	// Return the dialog box with modifying possibilities
 	MenuDialogBox& getRealDialogBox();
 	// Return the menu choice with modifying possibilities
 	MenuChoice& getRealMenuChoices();
 	// Return the spells with modifying possibilities
-	std::vector<Item>& getRealItems();
+	std::vector< std::pair<Item, int> >& getRealItems();
 
 	// Load the menu
-	virtual int load(ManageRessources& ress, ManageSurfaces& surf, const int &xcam, const int &ycam, std::vector<Item> &items);
+	virtual int load(ManageRessources& ress, ManageSurfaces& surf, const int &xcam, const int &ycam, std::list< std::pair<Item, int> > &items);
 	// Update surfaces
 	virtual int update(Game &g);
 	// Close the menu
 	virtual int close(ManageSurfaces &surf);
 
 protected:
-	std::stringstream makeChoicesSS(std::vector<Item> &items);
+	std::stringstream makeChoicesSS(std::list< std::pair<Item, int> > &items);
 
 private:
 	bool m_initialized;
 	MenuDialogBox m_dialogBox;
 	MenuChoice m_choices;
-	std::unique_ptr<std::vector<Item>> m_items;
+	std::vector< std::pair<Item, int> > m_items;
 };
 

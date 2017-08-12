@@ -1,4 +1,5 @@
 #include <memory>
+#include <algorithm>
 #include "MenuInventory.h"
 #include "../constants.h"
 #include "../Error/ValueException.h"
@@ -22,9 +23,9 @@ MenuInventory::~MenuInventory()
 
 
 // Return the spells
-std::vector<Item> MenuInventory::getItems() const
+std::vector< std::pair<Item, int> > MenuInventory::getItems() const
 {
-	return *m_items;
+	return m_items;
 }
 
 
@@ -43,14 +44,14 @@ MenuChoice& MenuInventory::getRealMenuChoices()
 
 
 // Return the spells with modifying possibilities
-std::vector<Item>& MenuInventory::getRealItems()
+std::vector< std::pair<Item, int> >& MenuInventory::getRealItems()
 {
-	return *m_items;
+	return m_items;
 }
 
 
 // Load the menu
-int MenuInventory::load(ManageRessources& ress, ManageSurfaces& surf, const int &xcam, const int &ycam, std::vector<Item> &items)
+int MenuInventory::load(ManageRessources& ress, ManageSurfaces& surf, const int &xcam, const int &ycam, std::list< std::pair<Item, int> > &items)
 {
 	if (m_initialized)
 		THROW_GAME("Already initiate");
@@ -60,7 +61,9 @@ int MenuInventory::load(ManageRessources& ress, ManageSurfaces& surf, const int 
 	m_dialogBox.load(ress, surf, "Menu des sorts et techniques", xcam, ycam, MENU_SPELLS_DIALOG_BOX_X, MENU_SPELLS_DIALOG_BOX_Y, MENU_SPELLS_DIALOG_BOX_WIDTH, MENU_SPELLS_DIALOG_BOX_HEIGHT);
 	m_choices.loadFromStream(ress, surf, makeChoicesSS(items), xcam, ycam, MENU_SPELLS_CHOICES_WIDTH - (2 * MENUS_BORDER_X), MENUS_GAP_BETWEEN_LINES);
 
-	m_items = std::make_unique<std::vector<Item>>(items);
+	m_items.clear();
+	m_items.reserve(items.size());
+	std::copy(std::begin(items), std::end(items), std::back_inserter(m_items));
 
 	m_initialized = true;
 
@@ -92,19 +95,16 @@ int MenuInventory::close(ManageSurfaces &surf)
 
 
 // Make a stringstream
-std::stringstream MenuInventory::makeChoicesSS(std::vector<Item> &items)
+std::stringstream MenuInventory::makeChoicesSS(std::list< std::pair<Item, int> > &items)
 {
 	std::stringstream ss;
 
 	ss << "AUTO\n" << MIN((signed)items.size(), (MENU_SPELLS_CHOICES_HEIGHT - (2 * MENUS_BORDER_Y)) / (MENUS_GAP_BETWEEN_LINES)) << " "
-		<< MENU_SPELLS_CHOICES_X << " " << MENU_SPELLS_CHOICES_Y << " " << MENU_SPELLS_CHOICES_WIDTH << " " << MENU_SPELLS_CHOICES_HEIGHT << "\n";
+		<< MENU_SPELLS_CHOICES_X << " " << MENU_SPELLS_CHOICES_Y << " " << MENU_SPELLS_CHOICES_WIDTH << " " << MENU_SPELLS_CHOICES_HEIGHT;
 
-	for (unsigned int i(0); i < items.size(); i++)
+	for (auto it(items.begin()); it != items.end(); it++)
 	{
-		ss << "NOTHING\n" << items.at(i).getName();
-
-		if ((unsigned)(i + 1) < items.size())
-			ss << "\n";
+		ss << "\nNOTHING\n" << it->first.getName();
 	}
 
 	ss.seekg(0, ss.beg);

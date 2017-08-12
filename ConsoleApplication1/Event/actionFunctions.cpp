@@ -280,10 +280,10 @@ int af_menuInventoryOpen(Game &g)
 	g.getRealEventManager().setKeyEventLayer(6);
 
 	/////
-	std::vector<Item> it(3);
-	it.at(0) = g.getRealDatabaseJson().getFullItem(1);
-	it.at(1) = g.getRealDatabaseJson().getFullItem(2);
-	it.at(2) = g.getRealDatabaseJson().getFullItem(1);
+	std::list< std::pair<Item, int> > it;
+	it.push_back(std::make_pair(g.getRealDatabaseJson().getFullItem(1), 2));
+	it.push_back(std::make_pair(g.getRealDatabaseJson().getFullItem(2), 5));
+	it.push_back(std::make_pair(g.getRealDatabaseJson().getFullItem(1), 8));
 	/////
 
 	return std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getMap().getCamera().getX(), g.getMap().getCamera().getY(), it);
@@ -313,7 +313,7 @@ int af_menuInventoryUp(Game &g)
 		ret += std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->getRealDialogBox().addText(
 			std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->getItems().at(std::dynamic_pointer_cast<MenuInventory>(
 				g.getRealMenus().back())->getRealMenuChoices().getSelectedChoice()
-			).getDescription()
+			).first.getDescription()
 		);
 		ret += std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->getRealDialogBox().continueText(
 			g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER)
@@ -338,7 +338,7 @@ int af_menuInventoryDown(Game &g)
 		ret += std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->getRealDialogBox().addText(
 			std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->getItems().at(std::dynamic_pointer_cast<MenuInventory>(
 				g.getRealMenus().back())->getRealMenuChoices().getSelectedChoice()
-			).getDescription()
+			).first.getDescription()
 		);
 		ret += std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->getRealDialogBox().continueText(
 			g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER)
