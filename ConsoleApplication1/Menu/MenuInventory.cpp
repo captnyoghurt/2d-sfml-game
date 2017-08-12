@@ -71,6 +71,9 @@ int MenuInventory::load(ManageRessources& ress, ManageSurfaces& surf, const int 
 // Update surfaces
 int MenuInventory::update(Game &g)
 {
+	m_dialogBox.update(g);
+	m_choices.update(g);
+
 	return 0;
 }
 
