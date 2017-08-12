@@ -249,3 +249,5 @@ extern std::string DATABASE_JSON_NAME_MONSTERS_SPELLS;
 extern std::string DATABASE_JSON_NAME_SPELLS;
 extern std::string DATABASE_JSON_NAME_SPELLS_EFFECTS;
 extern std::string DATABASE_JSON_NAME_EFFECTS;
+extern std::string DATABASE_JSON_NAME_ITEMS;
+extern std::string DATABASE_JSON_NAME_ITEMS_EFFECTS;
