@@ -4,6 +4,7 @@
 #include "../Menu/MenuDialogBox.h"
 #include "../Menu/MenuBattle.h"
 #include "../Menu/MenuSpells.h"
+#include "../Menu/MenuInventory.h"
 #include "../Battle/B_EventAttack.h"
 #include "../Error/ValueException.h"
 #include "../Error/InitializationException.h"
@@ -267,6 +268,84 @@ int af_menuSpellDown(Game &g)
 	}
 	return ret;
 }
+
+
+// Inventory
+int af_menuInventoryOpen(Game &g)
+{
+	g.getRealMap().gotUpdated();
+	af_teamStop(g);
+	g.getRealMenus().push_back(std::make_shared<MenuInventory>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER), g.getEventManager().getKeyEventLayer()));
+	g.getRealEventManager().setKeyEventLayer(3);
+
+	/////
+	std::vector<Item> it;
+	/*it.at(0) = g.getRealDatabaseJson().getItem(1);
+	it.at(1) = g.getRealDatabaseJson().getItem(2);
+	it.at(2) = g.getRealDatabaseJson().getItem(1);*/
+	/////
+
+	return std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getMap().getCamera().getX(), g.getMap().getCamera().getY(), it);
+}
+
+int af_menuInventoryClose(Game &g)
+{
+	g.getRealMap().gotUpdated();
+
+	g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(2));
+
+	return g.stopMenu();
+}
+
+int af_menuInventoryUp(Game &g)
+{
+	if (g.getRealMenus().size() == 0)
+		THROW_INIT("No menu");
+	int ret = std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->getRealMenuChoices().setSelectedChoice(
+		std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->getRealMenuChoices().getSelectedChoice() - 1
+	);
+	if (ret > 0)
+	{
+		g.getRealMap().gotUpdated();
+		g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(0));
+
+		ret += std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->getRealDialogBox().addText(
+			std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->getItems().at(std::dynamic_pointer_cast<MenuInventory>(
+				g.getRealMenus().back())->getRealMenuChoices().getSelectedChoice()
+			).getDescription()
+		);
+		ret += std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->getRealDialogBox().continueText(
+			g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER)
+		);
+	}
+	return ret;
+}
+
+int af_menuInventoryDown(Game &g)
+{
+	if (g.getRealMenus().size() == 0)
+		THROW_INIT("No menu");
+	int ret = std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->getRealMenuChoices().setSelectedChoice(
+		std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->getRealMenuChoices().getSelectedChoice() + 1
+	);
+
+	if (ret > 0)
+	{
+		g.getRealMap().gotUpdated();
+		g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(0));
+
+		ret += std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->getRealDialogBox().addText(
+			std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->getItems().at(std::dynamic_pointer_cast<MenuInventory>(
+				g.getRealMenus().back())->getRealMenuChoices().getSelectedChoice()
+			).getDescription()
+		);
+		ret += std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->getRealDialogBox().continueText(
+			g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER)
+		);
+	}
+	return ret;
+}
+
 
 // Battle
 /// General
