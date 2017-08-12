@@ -276,6 +276,9 @@
     <ClCompile Include="Items\PieceOfEquipement.cpp">
       <Filter>Fichiers sources\Items</Filter>
     </ClCompile>
+    <ClCompile Include="Items\ItemOrb.cpp">
+      <Filter>Fichiers sources\Items</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -492,6 +495,9 @@
       <Filter>Fichiers d%27en-tête\Items</Filter>
     </ClInclude>
     <ClInclude Include="Items\PieceOfEquipement.h">
+      <Filter>Fichiers d%27en-tête\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Items\ItemOrb.h">
       <Filter>Fichiers d%27en-tête\Items</Filter>
     </ClInclude>
   </ItemGroup>

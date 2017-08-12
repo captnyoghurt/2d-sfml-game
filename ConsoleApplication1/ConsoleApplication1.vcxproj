@@ -189,6 +189,7 @@
     <ClCompile Include="initialization.cpp" />
     <ClCompile Include="Items\Inventory.cpp" />
     <ClCompile Include="Items\Item.cpp" />
+    <ClCompile Include="Items\ItemOrb.cpp" />
     <ClCompile Include="Items\PieceOfEquipement.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map\Camera.cpp" />
@@ -264,6 +265,7 @@
     <ClInclude Include="initialization.h" />
     <ClInclude Include="Items\Inventory.h" />
     <ClInclude Include="Items\Item.h" />
+    <ClInclude Include="Items\ItemOrb.h" />
     <ClInclude Include="Items\PieceOfEquipement.h" />
     <ClInclude Include="Map\Camera.h" />
     <ClInclude Include="Map\Layer.h" />
