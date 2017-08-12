@@ -8,6 +8,7 @@
 #include "../Battle/B_EventAttack.h"
 #include "../Error/ValueException.h"
 #include "../Error/InitializationException.h"
+#include "../Database/DatabaseJson.h"
 
 int af_exit(Game &g)
 {
@@ -276,13 +277,13 @@ int af_menuInventoryOpen(Game &g)
 	g.getRealMap().gotUpdated();
 	af_teamStop(g);
 	g.getRealMenus().push_back(std::make_shared<MenuInventory>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER), g.getEventManager().getKeyEventLayer()));
-	g.getRealEventManager().setKeyEventLayer(3);
+	g.getRealEventManager().setKeyEventLayer(6);
 
 	/////
-	std::vector<Item> it;
-	/*it.at(0) = g.getRealDatabaseJson().getItem(1);
-	it.at(1) = g.getRealDatabaseJson().getItem(2);
-	it.at(2) = g.getRealDatabaseJson().getItem(1);*/
+	std::vector<Item> it(3);
+	it.at(0) = g.getRealDatabaseJson().getFullItem(1);
+	it.at(1) = g.getRealDatabaseJson().getFullItem(2);
+	it.at(2) = g.getRealDatabaseJson().getFullItem(1);
 	/////
 
 	return std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getMap().getCamera().getX(), g.getMap().getCamera().getY(), it);
