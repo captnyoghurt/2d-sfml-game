@@ -279,6 +279,9 @@
     <ClCompile Include="Items\ItemOrb.cpp">
       <Filter>Fichiers sources\Items</Filter>
     </ClCompile>
+    <ClCompile Include="Menu\MenuInventory.cpp">
+      <Filter>Fichiers sources\Menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -499,6 +502,9 @@
     </ClInclude>
     <ClInclude Include="Items\ItemOrb.h">
       <Filter>Fichiers d%27en-tête\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu\MenuInventory.h">
+      <Filter>Fichiers d%27en-tête\Menu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
