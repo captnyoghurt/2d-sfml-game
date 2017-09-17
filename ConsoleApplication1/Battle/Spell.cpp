@@ -122,6 +122,13 @@ int Spell::getChanceMute() const
 }
 
 
+// Return the icon id
+int Spell::getIconId() const
+{
+	return m_iconId;
+}
+
+
 // Return the battle effects
 std::deque<BattleEffects> Spell::getEffects() const
 {
@@ -279,6 +286,18 @@ int Spell::setChanceMute(const int &chance)
 int Spell::setDescription(const std::string &des)
 {
 	m_description = des;
+
+	return 0;
+}
+
+
+// Modify the id icon
+int Spell::setIconId(const int &id)
+{
+	if (id < 0)
+		THROW_VALUE("Wrong icon id on spell : " + std::to_string(id));
+
+	m_iconId = id;
 
 	return 0;
 }

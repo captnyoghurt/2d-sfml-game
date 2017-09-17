@@ -36,6 +36,8 @@ public:
 	int getChanceParalysis() const;
 	// Return the chance of mute
 	int getChanceMute() const;
+	// Return the icon id
+	int getIconId() const;
 	// Return the battle effects
 	std::deque<BattleEffects> getEffects() const;
 	// Return the description
@@ -68,6 +70,8 @@ public:
 	int setChanceParalysis(const int &chance);
 	// Modify the chance of mute
 	int setChanceMute(const int &chance);
+	// Modify the id icon
+	int setIconId(const int &id);
 	// Modify the description
 	int setDescription(const std::string &des);
 
@@ -87,6 +91,7 @@ public:
 	int m_chancePoison;
 	int m_chanceParalysis;
 	int m_chanceMute;
+	int m_iconId;
 	std::deque<BattleEffects> m_effects;
 	std::string m_description;
 };
