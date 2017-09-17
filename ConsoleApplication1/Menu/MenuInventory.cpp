@@ -51,7 +51,7 @@ std::vector< std::pair<Item, int> >& MenuInventory::getRealItems()
 
 
 // Load the menu
-int MenuInventory::load(ManageRessources& ress, ManageSurfaces& surf, const int &xcam, const int &ycam, std::list< std::pair<Item, int> > &items)
+int MenuInventory::load(ManageRessources& ress, ManageSurfaces& surf, const int &xcam, const int &ycam, std::list< std::pair<Item, int> > &items, std::vector<bool> enabledTypes)
 {
 	if (m_initialized)
 		THROW_GAME("Already initiate");
@@ -67,12 +67,17 @@ int MenuInventory::load(ManageRessources& ress, ManageSurfaces& surf, const int 
 
 	for (unsigned int i(0); i < m_items.size(); i++)
 	{
+		sf::Color color((enabledTypes.at(m_items.at(i).first.getType())) ? MENU_FONT_COLOR : MENU_FONT_COLOR_DISABLED_CHOICE);
+
 		m_choices.getChoices().at(i)->getRealRenderTextureManager().getRealRenderTextureSurface()->second->setWidth(MENU_SPELLS_CHOICES_WIDTH - (2 * MENUS_GAP_BETWEEN_LINES));
-		
+		std::dynamic_pointer_cast<SurfaceText>(m_choices.getChoices().at(i)->getRealRenderTextureManager().getRealSurfaces().at(0)->second)->setFillColor(color);
+
+
 		// Add number of item
 		auto number = surf.addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>());
 		std::dynamic_pointer_cast<SurfaceText>(number->second)->setFont(ress.getTheFont(0));
 		std::dynamic_pointer_cast<SurfaceText>(number->second)->setCharacterSize(MENU_SPELLS_FONTSIZE);
+		std::dynamic_pointer_cast<SurfaceText>(number->second)->setFillColor(color);
 		std::dynamic_pointer_cast<SurfaceText>(number->second)->setString(std::to_string(m_items.at(i).second));
 		m_choices.getChoices().at(i)->getRealRenderTextureManager().add(
 			number,

@@ -25,7 +25,7 @@ public:
 	std::vector< std::pair<Item, int> >& getRealItems();
 
 	// Load the menu
-	virtual int load(ManageRessources& ress, ManageSurfaces& surf, const int &xcam, const int &ycam, std::list< std::pair<Item, int> > &items);
+	virtual int load(ManageRessources& ress, ManageSurfaces& surf, const int &xcam, const int &ycam, std::list< std::pair<Item, int> > &items, std::vector<bool> enabledTypes);
 	// Update surfaces
 	virtual int update(Game &g);
 	// Close the menu

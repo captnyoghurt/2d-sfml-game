@@ -279,7 +279,9 @@ int af_menuInventoryOpen(Game &g)
 	g.getRealMenus().push_back(std::make_shared<MenuInventory>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER), g.getEventManager().getKeyEventLayer()));
 	g.getRealEventManager().setKeyEventLayer(6);
 
-	return std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getMap().getCamera().getX(), g.getMap().getCamera().getY(), g.getRealTeam().getRealInventory().getItems());
+	bool enabled[] = {false, false, true, true, true, true, false};
+
+	return std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getMap().getCamera().getX(), g.getMap().getCamera().getY(), g.getRealTeam().getRealInventory().getItems(), std::vector<bool>(std::begin(enabled), std::end(enabled)));
 }
 
 int af_menuInventoryClose(Game &g)
