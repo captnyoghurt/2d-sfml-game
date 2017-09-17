@@ -19,7 +19,7 @@ PieceOfEquipement::PieceOfEquipement(const Item &item, const e_POEPosition &pos,
 
 PieceOfEquipement::PieceOfEquipement(const PieceOfEquipement &poe) :
 	PieceOfEquipement(
-		Item(poe.getId(), poe.getName(), poe.getDescription(), poe.getPriceBuy(), poe.getPriceSell(), poe.getType()),
+		Item(poe.getId(), poe.getName(), poe.getDescription(), poe.getPriceBuy(), poe.getPriceSell(), poe.getIconId(), poe.getType()),
 		poe.getPosition(),
 		poe.getMateId()
 	)

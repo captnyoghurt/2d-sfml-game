@@ -1,5 +1,6 @@
 #include "Item.h"
 #include "../Error/ValueException.h"
+#include "../constants.h"
 
 
 
@@ -9,23 +10,25 @@ Item::Item() :
 	m_description(""),
 	m_priceBuy(0),
 	m_priceSell(0),
+	m_iconId(0),
 	m_type(Item::e_ItemType::ITEM_CLASSIC)
 {
 }
 
-Item::Item(const int &id, const std::string &name, const std::string &description, const int &priceBuy, const int &priceSell, const Item::e_ItemType &type) :
+Item::Item(const int &id, const std::string &name, const std::string &description, const int &priceBuy, const int &priceSell, const int &iconId, const Item::e_ItemType &type) :
 	m_id(id),
 	m_name(name),
 	m_description(description),
 	m_priceBuy(priceBuy),
 	m_priceSell(priceSell),
+	m_iconId(iconId),
 	m_type(type)
 {
 
 }
 
 Item::Item(const Item &item) :
-	Item(item.getId(), item.getName(), item.getDescription(), item.getPriceBuy(), item.getPriceSell(), item.getType())
+	Item(item.getId(), item.getName(), item.getDescription(), item.getPriceBuy(), item.getPriceSell(), item.getIconId(), item.getType())
 {
 	m_effects = item.getEffects();
 }
@@ -68,6 +71,13 @@ int Item::getPriceBuy() const
 int Item::getPriceSell() const
 {
 	return m_priceSell;
+}
+
+
+// Modify the icon id of the item
+int Item::getIconId() const
+{
+	return m_iconId;
 }
 
 
@@ -141,6 +151,18 @@ int Item::setPriceSell(const int &p)
 		THROW_VALUE("Impossible price : " + std::to_string(p));
 
 	m_priceSell = p;
+
+	return 0;
+}
+
+
+// Modify the icon id of the item
+int Item::setIconId(const int &id)
+{
+	if ((unsigned)id < ICONS_SURFACE_BY_COLUMN*ICONS_SURFACE_BY_LINE)
+		THROW_VALUE("Wrong value of icon id : " + std::to_string(id));
+
+	m_iconId = id;
 
 	return 0;
 }

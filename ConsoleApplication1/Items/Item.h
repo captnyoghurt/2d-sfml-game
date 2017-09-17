@@ -12,7 +12,7 @@ public:
 
 public:
 	Item();
-	Item(const int &id, const std::string &name, const std::string &description, const int &priceBuy, const int &priceSell, const Item::e_ItemType &type);
+	Item(const int &id, const std::string &name, const std::string &description, const int &priceBuy, const int &priceSell, const int &iconId, const Item::e_ItemType &type);
 	Item(const Item &item);
 	~Item();
 
@@ -27,6 +27,8 @@ public:
 	int getPriceBuy() const;
 	// Return the price when sold
 	int getPriceSell() const;
+	// Modify the icon id of the item
+	int getIconId() const;
 	// Return the type of the item
 	e_ItemType getType() const;
 	// Return the effects
@@ -45,6 +47,8 @@ public:
 	int setPriceBuy(const int &p);
 	// Modify the price when sold
 	int setPriceSell(const int &p);
+	// Modify the icon id of the item
+	int setIconId(const int &id);
 	// Modify the type of the item
 	int setType(const e_ItemType &t);
 
@@ -54,6 +58,7 @@ private:
 	std::string m_description;
 	int m_priceBuy;
 	int m_priceSell;
+	int m_iconId;
 	e_ItemType m_type;
 	std::deque<BattleEffects> m_effects;
 };
