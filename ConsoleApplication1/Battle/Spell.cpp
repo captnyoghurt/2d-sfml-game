@@ -7,7 +7,7 @@ Spell::Spell()
 {
 }
 
-Spell::Spell(int id, std::string name, int damage, int allyDestination, int enemiDestination, int costHP, int costMP, int costTP, int chanceSleep, int chancePoison, int chanceParalysis, int chanceMute, const std::string &desc) :
+Spell::Spell(int id, std::string name, int damage, int allyDestination, int enemiDestination, int costHP, int costMP, int costTP, int chanceSleep, int chancePoison, int chanceParalysis, int chanceMute, int iconId, const std::string &desc) :
 	m_id(id),
 	m_name(name),
 	m_damage(damage),
@@ -20,6 +20,7 @@ Spell::Spell(int id, std::string name, int damage, int allyDestination, int enem
 	m_chancePoison(chancePoison),
 	m_chanceParalysis(chanceParalysis),
 	m_chanceMute(chanceMute),
+	m_iconId(iconId),
 	m_description(desc)
 {
 
@@ -27,7 +28,7 @@ Spell::Spell(int id, std::string name, int damage, int allyDestination, int enem
 
 
 Spell::Spell(const Spell &sp) :
-	Spell(sp.getId(), sp.getName(), sp.getDamage(), sp.getAllyDestination(), sp.getEnemiDestination(), sp.getCostHP(), sp.getCostMP(), sp.getCostTP(), sp.getChanceSleep(), sp.getChancePoison(), sp.getChanceParalysis(), sp.getChanceMute(), sp.getDescription())
+	Spell(sp.getId(), sp.getName(), sp.getDamage(), sp.getAllyDestination(), sp.getEnemiDestination(), sp.getCostHP(), sp.getCostMP(), sp.getCostTP(), sp.getChanceSleep(), sp.getChancePoison(), sp.getChanceParalysis(), sp.getChanceMute(), sp.getIconId(), sp.getDescription())
 {
 	m_effects = sp.getEffects();
 }

@@ -88,6 +88,7 @@ Spell DatabaseJson::getSpell(int id)
 		m_roots.at(JD_SPELLS)[id].get("chance_poison", 0).asInt(),
 		m_roots.at(JD_SPELLS)[id].get("chance_paralysis", 0).asInt(),
 		m_roots.at(JD_SPELLS)[id].get("chance_mute", 0).asInt(),
+		m_roots.at(JD_SPELLS)[id].get("icon_id", 0).asInt(),
 		m_roots.at(JD_SPELLS)[id].get("description", 0).asString()
 	);
 
