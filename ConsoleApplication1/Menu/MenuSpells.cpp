@@ -64,6 +64,27 @@ int MenuSpells::load(ManageRessources& ress, ManageSurfaces& surf, const int &xc
 	for (unsigned int i(0); i < spells.size(); i++)
 	{
 		m_choices.getChoices().at(i)->getRealRenderTextureManager().getRealRenderTextureSurface()->second->setWidth(MENU_SPELLS_CHOICES_WIDTH - (2*MENUS_GAP_BETWEEN_LINES));
+		std::dynamic_pointer_cast<SurfaceText>(m_choices.getChoices().at(i)->getRealRenderTextureManager().getRealSurfaces().at(0)->second)->setPosition(
+			std::dynamic_pointer_cast<SurfaceText>(m_choices.getChoices().at(i)->getRealRenderTextureManager().getRealSurfaces().at(0)->second)->getPosition().x + ICON_WIDTH,
+			std::dynamic_pointer_cast<SurfaceText>(m_choices.getChoices().at(i)->getRealRenderTextureManager().getRealSurfaces().at(0)->second)->getPosition().y
+		);
+
+
+		// Add icon
+		auto icon = surf.addSurface(ManageSurfaces::e_thing::SPRITE, std::make_shared<SurfaceSprite>());
+		icon->second->setDimensions(0, 0, ICON_WIDTH, ICON_HEIGHT);
+		std::dynamic_pointer_cast<SurfaceSprite>(icon->second)->setTexture(ress.getTheTexture(2));
+		std::dynamic_pointer_cast<SurfaceSprite>(icon->second)->setTextureRect(sf::IntRect(
+			(m_spells->at(i).getIconId() % ICONS_SURFACE_BY_LINE) * ICON_WIDTH,
+			(m_spells->at(i).getIconId() / ICONS_SURFACE_BY_LINE) * ICON_HEIGHT,
+			ICON_WIDTH,
+			ICON_HEIGHT
+		));
+		m_choices.getChoices().at(i)->getRealRenderTextureManager().add(
+			icon,
+			-4,
+			-4
+		);
 
 		// Add TP cost
 		auto costtp = surf.addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>());
