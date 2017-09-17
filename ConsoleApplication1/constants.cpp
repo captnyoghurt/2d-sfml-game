@@ -15,6 +15,10 @@ int WINDOW_FRAMERATES = 60;
 
 /// Icons
 std::string ICONS_SURFACE_NAME("data/graphic/icons/001.png");
+int ICONS_SURFACE_BY_LINE = 14;
+int ICONS_SURFACE_BY_COLUMN = 30;
+int ICON_WIDTH = 34;
+int ICON_HEIGHT = 34;
 
 /// Map
 std::string MAP_FONT_TEXT("monofonto.ttf");
