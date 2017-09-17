@@ -13,6 +13,9 @@ int WINDOW_FRAMERATES = 60;
 
 // Graphic constants
 
+/// Icons
+std::string ICONS_SURFACE_NAME("data/graphic/icons/001.png");
+
 /// Map
 std::string MAP_FONT_TEXT("monofonto.ttf");
 int MAP_MAX_LAYER = 6;
