@@ -282,6 +282,9 @@
     <ClCompile Include="Menu\MenuInventory.cpp">
       <Filter>Fichiers sources\Menu</Filter>
     </ClCompile>
+    <ClCompile Include="Battle\CharCourb.cpp">
+      <Filter>Fichiers sources\Battle</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -505,6 +508,9 @@
     </ClInclude>
     <ClInclude Include="Menu\MenuInventory.h">
       <Filter>Fichiers d%27en-tête\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\CharCourb.h">
+      <Filter>Fichiers d%27en-tête\Battle</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

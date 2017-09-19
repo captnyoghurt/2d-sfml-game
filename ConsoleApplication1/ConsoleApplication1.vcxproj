@@ -160,6 +160,7 @@
     <ClCompile Include="Battle\B_EventEscape.cpp" />
     <ClCompile Include="Battle\B_EventSpell.cpp" />
     <ClCompile Include="Battle\Characteristic.cpp" />
+    <ClCompile Include="Battle\CharCourb.cpp" />
     <ClCompile Include="Battle\EffectOnCharacteristic.cpp" />
     <ClCompile Include="Battle\EnemiBasic.cpp" />
     <ClCompile Include="Battle\EnemiBoss.cpp" />
@@ -228,6 +229,7 @@
     <ClInclude Include="Battle\B_EventEscape.h" />
     <ClInclude Include="Battle\B_EventSpell.h" />
     <ClInclude Include="Battle\Characteristic.h" />
+    <ClInclude Include="Battle\CharCourb.h" />
     <ClInclude Include="Battle\EffectOnCharacteristic.h" />
     <ClInclude Include="Battle\EnemiBasic.h" />
     <ClInclude Include="Battle\EnemiBoss.h" />
