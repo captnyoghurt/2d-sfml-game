@@ -9,6 +9,7 @@
 #include "../Battle/Fighter.h"
 #include "../Items/Item.h"
 #include "../Battle/CharCourb.h"
+#include "../Battle/TeamMate.h"
 
 
 
@@ -23,6 +24,7 @@ DatabaseJson::DatabaseJson()
 	loadDatabase(DatabaseJson::e_JsonDatabase::JD_EFFECTS, DATABASE_JSON_NAME_EFFECTS);
 	loadDatabase(DatabaseJson::e_JsonDatabase::JD_ITEMS, DATABASE_JSON_NAME_ITEMS);
 	loadDatabase(DatabaseJson::e_JsonDatabase::JD_CHARCOURB, DATABASE_JSON_NAME_CHARCOURB);
+	loadDatabase(DatabaseJson::e_JsonDatabase::JD_TEAMMATE, DATABASE_JSON_NAME_TEAMMATE);
 
 	loadMatching(m_matching.at(JD_MATCH_SPELLS_EFFECTS), DATABASE_JSON_NAME_SPELLS_EFFECTS, "id_spells", "id_effects");
 	loadMatching(m_matching.at(JD_MATCH_MONSTERS_SPELLS), DATABASE_JSON_NAME_MONSTERS_SPELLS, "id_monsters", "id_spells");
@@ -166,6 +168,36 @@ CharCourb DatabaseJson::getCourb(int id)
 
 	return courb;
 }
+
+
+// Return the team mate
+TeamMate DatabaseJson::getTeamMate(int id)
+{
+	TeamMate tm;
+
+	std::string strId(std::to_string(id));
+
+	if (id < 0)
+		THROW_VALUE("Wrong id " + strId);
+
+	tm.setName(m_roots.at(JD_TEAMMATE)[id].get("name", "No name").asString());
+	tm.setExpCourb(getCourb(m_roots.at(JD_TEAMMATE)[id].get("exp_courb_id", 0).asInt()));
+	tm.getRealCourb().at(Characteristic::e_characteristics::STRENGH) = getCourb(m_roots.at(JD_TEAMMATE)[id].get("strengh_courb_id", 0).asInt());
+	tm.getRealCourb().at(Characteristic::e_characteristics::INTELLIGENCE) = getCourb(m_roots.at(JD_TEAMMATE)[id].get("intelligence_courb_id", 0).asInt());
+	tm.getRealCourb().at(Characteristic::e_characteristics::VITALITY) = getCourb(m_roots.at(JD_TEAMMATE)[id].get("vitality_courb_id", 0).asInt());
+	tm.getRealCourb().at(Characteristic::e_characteristics::AGILITY) = getCourb(m_roots.at(JD_TEAMMATE)[id].get("agility_courb_id", 0).asInt());
+	tm.getRealCourb().at(Characteristic::e_characteristics::SPEED) = getCourb(m_roots.at(JD_TEAMMATE)[id].get("speed_courb_id", 0).asInt());
+	tm.getRealCourb().at(Characteristic::e_characteristics::REGEN_MP) = getCourb(m_roots.at(JD_TEAMMATE)[id].get("regen_mp_courb_id", 0).asInt());
+	tm.getRealCourb().at(Characteristic::e_characteristics::ATTACK_PHYSIC) = getCourb(m_roots.at(JD_TEAMMATE)[id].get("attack_physic_courb_id", 0).asInt());
+	tm.getRealCourb().at(Characteristic::e_characteristics::ATTACK_MAGIC) = getCourb(m_roots.at(JD_TEAMMATE)[id].get("attack_magic_courb_id", 0).asInt());
+	tm.getRealCourb().at(Characteristic::e_characteristics::DEFENSE_PHYSIC) = getCourb(m_roots.at(JD_TEAMMATE)[id].get("defense_physic_courb_id", 0).asInt());
+	tm.getRealCourb().at(Characteristic::e_characteristics::DEFENSE_MAGIC) = getCourb(m_roots.at(JD_TEAMMATE)[id].get("defense_magic_courb_id", 0).asInt());
+	tm.getRealCourb().at(Characteristic::e_characteristics::RESISTANCE_SLEEP) = getCourb(m_roots.at(JD_TEAMMATE)[id].get("resistance_sleep_courb_id", 0).asInt());
+	tm.getRealCourb().at(Characteristic::e_characteristics::RESISTANCE_POISON) = getCourb(m_roots.at(JD_TEAMMATE)[id].get("resistance_poison_courb_id", 0).asInt());
+	tm.getRealCourb().at(Characteristic::e_characteristics::RESISTANCE_PARALYSIS) = getCourb(m_roots.at(JD_TEAMMATE)[id].get("resistance_paralysis_courb_id", 0).asInt());
+
+	return tm;
+};
 
 
 // Return the spell with the effects

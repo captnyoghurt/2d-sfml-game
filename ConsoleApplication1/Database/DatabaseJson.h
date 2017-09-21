@@ -8,11 +8,12 @@ class Spell;
 class Fighter;
 class Item;
 class CharCourb;
+class TeamMate;
 
 class DatabaseJson
 {
 public:
-	enum e_JsonDatabase {JD_MONSTERS, JD_SPELLS, JD_EFFECTS, JD_ITEMS, JD_CHARCOURB, JD_TOTAL};
+	enum e_JsonDatabase {JD_MONSTERS, JD_SPELLS, JD_EFFECTS, JD_ITEMS, JD_CHARCOURB, JD_TEAMMATE, JD_TOTAL};
 	enum e_JsonMatching {JD_MATCH_MONSTERS_SPELLS, JD_MATCH_SPELLS_EFFECTS, JD_MATCH_ITEMS_EFFECTS, JD_MATCH_TOTAL};
 
 public:
@@ -35,6 +36,8 @@ public:
 	Item getItem(int id);
 	// Return the courb
 	CharCourb getCourb(int id);
+	// Return the team mate
+	TeamMate getTeamMate(int id);
 
 	// Return the spell with the effects
 	Spell getFullSpell(int id);
