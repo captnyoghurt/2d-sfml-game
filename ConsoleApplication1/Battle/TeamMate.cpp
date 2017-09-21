@@ -17,7 +17,8 @@ TeamMate::TeamMate() :
 
 TeamMate::TeamMate(const TeamMate &tm) :
 	Fighter(tm),
-	m_courbs(Characteristic::e_characteristics::CHARACTERISTICS_TOTAL),
+	m_courbs(tm.getCourbs()),
+	m_expCourb(tm.getExpCourb()),
 	m_experience(0),
 	m_level(0)
 {
