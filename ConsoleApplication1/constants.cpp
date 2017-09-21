@@ -244,3 +244,8 @@ std::string DATABASE_JSON_NAME_SPELLS_EFFECTS("data/jdb/spells-effects.json");
 std::string DATABASE_JSON_NAME_EFFECTS("data/jdb/effects.json");
 std::string DATABASE_JSON_NAME_ITEMS("data/jdb/items.json");
 std::string DATABASE_JSON_NAME_ITEMS_EFFECTS("data/jdb/items-effects.json");
+
+
+// Character
+
+int CHARACTER_LEVEL_MAX = 100;
