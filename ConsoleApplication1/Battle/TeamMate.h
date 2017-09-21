@@ -16,9 +16,25 @@ public:
 public:
 	// Return the courbs
 	std::vector<CharCourb> getCourbs() const;
+	// Return the experience courb
+	CharCourb getExpCourb() const;
+	// Return the current experience
+	int getExperience() const;
+	// Return the current level
+	int getLevel() const;
 
 	// Return the courbs with modifying possibilities
 	std::vector<CharCourb>& getRealCourb();
+
+	// Modify the experience courb
+	int setExpCourb(const CharCourb &exp);
+	// Modify the current experience
+	int setExperience(const int &experience);
+	// Modify the current level
+	int setLevel(const int &lvl);
+
+	// Add some XP
+	int addExperience(const int &exp);
 
 	// Take a decision for the next battle action
 	virtual std::shared_ptr<B_Event> chooseEvent(Game *g);
@@ -27,5 +43,8 @@ public:
 
 private:
 	std::vector<CharCourb> m_courbs;
+	CharCourb m_expCourb;
+	int m_experience;
+	int m_level;
 };
 
