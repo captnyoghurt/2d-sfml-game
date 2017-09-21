@@ -11,6 +11,8 @@ public:
 
 	CharCourb operator=(const CharCourb &courb);
 public:
+	// Return the id
+	int getId() const;
 	// Return the brut coeff
 	double getBrut() const;
 	// Return the simple coeff
@@ -20,6 +22,8 @@ public:
 	// Return the cube coeff
 	double getCube() const;
 
+	// Modify the id
+	int setId(const int &id);
 	// Modify the brut coeff
 	int setBrut(const double &brut);
 	// Modify the simple coeff
@@ -33,6 +37,7 @@ public:
 	double result(const int &level) const;
 
 private:
+	int m_id;
 	double m_brut;
 	double m_simple;
 	double m_square;

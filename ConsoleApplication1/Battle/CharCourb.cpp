@@ -4,6 +4,7 @@
 
 
 CharCourb::CharCourb() :
+	m_id(0),
 	m_brut(0),
 	m_simple(0),
 	m_square(0),
@@ -13,6 +14,7 @@ CharCourb::CharCourb() :
 
 
 CharCourb::CharCourb(const int &brut, const int &simple, const int &square, const int &cube) :
+	m_id(0),
 	m_brut(brut),
 	m_simple(simple),
 	m_square(square),
@@ -23,6 +25,7 @@ CharCourb::CharCourb(const int &brut, const int &simple, const int &square, cons
 
 
 CharCourb::CharCourb(const CharCourb &courb) :
+	m_id(courb.getId()),
 	m_brut(courb.getBrut()),
 	m_simple(courb.getSimple()),
 	m_square(courb.getSquare()),
@@ -45,6 +48,13 @@ CharCourb CharCourb::operator=(const CharCourb &courb)
 	m_cube = courb.getCube();
 
 	return *this;
+}
+
+
+// Return the id
+int CharCourb::getId() const
+{
+	return m_id;
 }
 
 
@@ -73,6 +83,18 @@ double CharCourb::getSquare() const
 double CharCourb::getCube() const
 {
 	return m_cube;
+}
+
+
+// Modify the id
+int CharCourb::setId(const int &id)
+{
+	if (id < 0)
+		THROW_VALUE("Wrong id value : " + std::to_string(id));
+
+	m_id = id;
+
+	return 0;
 }
 
 

@@ -8,6 +8,7 @@
 #include "../Battle/Spell.h"
 #include "../Battle/Fighter.h"
 #include "../Items/Item.h"
+#include "../Battle/CharCourb.h"
 
 
 
@@ -21,6 +22,7 @@ DatabaseJson::DatabaseJson()
 	loadDatabase(DatabaseJson::e_JsonDatabase::JD_SPELLS, DATABASE_JSON_NAME_SPELLS);
 	loadDatabase(DatabaseJson::e_JsonDatabase::JD_EFFECTS, DATABASE_JSON_NAME_EFFECTS);
 	loadDatabase(DatabaseJson::e_JsonDatabase::JD_ITEMS, DATABASE_JSON_NAME_ITEMS);
+	loadDatabase(DatabaseJson::e_JsonDatabase::JD_CHARCOURB, DATABASE_JSON_NAME_CHARCOURB);
 
 	loadMatching(m_matching.at(JD_MATCH_SPELLS_EFFECTS), DATABASE_JSON_NAME_SPELLS_EFFECTS, "id_spells", "id_effects");
 	loadMatching(m_matching.at(JD_MATCH_MONSTERS_SPELLS), DATABASE_JSON_NAME_MONSTERS_SPELLS, "id_monsters", "id_spells");
@@ -143,6 +145,26 @@ Item DatabaseJson::getItem(int id)
 	item.setType(Item::e_ItemType(m_roots.at(JD_ITEMS)[id].get("type", 0).asInt()));
 
 	return item;
+}
+
+
+// Return the courb
+CharCourb DatabaseJson::getCourb(int id)
+{
+	CharCourb courb;
+
+	std::string strId(std::to_string(id));
+
+	if (id < 0)
+		THROW_VALUE("Wrong id " + strId);
+
+	courb.setId(id);
+	courb.setCube(m_roots.at(JD_CHARCOURB)[id].get("cube", -1).asDouble());
+	courb.setSquare(m_roots.at(JD_CHARCOURB)[id].get("square", -1).asDouble());
+	courb.setSimple(m_roots.at(JD_CHARCOURB)[id].get("simple", 1).asDouble());
+	courb.setBrut(m_roots.at(JD_CHARCOURB)[id].get("brut", -1).asDouble());
+
+	return courb;
 }
 
 
