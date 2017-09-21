@@ -5,8 +5,11 @@ class CharCourb
 {
 public:
 	CharCourb();
+	CharCourb(const int &brut, const int &simple, const int &square, const int &cube);
+	CharCourb(const CharCourb &courb);
 	~CharCourb();
 
+	CharCourb operator=(const CharCourb &courb);
 public:
 	// Return the brut coeff
 	double getBrut() const;
@@ -35,4 +38,3 @@ private:
 	double m_square;
 	double m_cube;
 };
-

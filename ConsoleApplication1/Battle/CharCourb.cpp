@@ -12,8 +12,39 @@ CharCourb::CharCourb() :
 }
 
 
+CharCourb::CharCourb(const int &brut, const int &simple, const int &square, const int &cube) :
+	m_brut(brut),
+	m_simple(simple),
+	m_square(square),
+	m_cube(cube)
+{
+	
+}
+
+
+CharCourb::CharCourb(const CharCourb &courb) :
+	m_brut(courb.getBrut()),
+	m_simple(courb.getSimple()),
+	m_square(courb.getSquare()),
+	m_cube(courb.getCube())
+{
+	
+}
+
+
 CharCourb::~CharCourb()
 {
+}
+
+
+CharCourb CharCourb::operator=(const CharCourb &courb)
+{
+	m_simple = courb.getSimple();
+	m_brut = courb.getBrut();
+	m_square = courb.getSquare();
+	m_cube = courb.getCube();
+
+	return *this;
 }
 
 
