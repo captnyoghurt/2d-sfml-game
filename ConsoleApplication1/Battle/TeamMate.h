@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Fighter.h"
+#include "CharCourb.h"
 
 class TeamMate : public Fighter
 {
@@ -13,9 +14,18 @@ public:
 	~TeamMate();
 
 public:
+	// Return the courbs
+	std::vector<CharCourb> getCourbs() const;
+
+	// Return the courbs with modifying possibilities
+	std::vector<CharCourb>& getRealCourb();
+
 	// Take a decision for the next battle action
 	virtual std::shared_ptr<B_Event> chooseEvent(Game *g);
 	// True if the fighter is in reality a TeamMate
 	virtual bool isTeamMate() const;
+
+private:
+	std::vector<CharCourb> m_courbs;
 };
 

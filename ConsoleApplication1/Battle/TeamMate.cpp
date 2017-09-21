@@ -2,15 +2,19 @@
 #include "B_Event.h"
 #include "../Error/GameException.h"
 #include "../Game.h"
+#include "Characteristic.h"
 
 
 
-TeamMate::TeamMate()
+TeamMate::TeamMate() :
+	m_courbs(Characteristic::e_characteristics::CHARACTERISTICS_TOTAL + 1)
 {
 }
 
 
-TeamMate::TeamMate(const TeamMate &tm) : Fighter(tm)
+TeamMate::TeamMate(const TeamMate &tm) :
+	Fighter(tm),
+	m_courbs(Characteristic::e_characteristics::CHARACTERISTICS_TOTAL + 1)
 {
 
 }
@@ -18,6 +22,20 @@ TeamMate::TeamMate(const TeamMate &tm) : Fighter(tm)
 
 TeamMate::~TeamMate()
 {
+}
+
+
+// Return the courbs
+std::vector<CharCourb> TeamMate::getCourbs() const
+{
+	return m_courbs;
+}
+
+
+// Return the courbs with modifying possibilities
+std::vector<CharCourb>& TeamMate::getRealCourb()
+{
+	return m_courbs;
 }
 
 
