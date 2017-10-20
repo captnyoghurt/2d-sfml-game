@@ -14,7 +14,7 @@ public:
 
 public:
 	IG_Action();
-	explicit IG_Action(s_action a);
+	explicit IG_Action(const s_action &a);
 	~IG_Action();
 
 public:

@@ -7,9 +7,9 @@ IG_Action::IG_Action()
 }
 
 
-IG_Action::IG_Action(IG_Action::s_action a)
+IG_Action::IG_Action(const IG_Action::s_action &a) :
+	m_action(a)
 {
-	m_action = a;
 }
 
 
