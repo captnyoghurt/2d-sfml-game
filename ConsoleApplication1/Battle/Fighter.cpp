@@ -34,6 +34,20 @@ Fighter::~Fighter()
 }
 
 
+Fighter& Fighter::operator=(const Fighter &f)
+{
+	m_name = f.getName();
+	m_characteristics = f.getCharacteristics();
+	m_health = f.getHealth();
+	m_mana = f.getMana();
+	m_skillPoints = f.getSkillPoints();
+	m_spells = f.getSpells();
+	m_characteristics.resize(Characteristic::e_characteristics::CHARACTERISTICS_TOTAL, Characteristic(0, 0));
+
+	return *this;
+}
+
+
 // Return the name
 std::string Fighter::getName() const
 {

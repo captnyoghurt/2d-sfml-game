@@ -20,6 +20,7 @@ public:
 	Fighter(const Fighter &f);
 	~Fighter();
 
+	Fighter& operator=(const Fighter &f);
 public:
 	// Return the name
 	std::string getName() const;
