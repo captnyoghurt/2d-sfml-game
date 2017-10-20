@@ -2,9 +2,9 @@
 #include "../Error/ValueException.h"
 
 
-IG_KeyEvent::IG_KeyEvent()
+IG_KeyEvent::IG_KeyEvent() :
+	m_action(IG_Action(&doNothing))
 {
-	m_action = IG_Action(&doNothing);
 }
 
 
