@@ -13,6 +13,7 @@ public:
 	BattleEffects(const BattleEffects &be);
 	~BattleEffects();
 
+	BattleEffects& operator=(const BattleEffects &be);
 public:
 	// Return the id
 	int getId() const;

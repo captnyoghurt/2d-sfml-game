@@ -8,21 +8,25 @@ BattleEffects::BattleEffects()
 }
 
 
-BattleEffects::BattleEffects(const int id, const Characteristic::e_characteristics &c, const int &chance, const int &power, const e_EffectsTarget &et, const int &people)
+BattleEffects::BattleEffects(const int id, const Characteristic::e_characteristics &c, const int &chance, const int &power, const e_EffectsTarget &et, const int &people) :
+	m_id(id),
+	m_characteristic(c),
+	m_chance(chance),
+	m_power(power),
+	m_targetType(et),
+	m_numberOfPeople(people)
 {
-	m_id = id;
-	m_characteristic = c;
-	m_chance = chance;
-	m_power = power;
-	m_targetType = et;
-	m_numberOfPeople = people;
 }
 
 
-BattleEffects::BattleEffects(const BattleEffects &be) :
-	BattleEffects(be.getId(), be.getCharacteristic(), be.getChance(), be.getPower(), be.getTargetType(), be.getNumberOfPeople())
+BattleEffects::BattleEffects(const BattleEffects &be)
 {
-
+	m_id = be.getId();
+	m_characteristic = be.getCharacteristic();
+	m_chance = be.getChance();
+	m_power = be.getPower();
+	m_targetType = be.getTargetType();
+	m_numberOfPeople = be.getNumberOfPeople();
 }
 
 
@@ -30,6 +34,18 @@ BattleEffects::~BattleEffects()
 {
 }
 
+
+BattleEffects& BattleEffects::operator=(const BattleEffects &be)
+{
+	m_id = be.getId();
+	m_characteristic = be.getCharacteristic();
+	m_chance = be.getChance();
+	m_power = be.getPower();
+	m_targetType = be.getTargetType();
+	m_numberOfPeople = be.getNumberOfPeople();
+
+	return *this;
+}
 
 // Return the id
 int BattleEffects::getId() const
