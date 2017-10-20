@@ -16,6 +16,7 @@ public:
 	Item(const Item &item);
 	~Item();
 
+	Item& operator=(const Item &item);
 public:
 	// Return the id
 	int getId() const;

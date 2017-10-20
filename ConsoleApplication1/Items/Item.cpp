@@ -24,15 +24,34 @@ Item::Item(const int &id, const std::string &name, const std::string &descriptio
 
 }
 
-Item::Item(const Item &item) :
-	Item(item.getId(), item.getName(), item.getDescription(), item.getPriceBuy(), item.getPriceSell(), item.getType())
+Item::Item(const Item &item)
 {
+	m_id = item.getId();
+	m_name = item.getName();
+	m_description = item.getDescription();
+	m_priceBuy = item.getPriceBuy();
+	m_priceSell = item.getPriceSell();
+	m_type = item.getType();
 	m_effects = item.getEffects();
 }
 
 
 Item::~Item()
 {
+}
+
+
+Item& Item::operator=(const Item &item)
+{
+	m_id = item.getId();
+	m_name = item.getName();
+	m_description = item.getDescription();
+	m_priceBuy = item.getPriceBuy();
+	m_priceSell = item.getPriceSell();
+	m_type = item.getType();
+	m_effects = item.getEffects();
+
+	return *this;
 }
 
 
