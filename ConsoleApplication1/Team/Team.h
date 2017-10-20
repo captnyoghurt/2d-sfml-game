@@ -13,7 +13,7 @@ public:
 	enum e_teamDirection{UP, DOWN, RIGHT, LEFT, UNKNOWN};
 
 public:
-	Team(Game &g);
+	explicit Team(Game &g);
 	~Team();
 
 public:
