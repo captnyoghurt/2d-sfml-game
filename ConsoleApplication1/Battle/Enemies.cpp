@@ -4,12 +4,13 @@
 
 Enemies::Enemies()
 {
+	m_numberFighterAlive = 0;
 }
 
 
 Enemies::Enemies(const Enemies &enemie, int number)
 {
-
+	m_numberFighterAlive = enemie.getNumberFighterAlive();
 }
 
 
