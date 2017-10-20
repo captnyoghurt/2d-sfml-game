@@ -266,7 +266,6 @@ int DatabaseJson::loadMatching(std::vector< std::vector<int> > &v, const std::st
 	for (Json::ValueConstIterator it = root.begin(); it != root.end(); ++it)
 	{
 		const Json::Value& val = *it;
-		int azerty(val.get(key1, 0).asInt());
 		
 		if ((unsigned)val.get(key1, 0).asInt() > v.size())
 			v.resize(val.get(key1, 0).asInt() + 1);
