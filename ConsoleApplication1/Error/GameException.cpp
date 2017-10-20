@@ -1,11 +1,10 @@
 #include "GameException.h"
 
 
-GameException::GameException(const std::string &description, const int &line, const std::string &file, const std::string &func, e_ExceptionLevel level) throw()
+GameException::GameException(const std::string &description, const int &line, const std::string &file, const std::string &func, e_ExceptionLevel level) throw() :
+	m_description("\n\nException raised : ")
 {
 	m_level = level;
-	
-	m_description = "\n\nException raised : ";
 
 	switch (level)
 	{
