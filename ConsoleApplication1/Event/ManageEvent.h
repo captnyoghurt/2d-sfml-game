@@ -25,7 +25,7 @@ public:
 	
 	// Create a matching
 	unsigned short createMatchingKey(const IG_KeyEvent &k);
-	unsigned short createMatchingKey(const IG_Action &a);
+	unsigned short createMatchingKey(IG_Action a);
 	// Create the layers
 	int createLayers(const int &l);
 	

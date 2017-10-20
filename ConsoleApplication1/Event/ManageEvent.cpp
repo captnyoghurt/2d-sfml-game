@@ -78,7 +78,7 @@ unsigned short ManageEvent::createMatchingKey(const IG_KeyEvent &k)
 
 	return (unsigned short)(m_matchingKeyEvent.size() - 1);
 }
-unsigned short ManageEvent::createMatchingKey(const IG_Action &a)
+unsigned short ManageEvent::createMatchingKey(IG_Action a)
 {
 	IG_KeyEvent igke;
 	igke.setIGAction(a);
