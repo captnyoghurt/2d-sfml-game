@@ -6,6 +6,7 @@
 ManageRenderTexture::ManageRenderTexture()
 {
 	m_initialized = false;
+	m_updated = true;
 }
 
 
