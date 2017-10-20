@@ -64,9 +64,9 @@ int ManageSurfaces::print(sf::RenderWindow &win, const Camera &cam)
 	{
 		if ((it->second) == NULL)
 		{
-			THROW_VALUE("Error when managing a surface");
 			it = m_surfaces.erase(it);
 			--it;
+			THROW_VALUE("Error when managing a surface");
 		}
 		else if ((it->second->getEnable()
 				&& (!((it->second->getX() + it->second->getWidth() <= cam.getX())
