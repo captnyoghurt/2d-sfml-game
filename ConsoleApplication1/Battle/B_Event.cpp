@@ -3,9 +3,9 @@
 #include "../Error/ValueException.h"
 
 
-B_Event::B_Event()
+B_Event::B_Event() :
+	m_description("Evenement inconnu")
 {
-	m_description = "Evenement inconnu";
 	m_numberAllyDestination = 0;
 	m_numberEnemyDestination = 0;
 }
