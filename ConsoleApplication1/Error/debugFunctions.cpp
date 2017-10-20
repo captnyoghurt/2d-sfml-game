@@ -14,7 +14,8 @@ int DEB_ALLOCATED_ANIMATION(0);
 
 void deb_start()
 {
-	freopen("err.txt", "w", stderr);
+	if (!freopen("err.txt", "w", stderr))
+		return;
 }
 
 
