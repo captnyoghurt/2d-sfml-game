@@ -40,8 +40,9 @@ CharCourb::~CharCourb()
 }
 
 
-CharCourb CharCourb::operator=(const CharCourb &courb)
+CharCourb& CharCourb::operator=(const CharCourb &courb)
 {
+	m_id = courb.getId();
 	m_simple = courb.getSimple();
 	m_brut = courb.getBrut();
 	m_square = courb.getSquare();

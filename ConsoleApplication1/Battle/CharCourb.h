@@ -9,7 +9,7 @@ public:
 	CharCourb(const CharCourb &courb);
 	~CharCourb();
 
-	CharCourb operator=(const CharCourb &courb);
+	CharCourb& operator=(const CharCourb &courb);
 public:
 	// Return the id
 	int getId() const;
