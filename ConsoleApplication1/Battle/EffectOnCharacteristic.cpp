@@ -6,6 +6,7 @@ EffectOnCharacteristic::EffectOnCharacteristic(const int &brut, const double &ra
 {
 	m_brut = brut;
 	m_ratio = ratio;
+	m_numberOfTurn = 0;
 }
 
 
