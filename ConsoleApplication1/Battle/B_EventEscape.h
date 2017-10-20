@@ -11,6 +11,5 @@ public:
 public:
 
 private:
-	std::shared_ptr<Fighter> m_source;
 };
 

@@ -7,7 +7,7 @@
 class B_EventAttack : public B_Event
 {
 public:
-	B_EventAttack(const std::string &description = "Attack");
+	explicit B_EventAttack(const std::string &description = "Attack");
 	~B_EventAttack();
 
 public:
