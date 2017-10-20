@@ -28,6 +28,15 @@ SkillPoints::~SkillPoints()
 }
 
 
+SkillPoints& SkillPoints::operator=(const SkillPoints &skp)
+{
+	m_maxPoints = skp.getMaxPoints();
+	m_points = skp.getPoints();
+
+	return *this;
+}
+
+
 // Return the number of skill points
 int SkillPoints::getPoints() const
 {

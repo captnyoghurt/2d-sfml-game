@@ -10,9 +10,10 @@ class SkillPoints
 public:
 	SkillPoints();
 	SkillPoints(const SkillPoints &skp);
-	SkillPoints(const int &max);
+	explicit SkillPoints(const int &max);
 	~SkillPoints();
 
+	SkillPoints& operator=(const SkillPoints &skp);
 public:
 	// Return the number of skill points
 	int getPoints() const;
