@@ -3,7 +3,7 @@
 #include "../Error/debugFunctions.h"
 
 
-Animation::Animation(int refreshTime, const std::vector<sf::Rect<short>> rects, std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator surf) :
+Animation::Animation(int refreshTime, const std::vector<sf::Rect<short>>& rects, std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator surf) :
 	m_rectSprites(rects)
 {
 	m_refreshTime = refreshTime;
@@ -21,7 +21,7 @@ Animation::Animation(int refreshTime, const std::vector<sf::Rect<short>> rects, 
 #endif // DEBUG_MODE_ON
 
 }
-Animation::Animation(int refreshTime, const std::vector<sf::Rect<short>> rects, std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator surf, int loop, bool killWhenDone) :
+Animation::Animation(int refreshTime, const std::vector<sf::Rect<short>>& rects, std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator surf, int loop, bool killWhenDone) :
 	m_rectSprites(rects)
 {
 	m_refreshTime = refreshTime;
@@ -39,7 +39,7 @@ Animation::Animation(int refreshTime, const std::vector<sf::Rect<short>> rects, 
 	DEB_ALLOCATED_ANIMATION++;
 #endif // DEBUG_MODE_ON
 }
-Animation::Animation(int refreshTime, const std::vector<sf::Rect<short>> rects, std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator surf, int endX, int endY, int manDist, int loop, bool killWhenDone) :
+Animation::Animation(int refreshTime, const std::vector<sf::Rect<short>>& rects, std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator surf, int endX, int endY, int manDist, int loop, bool killWhenDone) :
 	m_rectSprites(rects)
 {
 	m_refreshTime = refreshTime;
