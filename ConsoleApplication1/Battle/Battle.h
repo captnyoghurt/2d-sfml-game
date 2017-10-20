@@ -16,7 +16,7 @@ public:
 	enum e_BattleExit {BATTLE_EXIT_WIN = 10, BATTLE_EXIT_LOSE, BATTLE_EXIT_RUN, BATTLE_EXIT_TOTAL};
 
 public:
-	Battle(TeamBattle &tb);
+	explicit Battle(TeamBattle &tb);
 	~Battle();
 
 public:

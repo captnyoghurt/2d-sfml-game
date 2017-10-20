@@ -19,6 +19,9 @@ Battle::Battle(TeamBattle &tb)
 	m_inTurn = false;
 	m_choicesFinished = false;
 	m_battleExit = Battle::e_BattleExit::BATTLE_EXIT_TOTAL;
+	m_battleTurn = 0;
+	m_lastKeyEventLayer = 0;
+	m_battleEventCreated = 0;
 	
 	// Team
 	m_alliesTeam = &tb;
