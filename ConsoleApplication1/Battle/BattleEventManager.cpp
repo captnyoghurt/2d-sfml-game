@@ -12,6 +12,8 @@
 
 BattleEventManager::BattleEventManager() : m_eventInConstruction(nullptr)
 {
+	m_waiting = false;
+	m_executeStarted = false;
 }
 
 
