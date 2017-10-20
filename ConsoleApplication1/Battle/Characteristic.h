@@ -16,6 +16,8 @@ public:
 	Characteristic(const Characteristic& c);
 	~Characteristic();
 
+	Characteristic& operator=(const Characteristic &c);
+public:
 	// Return the number of health points
 	int getPoints() const;
 	// Return the maximum number of health points

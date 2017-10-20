@@ -33,6 +33,16 @@ Characteristic::~Characteristic()
 }
 
 
+Characteristic& Characteristic::operator=(const Characteristic &c)
+{
+	m_points = c.getPoints();
+	m_maxPoints = c.getMaxPoints();
+	m_bonus = c.getBonus();
+	m_effects = c.getEffects();
+	return *this;
+}
+
+
 // Return the number of health points
 int Characteristic::getPoints() const
 {
