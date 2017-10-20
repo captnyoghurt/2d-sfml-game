@@ -161,7 +161,6 @@ int Characteristic::recharge(const int &points)
 // Update effects
 int Characteristic::updateEffects()
 {
-	int contBonus(0);
 	m_bonus = 0;
 
 	for (auto it(m_effects.begin()); it != m_effects.end(); it++)
