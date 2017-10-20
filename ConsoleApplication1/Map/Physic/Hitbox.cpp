@@ -26,13 +26,29 @@ Hitbox::Hitbox(const int &id, const sf::Rect<int> &r) :
 {
 }
 
-Hitbox::Hitbox(const Hitbox &hb) :
-	Hitbox(hb.getId(), hb.getX(), hb.getY(), hb.getWidth(), hb.getHeight())
+Hitbox::Hitbox(const Hitbox &hb)
 {
+	m_id = hb.getId();
+	m_x = hb.getX();
+	m_y = hb.getY();
+	m_width = hb.getWidth();
+	m_height = hb.getWidth();
 }
 
 Hitbox::~Hitbox()
 {
+}
+
+
+Hitbox& Hitbox::operator=(const Hitbox &hb)
+{
+	m_id = hb.getId();
+	m_x = hb.getX();
+	m_y = hb.getY();
+	m_width = hb.getWidth();
+	m_height = hb.getWidth();
+
+	return *this;
 }
 
 

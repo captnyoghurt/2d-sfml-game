@@ -11,6 +11,7 @@ public:
 	Hitbox(const Hitbox &hb);
 	~Hitbox();
 
+	Hitbox& operator=(const Hitbox &hb);
 public:
 	// Return the id of the Hitbox
 	int getId() const;
