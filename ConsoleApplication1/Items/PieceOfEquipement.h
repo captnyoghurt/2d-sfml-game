@@ -16,6 +16,7 @@ public:
 	PieceOfEquipement(const PieceOfEquipement &poe);
 	~PieceOfEquipement();
 
+	PieceOfEquipement& operator=(const PieceOfEquipement &poe);
 public:
 	// Return the position of the piece of equipement
 	e_POEPosition getPosition() const;

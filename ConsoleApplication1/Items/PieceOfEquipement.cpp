@@ -8,6 +8,7 @@ PieceOfEquipement::PieceOfEquipement() :
 {
 	m_position = PieceOfEquipement::e_POEPosition::POE_TOTAL;
 	m_mateId = TeamMate::e_MateId::MATE_ID_ALL;
+	m_equiped = false;
 }
 
 PieceOfEquipement::PieceOfEquipement(const Item &item, const e_POEPosition &pos, const TeamMate::e_MateId &mid) : 
@@ -15,21 +16,40 @@ PieceOfEquipement::PieceOfEquipement(const Item &item, const e_POEPosition &pos,
 {
 	setPosition(pos);
 	setMateId(mid);
+	m_equiped = false;
 }
 
-PieceOfEquipement::PieceOfEquipement(const PieceOfEquipement &poe) :
-	PieceOfEquipement(
-		Item(poe.getId(), poe.getName(), poe.getDescription(), poe.getPriceBuy(), poe.getPriceSell(), poe.getType()),
-		poe.getPosition(),
-		poe.getMateId()
-	)
+PieceOfEquipement::PieceOfEquipement(const PieceOfEquipement &poe)
 {
-
+	setId(poe.getId());
+	setName(poe.getName());
+	setDescription(poe.getDescription());
+	setPriceBuy(poe.getPriceBuy());
+	setPriceSell(poe.getPriceSell());
+	setType(poe.getType());
+	setPosition(poe.getPosition());
+	setMateId(poe.getMateId());
+	m_equiped = false;
 }
 
 
 PieceOfEquipement::~PieceOfEquipement()
 {
+}
+
+
+PieceOfEquipement& PieceOfEquipement::operator=(const PieceOfEquipement &poe)
+{
+	setId(poe.getId());
+	setName(poe.getName());
+	setDescription(poe.getDescription());
+	setPriceBuy(poe.getPriceBuy());
+	setPriceSell(poe.getPriceSell());
+	setType(poe.getType());
+	setPosition(poe.getPosition());
+	setMateId(poe.getMateId());
+
+	return *this;
 }
 
 
