@@ -241,7 +241,7 @@ int Game::loadNewMap(std::string filename)
 // Stop the current menu
 int Game::stopMenu()
 {
-	if (m_menus.size())
+	if (!m_menus.empty())
 	{
 		m_eventManager.setKeyEventLayer(m_menus.back()->close(m_surfaceManager.at(MENU_SIMPLE_LAYER)));
 		m_menus.pop_back();
@@ -289,7 +289,7 @@ int Game::update()
 	if (ret >> 2 == 1)
 		m_map.gotUpdated();
 
-	if(m_menus.size() > 0)
+	if(!m_menus.empty())
 		ret += (m_menus.front()->update(*this) << 3);
 
 	ret += (m_animationManager.update(*this) << 4);
