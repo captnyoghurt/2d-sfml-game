@@ -11,11 +11,11 @@ using namespace std;
 
 #include <iostream>
 
-Map::Map(Game &g)
+Map::Map(Game &g) :
+	m_name("")
 {
 	m_paused = false;
 	m_updated = true;
-	m_name = "";
 	m_nbLayers = 0;
 	m_width = 0;
 	m_height = 0;
@@ -172,7 +172,7 @@ int Map::setHeight(const int &h)
 // Modify the name of the actual map
 int Map::setName(std::string name)
 {
-	if (name.length() <= 0)
+	if (name.empty())
 		THROW_VALUE("Empty string");
 
 	m_name = name;
