@@ -10,21 +10,20 @@
 
 
 
-Fighter::Fighter() : m_health(0), m_mana(0), m_skillPoints(0)
+Fighter::Fighter() : m_health(0), m_mana(0), m_skillPoints(0), m_name("Unknown")
 {
-	m_name = "Unknown";
 	m_characteristics.resize(Characteristic::e_characteristics::CHARACTERISTICS_TOTAL, Characteristic(0, 0));
 }
 
 
-Fighter::Fighter(const Fighter &f)
+Fighter::Fighter(const Fighter &f) :
+	m_characteristics(f.getCharacteristics()),
+	m_name(f.getName()),
+	m_health(f.getHealth()),
+	m_mana(f.getMana()),
+	m_skillPoints(f.getSkillPoints()),
+	m_spells(f.getSpells())
 {
-	m_name = f.getName();
-	m_characteristics = f.getCharacteristics();
-	m_health = f.getHealth();
-	m_mana = f.getMana();
-	m_skillPoints = f.getSkillPoints();
-	m_spells = f.getSpells();
 	m_characteristics.resize(Characteristic::e_characteristics::CHARACTERISTICS_TOTAL, Characteristic(0, 0));
 }
 
