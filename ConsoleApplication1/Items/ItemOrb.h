@@ -8,7 +8,7 @@ class ItemOrb :
 public:
 	ItemOrb();
 	ItemOrb(const int &id, const std::string &name, const std::string &description);
-	ItemOrb(const Item &item);
+	explicit ItemOrb(const Item &item);
 	~ItemOrb();
 };
 
