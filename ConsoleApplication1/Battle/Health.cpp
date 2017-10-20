@@ -22,10 +22,23 @@ Health::Health(const int &max)
 {
 	setMaxPoints(max);
 	setPoints(max);
+	m_bonus = 0;
 }
 
 Health::~Health()
 {
+}
+
+
+Health& Health::operator=(const Health& h)
+{
+	setMaxPoints(h.getMaxPoints());
+	setPoints(h.getPoints());
+	m_continuousEffects = h.getContinuousEffects();
+	m_effects = h.getEffects();
+	m_bonus = h.getBonus();
+
+	return *this;
 }
 
 

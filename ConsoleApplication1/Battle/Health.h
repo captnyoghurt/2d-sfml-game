@@ -10,9 +10,10 @@ class Health
 public:
 	Health();
 	Health(const Health &h);
-	Health(const int &max);
+	explicit Health(const int &max);
 	~Health();
 
+	Health& operator=(const Health& h);
 public:
 	// Return the number of health points
 	int getPoints() const;
