@@ -20,6 +20,8 @@ Team::Team(Game &g)
 	m_movementAnimation.resize(Team::UNKNOWN);
 	m_speedX = 0;
 	m_speedY = 0;
+	m_mode = Team::e_teamMode::WALK;
+	m_direction = Team::e_teamDirection::DOWN;
 
 	// Load battle team
 	TeamMate tm;
@@ -244,9 +246,6 @@ int Team::setCameraFollowing(const bool &b)
 // Modify the abciss of the Team
 int Team::setX(const unsigned short &x)
 {
-	if (x < 0)
-		THROW_VALUE(std::to_string(x));
-
 	m_x = x;
 	return 0;
 }
@@ -255,9 +254,6 @@ int Team::setX(const unsigned short &x)
 // Modify the y position of the Team
 int Team::setY(const unsigned short &y)
 {
-	if (y < 0)
-		THROW_VALUE(std::to_string(y));
-
 	m_y = y;
 	return 0;
 }
