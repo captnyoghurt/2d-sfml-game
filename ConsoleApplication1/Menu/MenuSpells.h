@@ -35,7 +35,6 @@ protected:
 	std::stringstream makeChoicesSS(std::vector<Spell> &spells);
 
 public:
-	bool m_initialized;
 	MenuDialogBox m_dialogBox;
 	MenuChoice m_choices;
 	std::unique_ptr<std::vector<Spell>> m_spells;

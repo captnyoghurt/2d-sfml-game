@@ -8,8 +8,7 @@
 MenuSpells::MenuSpells(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer) :
 	Menu(ress, surf, lastEventLayer),
 	m_dialogBox(ress, surf, lastEventLayer),
-	m_choices(ress, surf, lastEventLayer),
-	m_initialized(false)
+	m_choices(ress, surf, lastEventLayer)
 {
 	surf.deleteSurface(m_background);
 }
@@ -53,7 +52,7 @@ int MenuSpells::load(ManageRessources& ress, ManageSurfaces& surf, const int &xc
 {
 	if (m_initialized)
 		THROW_GAME("Already initiate");
-	if (spells.size() <= 0)
+	if (spells.empty())
 		THROW_VALUE("No spells");
 
 	m_dialogBox.load(ress, surf, "Menu des sorts et techniques", xcam, ycam, MENU_SPELLS_DIALOG_BOX_X, MENU_SPELLS_DIALOG_BOX_Y, MENU_SPELLS_DIALOG_BOX_WIDTH, MENU_SPELLS_DIALOG_BOX_HEIGHT);
