@@ -9,6 +9,7 @@ public:
 	Tile(Tile &t);
 	~Tile();
 
+	Tile& operator=(const Tile &t);
 public:
 	// Return if the tile is empty or not
 	bool getEmpty() const;

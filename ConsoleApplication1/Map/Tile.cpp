@@ -35,6 +35,19 @@ Tile::~Tile()
 }
 
 
+Tile& Tile::operator=(const Tile &t)
+{
+	m_empty = false;
+	m_x = t.getX();
+	m_y = t.getY();
+	m_width = t.getWidth();
+	m_height = t.getHeight();
+	m_proprieties = t.getProprieties();
+
+	return *this;
+}
+
+
 // Return if the tile is empty or not
 bool Tile::getEmpty() const
 {
@@ -88,9 +101,6 @@ int Tile::setEmpty(const bool &b)
 // Modify the abciss of the Tile
 int Tile::setX(const unsigned short &x)
 {
-	if (x < 0)
-		THROW_VALUE(std::to_string(x));
-	
 	m_x = x;
 	return 0;
 }
@@ -98,9 +108,6 @@ int Tile::setX(const unsigned short &x)
 // Modify the y position of the Tile
 int Tile::setY(const unsigned short &y)
 {
-	if (y < 0)
-		THROW_VALUE(std::to_string(y));
-
 	m_y = y;
 	return 0;
 }
