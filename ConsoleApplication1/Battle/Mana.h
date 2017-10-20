@@ -10,9 +10,10 @@ class Mana
 public:
 	Mana();
 	Mana(const Mana &mana);
-	Mana(const int &max);
+	explicit Mana(const int &max);
 	~Mana();
 
+	Mana& operator=(const Mana& mana);
 public:
 	// Return the number of mana points
 	int getPoints() const;

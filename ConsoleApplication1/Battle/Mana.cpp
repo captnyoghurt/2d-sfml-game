@@ -29,6 +29,15 @@ Mana::~Mana()
 }
 
 
+Mana& Mana::operator=(const Mana& mana)
+{
+	m_maxPoints = mana.getMaxPoints();
+	m_points = mana.getPoints();
+
+	return *this;
+}
+
+
 // Return the number of mana points
 int Mana::getPoints() const
 {
