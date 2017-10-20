@@ -3,7 +3,11 @@
 #include "../Game.h"
 
 
-Character::Character()
+Character::Character() :
+	m_combatX(0),
+	m_combatY(0),
+	m_combatH(0),
+	m_combatW(0)
 {
 }
 
