@@ -3,38 +3,47 @@
 #include "../Error/debugFunctions.h"
 
 
-Animation::Animation(int refreshTime, std::vector<sf::Rect<short>> rects, std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator surf)
+Animation::Animation(int refreshTime, const std::vector<sf::Rect<short>> rects, std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator surf) :
+	m_rectSprites(rects)
 {
 	m_refreshTime = refreshTime;
 	m_rectAct = 0;
-	m_rectSprites = rects;
 	m_surface = surf;
 	m_finished = true;
 	m_killWhenDone = false;
+	m_moving = false;
+	m_manathanDistance = 0;
+	m_nbLoop = 0;
+	m_endX = 0;
+	m_endY = 0;
 #ifdef DEBUG_MODE_ON
 	DEB_ALLOCATED_ANIMATION++;
 #endif // DEBUG_MODE_ON
 
 }
-Animation::Animation(int refreshTime, std::vector<sf::Rect<short>> rects, std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator surf, int loop, bool killWhenDone)
+Animation::Animation(int refreshTime, const std::vector<sf::Rect<short>> rects, std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator surf, int loop, bool killWhenDone) :
+	m_rectSprites(rects)
 {
 	m_refreshTime = refreshTime;
 	m_rectAct = 0;
-	m_rectSprites = rects;
 	m_surface = surf;
 	m_nbLoop = loop;
 	m_killWhenDone = killWhenDone;
 	m_finished = false;
 	m_clock.restart();
+	m_moving = false;
+	m_manathanDistance = 0;
+	m_endX = 0;
+	m_endY = 0;
 #ifdef DEBUG_MODE_ON
 	DEB_ALLOCATED_ANIMATION++;
 #endif // DEBUG_MODE_ON
 }
-Animation::Animation(int refreshTime, std::vector<sf::Rect<short>> rects, std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator surf, int endX, int endY, int manDist, int loop, bool killWhenDone)
+Animation::Animation(int refreshTime, const std::vector<sf::Rect<short>> rects, std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator surf, int endX, int endY, int manDist, int loop, bool killWhenDone) :
+	m_rectSprites(rects)
 {
 	m_refreshTime = refreshTime;
 	m_rectAct = 0;
-	m_rectSprites = rects;
 	m_surface = surf;
 	m_nbLoop = loop;
 	m_killWhenDone = killWhenDone;
@@ -43,6 +52,7 @@ Animation::Animation(int refreshTime, std::vector<sf::Rect<short>> rects, std::l
 	m_endY = endY;
 	m_manathanDistance = manDist;
 	m_clock.restart();
+	m_moving = true;
 #ifdef DEBUG_MODE_ON
 	DEB_ALLOCATED_ANIMATION++;
 #endif // DEBUG_MODE_ON

@@ -7,9 +7,9 @@
 class Animation
 {
 public:
-	Animation(int refreshTime, std::vector<sf::Rect<short>> rects, std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator surf);
-	Animation(int refreshTime, std::vector<sf::Rect<short>> rects, std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator surf, int loop, bool killWhenDone = false);
-	Animation(int refreshTime, std::vector<sf::Rect<short>> rects, std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator surf, int endX, int endY, int manDist, int loop = -1, bool killWhenDone = false);
+	Animation(int refreshTime, const std::vector<sf::Rect<short>> rects, std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator surf);
+	Animation(int refreshTime, const std::vector<sf::Rect<short>> rects, std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator surf, int loop, bool killWhenDone = false);
+	Animation(int refreshTime, const std::vector<sf::Rect<short>> rects, std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator surf, int endX, int endY, int manDist, int loop = -1, bool killWhenDone = false);
 	~Animation();
 
 public:
