@@ -106,7 +106,6 @@ int MenuDialogBox::continueText(ManageRessources& ress, ManageSurfaces& surf)
 	// Variables for the reading
 	std::string lineActual;
 	int fillHeightCounter(0);
-	int fillWidthCounter(0);
 	char c;
 
 	if (m_textStream.eof())
@@ -122,7 +121,7 @@ int MenuDialogBox::continueText(ManageRessources& ress, ManageSurfaces& surf)
 
 	while (fillHeightCounter < m_height)
 	{
-		fillWidthCounter = 0;
+		int fillWidthCounter(0);
 		lineActual = "";
 		while (fillWidthCounter < MENU_DIALOG_BOX_CHARACTER_BY_LINE)
 		{
