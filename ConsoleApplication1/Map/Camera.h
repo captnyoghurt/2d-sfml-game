@@ -4,7 +4,7 @@
 class Camera
 {
 public:
-	Camera(bool blocked=true);
+	explicit Camera(bool blocked=true);
 	Camera(const int &x, const int &y, const int &w, const int &h, const int &mx, const int &my, bool blocked = true);
 	Camera(const Camera &c);
 	~Camera();
