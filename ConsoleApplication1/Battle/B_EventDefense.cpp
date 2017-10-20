@@ -9,9 +9,9 @@ B_EventDefense::B_EventDefense()
 }
 
 
-B_EventDefense::B_EventDefense(std::shared_ptr<Fighter> dest, const std::string &description)
+B_EventDefense::B_EventDefense(std::shared_ptr<Fighter> dest, const std::string &description) :
+	m_destination(dest)
 {
-	m_destination = dest;
 	m_description = description;
 
 	m_numberAllyDestination = 0;
