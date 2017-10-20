@@ -10,7 +10,7 @@ class SurfaceText :
 public:
 	using sf::Text::Text;
 	SurfaceText();
-	SurfaceText(Text t);
+	explicit SurfaceText(Text t);
 	~SurfaceText();
 };
 
