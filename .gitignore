@@ -263,3 +263,6 @@ paket-files/
 __pycache__/
 *.pyc
 /ConsoleApplication1/err.txt
+
+# Lint
+.visuallint/
