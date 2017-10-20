@@ -7,10 +7,11 @@ class Spell
 {
 public:
 	Spell();
-	Spell(int id, std::string name, int damage, int allyDestination, int enemiDestination, int costHP, int costMP, int costTP, int chanceSleep, int chancePoison, int chanceParalysis, int chanceMute, const std::string &desc);
+	Spell(int id, const std::string &name, int damage, int allyDestination, int enemiDestination, int costHP, int costMP, int costTP, int chanceSleep, int chancePoison, int chanceParalysis, int chanceMute, const std::string &desc);
 	Spell(const Spell &sp);
 	~Spell();
 
+	Spell& operator=(const Spell &sp);
 public:
 	// Return the id
 	int getId() const;

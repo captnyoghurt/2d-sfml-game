@@ -7,7 +7,7 @@ Spell::Spell()
 {
 }
 
-Spell::Spell(int id, std::string name, int damage, int allyDestination, int enemiDestination, int costHP, int costMP, int costTP, int chanceSleep, int chancePoison, int chanceParalysis, int chanceMute, const std::string &desc) :
+Spell::Spell(int id, const std::string &name, int damage, int allyDestination, int enemiDestination, int costHP, int costMP, int costTP, int chanceSleep, int chancePoison, int chanceParalysis, int chanceMute, const std::string &desc) :
 	m_id(id),
 	m_name(name),
 	m_damage(damage),
@@ -26,15 +26,48 @@ Spell::Spell(int id, std::string name, int damage, int allyDestination, int enem
 }
 
 
-Spell::Spell(const Spell &sp) :
-	Spell(sp.getId(), sp.getName(), sp.getDamage(), sp.getAllyDestination(), sp.getEnemiDestination(), sp.getCostHP(), sp.getCostMP(), sp.getCostTP(), sp.getChanceSleep(), sp.getChancePoison(), sp.getChanceParalysis(), sp.getChanceMute(), sp.getDescription())
+Spell::Spell(const Spell &sp)
 {
+	m_id = sp.getId();
+	m_name = sp.getName();
+	m_damage = sp.getDamage();
+	m_allyDestination = sp.getAllyDestination();
+	m_enemiDestination = sp.getEnemiDestination();
+	m_costHP = sp.getCostHP();
+	m_costMP = sp.getCostMP();
+	m_costTP = sp.getCostTP();
+	m_chanceSleep = sp.getChanceSleep();
+	m_chancePoison = sp.getChancePoison();
+	m_chanceParalysis = sp.getChanceParalysis();
+	m_chanceMute = sp.getChanceMute();
+	m_description = sp.getDescription();
 	m_effects = sp.getEffects();
 }
 
 
 Spell::~Spell()
 {
+}
+
+
+Spell& Spell::operator=(const Spell &sp)
+{
+	m_id = sp.getId();
+	m_name = sp.getName();
+	m_damage = sp.getDamage();
+	m_allyDestination = sp.getAllyDestination();
+	m_enemiDestination = sp.getEnemiDestination();
+	m_costHP = sp.getCostHP();
+	m_costMP = sp.getCostMP();
+	m_costTP = sp.getCostTP();
+	m_chanceSleep = sp.getChanceSleep();
+	m_chancePoison = sp.getChancePoison();
+	m_chanceParalysis = sp.getChanceParalysis();
+	m_chanceMute = sp.getChanceMute();
+	m_description = sp.getDescription();
+	m_effects = sp.getEffects();
+
+	return *this;
 }
 
 
