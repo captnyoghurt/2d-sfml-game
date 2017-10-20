@@ -32,7 +32,7 @@ int initialization()
 		}
 	}
 
-	return 0;
+	return ret;
 }
 
 
@@ -40,7 +40,6 @@ int initialization()
 int initiate_constants(std::string filename)
 {
 	std::ifstream file(filename);
-	std::istringstream iss;
 	std::string line, word;
 
 	if (!file.is_open())
@@ -210,7 +209,6 @@ int initiate_constants(std::string filename)
 int initiate_events(std::string filename, Game &g)
 {
 	std::ifstream file(filename);
-	std::istringstream iss;
 	std::string line, word;
 	int nb, pressed;
 
@@ -229,13 +227,14 @@ int initiate_events(std::string filename, Game &g)
 		if (line.size() > 0 && line[0] != '#')
 		{
 			std::istringstream iss(line);
-			int layer, code(0);
+			int layer;
 
 			iss >> layer;
 			iss >> pressed;
 
 			if ((unsigned)layer < (unsigned)nb)
 			{
+				int code(0);
 				if (iss >> word)
 					code = getCodeFromWord(word);
 				if (iss >> word)
@@ -244,7 +243,7 @@ int initiate_events(std::string filename, Game &g)
 					{
 						iss >> word;
 						IG_Action::s_action act = getActionFromWord(word);
-						g.getRealEventManager().setKeyEvent(layer, code, g.getRealEventManager().createMatchingKey(act), (pressed == 1) ? true : false);
+						g.getRealEventManager().setKeyEvent(layer, code, g.getRealEventManager().createMatchingKey(IG_Action(act)), (pressed == 1) ? true : false);
 					}
 					else
 					{
