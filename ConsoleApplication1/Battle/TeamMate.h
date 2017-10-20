@@ -13,6 +13,7 @@ public:
 	TeamMate(const TeamMate &tm);
 	~TeamMate();
 
+	TeamMate& operator=(const TeamMate &tm);
 public:
 	// Return the courbs
 	std::vector<CharCourb> getCourbs() const;

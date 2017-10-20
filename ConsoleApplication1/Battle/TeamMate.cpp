@@ -31,6 +31,25 @@ TeamMate::~TeamMate()
 }
 
 
+TeamMate& TeamMate::operator=(const TeamMate &tm)
+{
+	m_name = tm.getName();
+	m_characteristics = tm.getCharacteristics();
+	m_health = tm.getHealth();
+	m_mana = tm.getMana();
+	m_skillPoints = tm.getSkillPoints();
+	m_spells = tm.getSpells();
+	m_characteristics.resize(Characteristic::e_characteristics::CHARACTERISTICS_TOTAL, Characteristic(0, 0));
+
+	m_courbs = tm.getCourbs();
+	m_expCourb = tm.getExpCourb();
+	m_experience = 0;
+	m_level = 0;
+
+	return *this;
+}
+
+
 // Return the courbs
 std::vector<CharCourb> TeamMate::getCourbs() const
 {
