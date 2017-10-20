@@ -9,6 +9,8 @@ M_choice::M_choice()
 	m_initialized = false;
 	m_shown = false;
 	m_enabled = true;
+	m_x = 0;
+	m_y = 0;
 }
 
 
@@ -17,12 +19,26 @@ M_choice::M_choice(const M_choice & ch)
 	m_initialized = ch.getInitialized();
 	m_shown = ch.getShown();
 	m_enabled = true;
+	m_x = 0;
+	m_y = 0;
 }
 
 
 M_choice::~M_choice()
 {
 
+}
+
+
+M_choice& M_choice::operator=(const M_choice &ch)
+{
+	m_initialized = ch.getInitialized();
+	m_shown = ch.getShown();
+	m_enabled = true;
+	m_x = ch.getX();
+	m_y = ch.getY();
+
+	return *this;
 }
 
 
@@ -113,7 +129,7 @@ int M_choice::setEnabled(const bool &b)
 
 
 // Modify the action made by the choice
-int M_choice::setAction(IG_Action act)
+int M_choice::setAction(IG_Action& act)
 {
 	m_action.setAction(act.getAction());
 
@@ -138,7 +154,7 @@ int M_choice::setY(const int &y)
 
 
 // Load the choice
-int M_choice::load(ManageSurfaces& surf, const std::string &str, sf::Font &f, const int &x, const int &y, const bool &sh, IG_Action act, const int &w, const int &h)
+int M_choice::load(ManageSurfaces& surf, const std::string &str, sf::Font &f, const int &x, const int &y, const bool &sh, IG_Action &act, const int &w, const int &h)
 {
 	if (m_initialized)
 		THROW_INIT("Already initiate");

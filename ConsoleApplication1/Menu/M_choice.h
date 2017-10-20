@@ -14,6 +14,7 @@ public:
 	M_choice(const M_choice & ch);
 	~M_choice();
 
+	M_choice& operator=(const M_choice &ch);
 public:
 	// Return if the choice has been initialized
 	bool getInitialized() const;
@@ -40,14 +41,14 @@ public:
 	// Modify if the choice should be enabled
 	int setEnabled(const bool &b);
 	// Modify the action made by the choice
-	int setAction(IG_Action act);
+	int setAction(IG_Action &act);
 	// Modify the position X of the choice on the screen
 	int setX(const int &x);
 	// Modify the position Y of the choice on the screen
 	int setY(const int &y);
 
 	// Load the choice
-	int load(ManageSurfaces& surf, const std::string &str, sf::Font &f, const int &x, const int &y, const bool &sh, IG_Action act, const int &w = 0, const int &h = 0);
+	int load(ManageSurfaces& surf, const std::string &str, sf::Font &f, const int &x, const int &y, const bool &sh, IG_Action &, const int &w = 0, const int &h = 0);
 	// Clear the surfaces of the choice
 	int clear(ManageSurfaces &surf);
 private:
