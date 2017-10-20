@@ -16,7 +16,7 @@ using namespace sf;
 class Map
 {
 public:
-	Map(Game &g);
+	explicit Map(Game &g);
 	~Map();
 
 public:
