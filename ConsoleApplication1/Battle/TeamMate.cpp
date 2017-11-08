@@ -8,6 +8,7 @@
 
 
 TeamMate::TeamMate() :
+	Fighter(),
 	m_courbs(Characteristic::e_characteristics::CHARACTERISTICS_TOTAL),
 	m_experience(0),
 	m_level(0)
