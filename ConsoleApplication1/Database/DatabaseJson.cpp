@@ -252,6 +252,9 @@ TeamMate DatabaseJson::getFullTeamMate(int id)
 {
 	TeamMate tm(getTeamMate(id));
 
+	if ((unsigned)id >= m_matching.size())
+		return tm;
+
 	for (unsigned int i(0); i < m_matchingLevelSpells.at(id).size(); i++)
 	{
 		std::pair<int, Spell> p;
