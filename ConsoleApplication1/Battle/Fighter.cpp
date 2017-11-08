@@ -7,12 +7,27 @@
 #include "B_EventSpell.h"
 #include "../Error/ValueException.h"
 #include "../Game.h"
+#include "../constants.h"
 
 
 
 Fighter::Fighter() : m_health(0), m_mana(0), m_skillPoints(0), m_name("Unknown")
 {
 	m_characteristics.resize(Characteristic::e_characteristics::CHARACTERISTICS_TOTAL, Characteristic(0, 0));
+	m_characteristics.at(0).setMaxPoints(CHARACTERISTIC_STRENGH_MAX);
+	m_characteristics.at(1).setMaxPoints(CHARACTERISTIC_INTELLIGENCE_MAX);
+	m_characteristics.at(2).setMaxPoints(CHARACTERISTIC_VITALITY_MAX);
+	m_characteristics.at(3).setMaxPoints(CHARACTERISTIC_AGILITY_MAX);
+	m_characteristics.at(4).setMaxPoints(CHARACTERISTIC_SPEED_MAX);
+	m_characteristics.at(5).setMaxPoints(CHARACTERISTIC_REGEN_MP_MAX);
+	m_characteristics.at(6).setMaxPoints(CHARACTERISTIC_ATTACK_PHYSIC_MAX);
+	m_characteristics.at(7).setMaxPoints(CHARACTERISTIC_ATTACK_MAGIC_MAX);
+	m_characteristics.at(8).setMaxPoints(CHARACTERISTIC_DEFENSE_PHYSIC_MAX);
+	m_characteristics.at(9).setMaxPoints(CHARACTERISTIC_DEFENSE_MAGIC_MAX);
+	m_characteristics.at(10).setMaxPoints(CHARACTERISTIC_RESISTANCE_SLEEP_MAX);
+	m_characteristics.at(11).setMaxPoints(CHARACTERISTIC_RESISTANCE_POISON_MAX);
+	m_characteristics.at(12).setMaxPoints(CHARACTERISTIC_RESISTANCE_PARALYSIS_MAX);
+	m_characteristics.at(13).setMaxPoints(CHARACTERISTIC_RESISTANCE_MUTE_MAX);
 }
 
 
