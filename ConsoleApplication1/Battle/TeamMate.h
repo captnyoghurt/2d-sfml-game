@@ -22,6 +22,10 @@ public:
 	std::vector<std::pair<int, Spell> > getBasicSpells() const;
 	// Return the experience courb
 	CharCourb getExpCourb() const;
+	// Return the health courb
+	CharCourb getHealthCourb() const;
+	// Return the mana courb
+	CharCourb getManaCourb() const;
 	// Return the current experience
 	int getExperience() const;
 	// Return the current level
@@ -34,6 +38,10 @@ public:
 
 	// Modify the experience courb
 	int setExpCourb(const CharCourb &exp);
+	// Modify the health courb
+	int setHealthCourb(const CharCourb &h);
+	// Modify the mana courb
+	int setManaCourb(const CharCourb &m);
 	// Modify the current experience
 	int setExperience(const int &experience);
 	// Modify the current level
@@ -51,6 +59,8 @@ private:
 	std::vector<CharCourb> m_courbs;
 	std::vector<std::pair<int, Spell> > m_basicSpells;
 	CharCourb m_expCourb;
+	CharCourb m_healthCourb;
+	CharCourb m_manaCourb;
 	int m_experience;
 	int m_level;
 };
