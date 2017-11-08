@@ -49,6 +49,8 @@ public:
 
 	// Add some XP
 	int addExperience(const int &exp);
+	// Reload the TeamMate with the new courbs
+	int reload(const bool &healing = false);
 
 	// Take a decision for the next battle action
 	virtual std::shared_ptr<B_Event> chooseEvent(Game *g);

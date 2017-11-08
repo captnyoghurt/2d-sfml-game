@@ -189,6 +189,26 @@ int TeamMate::addExperience(const int &exp)
 }
 
 
+// Reload the TeamMate with the new courbs
+int TeamMate::reload(const bool &healing)
+{
+	for (unsigned int i(0); i < m_characteristics.size(); i++)
+	{
+		//m_characteristics.at(i).setMaxPoints(m_courbs.at(i).result(m_level));
+		m_characteristics.at(i).setPoints(m_courbs.at(i).result(m_level));
+	}
+
+	m_health.setMaxPoints(m_healthCourb.result(m_level));
+	if (healing)
+		m_health.setPoints(m_health.getMaxPoints());
+	m_mana.setMaxPoints(m_manaCourb.result(m_level));
+	if (healing)
+		m_mana.setPoints(m_mana.getMaxPoints());
+
+	return 0;
+}
+
+
 // Take a decision for the next battle action
 std::shared_ptr<B_Event> TeamMate::chooseEvent(Game *g)
 {
