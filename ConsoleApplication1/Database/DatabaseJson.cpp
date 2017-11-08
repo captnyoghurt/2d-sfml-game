@@ -207,6 +207,9 @@ Spell DatabaseJson::getFullSpell(int id)
 {
 	Spell sp(getSpell(id));
 
+	if ((unsigned)id >= m_matching.at(JD_MATCH_SPELLS_EFFECTS).size())
+		return sp;
+
 	for (unsigned int i(0); i < m_matching.at(JD_MATCH_SPELLS_EFFECTS).at(id).size(); i++)
 		sp.addEffect(getBattleEffects(m_matching.at(JD_MATCH_SPELLS_EFFECTS).at(id).at(i)));
 
