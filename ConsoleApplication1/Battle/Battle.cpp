@@ -213,11 +213,11 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 	
 	EnemiBasic f;
 	f.setCharacteristic(Characteristic(5, 10000), Characteristic::e_characteristics::ATTACK_PHYSIC);
-	f.setHealth(30);
-	f.setMana(10);
+	f.setHealth(Health(30));
+	f.setMana(Mana(10));
 	f.setName("Monstre simple");
 	m_enemieTeam.addMember(std::make_shared<EnemiBasic>(f));
-	f.setHealth(50);
+	f.setHealth(Health(50));
 	f.setName("Monstre 2");
 	m_enemieTeam.addMember(std::make_shared<EnemiBasic>(f));
 	f.setName("Monstre 3");
