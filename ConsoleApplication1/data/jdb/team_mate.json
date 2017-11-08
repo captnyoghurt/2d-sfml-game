@@ -8,4 +8,5 @@
 // test.team_mate
 
 [{"id":0},{"id":1,"name":"Principal","exp_courb_id":1,"health_courb_id":2,"mana_courb_id":2,"strength_courb_id":2,"intelligence_courb_id":2,"vitality_courb_id":2,"agility_courb_id":2,"speed_courb_id":3,"regen_mp_courb_id":
+3,"attack_physic_courb_id":2,"attack_magic_courb_id":2,"defense_physic_courb_id":3,"defense_magic_courb_id":3,"resistance_poison_courb_id":3,"resistance_paralysis_courb_id":3,"resistance_mute_courb_id":3},{"id":2,"name":"Second player","exp_courb_id":1,"health_courb_id":2,"mana_courb_id":2,"strength_courb_id":2,"intelligence_courb_id":2,"vitality_courb_id":2,"agility_courb_id":2,"speed_courb_id":3,"regen_mp_courb_id":
 3,"attack_physic_courb_id":2,"attack_magic_courb_id":2,"defense_physic_courb_id":3,"defense_magic_courb_id":3,"resistance_poison_courb_id":3,"resistance_paralysis_courb_id":3,"resistance_mute_courb_id":3}]
