@@ -45,14 +45,18 @@ public:
 	Fighter getFullFighter(int id);
 	// Return the item with the effects
 	Item getFullItem(int id);
+	// Return the team mate with the spells
+	TeamMate getFullTeamMate(int id);
 
 protected:
 	int loadDatabase(int i, const std::string &filename);
 	int loadMatching(std::vector< std::vector<int> > &v, const std::string &filename, const std::string &key1, const std::string &key2);
+	int loadMatching(std::vector< std::vector< std::pair<int, int> > > &v, const std::string &filename, const std::string &key1, const std::string &key2, const std::string &key3);
 
 private:
 	std::vector<Json::Value> m_roots;
 	std::vector<Json::Reader> m_readers;
 	std::vector< std::vector< std::vector<int> > > m_matching;
+	std::vector< std::vector< std::pair<int, int> > > m_matchingLevelSpells;
 };
 

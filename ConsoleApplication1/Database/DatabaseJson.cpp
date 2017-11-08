@@ -29,6 +29,8 @@ DatabaseJson::DatabaseJson()
 	loadMatching(m_matching.at(JD_MATCH_SPELLS_EFFECTS), DATABASE_JSON_NAME_SPELLS_EFFECTS, "id_spells", "id_effects");
 	loadMatching(m_matching.at(JD_MATCH_MONSTERS_SPELLS), DATABASE_JSON_NAME_MONSTERS_SPELLS, "id_monsters", "id_spells");
 	loadMatching(m_matching.at(JD_MATCH_ITEMS_EFFECTS), DATABASE_JSON_NAME_ITEMS_EFFECTS, "id_items", "id_effects");
+
+	loadMatching(m_matchingLevelSpells, DATABASE_JSON_NAME_TEAMMATE_SPELLS, "id_team_mate", "id_spell", "level_able");
 }
 
 
@@ -236,6 +238,23 @@ Item DatabaseJson::getFullItem(int id)
 }
 
 
+// Return the team mate with the spells
+TeamMate DatabaseJson::getFullTeamMate(int id)
+{
+	TeamMate tm(getTeamMate(id));
+
+	for (unsigned int i(0); i < m_matchingLevelSpells.at(id).size(); i++)
+	{
+		std::pair<int, Spell> p;
+		p.first = m_matchingLevelSpells.at(id).at(i).second;
+		p.second = getFullSpell(m_matchingLevelSpells.at(id).at(i).first);
+		tm.getRealBasicSpells().push_back(p);
+	}
+
+	return tm;
+}
+
+
 int DatabaseJson::loadDatabase(int i, const std::string &filename)
 {
 	if (i < 0 || i >= DatabaseJson::e_JsonDatabase::JD_TOTAL)
@@ -271,6 +290,33 @@ int DatabaseJson::loadMatching(std::vector< std::vector<int> > &v, const std::st
 			v.resize(val.get(key1, 0).asInt() + 1);
 			
 		v.at(val.get(key1, 0).asInt()).push_back(val.get(key2, 0).asInt());
+	}
+
+	return 0;
+}
+
+
+int DatabaseJson::loadMatching(std::vector< std::vector< std::pair<int, int> > > &v, const std::string &filename, const std::string &key1, const std::string &key2, const std::string &key3)
+{
+	Json::Value root;
+	Json::Reader reader;
+	std::ifstream file(filename);
+	if (!file.is_open())
+		THROW_RESSOURCE("JDB", filename);
+
+	if (!reader.parse(file, root, false))
+		THROW_INIT("Couldn't parse JDB");
+
+	for (Json::ValueConstIterator it = root.begin(); it != root.end(); ++it)
+	{
+		const Json::Value& val = *it;
+
+		if ((unsigned)val.get(key1, 0).asInt() > v.size())
+			v.resize(val.get(key1, 0).asInt() + 1);
+
+		std::pair<int, int> m = std::make_pair(val.get(key2, 0).asInt(), val.get(key3, 0).asInt());
+
+		v.at(val.get(key1, 0).asInt()).push_back(m);
 	}
 
 	return 0;
