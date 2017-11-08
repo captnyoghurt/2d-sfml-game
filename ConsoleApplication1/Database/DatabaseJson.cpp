@@ -222,6 +222,9 @@ Fighter DatabaseJson::getFullFighter(int id)
 {
 	Fighter f(getFighter(id));
 
+	if ((unsigned)id >= m_matching.at(JD_MATCH_MONSTERS_SPELLS).size())
+		return f;
+
 	for (unsigned int i(0); i < m_matching.at(JD_MATCH_MONSTERS_SPELLS).at(id).size(); i++)
 		f.getRealSpells().push_back(getFullSpell(m_matching.at(JD_MATCH_MONSTERS_SPELLS).at(id).at(i)));
 
