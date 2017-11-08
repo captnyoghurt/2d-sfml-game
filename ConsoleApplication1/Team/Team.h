@@ -90,6 +90,8 @@ public:
 	//int moveWithCamera(const short &dx, const short &dy, Camera &c, e_teamDirection direction = UNKNOWN);
 	// Update the movement
 	int update(Camera &c, ManageHitbox &hm);
+	// Load the TeamBattle
+	int loadTeamBattle(Game &g);
 
 private:
 	std::vector<Character> m_team;

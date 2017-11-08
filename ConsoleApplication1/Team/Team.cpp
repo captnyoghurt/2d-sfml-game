@@ -23,26 +23,6 @@ Team::Team(Game &g)
 	m_mode = Team::e_teamMode::WALK;
 	m_direction = Team::e_teamDirection::DOWN;
 
-	// Load battle team
-	TeamMate tm;
-	tm.setHealth(Health(80));
-	tm.getRealHealth().setPoints(40);
-	tm.setMana(Mana(20));
-	tm.getRealMana().setPoints(19);
-	tm.setSkillPoints(SkillPoints(100));
-	tm.getRealSkillPoints().setPoints(0);
-	tm.setCharacteristic(Characteristic(10, 10000), Characteristic::e_characteristics::ATTACK_PHYSIC);
-	tm.setName("Player");
-	m_teamBattle.addMember(tm);
-	tm.setHealth(Health(20));
-	tm.setMana(Mana(44));
-	tm.setSkillPoints(SkillPoints(100));
-	tm.setName("Team mate");
-	tm.setCharacteristic(Characteristic(2, 10000), Characteristic::e_characteristics::ATTACK_PHYSIC);
-	m_teamBattle.addMember(tm);
-
-	m_teamBattle.load(&g);
-
 	// Load the hitbox
 	m_hitbox = std::make_shared<Hitbox>(g.getRealMap().getRealHitboxManager().addHitbox(Hitbox(
 		-1,
@@ -509,4 +489,16 @@ int Team::update(Camera &c, ManageHitbox &hm)
 	m_clock.restart();
 
 	return 1;
+}
+
+
+// Load the TeamBattle
+int Team::loadTeamBattle(Game &g)
+{
+	m_teamBattle.addMember(g.getRealDatabaseJson().getFullTeamMate(1));
+	m_teamBattle.addMember(g.getRealDatabaseJson().getFullTeamMate(2));
+
+	m_teamBattle.load(&g);
+
+	return 0;
 }

@@ -15,6 +15,7 @@ Game::Game(VideoMode mode, const String &title, Uint32 style, const ContextSetti
 	m_battle(m_team.getRealTeamBattle())
 {
 	loadRessources();
+	m_team.loadTeamBattle(*this);
 }
 
 
