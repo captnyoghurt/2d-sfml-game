@@ -20,6 +20,8 @@ TeamMate::TeamMate(const TeamMate &tm) :
 	m_courbs(tm.getCourbs()),
 	m_basicSpells(tm.getBasicSpells()),
 	m_expCourb(tm.getExpCourb()),
+	m_healthCourb(tm.getHealthCourb()),
+	m_manaCourb(tm.getManaCourb()),
 	m_experience(0),
 	m_level(0)
 {
