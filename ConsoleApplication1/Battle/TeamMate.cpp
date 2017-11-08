@@ -94,7 +94,7 @@ std::vector<CharCourb>& TeamMate::getRealCourb()
 
 
 // Return the basic spells with modifying possibilities
-std::vector<std::pair<int, Spell> > TeamMate::getRealBasicSpells()
+std::vector<std::pair<int, Spell> >& TeamMate::getRealBasicSpells()
 {
 	return m_basicSpells;
 }

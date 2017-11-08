@@ -30,7 +30,7 @@ public:
 	// Return the courbs with modifying possibilities
 	std::vector<CharCourb>& getRealCourb();
 	// Return the basic spells with modifying possibilities
-	std::vector<std::pair<int, Spell> > getRealBasicSpells();
+	std::vector<std::pair<int, Spell> >& getRealBasicSpells();
 
 	// Modify the experience courb
 	int setExpCourb(const CharCourb &exp);
