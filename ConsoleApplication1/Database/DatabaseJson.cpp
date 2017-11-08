@@ -237,6 +237,9 @@ Item DatabaseJson::getFullItem(int id)
 {
 	Item item(getItem(id));
 
+	if ((unsigned)id >= m_matching.at(JD_MATCH_ITEMS_EFFECTS).size())
+		return item;
+
 	for (unsigned int i(0); i < m_matching.at(JD_MATCH_ITEMS_EFFECTS).at(id).size(); i++)
 		item.getRealEffects().push_back(getBattleEffects(m_matching.at(JD_MATCH_ITEMS_EFFECTS).at(id).at(i)));
 
