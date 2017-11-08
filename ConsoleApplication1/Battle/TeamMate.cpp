@@ -72,6 +72,20 @@ CharCourb TeamMate::getExpCourb() const
 }
 
 
+// Return the health courb
+CharCourb TeamMate::getHealthCourb() const
+{
+	return m_healthCourb;
+}
+
+
+// Return the mana courb
+CharCourb TeamMate::getManaCourb() const
+{
+	return m_manaCourb;
+}
+
+
 // Return the current experience
 int TeamMate::getExperience() const
 {
@@ -104,6 +118,24 @@ std::vector<std::pair<int, Spell> >& TeamMate::getRealBasicSpells()
 int TeamMate::setExpCourb(const CharCourb &exp)
 {
 	m_expCourb = exp;
+
+	return 0;
+}
+
+
+// Modify the health courb
+int TeamMate::setHealthCourb(const CharCourb &h)
+{
+	m_healthCourb = h;
+
+	return 0;
+}
+
+
+// Modify the mana courb
+int TeamMate::setManaCourb(const CharCourb &m)
+{
+	m_manaCourb = m;
 
 	return 0;
 }

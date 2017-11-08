@@ -184,6 +184,8 @@ TeamMate DatabaseJson::getTeamMate(int id)
 
 	tm.setName(m_roots.at(JD_TEAMMATE)[id].get("name", "No name").asString());
 	tm.setExpCourb(getCourb(m_roots.at(JD_TEAMMATE)[id].get("exp_courb_id", 0).asInt()));
+	tm.setHealthCourb(getCourb(m_roots.at(JD_TEAMMATE)[id].get("health_courb_id", 0).asInt()));
+	tm.setManaCourb(getCourb(m_roots.at(JD_TEAMMATE)[id].get("mana_courb_id", 0).asInt()));
 	tm.getRealCourb().at(Characteristic::e_characteristics::STRENGH) = getCourb(m_roots.at(JD_TEAMMATE)[id].get("strengh_courb_id", 0).asInt());
 	tm.getRealCourb().at(Characteristic::e_characteristics::INTELLIGENCE) = getCourb(m_roots.at(JD_TEAMMATE)[id].get("intelligence_courb_id", 0).asInt());
 	tm.getRealCourb().at(Characteristic::e_characteristics::VITALITY) = getCourb(m_roots.at(JD_TEAMMATE)[id].get("vitality_courb_id", 0).asInt());
