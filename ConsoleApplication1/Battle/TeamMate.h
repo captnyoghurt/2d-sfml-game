@@ -2,6 +2,7 @@
 
 #include "Fighter.h"
 #include "CharCourb.h"
+#include "Spell.h"
 
 class TeamMate : public Fighter
 {
@@ -17,6 +18,8 @@ public:
 public:
 	// Return the courbs
 	std::vector<CharCourb> getCourbs() const;
+	// Return the basic spells
+	std::vector<std::pair<int, Spell> > getBasicSpells() const;
 	// Return the experience courb
 	CharCourb getExpCourb() const;
 	// Return the current experience
@@ -26,6 +29,8 @@ public:
 
 	// Return the courbs with modifying possibilities
 	std::vector<CharCourb>& getRealCourb();
+	// Return the basic spells with modifying possibilities
+	std::vector<std::pair<int, Spell> > getRealBasicSpells();
 
 	// Modify the experience courb
 	int setExpCourb(const CharCourb &exp);
@@ -44,6 +49,7 @@ public:
 
 private:
 	std::vector<CharCourb> m_courbs;
+	std::vector<std::pair<int, Spell> > m_basicSpells;
 	CharCourb m_expCourb;
 	int m_experience;
 	int m_level;

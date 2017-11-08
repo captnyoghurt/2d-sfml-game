@@ -18,6 +18,7 @@ TeamMate::TeamMate() :
 TeamMate::TeamMate(const TeamMate &tm) :
 	Fighter(tm),
 	m_courbs(tm.getCourbs()),
+	m_basicSpells(tm.getBasicSpells()),
 	m_expCourb(tm.getExpCourb()),
 	m_experience(0),
 	m_level(0)
@@ -57,6 +58,13 @@ std::vector<CharCourb> TeamMate::getCourbs() const
 }
 
 
+// Return the basic spells
+std::vector<std::pair<int, Spell> > TeamMate::getBasicSpells() const
+{
+	return m_basicSpells;
+}
+
+
 // Return the experience courb
 CharCourb TeamMate::getExpCourb() const
 {
@@ -82,6 +90,13 @@ int TeamMate::getLevel() const
 std::vector<CharCourb>& TeamMate::getRealCourb()
 {
 	return m_courbs;
+}
+
+
+// Return the basic spells with modifying possibilities
+std::vector<std::pair<int, Spell> > TeamMate::getRealBasicSpells()
+{
+	return m_basicSpells;
 }
 
 
