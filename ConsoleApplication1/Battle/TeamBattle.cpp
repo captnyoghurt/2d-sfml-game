@@ -86,6 +86,9 @@ int TeamBattle::load(Game *g)
 		(int)std::dynamic_pointer_cast<SurfaceSprite>(m_team.at(1)->getRealSurface()->second)->getGlobalBounds().height
 	);
 
+	for (unsigned int i(0); i < m_team.size(); i++)
+		m_team.at(i)->reload(true);
+
 	return 0;
 }
 
