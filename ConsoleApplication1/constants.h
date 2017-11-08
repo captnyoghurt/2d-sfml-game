@@ -253,6 +253,7 @@ extern std::string DATABASE_JSON_NAME_ITEMS;
 extern std::string DATABASE_JSON_NAME_ITEMS_EFFECTS;
 extern std::string DATABASE_JSON_NAME_CHARCOURB;
 extern std::string DATABASE_JSON_NAME_TEAMMATE;
+extern std::string DATABASE_JSON_NAME_TEAMMATE_SPELLS;
 
 
 // Character

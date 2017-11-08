@@ -246,6 +246,7 @@ std::string DATABASE_JSON_NAME_ITEMS("data/jdb/items.json");
 std::string DATABASE_JSON_NAME_ITEMS_EFFECTS("data/jdb/items-effects.json");
 std::string DATABASE_JSON_NAME_CHARCOURB("data/jdb/courb.json");
 std::string DATABASE_JSON_NAME_TEAMMATE("data/jdb/team_mate.json");
+std::string DATABASE_JSON_NAME_TEAMMATE_SPELLS("data/jdb/team_mate-spell.json");
 
 
 // Character
