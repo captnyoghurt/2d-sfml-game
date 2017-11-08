@@ -7,4 +7,4 @@
 
 // test.team_mate-spell
 
-[{"id":0},{"id_team_mate":1,"id_spell":1,"level_able":1}]
+[{"id_team_mate":1,"id_spell":1,"level_able":1}]
