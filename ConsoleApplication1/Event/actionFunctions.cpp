@@ -199,16 +199,29 @@ int af_menuSpellsOpen(Game &g)
 {
 	g.getRealMap().gotUpdated();
 	af_teamStop(g);
+	std::vector<Spell> sp(g.getRealBattle().getSelectedTeamMate().getAllAvailableSpells());
+
+	if (sp.empty())
+	{
+		std::dynamic_pointer_cast<MenuDialogBox>(g.getRealBattle().getRealBattleMenu().getRealMenus().at(MenuBattle::BM_DIALOG))->addText("Aucun sort disponible");
+		std::dynamic_pointer_cast<MenuDialogBox>(g.getRealBattle().getRealBattleMenu().getRealMenus().at(MenuBattle::BM_DIALOG))->continueText(
+			g.getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_MENU),
+			g.getRealSurfaceManager(BATTLE_MIN_LAYER)
+		);
+
+		return -1;
+	}
+
 	g.getRealMenus().push_back(std::make_shared<MenuSpells>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER), g.getEventManager().getKeyEventLayer()));
 	g.getRealEventManager().setKeyEventLayer(3);
 
 	/////
-	std::vector<Spell> sp(3);
+	/*std::vector<Spell> sp(3);
 	sp.at(0) = g.getRealDatabaseJson().getSpell(1);
 	sp.at(1) = g.getRealDatabaseJson().getSpell(2);
-	sp.at(2) = g.getRealDatabaseJson().getSpell(1);
+	sp.at(2) = g.getRealDatabaseJson().getSpell(1);*/
 	/////
-
+	
 	return std::dynamic_pointer_cast<MenuSpells>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getMap().getCamera().getX(), g.getMap().getCamera().getY(), sp);
 }
 
