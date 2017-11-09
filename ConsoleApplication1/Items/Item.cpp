@@ -35,6 +35,7 @@ Item::Item(const Item &item)
 	m_priceBuy = item.getPriceBuy();
 	m_priceSell = item.getPriceSell();
 	m_type = item.getType();
+	m_iconId = item.getIconId();
 	m_effects = item.getEffects();
 }
 
@@ -52,6 +53,7 @@ Item& Item::operator=(const Item &item)
 	m_priceBuy = item.getPriceBuy();
 	m_priceSell = item.getPriceSell();
 	m_type = item.getType();
+	m_iconId = item.getIconId();
 	m_effects = item.getEffects();
 
 	return *this;
