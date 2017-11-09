@@ -7,7 +7,7 @@ Spell::Spell()
 {
 }
 
-Spell::Spell(int id, std::string name, int damage, int allyDestination, int enemiDestination, int costHP, int costMP, int costTP, int chanceSleep, int chancePoison, int chanceParalysis, int chanceMute, int iconId, const std::string &desc) :
+Spell::Spell(int id, const std::string name, int damage, int allyDestination, int enemiDestination, int costHP, int costMP, int costTP, int chanceSleep, int chancePoison, int chanceParalysis, int chanceMute, int iconId, const std::string &desc) :
 	m_id(id),
 	m_name(name),
 	m_damage(damage),
