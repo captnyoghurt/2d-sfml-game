@@ -13,6 +13,13 @@ int WINDOW_FRAMERATES = 60;
 
 // Graphic constants
 
+/// Icons
+std::string ICONS_SURFACE_NAME("data/graphic/icons/001.png");
+int ICONS_SURFACE_BY_LINE = 14;
+int ICONS_SURFACE_BY_COLUMN = 30;
+int ICON_WIDTH = 34;
+int ICON_HEIGHT = 34;
+
 /// Map
 std::string MAP_FONT_TEXT("monofonto.ttf");
 int MAP_MAX_LAYER = 6;
@@ -74,7 +81,7 @@ int TEAM_BATTLE_MAX_NUMBER = 5;
 
 /// Font
 std::string MENU_FONT_NAME("monofonto.ttf");
-sf::Color MENU_FONT_COLOR(0, 0, 0);
+sf::Color MENU_FONT_COLOR(255, 255, 255);
 sf::Color MENU_FONT_COLOR_DISABLED_CHOICE(64, 64, 64);
 
 /// Surface

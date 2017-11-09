@@ -7,6 +7,7 @@
 
 
 Game::Game(VideoMode mode, const String &title, Uint32 style, const ContextSettings &settings) :
+	m_jdb(),
 	m_window(mode, title, style, settings),
 	m_surfaceManager(BATTLE_MAX_LAYER + 1),
 	m_ressourceManager(Game::e_ressourcesLayer::RESSOURCES_TOTAL),
@@ -323,6 +324,9 @@ int Game::loadRessources()
 
 		if (!(it = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addTexture()))->loadFromFile(MENU_BATTLE_SURFACE_BAR))
 			THROW_RESSOURCE("Menu battle bar not loaded", MENU_BATTLE_SURFACE_BAR);
+
+		if (!(it = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_MENU).addTexture()))->loadFromFile(ICONS_SURFACE_NAME))
+			THROW_RESSOURCE("Icons not loaded", ICONS_SURFACE_NAME);
 
 		if (!(it3 = (m_ressourceManager.at(Game::e_ressourcesLayer::RESSOURCES_BATTLE).addSoundBuffer()))->loadFromFile("data/audio/se/001-Attack01.ogg"))
 			THROW_RESSOURCE("Battle attack sound", "data/audio/se/001-Attack01.ogg");

@@ -20,6 +20,13 @@ extern int WINDOW_FRAMERATES;
 
 // Graphic constants
 
+/// Icons
+extern std::string ICONS_SURFACE_NAME;
+extern int ICONS_SURFACE_BY_LINE;
+extern int ICONS_SURFACE_BY_COLUMN;
+extern int ICON_WIDTH;
+extern int ICON_HEIGHT;
+
 /// Map
 extern std::string MAP_FONT_TEXT;
 extern int MAP_MAX_LAYER;

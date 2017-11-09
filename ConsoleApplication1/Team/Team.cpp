@@ -31,6 +31,11 @@ Team::Team(Game &g)
 		TEAM_WALK_HITBOX_WIDTH,
 		TEAM_WALK_HITBOX_HEIGHT
 	)));
+
+	///// Load inventory
+	m_inventory.getRealItems().push_back(std::make_pair(g.getRealDatabaseJson().getFullItem(1), 2));
+	m_inventory.getRealItems().push_back(std::make_pair(g.getRealDatabaseJson().getFullItem(2), 5));
+	m_inventory.getRealItems().push_back(std::make_pair(g.getRealDatabaseJson().getFullItem(1), 8));
 	
 	// Load the textures
 	auto texture = g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MAP).addTexture();
@@ -172,6 +177,13 @@ Hitbox Team::getHitbox() const
 }
 
 
+// Return the inventory
+Inventory Team::getInventory() const
+{
+	return m_inventory;
+}
+
+
 // Return the walk stand surface with modifying possibilities
 std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& Team::getRealWalkStand()
 {
@@ -183,6 +195,13 @@ std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterato
 Hitbox& Team::getRealHitbox()
 {
 	return *m_hitbox;
+}
+
+
+// Return the inventory with modifying possibilities
+Inventory& Team::getRealInventory()
+{
+	return m_inventory;
 }
 
 

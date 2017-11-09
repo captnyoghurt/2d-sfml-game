@@ -44,6 +44,12 @@ int af_menuSpellsClose(Game &g);
 int af_menuSpellUp(Game &g);
 int af_menuSpellDown(Game &g);
 
+// Inventory
+int af_menuInventoryOpen(Game &g);
+int af_menuInventoryClose(Game &g);
+int af_menuInventoryUp(Game &g);
+int af_menuInventoryDown(Game &g);
+
 // Battle
 /// General
 int af_battleStart(Game &g);

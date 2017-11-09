@@ -13,22 +13,22 @@ public:
 
 public:
 	// Return the items
-	std::list<Item> getItems() const;
+	std::list< std::pair<Item, int> > getItems() const;
 	// Return the orbs
-	std::list<ItemOrb> getOrbs() const;
+	std::list< std::pair<ItemOrb, int> > getOrbs() const;
 	// Return the POE
-	std::list<PieceOfEquipement> getPieceOfEquipement() const;
+	std::list< std::pair<PieceOfEquipement, int> > getPieceOfEquipement() const;
 
 	// Return the items with the modifying possibilities
-	std::list<Item>& getRealItems();
+	std::list< std::pair<Item, int> >& getRealItems();
 	// Return the orbs with the modifying possibilities
-	std::list<ItemOrb>& getRealOrbs();
+	std::list< std::pair<ItemOrb, int> >& getRealOrbs();
 	// Return the POE with the modifying possibilities
-	std::list<PieceOfEquipement>& getRealPieceOfEquipement();
+	std::list< std::pair<PieceOfEquipement, int> >& getRealPieceOfEquipement();
 
 private:
-	std::list<Item> m_items;
-	std::list<ItemOrb> m_orbs;
-	std::list<PieceOfEquipement> m_pieceOfEquipement;
+	std::list< std::pair<Item, int> > m_items;
+	std::list< std::pair<ItemOrb, int> > m_orbs;
+	std::list< std::pair<PieceOfEquipement, int> > m_pieceOfEquipement;
 };
 

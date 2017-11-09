@@ -94,6 +94,7 @@ Spell DatabaseJson::getSpell(int id)
 		m_roots.at(JD_SPELLS)[id].get("chance_poison", 0).asInt(),
 		m_roots.at(JD_SPELLS)[id].get("chance_paralysis", 0).asInt(),
 		m_roots.at(JD_SPELLS)[id].get("chance_mute", 0).asInt(),
+		m_roots.at(JD_SPELLS)[id].get("icon_id", 0).asInt(),
 		m_roots.at(JD_SPELLS)[id].get("description", 0).asString()
 	);
 
@@ -146,6 +147,7 @@ Item DatabaseJson::getItem(int id)
 	item.setDescription(m_roots.at(JD_ITEMS)[id].get("description", "Unknown").asString());
 	item.setPriceBuy(m_roots.at(JD_ITEMS)[id].get("price_buy", 0).asInt());
 	item.setPriceSell(m_roots.at(JD_ITEMS)[id].get("price_sell", 0).asInt());
+	item.setIconId(m_roots.at(JD_ITEMS)[id].get("icon_id", 0).asInt());
 	item.setType(Item::e_ItemType(m_roots.at(JD_ITEMS)[id].get("type", 0).asInt()));
 
 	return item;

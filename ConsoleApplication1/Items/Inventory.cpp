@@ -13,42 +13,42 @@ Inventory::~Inventory()
 
 
 // Return the items
-std::list<Item> Inventory::getItems() const
+std::list< std::pair<Item, int> > Inventory::getItems() const
 {
 	return m_items;
 }
 
 
 // Return the orbs
-std::list<ItemOrb> Inventory::getOrbs() const
+std::list< std::pair<ItemOrb, int> > Inventory::getOrbs() const
 {
 	return m_orbs;
 }
 
 
 // Return the POE
-std::list<PieceOfEquipement> Inventory::getPieceOfEquipement() const
+std::list< std::pair<PieceOfEquipement, int> > Inventory::getPieceOfEquipement() const
 {
 	return m_pieceOfEquipement;
 }
 
 
 // Return the items with the modifying possibilities
-std::list<Item>& Inventory::getRealItems()
+std::list< std::pair<Item, int> >& Inventory::getRealItems()
 {
 	return m_items;
 }
 
 
 // Return the orbs with the modifying possibilities
-std::list<ItemOrb>& Inventory::getRealOrbs()
+std::list< std::pair<ItemOrb, int> >& Inventory::getRealOrbs()
 {
 	return m_orbs;
 }
 
 
 // Return the POE with the modifying possibilities
-std::list<PieceOfEquipement>& Inventory::getRealPieceOfEquipement()
+std::list< std::pair<PieceOfEquipement, int> >& Inventory::getRealPieceOfEquipement()
 {
 	return m_pieceOfEquipement;
 }

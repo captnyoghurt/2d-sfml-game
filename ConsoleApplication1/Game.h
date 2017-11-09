@@ -87,6 +87,7 @@ protected:
 	int loadRessources();
 
 private:
+	DatabaseJson m_jdb;
 	std::vector<ManageSurfaces> m_surfaceManager;
 	std::vector<ManageRessources> m_ressourceManager;
 	RenderWindow m_window;
@@ -97,5 +98,4 @@ private:
 	Team m_team;
 	std::list< std::shared_ptr<Menu> > m_menus;
 	Battle m_battle;
-	DatabaseJson m_jdb;
 };

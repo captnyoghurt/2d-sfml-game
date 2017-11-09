@@ -7,7 +7,7 @@ Spell::Spell()
 {
 }
 
-Spell::Spell(int id, const std::string &name, int damage, int allyDestination, int enemiDestination, int costHP, int costMP, int costTP, int chanceSleep, int chancePoison, int chanceParalysis, int chanceMute, const std::string &desc) :
+Spell::Spell(int id, std::string name, int damage, int allyDestination, int enemiDestination, int costHP, int costMP, int costTP, int chanceSleep, int chancePoison, int chanceParalysis, int chanceMute, int iconId, const std::string &desc) :
 	m_id(id),
 	m_name(name),
 	m_damage(damage),
@@ -20,6 +20,7 @@ Spell::Spell(int id, const std::string &name, int damage, int allyDestination, i
 	m_chancePoison(chancePoison),
 	m_chanceParalysis(chanceParalysis),
 	m_chanceMute(chanceMute),
+	m_iconId(iconId),
 	m_description(desc)
 {
 
@@ -152,6 +153,13 @@ int Spell::getChanceParalysis() const
 int Spell::getChanceMute() const
 {
 	return m_chanceMute;
+}
+
+
+// Return the icon id
+int Spell::getIconId() const
+{
+	return m_iconId;
 }
 
 
@@ -312,6 +320,18 @@ int Spell::setChanceMute(const int &chance)
 int Spell::setDescription(const std::string &des)
 {
 	m_description = des;
+
+	return 0;
+}
+
+
+// Modify the id icon
+int Spell::setIconId(const int &id)
+{
+	if (id < 0)
+		THROW_VALUE("Wrong icon id on spell : " + std::to_string(id));
+
+	m_iconId = id;
 
 	return 0;
 }
