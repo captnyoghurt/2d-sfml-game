@@ -42,6 +42,7 @@ Spell::Spell(const Spell &sp)
 	m_chanceParalysis = sp.getChanceParalysis();
 	m_chanceMute = sp.getChanceMute();
 	m_description = sp.getDescription();
+	m_iconId = sp.getIconId();
 	m_effects = sp.getEffects();
 }
 
@@ -66,6 +67,7 @@ Spell& Spell::operator=(const Spell &sp)
 	m_chanceParalysis = sp.getChanceParalysis();
 	m_chanceMute = sp.getChanceMute();
 	m_description = sp.getDescription();
+	m_iconId = sp.getIconId();
 	m_effects = sp.getEffects();
 
 	return *this;
