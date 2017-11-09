@@ -131,7 +131,7 @@ int MenuInventory::close(ManageSurfaces &surf)
 	m_dialogBox.close(surf);
 	m_choices.close(surf);
 
-	return 0;
+	return m_lastEventLayer;
 }
 
 
