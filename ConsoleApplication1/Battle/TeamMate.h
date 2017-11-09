@@ -20,6 +20,8 @@ public:
 	std::vector<CharCourb> getCourbs() const;
 	// Return the basic spells
 	std::vector<std::pair<int, Spell> > getBasicSpells() const;
+	// Return all the spells
+	std::vector<Spell> getAllAvailableSpells() const;
 	// Return the experience courb
 	CharCourb getExpCourb() const;
 	// Return the health courb

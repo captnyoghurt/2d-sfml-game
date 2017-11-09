@@ -68,6 +68,22 @@ std::vector<std::pair<int, Spell> > TeamMate::getBasicSpells() const
 }
 
 
+// Return all the spells
+std::vector<Spell> TeamMate::getAllAvailableSpells() const
+{
+	std::vector<Spell> sp(this->getSpells());
+
+	for (std::pair<int, Spell> basicSpell : m_basicSpells)
+	{
+		if (m_level < basicSpell.first)
+			return sp;
+		sp.push_back(basicSpell.second);
+	}
+
+	return sp;
+}
+
+
 // Return the experience courb
 CharCourb TeamMate::getExpCourb() const
 {
