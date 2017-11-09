@@ -191,6 +191,9 @@ int MenuBattle::af_MenuBattleEnter(Game &g)
 	else
 	{
 		ret = std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->getChoices().at(std::dynamic_pointer_cast<MenuChoice>(m_menus.at(m_activeMenu))->getSelectedChoice())->getAction().getAction()(g);
+		if (ret == -1)
+			m_isBlocking = true;
+		
 		// <debuging>
 		/*m_menus.at(MenuBattle::BM_CHOICE)->setShown(false);
 		m_isBlocking = true;
