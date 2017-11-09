@@ -32,6 +32,8 @@ public:
 	Enemies getEnemies() const;
 	// Return the allie team
 	TeamBattle getAllies() const;
+	// Return the selected TeamMate
+	TeamMate getSelectedTeamMate() const;
 	// Return the last key event layer
 	int getLastKeyEventLayer() const;
 	// Return the number of battle event created

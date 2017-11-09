@@ -79,6 +79,20 @@ TeamBattle Battle::getAllies() const
 }
 
 
+// Return the selected TeamMate
+TeamMate Battle::getSelectedTeamMate() const
+{
+	if (!m_started)
+		THROW_GAME("Select TeamMate without a started game");
+	if ((unsigned)m_battleEventCreated > m_battleOrder.size())
+		THROW_GAME("Impossible m_battleEventCreated");
+	if (!m_battleOrder.at(m_battleEventCreated-1)->isTeamMate())
+		THROW_VALUE("No selected team mate, but selected fighter" + std::to_string(m_battleEventCreated-1));
+
+	return *std::dynamic_pointer_cast<TeamMate>(m_battleOrder.at(m_battleEventCreated-1));
+}
+
+
 // Return the last key event layer
 int Battle::getLastKeyEventLayer() const
 {
@@ -179,7 +193,7 @@ int Battle::startTurn(Game *g)
 	m_battleEventManager.setWaiting(false);
 	m_battleEventManager.setExecuteStarted(false);
 
-	//definedOrder(g);
+	definedOrder(g);
 
 	return 0;
 }
@@ -378,6 +392,8 @@ int Battle::chooseBattleEvent(Game *g)
 
 	if (m_battleOrder.at(m_battleEventCreated)->isTeamMate())
 	{
+		//m_selectedTeamMate = *std::dynamic_pointer_cast<TeamMate>(m_battleOrder.at(m_battleEventCreated));
+
 		m_battleMenu->setIsBlocking(true);
 
 		std::string str("Que dois faire ");
