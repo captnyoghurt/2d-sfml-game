@@ -199,7 +199,18 @@ int af_menuSpellsOpen(Game &g)
 {
 	g.getRealMap().gotUpdated();
 	af_teamStop(g);
-	std::vector<Spell> sp(g.getRealBattle().getSelectedTeamMate().getAllAvailableSpells());
+	std::vector<Spell> sp;
+	
+	if (g.getRealBattle().getStarted())
+		sp = g.getRealBattle().getSelectedTeamMate().getAllAvailableSpells();
+	else
+	{
+		///return -1;
+		sp.push_back(g.getRealDatabaseJson().getSpell(1));
+		sp.push_back(g.getRealDatabaseJson().getSpell(2));
+		sp.push_back(g.getRealDatabaseJson().getSpell(1));
+		///
+	}
 
 	if (sp.empty())
 	{
