@@ -202,7 +202,9 @@ int af_menuSpellsOpen(Game &g)
 	std::vector<Spell> sp;
 	
 	if (g.getRealBattle().getStarted())
+	{
 		sp = g.getRealBattle().getSelectedTeamMate().getAllAvailableSpells();
+	}
 	else
 	{
 		///return -1;
@@ -226,6 +228,9 @@ int af_menuSpellsOpen(Game &g)
 	g.getRealMenus().push_back(std::make_shared<MenuSpells>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER), g.getEventManager().getKeyEventLayer()));
 	g.getRealEventManager().setKeyEventLayer(3);
 
+	if (g.getRealBattle().getStarted())
+		g.getRealBattle().setShown(false);
+
 	/////
 	/*std::vector<Spell> sp(3);
 	sp.at(0) = g.getRealDatabaseJson().getSpell(1);
@@ -241,6 +246,11 @@ int af_menuSpellsClose(Game &g)
 	g.getRealMap().gotUpdated();
 
 	g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(2));
+
+	if (g.getRealBattle().getStarted())
+	{
+		g.getRealBattle().setShown(true);
+	}
 
 	return g.stopMenu();
 }
@@ -305,6 +315,9 @@ int af_menuInventoryOpen(Game &g)
 
 	bool enabled[] = {false, false, true, true, true, true, false};
 
+	if (g.getRealBattle().getStarted())
+		g.getRealBattle().setShown(false);
+
 	return std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getMap().getCamera().getX(), g.getMap().getCamera().getY(), g.getRealTeam().getRealInventory().getItems(), std::vector<bool>(std::begin(enabled), std::end(enabled)));
 }
 
@@ -313,6 +326,9 @@ int af_menuInventoryClose(Game &g)
 	g.getRealMap().gotUpdated();
 
 	g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(2));
+
+	if (g.getRealBattle().getStarted())
+		g.getRealBattle().setShown(true);
 
 	return g.stopMenu();
 }
