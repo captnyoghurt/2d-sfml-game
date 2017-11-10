@@ -55,6 +55,13 @@ bool Battle::getChoicesFinished() const
 }
 
 
+// Return if the battle is shown
+bool Battle::getShown() const
+{
+	return m_shown;
+}
+
+
 // Return the number of turn since the begining of the battle
 int Battle::getBattleTurn() const
 {
@@ -169,6 +176,21 @@ int Battle::setBattleExit(const Battle::e_BattleExit &be)
 	THROW_VALUE(std::to_string(be));
 
 	return -1;
+}
+
+
+// Modify if the battle is shown
+int Battle::setShown(const bool &b)
+{
+	if (b != m_shown)
+	{
+		m_background->second->setEnable(b);
+
+		for (std::shared_ptr<TeamMate> tm : m_alliesTeam->getRealTeam())
+			tm->getRealSurface()->second->setEnable(b);
+	}
+
+	return 0;
 }
 
 

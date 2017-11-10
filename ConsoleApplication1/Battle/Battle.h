@@ -26,7 +26,9 @@ public:
 	bool getInTurn() const;
 	// Return if the choices for the turn has been made
 	bool getChoicesFinished() const;
-	// Return the number of turn since the begining of the battle
+	// Return if the battle is shown
+	bool getShown() const;
+ 	// Return the number of turn since the begining of the battle
 	int getBattleTurn() const;
 	// Return the enemie team
 	Enemies getEnemies() const;
@@ -56,6 +58,8 @@ public:
 
 	// Modify the battle exit
 	int setBattleExit(const Battle::e_BattleExit &be);
+	// Modify if the battle is shown
+	int setShown(const bool &b);
 
 	// Tell the battle it's updated
 	int gotUpdated();
@@ -83,6 +87,7 @@ private:
 	bool m_started;
 	bool m_inTurn;
 	bool m_choicesFinished;
+	bool m_shown;
 	int m_battleTurn;
 	int m_lastKeyEventLayer;
 	int m_battleEventCreated;
