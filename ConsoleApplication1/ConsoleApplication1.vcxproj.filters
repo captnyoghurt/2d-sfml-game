@@ -88,6 +88,12 @@
     <Filter Include="Fichiers d%27en-tête\Battle\B_Event">
       <UniqueIdentifier>{ef19719a-c30d-486f-adb4-2198da398050}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Battle\Fighters">
+      <UniqueIdentifier>{3c59c30b-e2e1-40f7-8837-b1cc891eb36e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Battle\Fighters">
+      <UniqueIdentifier>{c42f1207-2630-478c-8e08-4424ce945503}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -171,9 +177,6 @@
     <ClCompile Include="Battle\Characteristic.cpp">
       <Filter>Fichiers sources\Battle</Filter>
     </ClCompile>
-    <ClCompile Include="Battle\Enemies.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
     <ClCompile Include="Battle\Health.cpp">
       <Filter>Fichiers sources\Battle</Filter>
     </ClCompile>
@@ -192,15 +195,6 @@
     <ClCompile Include="Battle\BattleEventManager.cpp">
       <Filter>Fichiers sources\Battle</Filter>
     </ClCompile>
-    <ClCompile Include="Battle\Fighter.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\EnemiBoss.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\EnemiBasic.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
     <ClCompile Include="Menu\MenuBattle.cpp">
       <Filter>Fichiers sources\Menu</Filter>
     </ClCompile>
@@ -209,12 +203,6 @@
     </ClCompile>
     <ClCompile Include="Map\ManageRenderTexture.cpp">
       <Filter>Fichiers sources\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\TeamMate.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\TeamBattle.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
     </ClCompile>
     <ClCompile Include="Error\GameException.cpp">
       <Filter>Fichiers sources\Error</Filter>
@@ -290,6 +278,24 @@
     </ClCompile>
     <ClCompile Include="Battle\B_Event\B_EventSpell.cpp">
       <Filter>Fichiers sources\Battle\B_Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\Fighters\EnemiBasic.cpp">
+      <Filter>Fichiers sources\Battle\Fighters</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\Fighters\EnemiBoss.cpp">
+      <Filter>Fichiers sources\Battle\Fighters</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\Fighters\Enemies.cpp">
+      <Filter>Fichiers sources\Battle\Fighters</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\Fighters\Fighter.cpp">
+      <Filter>Fichiers sources\Battle\Fighters</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\Fighters\TeamBattle.cpp">
+      <Filter>Fichiers sources\Battle\Fighters</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\Fighters\TeamMate.cpp">
+      <Filter>Fichiers sources\Battle\Fighters</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -371,9 +377,6 @@
     <ClInclude Include="Battle\Characteristic.h">
       <Filter>Fichiers d%27en-tête\Battle</Filter>
     </ClInclude>
-    <ClInclude Include="Battle\Enemies.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
     <ClInclude Include="Battle\Health.h">
       <Filter>Fichiers d%27en-tête\Battle</Filter>
     </ClInclude>
@@ -392,15 +395,6 @@
     <ClInclude Include="Battle\BattleEventManager.h">
       <Filter>Fichiers d%27en-tête\Battle</Filter>
     </ClInclude>
-    <ClInclude Include="Battle\Fighter.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\EnemiBoss.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\EnemiBasic.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
     <ClInclude Include="Menu\MenuBattle.h">
       <Filter>Fichiers d%27en-tête\Menu</Filter>
     </ClInclude>
@@ -409,12 +403,6 @@
     </ClInclude>
     <ClInclude Include="Map\ManageRenderTexture.h">
       <Filter>Fichiers d%27en-tête\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\TeamMate.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\TeamBattle.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
     </ClInclude>
     <ClInclude Include="Error\GameException.h">
       <Filter>Fichiers d%27en-tête\Error</Filter>
@@ -517,6 +505,24 @@
     </ClInclude>
     <ClInclude Include="Battle\B_Event\B_EventSpell.h">
       <Filter>Fichiers d%27en-tête\Battle\B_Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\Fighters\EnemiBasic.h">
+      <Filter>Fichiers d%27en-tête\Battle\Fighters</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\Fighters\EnemiBoss.h">
+      <Filter>Fichiers d%27en-tête\Battle\Fighters</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\Fighters\Enemies.h">
+      <Filter>Fichiers d%27en-tête\Battle\Fighters</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\Fighters\Fighter.h">
+      <Filter>Fichiers d%27en-tête\Battle\Fighters</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\Fighters\TeamBattle.h">
+      <Filter>Fichiers d%27en-tête\Battle\Fighters</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\Fighters\TeamMate.h">
+      <Filter>Fichiers d%27en-tête\Battle\Fighters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

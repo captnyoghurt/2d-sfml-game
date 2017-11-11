@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Enemies.h"
-#include "Fighter.h"
-#include "TeamBattle.h"
+#include "Fighters/Enemies.h"
+#include "Fighters/Fighter.h"
+#include "Fighters/TeamBattle.h"
 #include "BattleEventManager.h"
 
 class MenuBattle;

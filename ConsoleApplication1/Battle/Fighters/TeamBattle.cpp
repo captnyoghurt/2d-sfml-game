@@ -1,8 +1,8 @@
 #include "TeamBattle.h"
-#include "../Game.h"
-#include "../constants.h"
-#include "../Error/RessourceException.h"
-#include "../Error/ValueException.h"
+#include "../../Game.h"
+#include "../../constants.h"
+#include "../../Error/RessourceException.h"
+#include "../../Error/ValueException.h"
 
 
 TeamBattle::TeamBattle()

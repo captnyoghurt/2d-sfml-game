@@ -6,10 +6,10 @@
 #include "../Error/ValueException.h"
 #include "../Battle/BattleEffects.h"
 #include "../Battle/Spell.h"
-#include "../Battle/Fighter.h"
+#include "../Battle/Fighters/Fighter.h"
 #include "../Items/Item.h"
 #include "../Battle/CharCourb.h"
-#include "../Battle/TeamMate.h"
+#include "../Battle/Fighters/TeamMate.h"
 
 
 

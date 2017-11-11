@@ -4,7 +4,7 @@
 #include <memory>
 #include <string>
 #include <SFML/Audio.hpp>
-#include "../Fighter.h"
+#include "../Fighters/Fighter.h"
 #include "../../Sound/ManageSound.h"
 
 

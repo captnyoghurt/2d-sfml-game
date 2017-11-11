@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Battle.h"
-#include "EnemiBasic.h"
+#include "Fighters/EnemiBasic.h"
 #include "../Map/ManageRessources.h"
 #include "../Map/ManageSurfaces.h"
 #include "../constants.h"
