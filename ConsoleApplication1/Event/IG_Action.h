@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  An action to play after a trigger.
+*
+*/
+
 #pragma once
 
 #include <functional>
@@ -18,10 +32,19 @@ public:
 	~IG_Action();
 
 public:
-	// Return the action (function)
+	/**
+	* \brief Return the action (function)	.
+	*
+	* \return s_action object.
+	*/
 	s_action getAction() const;
 
-	// Modify the action (function)
+	/**
+	* \brief Modify the action (function)	.
+	*
+	* \param act The new value.
+	* \return int object.
+	*/
 	int setAction(s_action act);
 
 private:
