@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  An effect on a characteristic of a fighter.
+*
+*/
+
 #pragma once
 class EffectOnCharacteristic
 {
@@ -6,25 +20,55 @@ public:
 	~EffectOnCharacteristic();
 
 public:
-	// Return the ratio of the bonus
+	/**
+	* \brief Return the ratio of the bonus	.
+	*
+	* \return double object.
+	*/
 	double getRatio() const;
-	// Return the brut bonus
+	/**
+	* \brief Return the brut bonus	.
+	*
+	* \return int object.
+	*/
 	int getBrut() const;
-	// Return the number of turn stayed
+	/**
+	* \brief Return the number of turn stayed	.
+	*
+	* \return int object.
+	*/
 	int getNumberOfTurn() const;
 
-	// Modify the ratio of the bonus
+	/**
+	* \brief Modify the ratio of the bonus	.
+	*
+	* \param ratio The new value.
+	* \return int object.
+	*/
 	int setRatio(const double &ratio);
-	// Modify the brut bonus
+	/**
+	* \brief Modify the brut bonus	.
+	*
+	* \param brut The new value.
+	* \return int object.
+	*/
 	int setBrut(const int &brut);
-	// Modify the number of turn stayed
+	/**
+	* \brief Modify the number of turn stayed	.
+	*
+	* \param turn The new value.
+	* \return int object.
+	*/
 	int setNumberOfTurn(const int &turn);
 
-	// Update the effect
+	/**
+	* \brief Update the effect	.
+	*
+	* \return int object.
+	*/
 	int update();
 private:
 	double m_ratio;
 	int m_brut;
 	int m_numberOfTurn;
 };
-
