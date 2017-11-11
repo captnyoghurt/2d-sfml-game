@@ -1,5 +1,5 @@
 #include "CharCourb.h"
-#include "../Error/ValueException.h"
+#include "../../Error/ValueException.h"
 
 
 

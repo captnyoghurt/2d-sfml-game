@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Fighter.h"
-#include "../CharCourb.h"
-#include "../Spell.h"
+#include "../Status/CharCourb.h"
+#include "../Status/Spell.h"
 
 class TeamMate : public Fighter
 {

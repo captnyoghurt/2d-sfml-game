@@ -2,7 +2,7 @@
 #include "../B_Event/B_Event.h"
 #include "../../Error/GameException.h"
 #include "../../Game.h"
-#include "../Characteristic.h"
+#include "../Status/Characteristic.h"
 #include "../../constants.h"
 #include "../../Error/ValueException.h"
 

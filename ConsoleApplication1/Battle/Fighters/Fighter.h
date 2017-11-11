@@ -2,12 +2,12 @@
 
 
 #include <vector>
-#include "../Health.h"
-#include "../Characteristic.h"
+#include "../Status/Health.h"
+#include "../Status/Characteristic.h"
 #include "../../Map/ManageSurfaces.h"
-#include "../Mana.h"
-#include "../SkillPoints.h"
-#include "../Spell.h"
+#include "../Status/Mana.h"
+#include "../Status/SkillPoints.h"
+#include "../Status/Spell.h"
 
 class Battle;
 class Game;
