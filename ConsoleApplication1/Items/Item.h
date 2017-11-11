@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  A simple item.
+*
+*/
+
 #pragma once
 
 #include <deque>
@@ -18,39 +32,110 @@ public:
 
 	Item& operator=(const Item &item);
 public:
-	// Return the id
+	/**
+	* \brief Return the id	.
+	*
+	* \return int object.
+	*/
 	int getId() const;
-	// Return the name
+	/**
+	* \brief Return the name	.
+	*
+	* \return std::string object.
+	*/
 	std::string getName() const;
-	// Return the description
+	/**
+	* \brief Return the description	.
+	*
+	* \return std::string object.
+	*/
 	std::string getDescription() const;
-	// Return the price when bought
+	/**
+	* \brief Return the price when bought	.
+	*
+	* \return int object.
+	*/
 	int getPriceBuy() const;
-	// Return the price when sold
+	/**
+	* \brief Return the price when sold	.
+	*
+	* \return int object.
+	*/
 	int getPriceSell() const;
-	// Modify the icon id of the item
+	/**
+	* \brief Return the icon id of the item	.
+	*
+	* \return int object.
+	*/
 	int getIconId() const;
-	// Return the type of the item
+	/**
+	* \brief Return the type of the item	.
+	*
+	* \return e_ItemType object.
+	*/
 	e_ItemType getType() const;
-	// Return the effects
+	/**
+	* \brief Return the effects	.
+	*
+	* \return std::deque<BattleEffects> object.
+	*/
 	std::deque<BattleEffects> getEffects() const;
 
-	// Return the effects with modifying possibilities
+	/**
+	* \brief Return the effects with modifying possibilities	.
+	*
+	* \return std::deque<BattleEffects>& object.
+	*/
 	std::deque<BattleEffects>& getRealEffects();
 
-	// Modify the id
+	/**
+	* \brief Modify the id	.
+	*
+	* \param id The new value.
+	* \return int object.
+	*/
 	int setId(const int &id);
-	// Modify the name
+	/**
+	* \brief Modify the name	.
+	*
+	* \param name The new value.
+	* \return int object.
+	*/
 	int setName(const std::string &name);
-	// Modify the description
+	/**
+	* \brief Modify the description	.
+	*
+	* \param description The new value.
+	* \return int object.
+	*/
 	int setDescription(const std::string &description);
-	// Modify the price when bought
+	/**
+	* \brief Modify the price when bought	.
+	*
+	* \param p The new value.
+	* \return int object.
+	*/
 	int setPriceBuy(const int &p);
-	// Modify the price when sold
+	/**
+	* \brief Modify the price when sold	.
+	*
+	* \param p The new value.
+	* \return int object.
+	*/
 	int setPriceSell(const int &p);
-	// Modify the icon id of the item
+	/**
+	* \brief Modify the icon id of the item	.
+	*
+	* \param id The new value.
+	* \return int object.
+	*/
 	int setIconId(const int &id);
-	// Modify the type of the item
+	/**
+	* \brief Modify the type of the item	.
+	*
+	* \param t The new value.
+	* \return int object.
+	*/
 	int setType(const e_ItemType &t);
 
 private:
@@ -63,4 +148,3 @@ private:
 	e_ItemType m_type;
 	std::deque<BattleEffects> m_effects;
 };
-
