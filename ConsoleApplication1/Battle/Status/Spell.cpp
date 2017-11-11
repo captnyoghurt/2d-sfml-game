@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  A spell of a fighter. Can be cast.
+*
+*/
+
 #include "Spell.h"
 #include "../../Error/ValueException.h"
 
