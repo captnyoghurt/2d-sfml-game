@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Menu on the sides of the battle.
+*
+*/
+
 #pragma once
 
 #include "M_choice.h"
@@ -21,42 +35,109 @@ public:
 	~MenuBattleSide();
 
 public:
-	// Return the cursor for the right surface
+	/**
+	* \brief Return the cursor for the right surface	.
+	*
+	* \return std::list object.
+	*/
 	std::list < std::pair < ManageSurfaces::e_thing, std::shared_ptr<Surface> > >::iterator getCursor();
-	// Return the current selected choice
+	/**
+	* \brief Return the current selected choice	.
+	*
+	* \return int object.
+	*/
 	int getSelectedChoice() const;
-	// Return the maximum number of choices
+	/**
+	* \brief Return the maximum number of choices	.
+	*
+	* \return int object.
+	*/
 	int getNumberMaxChoices() const;
 
-	// Return all the choices with modifying possibilities
+	/**
+	* \brief Return all the choices with modifying possibilities	.
+	*
+	* \return std::vector< object.
+	*/
 	std::vector< std::shared_ptr<M_choice> >& getChoices();
 
-	// Modify if the menu should be shown or not
+	/**
+	* \brief Modify if the menu should be shown or not	.
+	*
+	* \param b The new value.
+	* \return virtual object.
+	*/
 	virtual int setShown(const bool &b);
-	// Modify the current selected choice
+	/**
+	* \brief Modify the current selected choice	.
+	*
+	* \param s The new value.
+	* \return int object.
+	*/
 	int setSelectedChoice(const int &s);
-	// Modify the maximum number of choices
+	/**
+	* \brief Modify the maximum number of choices	.
+	*
+	* \param c The new value.
+	* \return int object.
+	*/
 	int setNumberMaxChoices(const int &c);
 
-	// Update the surfaces according to the ressource given
+	/**
+	* \brief Update the surfaces according to the ressource given	.
+	*
+	* \return int object.
+	*/
 	int updateBar(int n, MenuBattleSide::e_menuBattleSideItems type, int act, int max);
-	// Update health bar & text
+	/**
+	* \brief Update health bar & text	.
+	*
+	* \return int object.
+	*/
 	int updateHealth(int n, const Health& hp);
-	// Update mana bar & text
+	/**
+	* \brief Update mana bar & text	.
+	*
+	* \return int object.
+	*/
 	int updateMana(int n, const Mana& mp);
-	// Update skillpoints bar & text
+	/**
+	* \brief Update skillpoints bar & text	.
+	*
+	* \return int object.
+	*/
 	int updateSkillPoints(int n, const SkillPoints& sp);
 
-	// Load with an allie team
+	/**
+	* \brief Load with an allie team	.
+	*
+	* \return int object.
+	*/
 	int loadWithEnemies(ManageRessources& ress, ManageSurfaces& surf, Enemies &enemies);
-	// Load with an enemie team
+	/**
+	* \brief Load with an enemie team	.
+	*
+	* \return int object.
+	*/
 	int loadWithAllies(ManageRessources& ress, ManageSurfaces& surf, TeamBattle &allies);
 
-	// Load the menu
+	/**
+	* \brief Load the menu	.
+	*
+	* \return virtual object.
+	*/
 	virtual int load(ManageRessources& ress, ManageSurfaces& surf, const int &x, const int &y, const int &w = -1, const int &h = -1);
-	// Update surfaces
+	/**
+	* \brief Update surfaces	.
+	*
+	* \return virtual object.
+	*/
 	virtual int update(Game &g);
-	// Close the menu
+	/**
+	* \brief Close the menu	.
+	*
+	* \return virtual object.
+	*/
 	virtual int close(ManageSurfaces& surf);
 
 protected:
