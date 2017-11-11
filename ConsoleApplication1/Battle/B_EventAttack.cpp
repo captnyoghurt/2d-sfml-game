@@ -62,7 +62,7 @@ int B_EventAttack::execute(Battle *bat, ManageSound& snd)
 	if (m_sound != nullptr)
 		snd.addSound(*m_sound);
 
-	m_enemyDestination.at(0)->getRealHealth().use(MAX(0,
+	m_enemyDestination.at(0)->getRealHealth().use(MAX(1,
 		m_source->getCharacteristics().at(Characteristic::e_characteristics::ATTACK_PHYSIC).getValue() -
 		m_enemyDestination.at(0)->getCharacteristics().at(Characteristic::e_characteristics::DEFENSE_PHYSIC).getValue()
 	));
