@@ -82,6 +82,12 @@
     <Filter Include="Fichiers sources\Items">
       <UniqueIdentifier>{4629d49c-bb21-4742-a6e9-9193faf47863}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Battle\B_Event">
+      <UniqueIdentifier>{d4f7d439-41e4-4f17-a1e7-2601441908f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Battle\B_Event">
+      <UniqueIdentifier>{ef19719a-c30d-486f-adb4-2198da398050}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -183,21 +189,6 @@
     <ClCompile Include="Battle\SkillPoints.cpp">
       <Filter>Fichiers sources\Battle</Filter>
     </ClCompile>
-    <ClCompile Include="Battle\B_Event.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\B_EventAttack.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\B_EventDefense.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\B_EventEscape.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\B_EventSpell.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
     <ClCompile Include="Battle\BattleEventManager.cpp">
       <Filter>Fichiers sources\Battle</Filter>
     </ClCompile>
@@ -284,6 +275,21 @@
     </ClCompile>
     <ClCompile Include="Battle\CharCourb.cpp">
       <Filter>Fichiers sources\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\B_Event\B_Event.cpp">
+      <Filter>Fichiers sources\Battle\B_Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\B_Event\B_EventAttack.cpp">
+      <Filter>Fichiers sources\Battle\B_Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\B_Event\B_EventDefense.cpp">
+      <Filter>Fichiers sources\Battle\B_Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\B_Event\B_EventEscape.cpp">
+      <Filter>Fichiers sources\Battle\B_Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\B_Event\B_EventSpell.cpp">
+      <Filter>Fichiers sources\Battle\B_Event</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -383,22 +389,7 @@
     <ClInclude Include="Battle\SkillPoints.h">
       <Filter>Fichiers d%27en-tête\Battle</Filter>
     </ClInclude>
-    <ClInclude Include="Battle\B_EventSpell.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
     <ClInclude Include="Battle\BattleEventManager.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\B_EventEscape.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\B_EventDefense.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\B_Event.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\B_EventAttack.h">
       <Filter>Fichiers d%27en-tête\Battle</Filter>
     </ClInclude>
     <ClInclude Include="Battle\Fighter.h">
@@ -511,6 +502,21 @@
     </ClInclude>
     <ClInclude Include="Battle\CharCourb.h">
       <Filter>Fichiers d%27en-tête\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\B_Event\B_Event.h">
+      <Filter>Fichiers d%27en-tête\Battle\B_Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\B_Event\B_EventAttack.h">
+      <Filter>Fichiers d%27en-tête\Battle\B_Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\B_Event\B_EventDefense.h">
+      <Filter>Fichiers d%27en-tête\Battle\B_Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\B_Event\B_EventEscape.h">
+      <Filter>Fichiers d%27en-tête\Battle\B_Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\B_Event\B_EventSpell.h">
+      <Filter>Fichiers d%27en-tête\Battle\B_Event</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

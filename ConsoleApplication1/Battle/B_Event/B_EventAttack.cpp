@@ -1,7 +1,7 @@
 #include "B_EventAttack.h"
-#include "../constants.h"
-#include "../Battle/Battle.h"
-#include "../Error/ValueException.h"
+#include "../../constants.h"
+#include "../../Battle/Battle.h"
+#include "../../Error/ValueException.h"
 
 
 B_EventAttack::B_EventAttack(const std::string &description)

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "B_Event.h"
-#include "Fighter.h"
+#include "../Fighter.h"
 #include <memory>
 
 class B_EventAttack : public B_Event

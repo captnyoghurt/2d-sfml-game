@@ -1,5 +1,5 @@
 #include "TeamMate.h"
-#include "B_Event.h"
+#include "B_Event/B_Event.h"
 #include "../Error/GameException.h"
 #include "../Game.h"
 #include "Characteristic.h"
