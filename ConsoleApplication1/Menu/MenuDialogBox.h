@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Menu to display a text.
+*
+*/
+
 #pragma once
 #include <sstream>
 #include "Menu.h"
@@ -11,41 +25,99 @@ public:
 	~MenuDialogBox();
 
 public:
-	// Return the global text in the dialog box
+	/**
+	* \brief Return the global text in the dialog box	.
+	*
+	* \return std::string object.
+	*/
 	std::string getText() const;
-	// Return the first shown character
+	/**
+	* \brief Return the first shown character	.
+	*
+	* \return int object.
+	*/
 	int getFirstShownCharacter() const;
-	// Return the last shown character
+	/**
+	* \brief Return the last shown character	.
+	*
+	* \return int object.
+	*/
 	int getLastShownCharacter() const;
 
-	// Return the down cursor surface with modifying possibilities
+	/**
+	* \brief Return the down cursor surface with modifying possibilities	.
+	*
+	* \return std::list<std::pair<ManageSurfaces::e_thing, object.
+	*/
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& getCursorSurfaceDown();
 	
-	// Modify if the menu should be shown or not
+	/**
+	* \brief Modify if the menu should be shown or not	.
+	*
+	* \param b The new value.
+	* \return int object.
+	*/
 	int setShown(const bool &b);
-	// Modify the global text in the dialog box
+	/**
+	* \brief Modify the global text in the dialog box	.
+	*
+	* \param text The new value.
+	* \return int object.
+	*/
 	int setText(const std::string &text);
-	// Add text to the stream
+	/**
+	* \brief Add text to the stream	.
+	*
+	* \return int object.
+	*/
 	int addText(const std::string &text);
 
-	// Keep on reading in the text
+	/**
+	* \brief Keep on reading in the text	.
+	*
+	* \return int object.
+	*/
 	int continueText(ManageRessources& ress, ManageSurfaces& surf);
 
-	// Load the menu
+	/**
+	* \brief Load the menu	.
+	*
+	* \return virtual object.
+	*/
 	virtual int load(ManageRessources& ress, ManageSurfaces& surf, const std::string &text, const int &xcam, const int &ycam, const int &x = -1, const int &y = -1, const int &w = -1, const int &h = -1);
-	// Update surfaces
+	/**
+	* \brief Update surfaces	.
+	*
+	* \return virtual object.
+	*/
 	virtual int update(Game &g);
-	// Close the menu
+	/**
+	* \brief Close the menu	.
+	*
+	* \return virtual object.
+	*/
 	virtual int close(ManageSurfaces& surf);
 
 protected:
-	// Remake the text surface
+	/**
+	* \brief Remake the text surface	.
+	*
+	* \return int object.
+	*/
 	int remakeText(const std::string &str, std::shared_ptr<SurfaceText> &text, ManageRessources &ress);
 
-	// Read an instruction in the text
+	/**
+	* \brief Read an instruction in the text	.
+	*
+	* \return int object.
+	*/
 	int readInstruction(ManageSurfaces& surf);
 
-	// Create a new line
+	/**
+	* \brief Create a new line	.
+	*
+	* \return int object.
+	*/
 	int newLine(ManageSurfaces& surf);
 
 private:
@@ -56,4 +128,3 @@ private:
 	int m_firstShownCharacter;
 	int m_lastShownCharacter;
 };
-
