@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Health of a fighter.
+*
+*/
+
 #pragma once
 
 #include <list>
@@ -15,38 +29,96 @@ public:
 
 	Health& operator=(const Health& h);
 public:
-	// Return the number of health points
+	/**
+	* \brief Return the number of health points	.
+	*
+	* \return int object.
+	*/
 	int getPoints() const;
-	// Return the maximum number of health points
+	/**
+	* \brief Return the maximum number of health points	.
+	*
+	* \return int object.
+	*/
 	int getMaxPoints() const;
-	// Return the actual health bonus
+	/**
+	* \brief Return the actual health bonus	.
+	*
+	* \return int object.
+	*/
 	int getBonus() const;
-	// Return all the actual effects
+	/**
+	* \brief Return all the actual effects	.
+	*
+	* \return std::list<EffectOnCharacteristic> object.
+	*/
 	std::list<EffectOnCharacteristic> getEffects() const;
-	// Return all the actual adding effects
+	/**
+	* \brief Return all the actual adding effects	.
+	*
+	* \return std::list<EffectOnCharacteristic> object.
+	*/
 	std::list<EffectOnCharacteristic> getContinuousEffects() const;
 
-	// Return all the actual effects with modifying possibilities
+	/**
+	* \brief Return all the actual effects with modifying possibilities	.
+	*
+	* \return std::list<EffectOnCharacteristic>& object.
+	*/
 	std::list<EffectOnCharacteristic>& getRealEffects();
-	// Return all the actual adding effects with modifying possibilities
+	/**
+	* \brief Return all the actual adding effects with modifying possibilities	.
+	*
+	* \return std::list<EffectOnCharacteristic>& object.
+	*/
 	std::list<EffectOnCharacteristic>& getRealContinuousEffects();
 
-	// Modify the number of health points
+	/**
+	* \brief Modify the number of health points	.
+	*
+	* \param p The new value.
+	* \return int object.
+	*/
 	int setPoints(const int &p);
-	// Modify the maximum number of health
+	/**
+	* \brief Modify the maximum number of health	.
+	*
+	* \param maxp The new value.
+	* \return int object.
+	*/
 	int setMaxPoints(const int &maxp);
 
-	// Say if a spell can be used
+	/**
+	* \brief Say if a spell can be used	.
+	*
+	* \return bool object.
+	*/
 	bool canCastSpell(const Spell &sp);
-	// Say if there is enought health
+	/**
+	* \brief Say if there is enought health	.
+	*
+	* \return bool object.
+	*/
 	bool enoughFor(const int &points);
 
-	// Use some health points
+	/**
+	* \brief Use some health points	.
+	*
+	* \return int object.
+	*/
 	int use(const int &points);
 	int use(const Spell &sp);
-	// Get some health points
+	/**
+	* \brief Get some health points	.
+	*
+	* \return int object.
+	*/
 	int recharge(const int &points);
-	// Update effects
+	/**
+	* \brief Update effects	.
+	*
+	* \return int object.
+	*/
 	int updateEffects();
 
 private:
@@ -56,4 +128,3 @@ private:
 	std::list<EffectOnCharacteristic> m_effects;
 	std::list<EffectOnCharacteristic> m_continuousEffects;
 };
-
