@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  A choice in the menu choice.
+*
+*/
+
 #include "../constants.h"
 #include "M_choice.h"
 #include "../Error/ValueException.h"
