@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Manage hitbox to see collision.
+*
+*/
+
 #pragma once
 
 #include <map>
@@ -15,36 +29,88 @@ public:
 	~ManageHitbox();
 
 public:
-	// Return the id counter
+	/**
+	* \brief Return the id counter	.
+	*
+	* \return int object.
+	*/
 	int getIdCount() const;
-	// Return the tile hitbox
+	/**
+	* \brief Return the tile hitbox	.
+	*
+	* \return std::map< object.
+	*/
 	std::map< std::pair<int, int>, Hitbox > getTileHitbox() const;
-	// Return the normal hitbox
+	/**
+	* \brief Return the normal hitbox	.
+	*
+	* \return std::deque< object.
+	*/
 	std::deque< Hitbox > getHitbox() const;
 
-	// Return the tile hitbox with modifying possibilities
+	/**
+	* \brief Return the tile hitbox with modifying possibilities	.
+	*
+	* \return std::map< object.
+	*/
 	std::map< std::pair<int, int>, Hitbox >& getRealTileHitbox();
-	// Return the normal hitbox with modifying possibilities
+	/**
+	* \brief Return the normal hitbox with modifying possibilities	.
+	*
+	* \return std::deque< object.
+	*/
 	std::deque< Hitbox >& getRealHitbox();
 
-	// Add a tile hitbox with checking the other layer
+	/**
+	* \brief Add a tile hitbox with checking the other layer	.
+	*
+	* \return Hitbox& object.
+	*/
 	Hitbox& addTopTileHitbox(const int &tx, const int &ty, const Hitbox& hb);
-	// Add a tile hitbox
+	/**
+	* \brief Add a tile hitbox	.
+	*
+	* \return Hitbox& object.
+	*/
 	Hitbox& addTileHitbox(const int &tx, const int &ty, const Hitbox& hb);
-	// Add a hitbox
+	/**
+	* \brief Add a hitbox	.
+	*
+	* \return Hitbox& object.
+	*/
 	Hitbox& addHitbox(const Hitbox& hb, const int &id = -1);
 
-	// Give the tile hitbox
+	/**
+	* \brief Give the tile hitbox	.
+	*
+	* \return Hitbox& object.
+	*/
 	Hitbox& at(const int &tx, const int &ty);
 
-	// Return the rect of tile where the hitbox is
+	/**
+	* \brief Return the rect of tile where the hitbox is	.
+	*
+	* \return sf::Rect<int> object.
+	*/
 	sf::Rect<int> rectTilePosition(const Hitbox &hb);
 
-	// Return if the hitbox will collide
+	/**
+	* \brief Return if the hitbox will collide	.
+	*
+	* \return e_CollisionType object.
+	*/
 	e_CollisionType willCollide(const Hitbox &hb, const int &dx, const int &dy);
-	// Return if the hitbox is colliding
+	/**
+	* \brief Return if the hitbox is colliding	.
+	*
+	* \return e_CollisionType object.
+	*/
 	e_CollisionType collision(const Hitbox &hb);
-	// Return if the two hitbox are colliding
+	/**
+	* \brief Return if the two hitbox are colliding	.
+	*
+	* \return e_CollisionType object.
+	*/
 	e_CollisionType areColliding(const Hitbox &hb1, const Hitbox &hb2);
 
 private:
@@ -52,4 +118,3 @@ private:
 	std::map< std::pair<int, int>, Hitbox > m_tileHitbox;
 	std::deque< Hitbox > m_hitbox;
 };
-
