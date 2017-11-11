@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Menu of the battle.
+*
+*/
+
 #pragma once
 
 #include <list>
@@ -14,36 +28,78 @@ public:
 	~MenuBattle();
 
 public:
-	// Return the current active menu
+	/**
+	* \brief Return the current active menu	.
+	*
+	* \return int object.
+	*/
 	int getActiveMenu() const;
-	// Return if the MenuBattle is updated
+	/**
+	* \brief Return if the MenuBattle is updated	.
+	*
+	* \return bool object.
+	*/
 	bool getUpdated() const;
-	// Return if this menu is currently waiting for an action
+	/**
+	* \brief Return if this menu is currently waiting for an action	.
+	*
+	* \return bool object.
+	*/
 	bool getIsBlocking() const;
 
-	// Return the menus with modifying possibilities
+	/**
+	* \brief Return the menus with modifying possibilities	.
+	*
+	* \return std::vector<std::shared_ptr< object.
+	*/
 	std::vector<std::shared_ptr< Menu >>& getRealMenus();
 
-	// Modify the current menu
+	/**
+	* \brief Modify the current menu	.
+	*
+	* \param am The new value.
+	* \return int object.
+	*/
 	int setActiveMenu(const int &am);
-	// Modify if this menu is currently waiting for an action
+	/**
+	* \brief Modify if this menu is currently waiting for an action	.
+	*
+	* \param b The new value.
+	* \return int object.
+	*/
 	int setIsBlocking(const bool &b);
 	
-	// Tell the MenuBattle that it's updated
+	/**
+	* \brief Tell the MenuBattle that it's updated	.
+	*
+	* \return int object.
+	*/
 	int gotUpdated();
 
-	// All the action functions for the menus
+	/**
+	* \brief All the action functions for the menus	.
+	*
+	* \return int object.
+	*/
 	int af_MenuBattleDown(Game &g);
 	int af_MenuBattleUp(Game &g);
 	int af_MenuBattleRight(Game &g);
 	int af_MenuBattleLeft(Game &g);
 	int af_MenuBattleEnter(Game &g);
 
-	// Close all the menus
+	/**
+	* \brief Close all the menus	.
+	*
+	* \return int object.
+	*/
 	int close(ManageSurfaces &surf);
 
 protected:
-	// Load the different menus
+	/**
+	* \brief Load the different menus	.
+	*
+	* \return int object.
+	*/
 	int load(Battle *b, ManageRessources &ress, ManageSurfaces &surf);
 
 private:
@@ -52,4 +108,3 @@ private:
 	bool m_updated;
 	bool m_isBlocking;
 };
-
