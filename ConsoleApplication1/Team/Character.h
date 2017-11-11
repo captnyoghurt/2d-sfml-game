@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  A character of the team.
+*
+*/
+
 #pragma once
 
 #include <list>
@@ -14,30 +28,78 @@ public:
 	~Character();
 
 public:
-	// Return the abciss of the Character
+	/**
+	* \brief Return the abciss of the Character	.
+	*
+	* \return unsigned object.
+	*/
 	unsigned short getCombatX() const;
-	// Return the y position of the Character
+	/**
+	* \brief Return the y position of the Character	.
+	*
+	* \return unsigned object.
+	*/
 	unsigned short getCombatY() const;
-	// Return the width of the Character
+	/**
+	* \brief Return the width of the Character	.
+	*
+	* \return short object.
+	*/
 	short getCombatWidth() const;
-	// Return the height of the Character
+	/**
+	* \brief Return the height of the Character	.
+	*
+	* \return short object.
+	*/
 	short getCombatHeight() const;
-	// Return the iterator of the combat stand surface of the character
+	/**
+	* \brief Return the iterator of the combat stand surface of the character	.
+	*
+	* \return std::list<std::pair<ManageSurfaces::e_thing, object.
+	*/
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator getCombatStand();
 
-	// Return the iterator of the combat stand surface of the character with modifying possibilities
+	/**
+	* \brief Return the iterator of the combat stand surface of the character with modifying possibilities	.
+	*
+	* \return std::list<std::pair<ManageSurfaces::e_thing, object.
+	*/
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& getRealCombatStand();
 
-	// Modify the abciss of the Character
+	/**
+	* \brief Modify the abciss of the Character	.
+	*
+	* \param x The new value.
+	* \return int object.
+	*/
 	int setCombatX(const unsigned short &x);
-	// Modify the y position of the Character
+	/**
+	* \brief Modify the y position of the Character	.
+	*
+	* \param y The new value.
+	* \return int object.
+	*/
 	int setCombatY(const unsigned short &y);
-	// Modify the width of the Character
+	/**
+	* \brief Modify the width of the Character	.
+	*
+	* \param w The new value.
+	* \return int object.
+	*/
 	int setCombatWidth(const short &w);
-	// Modify the height of the Character
+	/**
+	* \brief Modify the height of the Character	.
+	*
+	* \param h The new value.
+	* \return int object.
+	*/
 	int setCombatHeight(const short &h);
 
-	// Load the surface of the combat stand
+	/**
+	* \brief Load the surface of the combat stand	.
+	*
+	* \return int object.
+	*/
 	int loadComnatStand(sf::Texture& t, Game &g);
 
 public:
@@ -48,4 +110,3 @@ public:
 	short m_combatH;
 
 };
-
