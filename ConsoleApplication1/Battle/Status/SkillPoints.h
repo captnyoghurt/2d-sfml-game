@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  SkillPoints of a fighter.
+*
+*/
+
 #pragma once
 
 #include <list>
@@ -15,29 +29,71 @@ public:
 
 	SkillPoints& operator=(const SkillPoints &skp);
 public:
-	// Return the number of skill points
+	/**
+	* \brief Return the number of skill points	.
+	*
+	* \return int object.
+	*/
 	int getPoints() const;
-	// Return the maximum number of skill points
+	/**
+	* \brief Return the maximum number of skill points	.
+	*
+	* \return int object.
+	*/
 	int getMaxPoints() const;
-	// Return all the actual effects
+	/**
+	* \brief Return all the actual effects	.
+	*
+	* \return std::list<EffectOnCharacteristic> object.
+	*/
 	std::list<EffectOnCharacteristic> getEffects() const;
-	// Return all the actual adding effects
+	/**
+	* \brief Return all the actual adding effects	.
+	*
+	* \return std::list<EffectOnCharacteristic> object.
+	*/
 	std::list<EffectOnCharacteristic> getAddingEffects() const;
 
-	// Modify the number of skill points
+	/**
+	* \brief Modify the number of skill points	.
+	*
+	* \param p The new value.
+	* \return int object.
+	*/
 	int setPoints(const int &p);
-	// Modify the maximum number of skill points
+	/**
+	* \brief Modify the maximum number of skill points	.
+	*
+	* \param maxp The new value.
+	* \return int object.
+	*/
 	int setMaxPoints(const int &maxp);
 
-	// Say if a spell can be used
+	/**
+	* \brief Say if a spell can be used	.
+	*
+	* \return bool object.
+	*/
 	bool canCastSpell(const Spell &sp);
-	// Say if there is enought skill point
+	/**
+	* \brief Say if there is enought skill point	.
+	*
+	* \return bool object.
+	*/
 	bool enoughFor(const int &points);
 
-	// Use some skill points
+	/**
+	* \brief Use some skill points	.
+	*
+	* \return int object.
+	*/
 	int use(const int &points);
 	int use(const Spell &sp);
-	// Get some skill points
+	/**
+	* \brief Get some skill points	.
+	*
+	* \return int object.
+	*/
 	int recharge(const int &points);
 private:
 	int m_maxPoints;
@@ -45,4 +101,3 @@ private:
 	std::list<EffectOnCharacteristic> m_effects;
 	std::list<EffectOnCharacteristic> m_addingEffects;
 };
-
