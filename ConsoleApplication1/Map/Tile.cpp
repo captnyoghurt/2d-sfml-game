@@ -1,3 +1,18 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  A tile with a specific size and hitbox.
+*  Key element of a map.
+*
+*/
+
 #include "../constants.h"
 #include "../Error/ValueException.h"
 #include "Tile.h"
