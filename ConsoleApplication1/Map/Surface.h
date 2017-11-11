@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Mother class of surfaces.
+*
+*/
+
 #pragma once
 
 
@@ -8,28 +22,78 @@ public:
 	virtual ~Surface();
 
 public:
-	// Return if it should be printed
+	/**
+	* \brief Return if it should be printed	.
+	*
+	* \return bool object.
+	*/
 	bool getEnable() const;
-	// Return the abciss of the Surface
+	/**
+	* \brief Return the abciss of the Surface	.
+	*
+	* \return int object.
+	*/
 	int getX() const;
-	// Return the y position of the Surface
+	/**
+	* \brief Return the y position of the Surface	.
+	*
+	* \return int object.
+	*/
 	int getY() const;
-	// Return the width of the Surface
+	/**
+	* \brief Return the width of the Surface	.
+	*
+	* \return int object.
+	*/
 	int getWidth() const;
-	// Return the height of the Surface
+	/**
+	* \brief Return the height of the Surface	.
+	*
+	* \return int object.
+	*/
 	int getHeight() const;
 
-	// Modify if it should be printed
+	/**
+	* \brief Modify if it should be printed	.
+	*
+	* \param e The new value.
+	* \return int object.
+	*/
 	int setEnable(const bool &e);
-	// Modify the abciss of the Surface
+	/**
+	* \brief Modify the abciss of the Surface	.
+	*
+	* \param x The new value.
+	* \return int object.
+	*/
 	int setX(const int &x);
-	// Modify the y position of the Surface
+	/**
+	* \brief Modify the y position of the Surface	.
+	*
+	* \param y The new value.
+	* \return int object.
+	*/
 	int setY(const int &y);
-	// Modify the width of the Surface
+	/**
+	* \brief Modify the width of the Surface	.
+	*
+	* \param w The new value.
+	* \return int object.
+	*/
 	int setWidth(const int &w);
-	// Modify the height of the Surface
+	/**
+	* \brief Modify the height of the Surface	.
+	*
+	* \param h The new value.
+	* \return int object.
+	*/
 	int setHeight(const int &h);
-	// Modify everything
+	/**
+	* \brief Modify everything	.
+	*
+	* \param -1 The new value.
+	* \return int object.
+	*/
 	int setDimensions(const int &x, const int &y, const int &w = -1, const int &h = -1);
 
 private:
@@ -39,4 +103,3 @@ private:
 	int m_width;
 	int m_height;
 };
-
