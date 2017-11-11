@@ -210,4 +210,13 @@ private:
 	bool m_shown;
 	int m_battleTurn;
 	int m_lastKeyEventLayer;
-	in
+	int m_battleEventCreated;
+	e_BattleExit m_battleExit;
+	Enemies m_enemieTeam;
+	TeamBattle *m_alliesTeam;
+	std::shared_ptr<MenuBattle> m_battleMenu;
+	BattleEventManager m_battleEventManager;
+	std::list<sf::Texture>::iterator m_texture;
+	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator m_background;
+	std::vector< std::shared_ptr<Fighter> > m_battleOrder;
+};
