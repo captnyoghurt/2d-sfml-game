@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Item.h"
-#include "../Battle/TeamMate.h"
+#include "../Battle/Fighters/TeamMate.h"
 
 class PieceOfEquipement :
 	public Item

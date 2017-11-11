@@ -5,7 +5,7 @@
 #include "../Menu/MenuBattle.h"
 #include "../Menu/MenuSpells.h"
 #include "../Menu/MenuInventory.h"
-#include "../Battle/B_EventAttack.h"
+#include "../Battle/B_Event/B_EventAttack.h"
 #include "../Error/ValueException.h"
 #include "../Error/InitializationException.h"
 #include "../Database/DatabaseJson.h"

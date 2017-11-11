@@ -4,12 +4,12 @@
 #include "../Error/RessourceException.h"
 #include "../Error/InitializationException.h"
 #include "../Error/ValueException.h"
-#include "../Battle/BattleEffects.h"
-#include "../Battle/Spell.h"
-#include "../Battle/Fighter.h"
+#include "../Battle/Status/BattleEffects.h"
+#include "../Battle/Status/Spell.h"
+#include "../Battle/Fighters/Fighter.h"
 #include "../Items/Item.h"
-#include "../Battle/CharCourb.h"
-#include "../Battle/TeamMate.h"
+#include "../Battle/Status/CharCourb.h"
+#include "../Battle/Fighters/TeamMate.h"
 
 
 

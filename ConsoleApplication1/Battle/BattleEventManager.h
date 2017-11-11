@@ -2,7 +2,7 @@
 
 #include <list>
 #include <memory>
-#include "B_Event.h"
+#include "B_Event/B_Event.h"
 
 class Battle;
 class Game;

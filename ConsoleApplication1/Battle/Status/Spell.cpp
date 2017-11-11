@@ -1,5 +1,5 @@
 #include "Spell.h"
-#include "../Error/ValueException.h"
+#include "../../Error/ValueException.h"
 
 
 

@@ -1,6 +1,6 @@
 #include "B_Event.h"
-#include "Battle.h"
-#include "../Error/ValueException.h"
+#include "../Battle.h"
+#include "../../Error/ValueException.h"
 
 
 B_Event::B_Event() :

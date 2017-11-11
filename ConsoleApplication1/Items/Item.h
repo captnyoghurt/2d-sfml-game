@@ -2,7 +2,7 @@
 
 #include <deque>
 #include <string>
-#include "../Battle/BattleEffects.h"
+#include "../Battle/Status/BattleEffects.h"
 
 
 class Item

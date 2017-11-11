@@ -82,6 +82,24 @@
     <Filter Include="Fichiers sources\Items">
       <UniqueIdentifier>{4629d49c-bb21-4742-a6e9-9193faf47863}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Battle\B_Event">
+      <UniqueIdentifier>{d4f7d439-41e4-4f17-a1e7-2601441908f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Battle\B_Event">
+      <UniqueIdentifier>{ef19719a-c30d-486f-adb4-2198da398050}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Battle\Fighters">
+      <UniqueIdentifier>{3c59c30b-e2e1-40f7-8837-b1cc891eb36e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Battle\Fighters">
+      <UniqueIdentifier>{c42f1207-2630-478c-8e08-4424ce945503}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Battle\Status">
+      <UniqueIdentifier>{53c8a9bb-99a4-461f-8cde-6bbfa68a66c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Battle\Status">
+      <UniqueIdentifier>{ff1a6bb0-2c8c-4e12-b2e6-405054acddf8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -162,52 +180,7 @@
     <ClCompile Include="Battle\Battle.cpp">
       <Filter>Fichiers sources\Battle</Filter>
     </ClCompile>
-    <ClCompile Include="Battle\Characteristic.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\Enemies.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\Health.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\Spell.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\Mana.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\EffectOnCharacteristic.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\SkillPoints.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\B_Event.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\B_EventAttack.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\B_EventDefense.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\B_EventEscape.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\B_EventSpell.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
     <ClCompile Include="Battle\BattleEventManager.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\Fighter.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\EnemiBoss.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\EnemiBasic.cpp">
       <Filter>Fichiers sources\Battle</Filter>
     </ClCompile>
     <ClCompile Include="Menu\MenuBattle.cpp">
@@ -218,12 +191,6 @@
     </ClCompile>
     <ClCompile Include="Map\ManageRenderTexture.cpp">
       <Filter>Fichiers sources\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\TeamMate.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\TeamBattle.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
     </ClCompile>
     <ClCompile Include="Error\GameException.cpp">
       <Filter>Fichiers sources\Error</Filter>
@@ -248,9 +215,6 @@
     </ClCompile>
     <ClCompile Include="Sound\ManageSound.cpp">
       <Filter>Fichiers sources\Sound</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle\BattleEffects.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
     </ClCompile>
     <ClCompile Include="Database\DatabaseJson.cpp">
       <Filter>Fichiers sources\Database</Filter>
@@ -282,8 +246,62 @@
     <ClCompile Include="Menu\MenuInventory.cpp">
       <Filter>Fichiers sources\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="Battle\CharCourb.cpp">
-      <Filter>Fichiers sources\Battle</Filter>
+    <ClCompile Include="Battle\B_Event\B_Event.cpp">
+      <Filter>Fichiers sources\Battle\B_Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\B_Event\B_EventAttack.cpp">
+      <Filter>Fichiers sources\Battle\B_Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\B_Event\B_EventDefense.cpp">
+      <Filter>Fichiers sources\Battle\B_Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\B_Event\B_EventEscape.cpp">
+      <Filter>Fichiers sources\Battle\B_Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\B_Event\B_EventSpell.cpp">
+      <Filter>Fichiers sources\Battle\B_Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\Fighters\EnemiBasic.cpp">
+      <Filter>Fichiers sources\Battle\Fighters</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\Fighters\EnemiBoss.cpp">
+      <Filter>Fichiers sources\Battle\Fighters</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\Fighters\Enemies.cpp">
+      <Filter>Fichiers sources\Battle\Fighters</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\Fighters\Fighter.cpp">
+      <Filter>Fichiers sources\Battle\Fighters</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\Fighters\TeamBattle.cpp">
+      <Filter>Fichiers sources\Battle\Fighters</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\Fighters\TeamMate.cpp">
+      <Filter>Fichiers sources\Battle\Fighters</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\Status\BattleEffects.cpp">
+      <Filter>Fichiers sources\Battle\Status</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\Status\Characteristic.cpp">
+      <Filter>Fichiers sources\Battle\Status</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\Status\CharCourb.cpp">
+      <Filter>Fichiers sources\Battle\Status</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\Status\EffectOnCharacteristic.cpp">
+      <Filter>Fichiers sources\Battle\Status</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\Status\Health.cpp">
+      <Filter>Fichiers sources\Battle\Status</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\Status\Mana.cpp">
+      <Filter>Fichiers sources\Battle\Status</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\Status\SkillPoints.cpp">
+      <Filter>Fichiers sources\Battle\Status</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle\Status\Spell.cpp">
+      <Filter>Fichiers sources\Battle\Status</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -362,52 +380,7 @@
     <ClInclude Include="Battle\Battle.h">
       <Filter>Fichiers d%27en-tête\Battle</Filter>
     </ClInclude>
-    <ClInclude Include="Battle\Characteristic.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\Enemies.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\Health.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\Spell.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\Mana.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\EffectOnCharacteristic.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\SkillPoints.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\B_EventSpell.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
     <ClInclude Include="Battle\BattleEventManager.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\B_EventEscape.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\B_EventDefense.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\B_Event.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\B_EventAttack.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\Fighter.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\EnemiBoss.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\EnemiBasic.h">
       <Filter>Fichiers d%27en-tête\Battle</Filter>
     </ClInclude>
     <ClInclude Include="Menu\MenuBattle.h">
@@ -418,12 +391,6 @@
     </ClInclude>
     <ClInclude Include="Map\ManageRenderTexture.h">
       <Filter>Fichiers d%27en-tête\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\TeamMate.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\TeamBattle.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
     </ClInclude>
     <ClInclude Include="Error\GameException.h">
       <Filter>Fichiers d%27en-tête\Error</Filter>
@@ -448,9 +415,6 @@
     </ClInclude>
     <ClInclude Include="Sound\ManageSound.h">
       <Filter>Fichiers d%27en-tête\Sound</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle\BattleEffects.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
     </ClInclude>
     <ClInclude Include="Database\DatabaseJson.h">
       <Filter>Fichiers d%27en-tête\Database</Filter>
@@ -509,8 +473,62 @@
     <ClInclude Include="Menu\MenuInventory.h">
       <Filter>Fichiers d%27en-tête\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="Battle\CharCourb.h">
-      <Filter>Fichiers d%27en-tête\Battle</Filter>
+    <ClInclude Include="Battle\B_Event\B_Event.h">
+      <Filter>Fichiers d%27en-tête\Battle\B_Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\B_Event\B_EventAttack.h">
+      <Filter>Fichiers d%27en-tête\Battle\B_Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\B_Event\B_EventDefense.h">
+      <Filter>Fichiers d%27en-tête\Battle\B_Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\B_Event\B_EventEscape.h">
+      <Filter>Fichiers d%27en-tête\Battle\B_Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\B_Event\B_EventSpell.h">
+      <Filter>Fichiers d%27en-tête\Battle\B_Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\Fighters\EnemiBasic.h">
+      <Filter>Fichiers d%27en-tête\Battle\Fighters</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\Fighters\EnemiBoss.h">
+      <Filter>Fichiers d%27en-tête\Battle\Fighters</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\Fighters\Enemies.h">
+      <Filter>Fichiers d%27en-tête\Battle\Fighters</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\Fighters\Fighter.h">
+      <Filter>Fichiers d%27en-tête\Battle\Fighters</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\Fighters\TeamBattle.h">
+      <Filter>Fichiers d%27en-tête\Battle\Fighters</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\Fighters\TeamMate.h">
+      <Filter>Fichiers d%27en-tête\Battle\Fighters</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\Status\BattleEffects.h">
+      <Filter>Fichiers d%27en-tête\Battle\Status</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\Status\Characteristic.h">
+      <Filter>Fichiers d%27en-tête\Battle\Status</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\Status\CharCourb.h">
+      <Filter>Fichiers d%27en-tête\Battle\Status</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\Status\EffectOnCharacteristic.h">
+      <Filter>Fichiers d%27en-tête\Battle\Status</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\Status\Health.h">
+      <Filter>Fichiers d%27en-tête\Battle\Status</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\Status\Mana.h">
+      <Filter>Fichiers d%27en-tête\Battle\Status</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\Status\SkillPoints.h">
+      <Filter>Fichiers d%27en-tête\Battle\Status</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle\Status\Spell.h">
+      <Filter>Fichiers d%27en-tête\Battle\Status</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

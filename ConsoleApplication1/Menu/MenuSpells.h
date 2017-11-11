@@ -3,7 +3,7 @@
 #include <memory>
 #include "MenuDialogBox.h"
 #include "MenuChoice.h"
-#include "../Battle/Spell.h"
+#include "../Battle/Status/Spell.h"
 
 class MenuSpells :
 	public Menu

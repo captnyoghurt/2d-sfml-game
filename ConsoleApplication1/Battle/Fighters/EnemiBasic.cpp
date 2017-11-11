@@ -1,8 +1,8 @@
 #include "EnemiBasic.h"
-#include "B_Event.h"
-#include "B_EventAttack.h"
-#include "Battle.h"
-#include "../Game.h"
+#include "../B_Event/B_Event.h"
+#include "../B_Event/B_EventAttack.h"
+#include "../Battle.h"
+#include "../../Game.h"
 
 
 

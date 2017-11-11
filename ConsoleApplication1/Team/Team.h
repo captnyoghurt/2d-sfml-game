@@ -3,7 +3,7 @@
 #include <vector>
 #include "../Animation/Animation.h"
 #include "Character.h"
-#include "../Battle/TeamBattle.h"
+#include "../Battle/Fighters/TeamBattle.h"
 #include "../Map/Physic/Hitbox.h"
 #include "../Items/Inventory.h"
 
