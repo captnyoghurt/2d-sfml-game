@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Mother class for the different battle event.
+*
+*/
+
 #pragma once
 
 #include <deque>
@@ -17,35 +31,90 @@ public:
 	~B_Event();
 
 public:
-	// Return the description of the event in the fight
+	/**
+	* \brief Return the description of the event in the fight	.
+	*
+	* \return std::string object.
+	*/
 	std::string getDescription() const;
-	// Return the number of destination for "ally" team
+	/**
+	* \brief Return the number of destination for "ally" team	.
+	*
+	* \return int object.
+	*/
 	int getNumberAllyDestination() const;
-	// Return the number of destination for "enemy" team
+	/**
+	* \brief Return the number of destination for "enemy" team	.
+	*
+	* \return int object.
+	*/
 	int getNumberEnemyDestination() const;
 
-	// Modify the description of the event in the fight
+	/**
+	* \brief Modify the description of the event in the fight	.
+	*
+	* \param description The new value.
+	* \return int object.
+	*/
 	int setDescription(const std::string &description);
-	// Modify the number of destination for "ally" team
+	/**
+	* \brief Modify the number of destination for "ally" team	.
+	*
+	* \param n The new value.
+	* \return int object.
+	*/
 	int setNumberAllyDestination(const int &n);
-	// Modify the number of destination for "enemy" team
+	/**
+	* \brief Modify the number of destination for "enemy" team	.
+	*
+	* \param n The new value.
+	* \return int object.
+	*/
 	int setNumberEnemyDestination(const int &n);
 
-	// Return the ally destination with modifying possibilities
+	/**
+	* \brief Return the ally destination with modifying possibilities	.
+	*
+	* \return std::deque< object.
+	*/
 	std::deque< std::shared_ptr<Fighter> >& getRealAllyDestination();
-	// Return the enemy destination with modifying possibilities
+	/**
+	* \brief Return the enemy destination with modifying possibilities	.
+	*
+	* \return std::deque< object.
+	*/
 	std::deque< std::shared_ptr<Fighter> >& getRealEnemyDestination();
-	// Return the source of the event with modifying possibilities
+	/**
+	* \brief Return the source of the event with modifying possibilities	.
+	*
+	* \return std::shared_ptr<Fighter>& object.
+	*/
 	std::shared_ptr<Fighter>& getRealSource();
-	// Return the sound buffer with modifying possitilities
+	/**
+	* \brief Return the sound buffer with modifying possitilities	.
+	*
+	* \return std::shared_ptr<sf::SoundBuffer>& object.
+	*/
 	std::shared_ptr<sf::SoundBuffer>& getRealSound();
 
-	// Return if the deque for ally is full
+	/**
+	* \brief Return if the deque for ally is full	.
+	*
+	* \return bool object.
+	*/
 	bool isAllyDestinationFull() const;
-	// Return if the deque for enemy is full
+	/**
+	* \brief Return if the deque for enemy is full	.
+	*
+	* \return bool object.
+	*/
 	bool isEnemyDestinationFull() const;
 
-	// Do the event
+	/**
+	* \brief Do the event	.
+	*
+	* \return virtual object.
+	*/
 	virtual int execute(Battle *bat, ManageSound& snd);
 protected:
 	std::string  m_description;
@@ -56,4 +125,3 @@ protected:
 	std::shared_ptr<Fighter> m_source;
 	std::shared_ptr<sf::SoundBuffer> m_sound;
 };
-
