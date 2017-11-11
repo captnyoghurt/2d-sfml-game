@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  An effect in the battle.
+*
+*/
+
 #pragma once
 
 #include "Characteristic.h"
@@ -15,30 +29,84 @@ public:
 
 	BattleEffects& operator=(const BattleEffects &be);
 public:
-	// Return the id
+	/**
+	* \brief Return the id	.
+	*
+	* \return int object.
+	*/
 	int getId() const;
-	// Return the characteristic
+	/**
+	* \brief Return the characteristic	.
+	*
+	* \return Characteristic::e_characteristics object.
+	*/
 	Characteristic::e_characteristics getCharacteristic() const;
-	// Return the chance
+	/**
+	* \brief Return the chance	.
+	*
+	* \return int object.
+	*/
 	int getChance() const;
-	// Return the power
+	/**
+	* \brief Return the power	.
+	*
+	* \return int object.
+	*/
 	int getPower() const;
-	// Return the target type
+	/**
+	* \brief Return the target type	.
+	*
+	* \return e_EffectsTarget object.
+	*/
 	e_EffectsTarget getTargetType() const;
-	// Return the number of people
+	/**
+	* \brief Return the number of people	.
+	*
+	* \return int object.
+	*/
 	int getNumberOfPeople() const;
 
-	// Modify the id
+	/**
+	* \brief Modify the id	.
+	*
+	* \param id The new value.
+	* \return int object.
+	*/
 	int setId(const int &id);
-	// Modify the characteristic
+	/**
+	* \brief Modify the characteristic	.
+	*
+	* \param c The new value.
+	* \return int object.
+	*/
 	int setCharacteristic(const Characteristic::e_characteristics &c);
-	// Modify the chance
+	/**
+	* \brief Modify the chance	.
+	*
+	* \param ch The new value.
+	* \return int object.
+	*/
 	int setChance(const int &ch);
-	// Modify the power
+	/**
+	* \brief Modify the power	.
+	*
+	* \param po The new value.
+	* \return int object.
+	*/
 	int setPower(const int &po);
-	// Modify the target type
+	/**
+	* \brief Modify the target type	.
+	*
+	* \param et The new value.
+	* \return int object.
+	*/
 	int setTargetType(const e_EffectsTarget &et);
-	// Modify the number of people
+	/**
+	* \brief Modify the number of people	.
+	*
+	* \param n The new value.
+	* \return int object.
+	*/
 	int setNumberOfPeople(const int &n);
 
 private:
@@ -49,4 +117,3 @@ private:
 	e_EffectsTarget m_targetType;
 	int m_numberOfPeople;
 };
-
