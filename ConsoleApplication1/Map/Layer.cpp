@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Layer of tile in the map.
+*
+*/
+
 #include "Layer.h"
 #include "../Error/ValueException.h"
 
