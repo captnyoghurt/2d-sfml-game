@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Camera of the map.
+*
+*/
+
 #pragma once
 
 
@@ -12,37 +26,104 @@ public:
 	Camera &operator=(const Camera &c);
 
 public:
-	// Return if the camera is blocked at the borders
+	/**
+	* \brief Return if the camera is blocked at the borders	.
+	*
+	* \return bool object.
+	*/
 	bool getBlocked() const;
-	// Return the abciss of the Tile
+	/**
+	* \brief Return the abciss of the Tile	.
+	*
+	* \return int object.
+	*/
 	int getX() const;
-	// Return the y position of the Tile
+	/**
+	* \brief Return the y position of the Tile	.
+	*
+	* \return int object.
+	*/
 	int getY() const;
-	// Return the width of the Tile
+	/**
+	* \brief Return the width of the Tile	.
+	*
+	* \return int object.
+	*/
 	int getWidth() const;
-	// Return the height of the Tile
+	/**
+	* \brief Return the height of the Tile	.
+	*
+	* \return int object.
+	*/
 	int getHeight() const;
-	// Return the maxX of the camera
+	/**
+	* \brief Return the maxX of the camera	.
+	*
+	* \return int object.
+	*/
 	int getMaxX() const;
-	// Return the maxY of the camera
+	/**
+	* \brief Return the maxY of the camera	.
+	*
+	* \return int object.
+	*/
 	int getMaxY() const;
 
-	// Modify if the camera is blocked at the borders
+	/**
+	* \brief Modify if the camera is blocked at the borders	.
+	*
+	* \param b The new value.
+	* \return bool object.
+	*/
 	bool setBlocked(bool b);
-	// Modify the abciss of the Tile
+	/**
+	* \brief Modify the abciss of the Tile	.
+	*
+	* \param x The new value.
+	* \return int object.
+	*/
 	int setX(const int &x);
-	// Modify the y position of the Tile
+	/**
+	* \brief Modify the y position of the Tile	.
+	*
+	* \param y The new value.
+	* \return int object.
+	*/
 	int setY(const int &y);
-	// Modify the width of the Tile
+	/**
+	* \brief Modify the width of the Tile	.
+	*
+	* \param w The new value.
+	* \return int object.
+	*/
 	int setWidth(const int &w);
-	// Modify the height of the Tile
+	/**
+	* \brief Modify the height of the Tile	.
+	*
+	* \param h The new value.
+	* \return int object.
+	*/
 	int setHeight(const int &h);
-	// Modify the maxX of the camera
+	/**
+	* \brief Modify the maxX of the camera	.
+	*
+	* \param mapWidth The new value.
+	* \return int object.
+	*/
 	int setMaxX(int mapWidth);
-	// Modify the maxY of the camera
+	/**
+	* \brief Modify the maxY of the camera	.
+	*
+	* \param mapHeight The new value.
+	* \return int object.
+	*/
 	int setMaxY(int mapHeight);
 
-	// Move the camera to a direction
+	/**
+	* \brief Move the camera to a direction	.
+	*
+	* \return int object.
+	*/
 	int move(const int &dx, const int &dy);
 private:
 	bool m_blocked;
@@ -53,4 +134,3 @@ private:
 	int m_maxX;
 	int m_maxY;
 };
-
