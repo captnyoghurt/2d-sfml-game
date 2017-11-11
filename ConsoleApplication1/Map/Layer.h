@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Layer of tile in the map.
+*
+*/
+
 #pragma once
 
 #include <SFML/Graphics.hpp>
@@ -14,33 +28,91 @@ public:
 	~Layer();
 
 public:
-	// Return all the tile of the layer
+	/**
+	* \brief Return all the tile of the layer	.
+	*
+	* \return std::vector< object.
+	*/
 	std::vector< std::vector<Tile> > getLayer() const;
-	// Return the width of the layer
+	/**
+	* \brief Return the width of the layer	.
+	*
+	* \return int object.
+	*/
 	int getWitdth() const;
-	// Return the height of the layer
+	/**
+	* \brief Return the height of the layer	.
+	*
+	* \return int object.
+	*/
 	int getHeight() const;
-	// Return the width of each tile
+	/**
+	* \brief Return the width of each tile	.
+	*
+	* \return int object.
+	*/
 	int getTileW() const;
-	// Return the height of each tile
+	/**
+	* \brief Return the height of each tile	.
+	*
+	* \return int object.
+	*/
 	int getTileH() const;
-	// Return the tile asked (x,y) from the layer
+	/**
+	* \brief Return the tile asked (x,y) from the layer	.
+	*
+	* \return Tile& object.
+	*/
 	Tile& getTile(int x, int y);
 
-	// Modify the width of the layer
+	/**
+	* \brief Modify the width of the layer	.
+	*
+	* \param w The new value.
+	* \return int object.
+	*/
 	int setWitdth(const int &w);
-	// Modify the height of the layer
+	/**
+	* \brief Modify the height of the layer	.
+	*
+	* \param h The new value.
+	* \return int object.
+	*/
 	int setHeight(const int &h);
-	// Modify the width and the height
+	/**
+	* \brief Modify the width and the height	.
+	*
+	* \param h The new value.
+	* \return int object.
+	*/
 	int resize(const int &w, const int &h);
-	// Modify the width of each tile
+	/**
+	* \brief Modify the width of each tile	.
+	*
+	* \param w The new value.
+	* \return int object.
+	*/
 	int setTileW(const int &w);
-	// Modify the height of each tile
+	/**
+	* \brief Modify the height of each tile	.
+	*
+	* \param h The new value.
+	* \return int object.
+	*/
 	int setTileH(const int &h);
-	// Modify the tile asked (x,y) from the layer
+	/**
+	* \brief Modify the tile asked (x,y) from the layer	.
+	*
+	* \param t The new value.
+	* \return int object.
+	*/
 	int setTile(int x, int y, const Tile& t);
 
-	// Print the layer thanks to the tileset
+	/**
+	* \brief Print the layer thanks to the tileset	.
+	*
+	* \return int object.
+	*/
 	int printLayer(Texture tileset, RenderWindow &win, int xCam, int yCam, int wCam, int hCam);
 
 private:
@@ -50,4 +122,3 @@ private:
 	int m_width;
 	int m_height;
 };
-
