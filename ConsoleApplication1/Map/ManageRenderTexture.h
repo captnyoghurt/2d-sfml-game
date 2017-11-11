@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Manage render texture.
+*
+*/
+
 #pragma once
 
 #include <list>
@@ -13,33 +27,77 @@ public:
 	~ManageRenderTexture();
 
 public:
-	// Return if the render texture need to be updated
+	/**
+	* \brief Return if the render texture need to be updated	.
+	*
+	* \return bool object.
+	*/
 	bool getUpdated() const;
-	// Return if the render texture is initialized
+	/**
+	* \brief Return if the render texture is initialized	.
+	*
+	* \return bool object.
+	*/
 	bool getInitialized() const;
  	// Return the render texture surface
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator getRenderTextureSurface();
-	// Return the vector of all the surfaces on the render texture
+	/**
+	* \brief Return the vector of all the surfaces on the render texture	.
+	*
+	* \return std::vector<std::list<std::pair<ManageSurfaces::e_thing, object.
+	*/
 	std::vector<std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator> getSurfaces() const;
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator getTheSurface(int n);
 
-	// Return the RenderTexture where all the surfaces are printed with modifying possibilities
+	/**
+	* \brief Return the RenderTexture where all the surfaces are printed with modifying possibilities	.
+	*
+	* \return sf::RenderTexture& object.
+	*/
 	sf::RenderTexture& getRealRenderTexture(bool updateIt = true);
-	// Return the render texture surface with modifying possibilities
+	/**
+	* \brief Return the render texture surface with modifying possibilities	.
+	*
+	* \return std::list<std::pair<ManageSurfaces::e_thing, object.
+	*/
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& getRealRenderTextureSurface(bool updateIt = true);
-	// Return the vector of all the surfaces on the render texture with modifying possibilities
+	/**
+	* \brief Return the vector of all the surfaces on the render texture with modifying possibilities	.
+	*
+	* \return std::vector<std::list<std::pair<ManageSurfaces::e_thing, object.
+	*/
 	std::vector<std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator>& getRealSurfaces(bool updateIt = true);
 
-	// Tell the object to be updated
+	/**
+	* \brief Tell the object to be updated	.
+	*
+	* \return int object.
+	*/
 	int gotUpdated();
 
-	// Add a surface to the render texture
+	/**
+	* \brief Add a surface to the render texture	.
+	*
+	* \return int object.
+	*/
 	int add(std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator it, int x = -1, int y = -1);
-	// Initialize the render texture
+	/**
+	* \brief Initialize the render texture	.
+	*
+	* \return int object.
+	*/
 	int load(ManageSurfaces& surf, int x, int y, int w, int h, bool depthBuffer = false);
-	// Update the render texture if necessary
+	/**
+	* \brief Update the render texture if necessary	.
+	*
+	* \return int object.
+	*/
 	int update();
-	// Clear the surfaces
+	/**
+	* \brief Clear the surfaces	.
+	*
+	* \return int object.
+	*/
 	int clear(ManageSurfaces& surf);
 private:
 	bool m_updated;
@@ -48,4 +106,3 @@ private:
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator m_renderTextureSurface;
 	std::vector<std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator>  m_surfaces;
 };
-
