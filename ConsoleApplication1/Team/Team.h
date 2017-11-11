@@ -198,4 +198,87 @@ public:
 	* \brief Modify the width of the team	.
 	*
 	* \param w The new value.
-	* \retu
+	* \return int object.
+	*/
+	int setWidth(const short &w);
+	/**
+	* \brief Modify the height of the team.
+	*
+	* \param h The new value.
+	* \return int object.
+	*/
+	int setHeight(const short &h);
+	/**
+	* \brief Modifying mode.
+	*
+	* \param m The new value.
+	* \return int object.
+	*/
+	int setMode(e_teamMode m);
+	/**
+	* \brief Modify the current direction.
+	*
+	* \param dir The new value.
+	* \return int object.
+	*/
+	int setDirection(e_teamDirection dir);
+	/**
+	* \brief Modify all the dimensions.
+	*
+	* \return int object.
+	*/
+	int setDimension(const unsigned short &x, const unsigned short &y, const short &w, const short &h);
+	/**
+	* \brief Modify the maxX of the team.
+	*
+	* \param mapWidth The new value.
+	* \return int object.
+	*/
+	int setMaxX(short mapWidth);
+	// 
+	/**
+	* \brief Modify the maxY of the team.
+	*
+	* \param mapHeight The new value.
+	* \return int object.
+	*/
+	int setMaxY(short mapHeight);
+	/**
+	* \brief  Modify the walk stand surface.
+	*
+	* \param l The new value.
+	* \return std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator object.
+	*/
+	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator setWalkStand(std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator l);
+
+	// Move the team
+	int move(const short &dx, const short &dy, e_teamDirection direction = UNKNOWN);
+	int stopMoving(Team::e_teamDirection dir = UNKNOWN);
+	//int moveWithCamera(const short &dx, const short &dy, Camera &c, e_teamDirection direction = UNKNOWN);
+	// Update the movement
+	int update(Camera &c, ManageHitbox &hm);
+	// Load the TeamBattle
+	int loadTeamBattle(Game &g);
+
+	private:
+	std::vector<Character> m_team;
+	TeamBattle m_teamBattle;
+	e_teamMode m_mode;
+	e_teamDirection m_direction;
+	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator m_walkStand;
+	std::vector<std::list<Animation>::iterator> m_movementAnimation;
+	sf::Clock m_clock;
+	std::shared_ptr<Hitbox> m_hitbox;
+	Inventory m_inventory;
+	bool m_defined;
+	bool m_moving;
+	bool m_cameraFollowing;
+	unsigned short m_x;
+	unsigned short m_y;
+	short m_speedX;
+	short m_speedY;
+	short m_width;
+	short m_height;
+	short m_maxX;
+	short m_maxY;
+};
