@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  An ally of the group.
+*
+*/
+
 #pragma once
 
 #include "Fighter.h"
@@ -16,47 +30,128 @@ public:
 
 	TeamMate& operator=(const TeamMate &tm);
 public:
-	// Return the courbs
+	/**
+	* \brief Return the courbs	.
+	*
+	* \return std::vector<CharCourb> object.
+	*/
 	std::vector<CharCourb> getCourbs() const;
-	// Return the basic spells
+	/**
+	* \brief Return the basic spells	.
+	*
+	* \return std::vector<std::pair<int, object.
+	*/
 	std::vector<std::pair<int, Spell> > getBasicSpells() const;
-	// Return all the spells
+	/**
+	* \brief Return all the spells	.
+	*
+	* \return std::vector<Spell> object.
+	*/
 	std::vector<Spell> getAllAvailableSpells() const;
-	// Return the experience courb
+	/**
+	* \brief Return the experience courb	.
+	*
+	* \return CharCourb object.
+	*/
 	CharCourb getExpCourb() const;
-	// Return the health courb
+	/**
+	* \brief Return the health courb	.
+	*
+	* \return CharCourb object.
+	*/
 	CharCourb getHealthCourb() const;
-	// Return the mana courb
+	/**
+	* \brief Return the mana courb	.
+	*
+	* \return CharCourb object.
+	*/
 	CharCourb getManaCourb() const;
-	// Return the current experience
+	/**
+	* \brief Return the current experience	.
+	*
+	* \return int object.
+	*/
 	int getExperience() const;
-	// Return the current level
+	/**
+	* \brief Return the current level	.
+	*
+	* \return int object.
+	*/
 	int getLevel() const;
 
-	// Return the courbs with modifying possibilities
+	/**
+	* \brief Return the courbs with modifying possibilities	.
+	*
+	* \return std::vector<CharCourb>& object.
+	*/
 	std::vector<CharCourb>& getRealCourb();
-	// Return the basic spells with modifying possibilities
+	/**
+	* \brief Return the basic spells with modifying possibilities	.
+	*
+	* \return std::vector<std::pair<int, object.
+	*/
 	std::vector<std::pair<int, Spell> >& getRealBasicSpells();
 
-	// Modify the experience courb
+	/**
+	* \brief Modify the experience courb	.
+	*
+	* \param exp The new value.
+	* \return int object.
+	*/
 	int setExpCourb(const CharCourb &exp);
-	// Modify the health courb
+	/**
+	* \brief Modify the health courb	.
+	*
+	* \param h The new value.
+	* \return int object.
+	*/
 	int setHealthCourb(const CharCourb &h);
-	// Modify the mana courb
+	/**
+	* \brief Modify the mana courb	.
+	*
+	* \param m The new value.
+	* \return int object.
+	*/
 	int setManaCourb(const CharCourb &m);
-	// Modify the current experience
+	/**
+	* \brief Modify the current experience	.
+	*
+	* \param experience The new value.
+	* \return int object.
+	*/
 	int setExperience(const int &experience);
-	// Modify the current level
+	/**
+	* \brief Modify the current level	.
+	*
+	* \param lvl The new value.
+	* \return int object.
+	*/
 	int setLevel(const int &lvl);
 
-	// Add some XP
+	/**
+	* \brief Add some XP	.
+	*
+	* \return int object.
+	*/
 	int addExperience(const int &exp);
-	// Reload the TeamMate with the new courbs
+	/**
+	* \brief Reload the TeamMate with the new courbs	.
+	*
+	* \return int object.
+	*/
 	int reload(const bool &healing = false);
 
-	// Take a decision for the next battle action
+	/**
+	* \brief Take a decision for the next battle action	.
+	*
+	* \return virtual object.
+	*/
 	virtual std::shared_ptr<B_Event> chooseEvent(Game *g);
-	// True if the fighter is in reality a TeamMate
+	/**
+	* \brief True if the fighter is in reality a TeamMate	.
+	*
+	* \return virtual object.
+	*/
 	virtual bool isTeamMate() const;
 
 private:
@@ -68,4 +163,3 @@ private:
 	int m_experience;
 	int m_level;
 };
-
