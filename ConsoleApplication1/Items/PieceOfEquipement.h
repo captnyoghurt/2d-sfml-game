@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  A piece of equipement for a fighter.
+*
+*/
+
 #pragma once
 
 #include "Item.h"
@@ -18,18 +32,44 @@ public:
 
 	PieceOfEquipement& operator=(const PieceOfEquipement &poe);
 public:
-	// Return the position of the piece of equipement
+	/**
+	* \brief Return the position of the piece of equipement	.
+	*
+	* \return e_POEPosition object.
+	*/
 	e_POEPosition getPosition() const;
-	// Return the mate id possible
+	/**
+	* \brief Return the mate id possible	.
+	*
+	* \return TeamMate::e_MateId object.
+	*/
 	TeamMate::e_MateId getMateId() const;
-	// Return if the piece is equiped
+	/**
+	* \brief Return if the piece is equiped	.
+	*
+	* \return bool object.
+	*/
 	bool getEquiped() const;
 
-	// Modify the position of the piece of equipement
+	/**
+	* \brief Modify the position of the piece of equipement	.
+	*
+	* \param pos The new value.
+	* \return int object.
+	*/
 	int setPosition(const e_POEPosition &pos);
-	// Return the mate id possible
+	/**
+	* \brief Return the mate id possible	.
+	*
+	* \return int object.
+	*/
 	int setMateId(const TeamMate::e_MateId &mid);
-	// Modify if the piece is equiped
+	/**
+	* \brief Modify if the piece is equiped	.
+	*
+	* \param b The new value.
+	* \return int object.
+	*/
 	int setEquiped(const bool &b);
 
 private:
@@ -37,4 +77,3 @@ private:
 	TeamMate::e_MateId m_mateId;
 	bool m_equiped;
 };
-
