@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  A courb for characteristic evolution.
+*
+*/
+
 #pragma once
 
 
@@ -11,29 +25,78 @@ public:
 
 	CharCourb& operator=(const CharCourb &courb);
 public:
-	// Return the id
+	/**
+	* \brief Return the id	.
+	*
+	* \return int object.
+	*/
 	int getId() const;
-	// Return the brut coeff
+	/**
+	* \brief Return the brut coeff	.
+	*
+	* \return double object.
+	*/
 	double getBrut() const;
-	// Return the simple coeff
+	/**
+	* \brief Return the simple coeff	.
+	*
+	* \return double object.
+	*/
 	double getSimple() const;
-	// Return the square coeff
+	/**
+	* \brief Return the square coeff	.
+	*
+	* \return double object.
+	*/
 	double getSquare() const;
-	// Return the cube coeff
+	/**
+	* \brief Return the cube coeff	.
+	*
+	* \return double object.
+	*/
 	double getCube() const;
 
-	// Modify the id
+	/**
+	* \brief Modify the id	.
+	*
+	* \param id The new value.
+	* \return int object.
+	*/
 	int setId(const int &id);
-	// Modify the brut coeff
+	/**
+	* \brief Modify the brut coeff	.
+	*
+	* \param brut The new value.
+	* \return int object.
+	*/
 	int setBrut(const double &brut);
-	// Modify the simple coeff
+	/**
+	* \brief Modify the simple coeff	.
+	*
+	* \param simple The new value.
+	* \return int object.
+	*/
 	int setSimple(const double &simple);
-	// Modify the square coeff
+	/**
+	* \brief Modify the square coeff	.
+	*
+	* \param square The new value.
+	* \return int object.
+	*/
 	int setSquare(const double &square);
-	// Modify the cube coeff
+	/**
+	* \brief Modify the cube coeff	.
+	*
+	* \param cube The new value.
+	* \return int object.
+	*/
 	int setCube(const double &cube);
 
-	// Return the value of the courb at a level
+	/**
+	* \brief Return the value of the courb at a level	.
+	*
+	* \return double object.
+	*/
 	double result(const int &level) const;
 
 private:
