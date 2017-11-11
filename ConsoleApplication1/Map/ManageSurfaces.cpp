@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Save and manage the different surfaces.
+*
+*/
+
 #include <iostream>
 #include "ManageSurfaces.h"
 #include "../Error/ValueException.h"
