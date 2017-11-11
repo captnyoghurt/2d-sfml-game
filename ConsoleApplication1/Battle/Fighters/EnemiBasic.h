@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  A simple enemi to fight.
+*
+*/
+
 #pragma once
 
 #include <random>
@@ -13,10 +27,13 @@ public:
 	~EnemiBasic();
 
 public:
-	// Take a decision for the next battle action
+	/**
+	* \brief Take a decision for the next battle action	.
+	*
+	* \return virtual object.
+	*/
 	virtual std::shared_ptr<B_Event> chooseEvent(Game *g);
 
 private:
 	std::default_random_engine m_generator;
 };
-
