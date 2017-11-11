@@ -1,3 +1,18 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  A tile with a specific size and hitbox.
+*  Key element of a map.
+*
+*/
+
 #pragma once
 #include <vector>
 
@@ -11,30 +26,84 @@ public:
 
 	Tile& operator=(const Tile &t);
 public:
-	// Return if the tile is empty or not
+	/**
+	* \brief Return if the tile is empty or not	.
+	*
+	* \return bool object.
+	*/
 	bool getEmpty() const;
-	// Return the abciss of the Tile
+	/**
+	* \brief Return the abciss of the Tile	.
+	*
+	* \return unsigned object.
+	*/
 	unsigned short getX() const;
-	// Return the y position of the Tile
+	/**
+	* \brief Return the y position of the Tile	.
+	*
+	* \return unsigned object.
+	*/
 	unsigned short getY() const;
-	// Return the width of the Tile
+	/**
+	* \brief Return the width of the Tile	.
+	*
+	* \return short object.
+	*/
 	short getWidth() const;
-	// Return the height of the Tile
+	/**
+	* \brief Return the height of the Tile	.
+	*
+	* \return short object.
+	*/
 	short getHeight() const;
-	// Return the proprietes of the Tile
+	/**
+	* \brief Return the proprietes of the Tile	.
+	*
+	* \return std::vector<int> object.
+	*/
 	std::vector<int> getProprieties() const;
 
-	// Modify if the tile is empty or not
+	/**
+	* \brief Modify if the tile is empty or not	.
+	*
+	* \param b The new value.
+	* \return int object.
+	*/
 	int setEmpty(const bool &b);
-	// Modify the abciss of the Tile
+	/**
+	* \brief Modify the abciss of the Tile	.
+	*
+	* \param x The new value.
+	* \return int object.
+	*/
 	int setX(const unsigned short &x);
-	// Modify the y position of the Tile
+	/**
+	* \brief Modify the y position of the Tile	.
+	*
+	* \param y The new value.
+	* \return int object.
+	*/
 	int setY(const unsigned short &y);
-	// Modify the width of the Tile
+	/**
+	* \brief Modify the width of the Tile	.
+	*
+	* \param w The new value.
+	* \return int object.
+	*/
 	int setWidth(const short &w);
-	// Modify the height of the Tile
+	/**
+	* \brief Modify the height of the Tile	.
+	*
+	* \param h The new value.
+	* \return int object.
+	*/
 	int setHeight(const short &h);
-	// Modify the proprietes of the Tile
+	/**
+	* \brief Modify the proprietes of the Tile	.
+	*
+	* \param props The new value.
+	* \return int object.
+	*/
 	int setProprieties(const std::vector<int> &props);
 
 private:
@@ -45,4 +114,3 @@ private:
 	short m_width;
 	short m_height;
 };
-
