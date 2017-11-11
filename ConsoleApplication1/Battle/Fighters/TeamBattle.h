@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  The complete ally team.
+*
+*/
+
 #pragma once
 
 #include <vector>
@@ -12,23 +26,46 @@ public:
 	~TeamBattle();
 
 public:
-	// Return the number of team mate alive
+	/**
+	* \brief Return the number of team mate alive	.
+	*
+	* \return int object.
+	*/
 	int getNumberTeamMateAlive() const;
-	// Return the team mate vector
+	/**
+	* \brief Return the team mate vector	.
+	*
+	* \return std::vector< object.
+	*/
 	std::vector< std::shared_ptr<TeamMate> > getTeam() const;
 
-	// Return the team mate vector with modifying possibilities
+	/**
+	* \brief Return the team mate vector with modifying possibilities	.
+	*
+	* \return std::vector< object.
+	*/
 	std::vector< std::shared_ptr<TeamMate> >& getRealTeam();
 
-	// Add a new member
+	/**
+	* \brief Add a new member	.
+	*
+	* \return int object.
+	*/
 	int addMember(TeamMate m);
 
-	// Load the team battle
+	/**
+	* \brief Load the team battle	.
+	*
+	* \return int object.
+	*/
 	int load(Game *g);
-	// Update the team batttle
+	/**
+	* \brief Update the team batttle	.
+	*
+	* \return int object.
+	*/
 	int update();
 private:
 	int m_numberTeamMateAlive;
 	std::vector< std::shared_ptr<TeamMate> > m_team;
 };
-
