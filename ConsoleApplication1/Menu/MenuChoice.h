@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Menu to select choices.
+*
+*/
+
 #pragma once
 
 #include "M_choice.h"
@@ -13,35 +27,89 @@ public:
 	~MenuChoice();
 
 public:
-	// Return the choices surfaces with modifying possibilities
+	/**
+	* \brief Return the choices surfaces with modifying possibilities	.
+	*
+	* \return std::vector< object.
+	*/
 	std::vector< std::shared_ptr<M_choice> > getChoices();
-	// Return the down cursor surfaces with modifying possibilities
+	/**
+	* \brief Return the down cursor surfaces with modifying possibilities	.
+	*
+	* \return std::list<std::pair<ManageSurfaces::e_thing, object.
+	*/
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator getCursorSurfaceDown();
-	// Return the up cursor surfaces with modifying possibilities
+	/**
+	* \brief Return the up cursor surfaces with modifying possibilities	.
+	*
+	* \return std::list<std::pair<ManageSurfaces::e_thing, object.
+	*/
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator getCursorSurfaceUp();
-	// Return the selected choice surface with modifying possibilities
+	/**
+	* \brief Return the selected choice surface with modifying possibilities	.
+	*
+	* \return std::list<std::pair<ManageSurfaces::e_thing, object.
+	*/
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator getSelectedChoiceSurface();
-	// Return the selected choice
+	/**
+	* \brief Return the selected choice	.
+	*
+	* \return int object.
+	*/
 	int getSelectedChoice() const;
-	// Return the first choice actually shown
+	/**
+	* \brief Return the first choice actually shown	.
+	*
+	* \return int object.
+	*/
 	int getFirstChoiceShown() const;
-	// Return the last choice actually shown
+	/**
+	* \brief Return the last choice actually shown	.
+	*
+	* \return int object.
+	*/
 	int getLastChoiceShown() const;
 
-	// Modify if the menu should be shown or not
+	/**
+	* \brief Modify if the menu should be shown or not	.
+	*
+	* \param b The new value.
+	* \return virtual object.
+	*/
 	virtual int setShown(const bool &b);
-	// Modify the selected choice
+	/**
+	* \brief Modify the selected choice	.
+	*
+	* \param ch The new value.
+	* \return int object.
+	*/
 	int setSelectedChoice(const int &ch);
 
-	// Resize the ChoiceSurface according to the selected choice
+	/**
+	* \brief Resize the ChoiceSurface according to the selected choice	.
+	*
+	* \return int object.
+	*/
 	int resizeChoiceSurface();
 
-	// Load the menu
+	/**
+	* \brief Load the menu	.
+	*
+	* \return virtual object.
+	*/
 	virtual int loadFromStream(ManageRessources& ress, ManageSurfaces& surf, std::stringstream &ss, const int &xcam, const int &ycam, const int &wchoice = 0, const int &hchoice = 0);
 	virtual int loadFromFile(ManageRessources& ress, ManageSurfaces& surf, const std::string &filename, const int &xcam, const int &ycam, const int &wchoice = 0, const int &hchoice = 0);
-	// Update surfaces
+	/**
+	* \brief Update surfaces	.
+	*
+	* \return virtual object.
+	*/
 	virtual int update(Game &g);
-	// Close the menu
+	/**
+	* \brief Close the menu	.
+	*
+	* \return virtual object.
+	*/
 	virtual int close(ManageSurfaces& surf);
 
 private:
