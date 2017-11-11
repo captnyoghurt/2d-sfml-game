@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Has every item in the bag.
+*
+*/
+
 #pragma once
 
 #include <list>
@@ -12,18 +26,42 @@ public:
 	~Inventory();
 
 public:
-	// Return the items
+	/**
+	* \brief Return the items	.
+	*
+	* \return std::list< object.
+	*/
 	std::list< std::pair<Item, int> > getItems() const;
-	// Return the orbs
+	/**
+	* \brief Return the orbs	.
+	*
+	* \return std::list< object.
+	*/
 	std::list< std::pair<ItemOrb, int> > getOrbs() const;
-	// Return the POE
+	/**
+	* \brief Return the POE	.
+	*
+	* \return std::list< object.
+	*/
 	std::list< std::pair<PieceOfEquipement, int> > getPieceOfEquipement() const;
 
-	// Return the items with the modifying possibilities
+	/**
+	* \brief Return the items with the modifying possibilities	.
+	*
+	* \return std::list< object.
+	*/
 	std::list< std::pair<Item, int> >& getRealItems();
-	// Return the orbs with the modifying possibilities
+	/**
+	* \brief Return the orbs with the modifying possibilities	.
+	*
+	* \return std::list< object.
+	*/
 	std::list< std::pair<ItemOrb, int> >& getRealOrbs();
-	// Return the POE with the modifying possibilities
+	/**
+	* \brief Return the POE with the modifying possibilities	.
+	*
+	* \return std::list< object.
+	*/
 	std::list< std::pair<PieceOfEquipement, int> >& getRealPieceOfEquipement();
 
 private:
@@ -31,4 +69,3 @@ private:
 	std::list< std::pair<ItemOrb, int> > m_orbs;
 	std::list< std::pair<PieceOfEquipement, int> > m_pieceOfEquipement;
 };
-
