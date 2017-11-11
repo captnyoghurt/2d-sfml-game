@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Mother class for enemi or ally.
+*
+*/
+
 #pragma once
 
 
@@ -22,56 +36,158 @@ public:
 
 	Fighter& operator=(const Fighter &f);
 public:
-	// Return the name
+	/**
+	* \brief Return the name	.
+	*
+	* \return std::string object.
+	*/
 	std::string getName() const;
-	// Return health
+	/**
+	* \brief Return health	.
+	*
+	* \return Health object.
+	*/
 	Health getHealth() const;
-	// Return mana
+	/**
+	* \brief Return mana	.
+	*
+	* \return Mana object.
+	*/
 	Mana getMana() const;
-	// Return skill points
+	/**
+	* \brief Return skill points	.
+	*
+	* \return SkillPoints object.
+	*/
 	SkillPoints getSkillPoints() const;
-	// Return all the characteristics
+	/**
+	* \brief Return all the characteristics	.
+	*
+	* \return std::vector<Characteristic> object.
+	*/
 	std::vector<Characteristic> getCharacteristics() const;
-	// Return all the spells
+	/**
+	* \brief Return all the spells	.
+	*
+	* \return std::vector<Spell> object.
+	*/
 	std::vector<Spell> getSpells() const;
-	// Return the surface
+	/**
+	* \brief Return the surface	.
+	*
+	* \return std::list<std::pair<ManageSurfaces::e_thing, object.
+	*/
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator getSurface();
 
-	// Return health with modifying possibilities
+	/**
+	* \brief Return health with modifying possibilities	.
+	*
+	* \return Health& object.
+	*/
 	Health& getRealHealth();
-	// Return mana with modifying possibilities
+	/**
+	* \brief Return mana with modifying possibilities	.
+	*
+	* \return Mana& object.
+	*/
 	Mana& getRealMana();
-	// Return skill points with modifying possibilities
+	/**
+	* \brief Return skill points with modifying possibilities	.
+	*
+	* \return SkillPoints& object.
+	*/
 	SkillPoints& getRealSkillPoints();
-	// Return all the characteristics with modifying possibilities
+	/**
+	* \brief Return all the characteristics with modifying possibilities	.
+	*
+	* \return std::vector<Characteristic>& object.
+	*/
 	std::vector<Characteristic>& getRealCharacteristics();
-	// Return the spells with modifying possibilities
+	/**
+	* \brief Return the spells with modifying possibilities	.
+	*
+	* \return std::vector<Spell>& object.
+	*/
 	std::vector<Spell>& getRealSpells();
-	// Return the surface with modifying possibilities
+	/**
+	* \brief Return the surface with modifying possibilities	.
+	*
+	* \return std::list<std::pair<ManageSurfaces::e_thing, object.
+	*/
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator& getRealSurface();
 
-	// Modify the name
+	/**
+	* \brief Modify the name	.
+	*
+	* \param name The new value.
+	* \return int object.
+	*/
 	int setName(const std::string &name);
-	// Modify health
+	/**
+	* \brief Modify health	.
+	*
+	* \param h The new value.
+	* \return int object.
+	*/
 	int setHealth(const Health &h);
-	// Modify mana
+	/**
+	* \brief Modify mana	.
+	*
+	* \param m The new value.
+	* \return int object.
+	*/
 	int setMana(const Mana &m);
-	// Modify skill points
+	/**
+	* \brief Modify skill points	.
+	*
+	* \param skp The new value.
+	* \return int object.
+	*/
 	int setSkillPoints(const SkillPoints &skp);
-	// Modify a characteristic
+	/**
+	* \brief Modify a characteristic	.
+	*
+	* \param n The new value.
+	* \return int object.
+	*/
 	int setCharacteristic(const Characteristic &ch, int n);
-	// Modify the surface
+	/**
+	* \brief Modify the surface	.
+	*
+	* \param it The new value.
+	* \return int object.
+	*/
 	int setSurface(std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator it);
 
-	// Take a decision for the next battle action
+	/**
+	* \brief Take a decision for the next battle action	.
+	*
+	* \return virtual object.
+	*/
 	virtual std::shared_ptr<B_Event> chooseEvent(Game *g);
-	// Make the fighter do an action for the next turn
+	/**
+	* \brief Make the fighter do an action for the next turn	.
+	*
+	* \return int object.
+	*/
 	int doAction(std::shared_ptr<B_Event> evt);
-	// True if the fighter is in reality a TeamMate
+	/**
+	* \brief True if the fighter is in reality a TeamMate	.
+	*
+	* \return virtual object.
+	*/
 	virtual bool isTeamMate() const;
-	// True if the fighter is dead (== 0 HP)
+	/**
+	* \brief True if the fighter is dead (== 0 HP)	.
+	*
+	* \return bool object.
+	*/
 	bool isDead() const;
-	// Change stance & possibilities
+	/**
+	* \brief Change stance & possibilities	.
+	*
+	* \return int object.
+	*/
 	int switchToDead();
 	int switchToAlive();
 
@@ -84,4 +200,3 @@ protected:
 	std::vector<Spell> m_spells;
 	std::list<std::pair<ManageSurfaces::e_thing, std::shared_ptr<Surface>>>::iterator m_surface;
 };
-
