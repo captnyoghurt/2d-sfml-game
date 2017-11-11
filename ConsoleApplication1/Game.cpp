@@ -1,9 +1,18 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date	17/04/2017
+*  @version 0.1
+*
+*  @brief Game class implementation.
+*
+*/
+
 #include <iostream>
 #include <memory>
 #include "constants.h"
 #include "Game.h"
 #include "Error/RessourceException.h"
-
 
 
 Game::Game(VideoMode mode, const String &title, Uint32 style, const ContextSettings &settings) :
@@ -25,7 +34,7 @@ Game::~Game()
 }
 
 
-// Return the actual map
+// Return the actual map.
 Map Game::getMap() const
 {
 	return m_map;
