@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  A spell of a fighter. Can be cast.
+*
+*/
+
 #pragma once
 
 #include <deque>
@@ -13,70 +27,208 @@ public:
 
 	Spell& operator=(const Spell &sp);
 public:
-	// Return the id
+	/**
+	* \brief Return the id	.
+	*
+	* \return int object.
+	*/
 	int getId() const;
-	// Return the name
+	/**
+	* \brief Return the name	.
+	*
+	* \return std::string object.
+	*/
 	std::string getName() const;
-	// Return the damage
+	/**
+	* \brief Return the damage	.
+	*
+	* \return int object.
+	*/
 	int getDamage() const;
-	// Return ally destination
+	/**
+	* \brief Return ally destination	.
+	*
+	* \return int object.
+	*/
 	int getAllyDestination() const;
-	// Return the enemi destination
+	/**
+	* \brief Return the enemi destination	.
+	*
+	* \return int object.
+	*/
 	int getEnemiDestination() const;
-	// Return the hp cost
+	/**
+	* \brief Return the hp cost	.
+	*
+	* \return int object.
+	*/
 	int getCostHP() const;
-	// Return the mp cost
+	/**
+	* \brief Return the mp cost	.
+	*
+	* \return int object.
+	*/
 	int getCostMP() const;
-	// Return the tp cost
+	/**
+	* \brief Return the tp cost	.
+	*
+	* \return int object.
+	*/
 	int getCostTP() const;
-	// Return the chance of sleep
+	/**
+	* \brief Return the chance of sleep	.
+	*
+	* \return int object.
+	*/
 	int getChanceSleep() const;
-	// Return the chance of poison
+	/**
+	* \brief Return the chance of poison	.
+	*
+	* \return int object.
+	*/
 	int getChancePoison() const;
-	// Return the chance of paralysis
+	/**
+	* \brief Return the chance of paralysis	.
+	*
+	* \return int object.
+	*/
 	int getChanceParalysis() const;
-	// Return the chance of mute
+	/**
+	* \brief Return the chance of mute	.
+	*
+	* \return int object.
+	*/
 	int getChanceMute() const;
-	// Return the icon id
+	/**
+	* \brief Return the icon id	.
+	*
+	* \return int object.
+	*/
 	int getIconId() const;
-	// Return the battle effects
+	/**
+	* \brief Return the battle effects	.
+	*
+	* \return std::deque<BattleEffects> object.
+	*/
 	std::deque<BattleEffects> getEffects() const;
-	// Return the description
+	/**
+	* \brief Return the description	.
+	*
+	* \return std::string object.
+	*/
 	std::string getDescription() const;
 
-	// Return the battle effects with modifying possibilities
+	/**
+	* \brief Return the battle effects with modifying possibilities	.
+	*
+	* \return std::deque<BattleEffects>& object.
+	*/
 	std::deque<BattleEffects>& getRealEffects();
 
-	// Modify the id
+	/**
+	* \brief Modify the id	.
+	*
+	* \param id The new value.
+	* \return int object.
+	*/
 	int setId(const int &id);
-	// Modify the name
+	/**
+	* \brief Modify the name	.
+	*
+	* \param name The new value.
+	* \return int object.
+	*/
 	int setName(const std::string &name);
-	// Modify the damage
+	/**
+	* \brief Modify the damage	.
+	*
+	* \param d The new value.
+	* \return int object.
+	*/
 	int setDamage(const int &d);
-	// Modify ally destination
+	/**
+	* \brief Modify ally destination	.
+	*
+	* \param ad The new value.
+	* \return int object.
+	*/
 	int setAllyDestination(const int &ad);
-	// Modify enemi destination
+	/**
+	* \brief Modify enemi destination	.
+	*
+	* \param ed The new value.
+	* \return int object.
+	*/
 	int setEnemiDestination(const int &ed);
-	// Modify the hp cost
+	/**
+	* \brief Modify the hp cost	.
+	*
+	* \param cost The new value.
+	* \return int object.
+	*/
 	int setCostHP(const int &cost);
-	// Modify the mp cost
+	/**
+	* \brief Modify the mp cost	.
+	*
+	* \param cost The new value.
+	* \return int object.
+	*/
 	int setCostMP(const int &cost);
-	// Modify the tp cost
+	/**
+	* \brief Modify the tp cost	.
+	*
+	* \param cost The new value.
+	* \return int object.
+	*/
 	int setCostTP(const int &cost);
-	// Modify the chance of sleep
+	/**
+	* \brief Modify the chance of sleep	.
+	*
+	* \param chance The new value.
+	* \return int object.
+	*/
 	int setChanceSleep(const int &chance);
-	// Modify the chance of poison
+	/**
+	* \brief Modify the chance of poison	.
+	*
+	* \param chance The new value.
+	* \return int object.
+	*/
 	int setChancePoison(const int &chance);
-	// Modify the chance of paralysis
+	/**
+	* \brief Modify the chance of paralysis	.
+	*
+	* \param chance The new value.
+	* \return int object.
+	*/
 	int setChanceParalysis(const int &chance);
-	// Modify the chance of mute
+	/**
+	* \brief Modify the chance of mute	.
+	*
+	* \param chance The new value.
+	* \return int object.
+	*/
 	int setChanceMute(const int &chance);
-	// Modify the id icon
+	/**
+	* \brief Modify the id icon	.
+	*
+	* \param id The new value.
+	* \return int object.
+	*/
 	int setIconId(const int &id);
-	// Modify the description
+	/**
+	* \brief Modify the description	.
+	*
+	* \param des The new value.
+	* \return int object.
+	*/
 	int setDescription(const std::string &des);
 
-	// Add an effect
+	/**
+	* \brief Add an effect	.
+	*
+	* \return int object.
+	*/
 	int addEffect(const BattleEffects &be);
 
 public:
@@ -96,4 +248,3 @@ public:
 	std::deque<BattleEffects> m_effects;
 	std::string m_description;
 };
-
