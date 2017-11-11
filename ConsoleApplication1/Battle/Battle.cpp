@@ -18,6 +18,7 @@ Battle::Battle(TeamBattle &tb)
 	m_started = false;
 	m_inTurn = false;
 	m_choicesFinished = false;
+	m_shown = true;
 	m_battleExit = Battle::e_BattleExit::BATTLE_EXIT_TOTAL;
 	m_battleTurn = 0;
 	m_lastKeyEventLayer = 0;
