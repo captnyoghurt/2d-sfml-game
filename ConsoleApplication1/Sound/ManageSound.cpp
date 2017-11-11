@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Manage all the sound in the game.
+*
+*/
+
 #include "ManageSound.h"
 #include "../Map/ManageRessources.h"
 #include "../Error/RessourceException.h"
