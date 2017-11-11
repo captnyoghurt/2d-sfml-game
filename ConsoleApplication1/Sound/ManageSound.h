@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Manage all the sound in the game.
+*
+*/
+
 #pragma once
 
 #include <memory>
@@ -14,29 +28,65 @@ public:
 	~ManageSound();
 
 public:
-	// Return the list of sounds
+	/**
+	* \brief Return the list of sounds	.
+	*
+	* \return std::list<std::shared_ptr<sf::Sound>> object.
+	*/
 	std::list<std::shared_ptr<sf::Sound>> getSounds() const;
-	// Return the stack of musics
+	/**
+	* \brief Return the stack of musics	.
+	*
+	* \return std::stack<std::shared_ptr<sf::Music>> object.
+	*/
 	std::stack<std::shared_ptr<sf::Music>> getMusics() const;
 
-	// Return the list of sounds with modifying possibilities
+	/**
+	* \brief Return the list of sounds with modifying possibilities	.
+	*
+	* \return std::list<std::shared_ptr<sf::Sound>>& object.
+	*/
 	std::list<std::shared_ptr<sf::Sound>>& getRealSounds();
-	// Return the stack of musics with modifying possibilities
+	/**
+	* \brief Return the stack of musics with modifying possibilities	.
+	*
+	* \return std::stack<std::shared_ptr<sf::Music>>& object.
+	*/
 	std::stack<std::shared_ptr<sf::Music>>& getRealMusics();
 
-	// Add a new sound
+	/**
+	* \brief Add a new sound	.
+	*
+	* \return int object.
+	*/
 	int addSound(sf::Sound s);
 	int addSound(sf::SoundBuffer &sbuffer);
 	int addSound(const std::string &filename, ManageRessources &ress);
-	// Add a new music
+	/**
+	* \brief Add a new music	.
+	*
+	* \return int object.
+	*/
 	int addMusic(const std::string &filename, bool loop = true);
 
-	// Delete the top music
+	/**
+	* \brief Delete the top music	.
+	*
+	* \return int object.
+	*/
 	int deleteMusic();
 
-	// Update the manager
+	/**
+	* \brief Update the manager	.
+	*
+	* \return int object.
+	*/
 	int update();
-	// Clear all the sounds and music
+	/**
+	* \brief Clear all the sounds and music	.
+	*
+	* \return int object.
+	*/
 	int clear();
 
 public:
@@ -44,4 +94,3 @@ public:
 	std::stack<std::shared_ptr<sf::Music>> m_musics;
 	sf::Clock m_clock;
 };
-
