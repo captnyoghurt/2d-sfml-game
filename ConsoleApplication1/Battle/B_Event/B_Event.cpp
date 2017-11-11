@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Mother class for the different battle event.
+*
+*/
+
 #include "B_Event.h"
 #include "../Battle.h"
 #include "../../Error/ValueException.h"
