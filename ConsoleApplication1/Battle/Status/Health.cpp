@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Health of a fighter.
+*
+*/
+
 #include "../../constants.h"
 #include "Health.h"
 #include "Spell.h"
