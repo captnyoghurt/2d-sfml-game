@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Menu to show the bag.
+*
+*/
+
 #pragma once
 
 #include "../Items/Item.h"
@@ -14,21 +28,49 @@ public:
 	~MenuInventory();
 
 public:
-	// Return the spells
+	/**
+	* \brief Return the spells	.
+	*
+	* \return std::vector< object.
+	*/
 	std::vector< std::pair<Item, int> > getItems() const;
 
-	// Return the dialog box with modifying possibilities
+	/**
+	* \brief Return the dialog box with modifying possibilities	.
+	*
+	* \return MenuDialogBox& object.
+	*/
 	MenuDialogBox& getRealDialogBox();
-	// Return the menu choice with modifying possibilities
+	/**
+	* \brief Return the menu choice with modifying possibilities	.
+	*
+	* \return MenuChoice& object.
+	*/
 	MenuChoice& getRealMenuChoices();
-	// Return the spells with modifying possibilities
+	/**
+	* \brief Return the spells with modifying possibilities	.
+	*
+	* \return std::vector< object.
+	*/
 	std::vector< std::pair<Item, int> >& getRealItems();
 
-	// Load the menu
+	/**
+	* \brief Load the menu	.
+	*
+	* \return virtual object.
+	*/
 	virtual int load(ManageRessources& ress, ManageSurfaces& surf, const int &xcam, const int &ycam, std::list< std::pair<Item, int> > &items, std::vector<bool> enabledTypes);
-	// Update surfaces
+	/**
+	* \brief Update surfaces	.
+	*
+	* \return virtual object.
+	*/
 	virtual int update(Game &g);
-	// Close the menu
+	/**
+	* \brief Close the menu	.
+	*
+	* \return virtual object.
+	*/
 	virtual int close(ManageSurfaces &surf);
 
 protected:
@@ -39,4 +81,3 @@ private:
 	MenuChoice m_choices;
 	std::vector< std::pair<Item, int> > m_items;
 };
-
