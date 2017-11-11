@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Save and manage the different surfaces.
+*
+*/
+
 #pragma once
 
 #include <list>
@@ -17,21 +31,40 @@ public:
 	~ManageSurfaces();
 
 public:
-	// Return all the surfaces
+	/**
+	* \brief Return all the surfaces	.
+	*
+	* \return std::list<std::pair<e_thing, object.
+	*/
 	std::list<std::pair<e_thing, std::shared_ptr<Surface>>> getSurfaces() const;
 
-	// Return modifying element
+	/**
+	* \brief Return modifying element	.
+	*
+	* \return std::pair<e_thing, object.
+	*/
 	std::pair<e_thing, std::shared_ptr<Surface>>& getModifyingSurface(int n);
 
-	// Add an element
+	/**
+	* \brief Add an element	.
+	*
+	* \return std::list<std::pair<e_thing, object.
+	*/
 	std::list<std::pair<e_thing, std::shared_ptr<Surface>>>::iterator addSurface(e_thing type, std::shared_ptr<Surface> surf);
-	// Delete an element
+	/**
+	* \brief Delete an element	.
+	*
+	* \return int object.
+	*/
 	int deleteSurface(std::list<std::pair<e_thing, std::shared_ptr<Surface>>>::iterator it);
-	// Print the element
+	/**
+	* \brief Print the element	.
+	*
+	* \return int object.
+	*/
 	int print(sf::RenderWindow &win, const Camera &cam);
 
 private:
 	std::list<std::pair<e_thing, std::shared_ptr<Surface>>> m_surfaces;
 
 };
-
