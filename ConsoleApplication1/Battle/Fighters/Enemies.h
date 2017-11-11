@@ -1,3 +1,17 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date    11 / 11 / 2017
+*  @version 0.1
+*
+*  @brief Class header.
+*
+*  @section DESCRIPTION
+*
+*  Enemi team.
+*
+*/
+
 #pragma once
 
 #include <vector>
@@ -11,24 +25,47 @@ public:
 	~Enemies();
 
 public:
-	// Return the number of team mate alive
+	/**
+	* \brief Return the number of team mate alive	.
+	*
+	* \return int object.
+	*/
 	int getNumberFighterAlive() const;
-	// Return the team mate vector
+	/**
+	* \brief Return the team mate vector	.
+	*
+	* \return std::vector<std::shared_ptr<Fighter>> object.
+	*/
 	std::vector<std::shared_ptr<Fighter>> getTeam();
 
-	// Return the team mate vector with modifying possibilities
+	/**
+	* \brief Return the team mate vector with modifying possibilities	.
+	*
+	* \return std::vector<std::shared_ptr<Fighter>>& object.
+	*/
 	std::vector<std::shared_ptr<Fighter>>& getRealTeam();
 
-	// Add a new member
+	/**
+	* \brief Add a new member	.
+	*
+	* \return int object.
+	*/
 	int addMember(Fighter m);
 	int addMember(std::shared_ptr<Fighter> f);
 
-	// Update the team batttle
+	/**
+	* \brief Update the team batttle	.
+	*
+	* \return int object.
+	*/
 	int update();
-	// Clear the enemy team
+	/**
+	* \brief Clear the enemy team	.
+	*
+	* \return int object.
+	*/
 	int clear();
 private:
 	int m_numberFighterAlive;
 	std::vector<std::shared_ptr<Fighter>> m_fighters;
 };
-
