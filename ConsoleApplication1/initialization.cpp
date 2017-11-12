@@ -422,6 +422,10 @@ IG_Action::s_action getActionFromWord(std::string w)
 		return &af_menuInventoryDown;
 	else if (w == "MENU_INVENTORY_UP")
 		return &af_menuInventoryUp;
+	else if (w == "MENU_TEAM_OPEN")
+		return &af_menuTeamOpen;
+	else if (w == "MENU_TEAM_CLOSE")
+		return &af_menuTeamClose;
 
 	else
 		THROW_VALUE(std::string("Unknown action : " + w));
