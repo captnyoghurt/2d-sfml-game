@@ -50,6 +50,10 @@ int af_menuInventoryClose(Game &g);
 int af_menuInventoryUp(Game &g);
 int af_menuInventoryDown(Game &g);
 
+// Team Menu
+int af_menuTeamOpen(Game &g);
+int af_menuTeamClose(Game &g);
+
 // Battle
 /// General
 int af_battleStart(Game &g);
