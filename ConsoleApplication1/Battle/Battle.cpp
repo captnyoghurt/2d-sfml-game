@@ -199,6 +199,7 @@ int Battle::setShown(const bool &b)
 {
 	if (b != m_shown)
 	{
+		m_shown = b;
 		m_background->second->setEnable(b);
 
 		for (std::shared_ptr<TeamMate> tm : m_alliesTeam->getRealTeam())
@@ -432,6 +433,14 @@ int Battle::chooseBattleEvent(Game *g)
 		//m_selectedTeamMate = *std::dynamic_pointer_cast<TeamMate>(m_battleOrder.at(m_battleEventCreated));
 
 		m_battleMenu->setIsBlocking(true);
+		std::dynamic_pointer_cast<MenuChoice>(m_battleMenu->getRealMenus().at(MenuBattle::BM_CHOICE))
+			->getChoices().at(2)->setAction(IG_Action(
+				std::bind(
+					&af_openMenuSpells,
+					*std::dynamic_pointer_cast<TeamMate>(m_battleOrder.at(m_battleEventCreated)),
+					std::placeholders::_1
+				)
+			));
 
 		std::string str("Que dois faire ");
 

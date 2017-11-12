@@ -19,6 +19,7 @@
 #include "../Status/Characteristic.h"
 #include "../../constants.h"
 #include "../../Error/ValueException.h"
+#include "../../Event/actionFunctions.h"
 
 
 TeamMate::TeamMate() :
@@ -255,4 +256,11 @@ std::shared_ptr<B_Event> TeamMate::chooseEvent(Game *g)
 bool TeamMate::isTeamMate() const
 {
 	return true;
+}
+
+
+// The actionFunction to open the TeamMate spell menu.
+int af_openMenuSpells(TeamMate &tm, Game &g)
+{
+	return af_menuSpellsOpen(g, tm.getAllAvailableSpells());
 }

@@ -163,3 +163,10 @@ private:
 	int m_experience;
 	int m_level;
 };
+
+/**
+* \brief The actionFunction to open the TeamMate spell menu.
+*
+* \return error code
+*/
+int af_openMenuSpells(TeamMate &tm, Game &g);
