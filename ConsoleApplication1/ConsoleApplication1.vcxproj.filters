@@ -303,6 +303,9 @@
     <ClCompile Include="Battle\Status\Spell.cpp">
       <Filter>Fichiers sources\Battle\Status</Filter>
     </ClCompile>
+    <ClCompile Include="Menu\MenuTeam.cpp">
+      <Filter>Fichiers sources\Menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -529,6 +532,9 @@
     </ClInclude>
     <ClInclude Include="Battle\Status\Spell.h">
       <Filter>Fichiers d%27en-tête\Battle\Status</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu\MenuTeam.h">
+      <Filter>Fichiers d%27en-tête\Menu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
