@@ -388,7 +388,7 @@ int af_menuTeamOpenSpell(Game &g)
 	g.getRealMenus().push_back(std::make_shared<MenuTeam>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_TEAM_LAYER), g.getEventManager().getKeyEventLayer()));
 	g.getRealEventManager().setKeyEventLayer(7);
 
-	return std::dynamic_pointer_cast<MenuTeam>(g.getRealMenus().back())->load(MenuTeam::e_MenuTeamType::MENU_TEAM_SPELLS, g.getRealTeam().getTeamBattle(), g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
+	return std::dynamic_pointer_cast<MenuTeam>(g.getRealMenus().back())->load(MenuTeam::e_MenuTeamType::MENU_TEAM_SPELLS, g.getRealTeam().getRealTeamBattle(), g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
 }
 
 int af_menuTeamOpenChar(Game &g)
@@ -398,7 +398,7 @@ int af_menuTeamOpenChar(Game &g)
 	g.getRealMenus().push_back(std::make_shared<MenuTeam>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_TEAM_LAYER), g.getEventManager().getKeyEventLayer()));
 	g.getRealEventManager().setKeyEventLayer(7);
 
-	return std::dynamic_pointer_cast<MenuTeam>(g.getRealMenus().back())->load(MenuTeam::e_MenuTeamType::MENU_TEAM_CHAR, g.getRealTeam().getTeamBattle(), g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
+	return std::dynamic_pointer_cast<MenuTeam>(g.getRealMenus().back())->load(MenuTeam::e_MenuTeamType::MENU_TEAM_CHAR, g.getRealTeam().getRealTeamBattle(), g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
 }
 
 

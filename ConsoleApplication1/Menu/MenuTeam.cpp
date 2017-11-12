@@ -20,7 +20,8 @@
 
 
 MenuTeam::MenuTeam(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer) :
-	MenuChoice(ress, surf, lastEventLayer)
+	MenuChoice(ress, surf, lastEventLayer),
+	m_type(MenuTeam::e_MenuTeamType::MENU_TEAM_SPELLS)
 {
 }
 
@@ -54,7 +55,7 @@ int MenuTeam::getType(const e_MenuTeamType &type)
 
 
 //brief Load the menu
-int MenuTeam::load(const e_MenuTeamType &type, const TeamBattle &tb, ManageRessources& ress, ManageSurfaces& surf, const int &xcam, const int &ycam, const int &wchoice, const int &hchoice)
+int MenuTeam::load(const e_MenuTeamType &type, TeamBattle &tb, ManageRessources& ress, ManageSurfaces& surf, const int &xcam, const int &ycam, const int &wchoice, const int &hchoice)
 {
 	if (tb.getTeam().empty())
 	{
@@ -73,7 +74,7 @@ int MenuTeam::load(const e_MenuTeamType &type, const TeamBattle &tb, ManageResso
 
 
 //Make the stringstream to load the team menu choice.
-std::stringstream MenuTeam::makeChoicesSS(const TeamBattle &tb)
+std::stringstream MenuTeam::makeChoicesSS(TeamBattle &tb)
 {
 	std::stringstream ss;
 
@@ -94,7 +95,26 @@ std::stringstream MenuTeam::makeChoicesSS(const TeamBattle &tb)
 
 
 //Set the action to the real ones.
-int MenuTeam::setTrueActions(const TeamBattle &tb)
+int MenuTeam::setTrueActions(TeamBattle &tb)
 {
+	for (unsigned int i(0); i < tb.getRealTeam().size(); i++)
+	{
+		switch (m_type)
+		{
+		case MenuTeam::MENU_TEAM_SPELLS:
+			this->getChoices().at(i)->setAction(IG_Action(
+				std::bind(&af_openMenuSpells, *tb.getRealTeam().at(i), std::placeholders::_1)
+			));
+			break;
+		case MenuTeam::MENU_TEAM_CHAR:
+			THROW_VALUE("Not implemented yet");
+			break;
+		case MenuTeam::MENU_TEAM_ALL:
+		default:
+			THROW_VALUE("Unknown type of MenuTeam" + std::to_string(m_type));
+			break;
+		}
+	}
+
 	return 0;
 }
