@@ -406,8 +406,8 @@ IG_Action::s_action getActionFromWord(std::string w)
 		return &af_menuBattleUseChoice;
 	else if (w == "BATTLE_EVENT_CREATE_ATTACK")
 		return &af_battleEventCreateAttack;
-	else if (w == "MENU_SPELLS_OPEN")
-		return &af_menuSpellsOpen;
+	/*else if (w == "MENU_SPELLS_OPEN")
+		return &af_menuSpellsOpen;*/
 	else if (w == "MENU_SPELLS_CLOSE")
 		return &af_menuSpellsClose;
 	else if (w == "MENU_SPELLS_DOWN")
