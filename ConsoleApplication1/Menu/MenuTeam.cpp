@@ -15,6 +15,7 @@
 #include <sstream>
 #include "MenuTeam.h"
 #include "../constants.h"
+#include "../Error/ValueException.h"
 
 
 
@@ -26,6 +27,29 @@ MenuTeam::MenuTeam(ManageRessources& ress, ManageSurfaces& surf, int lastEventLa
 
 MenuTeam::~MenuTeam()
 {
+}
+
+
+// Return the type of the menu team.
+MenuTeam::e_MenuTeamType MenuTeam::getType() const
+{
+	return m_type;
+}
+
+
+
+// Modify the type of the menu team.
+int MenuTeam::getType(const e_MenuTeamType &type)
+{
+	if (type >= 0 && type < e_MenuTeamType::MENU_TEAM_ALL)
+	{
+		m_type = type;
+		return 0;
+	}
+
+	THROW_VALUE("Wrong MenuTeamType : " + std::to_string(type));
+
+	return -1;
 }
 
 

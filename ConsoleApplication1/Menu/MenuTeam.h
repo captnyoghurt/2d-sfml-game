@@ -22,10 +22,27 @@ class MenuTeam :
 	public MenuChoice
 {
 public:
+	enum e_MenuTeamType{MENU_TEAM_SPELLS, MENU_TEAM_CHAR, MENU_TEAM_ALL};
+
+public:
 	MenuTeam(ManageRessources& ress, ManageSurfaces& surf, int lastEventLayer);
 	~MenuTeam();
 
 public:
+	/**
+	* \brief Return the type of the menu team.
+	*
+	* \return e_MenuTeamType object
+	*/
+	e_MenuTeamType getType() const;
+
+	/**
+	* \brief Modify the type of the menu team.
+	*
+	* \return in object
+	*/
+	int getType(const e_MenuTeamType &type);
+
 	/**
 	* \brief Load the menu	.
 	*
@@ -49,6 +66,6 @@ protected:
 	int setTrueActions(const TeamBattle &tb);
 
 private:
-
+	e_MenuTeamType m_type;
 };
 
