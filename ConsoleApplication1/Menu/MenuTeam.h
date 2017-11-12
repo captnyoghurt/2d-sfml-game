@@ -14,6 +14,7 @@
 
 #pragma once
 
+#include <sstream>
 #include "MenuChoice.h"
 #include "../Battle/Fighters/TeamBattle.h"
 
@@ -31,6 +32,21 @@ public:
 	* \return int object.
 	*/
 	virtual int load(const TeamBattle &tb, ManageRessources& ress, ManageSurfaces& surf, const int &xcam, const int &ycam, const int &wchoice = 0, const int &hchoice = 0);
+
+protected:
+	/**
+	* \brief Make the stringstream to load the team
+	*  menu choice.
+	* 
+	* \return stringstream to load.
+	*/
+	std::stringstream makeChoicesSS(const TeamBattle &tb);
+	/**
+	* \brief Set the action to the real ones.
+	* 
+	* \return Code error.
+	*/
+	int setTrueActions(const TeamBattle &tb);
 
 private:
 
