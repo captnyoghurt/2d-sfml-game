@@ -135,6 +135,15 @@ extern sf::Color MENU_SPELLS_COLOR_HP;
 extern sf::Color MENU_SPELLS_COLOR_MP;
 extern sf::Color MENU_SPELLS_COLOR_TP;
 
+/// Team menu
+extern int MENU_TEAM_FONTSIZE;
+extern int MENU_TEAM_LAYER;
+extern int MENU_TEAM_X;
+extern int MENU_TEAM_Y;
+extern int MENU_TEAM_WIDTH;
+extern int MENU_TEAM_HEIGHT;
+extern int MENU_TEAM_CHOICES_DISPLAYED;
+
 /// Cursor
 //// Up
 extern int MENU_SURFACE_CURSOR_UP_BEGIN_X;
