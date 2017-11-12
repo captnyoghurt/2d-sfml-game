@@ -381,15 +381,26 @@ int af_menuInventoryDown(Game &g)
 
 
 // Team Menu
-int af_menuTeamOpen(Game &g)
+int af_menuTeamOpenSpell(Game &g)
 {
 	g.getRealMap().gotUpdated();
 	af_teamStop(g);
 	g.getRealMenus().push_back(std::make_shared<MenuTeam>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_TEAM_LAYER), g.getEventManager().getKeyEventLayer()));
 	g.getRealEventManager().setKeyEventLayer(7);
 
-	return std::dynamic_pointer_cast<MenuTeam>(g.getRealMenus().back())->load(g.getRealTeam().getTeamBattle(), g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
+	return std::dynamic_pointer_cast<MenuTeam>(g.getRealMenus().back())->load(MenuTeam::e_MenuTeamType::MENU_TEAM_SPELLS, g.getRealTeam().getTeamBattle(), g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
 }
+
+int af_menuTeamOpenChar(Game &g)
+{
+	g.getRealMap().gotUpdated();
+	af_teamStop(g);
+	g.getRealMenus().push_back(std::make_shared<MenuTeam>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_TEAM_LAYER), g.getEventManager().getKeyEventLayer()));
+	g.getRealEventManager().setKeyEventLayer(7);
+
+	return std::dynamic_pointer_cast<MenuTeam>(g.getRealMenus().back())->load(MenuTeam::e_MenuTeamType::MENU_TEAM_CHAR, g.getRealTeam().getTeamBattle(), g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
+}
+
 
 int af_menuTeamClose(Game &g)
 {

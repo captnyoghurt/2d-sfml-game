@@ -48,7 +48,7 @@ public:
 	*
 	* \return int object.
 	*/
-	virtual int load(const TeamBattle &tb, ManageRessources& ress, ManageSurfaces& surf, const int &xcam, const int &ycam, const int &wchoice = 0, const int &hchoice = 0);
+	virtual int load(const e_MenuTeamType &type, const TeamBattle &tb, ManageRessources& ress, ManageSurfaces& surf, const int &xcam, const int &ycam, const int &wchoice = 0, const int &hchoice = 0);
 
 protected:
 	/**

@@ -54,9 +54,17 @@ int MenuTeam::getType(const e_MenuTeamType &type)
 
 
 //brief Load the menu
-int MenuTeam::load(const TeamBattle &tb, ManageRessources& ress, ManageSurfaces& surf, const int &xcam, const int &ycam, const int &wchoice, const int &hchoice)
+int MenuTeam::load(const e_MenuTeamType &type, const TeamBattle &tb, ManageRessources& ress, ManageSurfaces& surf, const int &xcam, const int &ycam, const int &wchoice, const int &hchoice)
 {
+	if (tb.getTeam().empty())
+	{
+		THROW_VALUE("No team mate");
+		return -1;
+	}
+
 	int ret = MenuChoice::loadFromStream(ress, surf, makeChoicesSS(tb), xcam, ycam, wchoice, hchoice);
+
+	getType(type);
 
 	ret += (setTrueActions(tb) << 1);
 
