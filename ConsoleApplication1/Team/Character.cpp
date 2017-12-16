@@ -112,7 +112,7 @@ int Character::setCombatHeight(const short &h)
 // Load the surface of the combat stand
 int Character::loadComnatStand(sf::Texture& t, Game &g)
 {
-	m_combatStand = g.getRealSurfaceManager().at(MAP_MAX_LAYER + Game::e_ressourcesLayer::RESSOURCES_CHARACTERS - 1).addSurface(ManageSurfaces::e_thing::SPRITE, std::make_shared<SurfaceSprite>());
+	m_combatStand = g.getRealSurfaceManager().at(LAYER_BATTLE_EVENEMENT).addSurface(ManageSurfaces::e_thing::SPRITE, std::make_shared<SurfaceSprite>());
 	std::dynamic_pointer_cast<SurfaceSprite>(m_combatStand->second)->setTexture(t);
 
 	return 0;

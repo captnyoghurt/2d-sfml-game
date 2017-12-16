@@ -251,17 +251,17 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 	// Texture background
 	m_texture = g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_BATTLE).addTexture();
 	m_texture->loadFromFile(backgroundFilename);
-	m_background = g->getRealSurfaceManager(BATTLE_MIN_LAYER).addSurface(ManageSurfaces::SPRITE ,std::make_shared<SurfaceSprite>());
+	m_background = g->getRealSurfaceManager(LAYER_BATTLE_BEGIN).addSurface(ManageSurfaces::SPRITE ,std::make_shared<SurfaceSprite>());
 	std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->setTexture(*m_texture);
 	std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->setScale(CAMERA_WIDTH / std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getGlobalBounds().width,
 		CAMERA_HEIGHT / std::dynamic_pointer_cast<SurfaceSprite>(m_background->second)->getGlobalBounds().height);
 	m_background->second->setDimensions(0, 0, CAMERA_WIDTH, CAMERA_HEIGHT);
 
 	// Menus
-	m_battleMenu = std::make_shared<MenuBattle>(this, g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_MENU), g->getRealSurfaceManager(BATTLE_MIN_LAYER), BATTLE_KEY_EVENT_LAYER);
+	m_battleMenu = std::make_shared<MenuBattle>(this, g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_MENU), g->getRealSurfaceManager(LAYER_MENU), BATTLE_KEY_EVENT_LAYER);
 
 	// Load sides
-	std::dynamic_pointer_cast<MenuBattleSide>(m_battleMenu->getRealMenus().at(MenuBattle::BM_RIGHT))->loadWithAllies(g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_MENU), g->getRealSurfaceManager(BATTLE_MIN_LAYER), *m_alliesTeam);
+	std::dynamic_pointer_cast<MenuBattleSide>(m_battleMenu->getRealMenus().at(MenuBattle::BM_RIGHT))->loadWithAllies(g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_MENU), g->getRealSurfaceManager(LAYER_MENU), *m_alliesTeam);
 	
 	EnemiBasic f;
 	f.setCharacteristic(Characteristic(5, 10000), Characteristic::e_characteristics::ATTACK_PHYSIC);
@@ -275,13 +275,13 @@ int Battle::start(const std::string &backgroundFilename, TeamBattle team, std::s
 	f.setName("Monstre 3");
 	m_enemieTeam.addMember(std::make_shared<EnemiBasic>(f));
 
-	std::dynamic_pointer_cast<MenuBattleSide>(m_battleMenu->getRealMenus().at(MenuBattle::BM_LEFT))->loadWithEnemies(g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_MENU), g->getRealSurfaceManager(BATTLE_MIN_LAYER), m_enemieTeam);
+	std::dynamic_pointer_cast<MenuBattleSide>(m_battleMenu->getRealMenus().at(MenuBattle::BM_LEFT))->loadWithEnemies(g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_MENU), g->getRealSurfaceManager(LAYER_MENU), m_enemieTeam);
 
 	// Dialog box
 	std::dynamic_pointer_cast<MenuDialogBox>(m_battleMenu->getRealMenus().at(MenuBattle::BM_DIALOG))->addText("Début du combat.\n");
 	std::dynamic_pointer_cast<MenuDialogBox>(m_battleMenu->getRealMenus().at(MenuBattle::BM_DIALOG))->continueText(
 		g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_MENU),
-		g->getRealSurfaceManager(BATTLE_MIN_LAYER)
+		g->getRealSurfaceManager(LAYER_MENU)
 	);
 
 	m_battleMenu->setIsBlocking(true);
@@ -376,10 +376,10 @@ int Battle::end(Game *g)
 
 	// Free textures
 	g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_BATTLE).deleteTexture(m_texture);
-	g->getRealSurfaceManager(BATTLE_MIN_LAYER).deleteSurface(m_background);
+	g->getRealSurfaceManager(LAYER_BATTLE_BEGIN).deleteSurface(m_background);
 
 	// Free menus
-	m_battleMenu->close(g->getRealSurfaceManager(BATTLE_MIN_LAYER));
+	m_battleMenu->close(g->getRealSurfaceManager(LAYER_MENU));
 	m_battleMenu.reset();
 
 	// Free enemies
@@ -449,7 +449,7 @@ int Battle::chooseBattleEvent(Game *g)
 		std::dynamic_pointer_cast<MenuDialogBox>(m_battleMenu->getRealMenus().at(MenuBattle::BM_DIALOG))->addText(str);
 		std::dynamic_pointer_cast<MenuDialogBox>(m_battleMenu->getRealMenus().at(MenuBattle::BM_DIALOG))->continueText(
 			g->getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_MENU),
-			g->getRealSurfaceManager(BATTLE_MIN_LAYER)
+			g->getRealSurfaceManager(LAYER_MENU)
 		);
 		m_battleMenu->setActiveMenu(MenuBattle::BM_CHOICE);
 	}

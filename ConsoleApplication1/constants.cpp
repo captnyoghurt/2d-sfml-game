@@ -1,3 +1,28 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date	17/04/2017
+*  @version 0.1
+*
+*  @brief game constants.
+*
+*  @section LAYER ORGANISATION
+*
+*	1 - Map		(Ground)
+*	2 - Map		(Environment)
+*	3 - Map		(Environment)
+*	4 - Map		(Characters & evenement)
+*	5 - Map		(Environment)
+*	6 - Map		(Environement)
+*	7 - Battle	(Background)
+*	8 - Battle	(Characters)
+*	9 - Battle	(Animation)
+*	10 - Under Menu
+*	11 - Menu
+*	12 - On Menu
+*  
+*/
+
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 #include <string>
@@ -13,6 +38,17 @@ int WINDOW_FRAMERATES = 60;
 
 // Graphic constants
 
+/// Layers
+int LAYER_MAP_BEGIN = 0;
+int LAYER_MAP_END = 5;
+int LAYER_MAP_EVENEMENT = 3;
+int LAYER_BATTLE_BEGIN = 6;
+int LAYER_BATTLE_END = 8;
+int LAYER_BATTLE_EVENEMENT = 7;
+int LAYER_MENU_UNDER = 9;
+int LAYER_MENU = 10;
+int LAYER_MENU_ON = 11;
+
 /// Icons
 std::string ICONS_SURFACE_NAME("data/graphic/icons/001.png");
 int ICONS_SURFACE_BY_LINE = 14;
@@ -22,7 +58,6 @@ int ICON_HEIGHT = 34;
 
 /// Map
 std::string MAP_FONT_TEXT("monofonto.ttf");
-int MAP_MAX_LAYER = 6;
 
 /// TILE
 int TILE_WIDTH = 32;
@@ -68,7 +103,6 @@ int TEAM_WALK_UP_POSITION_Y = 144;
 int TEAM_WALK_DOWN_POSITION_Y = 0;
 int TEAM_WALK_RIGHT_POSITION_Y = 96;
 int TEAM_WALK_LEFT_POSITION_Y = 48;
-int TEAM_WALK_LAYER = 2;
 int TEAM_WALK_HITBOX_X = 1;
 int TEAM_WALK_HITBOX_Y = 17;
 int TEAM_WALK_HITBOX_WIDTH = 30;
@@ -96,7 +130,6 @@ std::string MENU_SIMPLE_TEXT("data/menu/simple.m");
 int MENU_SIMPLE_FONTSIZE = 18;
 int MENU_SIMPLE_HEIGHT = 2*CAMERA_HEIGHT/3;
 int MENU_SIMPLE_WIDTH = CAMERA_WIDTH/4;
-int MENU_SIMPLE_LAYER = MAP_MAX_LAYER;
 
 /// Dialog box
 int MENU_DIALOG_BOX_FONTSIZE = 18;
@@ -106,16 +139,13 @@ int MENU_DIALOG_BOX_Y = (3*CAMERA_HEIGHT/4) - 5;
 int MENU_DIALOG_BOX_WIDTH = CAMERA_WIDTH;
 int MENU_DIALOG_BOX_HEIGHT = CAMERA_HEIGHT - MENU_DIALOG_BOX_Y;
 int MENU_DIALOG_BOX_CHARACTER_BY_LINE = (2*(MENU_DIALOG_BOX_WIDTH-MENUS_BORDER_X) / MENU_DIALOG_BOX_FONTSIZE);
-int MENU_DIALOG_BOX_LAYER = MAP_MAX_LAYER;
 
 /// Bag
 std::string MENU_BAG_TEXT("data/menu/inventaire.m");
 int MENU_BAG_FONTSIZE = 26;
-int MENU_BAG_LAYER = MAP_MAX_LAYER;
 
 /// Spells
 int MENU_SPELLS_FONTSIZE = MENU_SIMPLE_FONTSIZE;
-int MENU_SPELLS_LAYER = MAP_MAX_LAYER;
 int MENU_SPELLS_DIALOG_BOX_X = 0;
 int MENU_SPELLS_DIALOG_BOX_Y = 0;
 int MENU_SPELLS_DIALOG_BOX_WIDTH = CAMERA_WIDTH;
@@ -130,7 +160,6 @@ sf::Color MENU_SPELLS_COLOR_TP(255, 0, 0);
 
 /// Team menu
 int MENU_TEAM_FONTSIZE = MENU_SIMPLE_FONTSIZE;
-int MENU_TEAM_LAYER = MAP_MAX_LAYER;
 int MENU_TEAM_X = 540;
 int MENU_TEAM_Y = 0;
 int MENU_TEAM_WIDTH = 130;
@@ -171,9 +200,6 @@ int MENU_SURFACE_SELECTED_HEIGHT = 32;
 /// General
 std::string MENU_BATTLE_SURFACE_BAR("data/graphic/others/001-Bar01.png");
 std::string MENU_BATTLE_CHOICE_TEXT("data/menu/battle.m");
-int BATTLE_MIN_LAYER = MENU_BAG_LAYER;
-int BATTLE_NUMBER_OF_LAYER = 4;
-int BATTLE_MAX_LAYER = BATTLE_MIN_LAYER + BATTLE_NUMBER_OF_LAYER;
 int BATTLE_KEY_EVENT_LAYER = 5;
 
 /// Health

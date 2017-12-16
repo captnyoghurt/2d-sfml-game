@@ -20,6 +20,17 @@ extern int WINDOW_FRAMERATES;
 
 // Graphic constants
 
+/// Layers
+extern int LAYER_MAP_BEGIN;
+extern int LAYER_MAP_END;
+extern int LAYER_MAP_EVENEMENT;
+extern int LAYER_BATTLE_BEGIN;
+extern int LAYER_BATTLE_END;
+extern int LAYER_BATTLE_EVENEMENT;
+extern int LAYER_MENU_UNDER;
+extern int LAYER_MENU;
+extern int LAYER_MENU_ON;
+
 /// Icons
 extern std::string ICONS_SURFACE_NAME;
 extern int ICONS_SURFACE_BY_LINE;
@@ -29,7 +40,6 @@ extern int ICON_HEIGHT;
 
 /// Map
 extern std::string MAP_FONT_TEXT;
-extern int MAP_MAX_LAYER;
 
 /// TILE
 extern int TILE_WIDTH;
@@ -75,7 +85,6 @@ extern int TEAM_WALK_UP_POSITION_Y;
 extern int TEAM_WALK_DOWN_POSITION_Y;
 extern int TEAM_WALK_RIGHT_POSITION_Y;
 extern int TEAM_WALK_LEFT_POSITION_Y;
-extern int TEAM_WALK_LAYER;
 extern int TEAM_WALK_HITBOX_X;
 extern int TEAM_WALK_HITBOX_Y;
 extern int TEAM_WALK_HITBOX_WIDTH;
@@ -103,7 +112,6 @@ extern std::string MENU_SIMPLE_TEXT;
 extern int MENU_SIMPLE_FONTSIZE;
 extern int MENU_SIMPLE_HEIGHT;
 extern int MENU_SIMPLE_WIDTH;
-extern int MENU_SIMPLE_LAYER;
 
 /// Dialog box
 extern int MENU_DIALOG_BOX_FONTSIZE;
@@ -113,16 +121,13 @@ extern int MENU_DIALOG_BOX_Y;
 extern int MENU_DIALOG_BOX_WIDTH;
 extern int MENU_DIALOG_BOX_HEIGHT;
 extern int MENU_DIALOG_BOX_CHARACTER_BY_LINE;
-extern int MENU_DIALOG_BOX_LAYER;
 
 /// Bag
 extern std::string MENU_BAG_TEXT;
 extern int MENU_BAG_FONTSIZE;
-extern int MENU_BAG_LAYER;
 
 /// Spells
 extern int MENU_SPELLS_FONTSIZE;
-extern int MENU_SPELLS_LAYER;
 extern int MENU_SPELLS_DIALOG_BOX_X;
 extern int MENU_SPELLS_DIALOG_BOX_Y;
 extern int MENU_SPELLS_DIALOG_BOX_WIDTH;
@@ -137,7 +142,6 @@ extern sf::Color MENU_SPELLS_COLOR_TP;
 
 /// Team menu
 extern int MENU_TEAM_FONTSIZE;
-extern int MENU_TEAM_LAYER;
 extern int MENU_TEAM_X;
 extern int MENU_TEAM_Y;
 extern int MENU_TEAM_WIDTH;
@@ -178,9 +182,6 @@ extern int MENU_SURFACE_SELECTED_HEIGHT;
 /// General
 extern std::string MENU_BATTLE_SURFACE_BAR;
 extern std::string MENU_BATTLE_CHOICE_TEXT;
-extern int BATTLE_MIN_LAYER;
-extern int BATTLE_NUMBER_OF_LAYER;
-extern int BATTLE_MAX_LAYER;
 extern int BATTLE_KEY_EVENT_LAYER;
 
 /// Health
