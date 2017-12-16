@@ -1,3 +1,28 @@
+/**
+*  @file
+*  @author  Paul Coignet
+*  @date	17/04/2017
+*  @version 0.1
+*
+*  @brief game constants.
+*
+*  @section LAYER ORGANISATION
+*
+*	1 - Map		(Ground)
+*	2 - Map		(Environment)
+*	3 - Map		(Environment)
+*	4 - Map		(Characters & evenement)
+*	5 - Map		(Environment)
+*	6 - Map		(Environement)
+*	7 - Battle	(Background)
+*	8 - Battle	(Characters)
+*	9 - Battle	(Animation)
+*	10 - Upper
+*	11 - Menu
+*	12 - Upper
+*  
+*/
+
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 #include <string>
