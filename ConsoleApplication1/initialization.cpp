@@ -89,11 +89,6 @@ int initiate_constants(std::string filename)
 				iss >> word;
 				MAP_FONT_TEXT = word;
 			}
-			else if (word == "MAP_MAX_LAYER")
-			{
-				iss >> value;
-				MAP_MAX_LAYER = ((value >= 0) ? value : MAP_MAX_LAYER);
-			}
 			else if (word == "TILE_WIDTH")
 			{
 				iss >> value;
@@ -188,11 +183,6 @@ int initiate_constants(std::string filename)
 			{
 				iss >> value;
 				TEAM_WALK_LEFT_POSITION_Y = ((value >= 0) ? value : TEAM_WALK_LEFT_POSITION_Y);
-			}
-			else if (word == "TEAM_WALK_LAYER")
-			{
-				iss >> value;
-				TEAM_WALK_LAYER = ((value >= 0) ? value : TEAM_WALK_LAYER);
 			}
 			else
 			{

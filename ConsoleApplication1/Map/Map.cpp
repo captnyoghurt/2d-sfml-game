@@ -41,7 +41,7 @@ Map::Map(Game &g) :
 	f.loadFromFile(MAP_FONT_TEXT);
 	t.setFont(*g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MAP).addFont(f));
 	t.setPosition(0, 0);
-	m_mapName = g.getRealSurfaceManager().at(MAP_MAX_LAYER-1).addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>(t));
+	m_mapName = g.getRealSurfaceManager().at(LAYER_MAP_END).addSurface(ManageSurfaces::e_thing::TEXT, std::make_shared<SurfaceText>(t));
 
 	setName("No name");
 }
@@ -304,7 +304,7 @@ int Map::print(RenderWindow &win, std::vector<ManageSurfaces>& ms)
 		ms.at(i).print(win, m_camera);
 	}
 
-	for (int i(m_nbLayers); i < MAP_MAX_LAYER; i++)
+	for (int i(m_nbLayers); i <= LAYER_MAP_END; i++)
 	{
 		ms.at(i).print(win, m_camera);
 	}

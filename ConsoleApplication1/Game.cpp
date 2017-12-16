@@ -18,7 +18,7 @@
 Game::Game(VideoMode mode, const String &title, Uint32 style, const ContextSettings &settings) :
 	m_jdb(),
 	m_window(mode, title, style, settings),
-	m_surfaceManager(BATTLE_MAX_LAYER + 1),
+	m_surfaceManager(LAYER_MENU_ON + 1),
 	m_ressourceManager(Game::e_ressourcesLayer::RESSOURCES_TOTAL),
 	m_map(*this),
 	m_team(*this),
@@ -254,7 +254,7 @@ int Game::stopMenu()
 {
 	if (!m_menus.empty())
 	{
-		m_eventManager.setKeyEventLayer(m_menus.back()->close(m_surfaceManager.at(MENU_SIMPLE_LAYER)));
+		m_eventManager.setKeyEventLayer(m_menus.back()->close(m_surfaceManager.at(LAYER_MENU)));
 		m_menus.pop_back();
 	}
 
@@ -274,13 +274,13 @@ int Game::print()
 
 	if (m_battle.getStarted())
 	{
-		for(int i (BATTLE_MIN_LAYER) ; i < BATTLE_MAX_LAYER ; i++)
+		for(int i (LAYER_BATTLE_BEGIN) ; i <= LAYER_BATTLE_END ; i++)
 			ret = m_surfaceManager.at(i).print(m_window, Camera(0, 0, CAMERA_WIDTH, CAMERA_HEIGHT, CAMERA_WIDTH, CAMERA_HEIGHT));
 	}
 	else
 	{
 		ret = m_map.print(m_window, m_surfaceManager);
-		ret += (m_surfaceManager.at(MENU_SIMPLE_LAYER).print(m_window, m_map.getRealCamera()) << 1);
+		ret += (m_surfaceManager.at(LAYER_MENU).print(m_window, m_map.getRealCamera()) << 1);
 	}
 
 	display();

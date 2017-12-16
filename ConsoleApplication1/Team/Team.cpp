@@ -42,7 +42,7 @@ Team::Team(Game &g)
 	if (!texture->loadFromFile(TEAM_BASIC_WALKSTAND))
 		THROW_RESSOURCE("Walkstand of the team", TEAM_BASIC_WALKSTAND);
 
-	setWalkStand(g.getRealSurfaceManager().at(TEAM_WALK_LAYER).addSurface(ManageSurfaces::SPRITE, std::make_shared<SurfaceSprite>()));
+	setWalkStand(g.getRealSurfaceManager().at(LAYER_MAP_EVENEMENT).addSurface(ManageSurfaces::SPRITE, std::make_shared<SurfaceSprite>()));
 	std::dynamic_pointer_cast<SurfaceSprite>(m_walkStand->second)->setTexture(*texture);
 	std::dynamic_pointer_cast<SurfaceSprite>(m_walkStand->second)->setTextureRect(sf::IntRect(0, 0, TEAM_WALK_WIDTH, TEAM_WALK_HEIGHT));
 	std::dynamic_pointer_cast<SurfaceSprite>(m_walkStand->second)->setDimensions(0, 0, TEAM_WALK_WIDTH, TEAM_WALK_HEIGHT);

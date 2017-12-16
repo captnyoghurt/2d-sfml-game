@@ -102,10 +102,10 @@ int af_menuOpenSimple(Game &g)
 {
 	g.getRealMap().gotUpdated();
 	af_teamStop(g);
-	g.getRealMenus().push_back(std::make_shared<MenuChoice>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getEventManager().getKeyEventLayer()));
+	g.getRealMenus().push_back(std::make_shared<MenuChoice>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(LAYER_MENU), g.getEventManager().getKeyEventLayer()));
 	g.getRealEventManager().setKeyEventLayer(1);
 	
-	return std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->loadFromFile(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), MENU_SIMPLE_TEXT, g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
+	return std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->loadFromFile(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(LAYER_MENU), MENU_SIMPLE_TEXT, g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
 }
 
 int af_menuCloseSimple(Game &g)
@@ -160,10 +160,10 @@ int af_bagOpenComplete(Game &g)
 {
 	g.getRealMap().gotUpdated();
 	af_teamStop(g);
-	g.getRealMenus().push_back(std::shared_ptr<MenuChoice>(new MenuChoice(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_BAG_LAYER), g.getEventManager().getKeyEventLayer())));
+	g.getRealMenus().push_back(std::shared_ptr<MenuChoice>(new MenuChoice(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(LAYER_MENU), g.getEventManager().getKeyEventLayer())));
 	g.getRealEventManager().setKeyEventLayer(1);
 
-	return std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->loadFromFile(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_BAG_LAYER), MENU_BAG_TEXT, g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
+	return std::dynamic_pointer_cast<MenuChoice>(g.getRealMenus().back())->loadFromFile(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(LAYER_MENU), MENU_BAG_TEXT, g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
 }
 
 
@@ -172,10 +172,10 @@ int af_dialogBoxOpen(Game &g)
 {
 	g.getRealMap().gotUpdated();
 	af_teamStop(g);
-	g.getRealMenus().push_back(std::shared_ptr<MenuDialogBox>(new MenuDialogBox(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER), g.getEventManager().getKeyEventLayer())));
+	g.getRealMenus().push_back(std::shared_ptr<MenuDialogBox>(new MenuDialogBox(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(LAYER_MENU), g.getEventManager().getKeyEventLayer())));
 	g.getRealEventManager().setKeyEventLayer(2);
 
-	return std::dynamic_pointer_cast<MenuDialogBox>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER), "Test this stupid dialog box.\\  And try to switch line or so\\And a new line\\This line is a veeeeeeeeeeeeeery long one because i need to put it on two lines so there is a lot of words there and most of them are useless\\Not the last\\And a last one", g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
+	return std::dynamic_pointer_cast<MenuDialogBox>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(LAYER_MENU), "Test this stupid dialog box.\\  And try to switch line or so\\And a new line\\This line is a veeeeeeeeeeeeeery long one because i need to put it on two lines so there is a lot of words there and most of them are useless\\Not the last\\And a last one", g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
 }
 
 int af_dialogBoxContinue(Game &g)
@@ -186,7 +186,7 @@ int af_dialogBoxContinue(Game &g)
 	g.getRealMap().gotUpdated();
 	g.getRealSoundManager().addSound(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU).getTheSoundBuffer(1));
 
-	int ret = std::dynamic_pointer_cast<MenuDialogBox>(g.getRealMenus().back())->continueText(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER));
+	int ret = std::dynamic_pointer_cast<MenuDialogBox>(g.getRealMenus().back())->continueText(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(LAYER_MENU));
 	
 	if (ret != 0)
 		return af_menuCloseSimple(g);
@@ -222,20 +222,20 @@ int af_menuSpellsOpen(Game &g, std::vector<Spell> sp)
 			std::dynamic_pointer_cast<MenuDialogBox>(g.getRealBattle().getRealBattleMenu().getRealMenus().at(MenuBattle::BM_DIALOG))->addText("Aucun sort disponible");
 			std::dynamic_pointer_cast<MenuDialogBox>(g.getRealBattle().getRealBattleMenu().getRealMenus().at(MenuBattle::BM_DIALOG))->continueText(
 				g.getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_MENU),
-				g.getRealSurfaceManager(BATTLE_MIN_LAYER)
+				g.getRealSurfaceManager(LAYER_MENU)
 			);
 		}
 
 		return -1;
 	}
 
-	g.getRealMenus().push_back(std::make_shared<MenuSpells>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER), g.getEventManager().getKeyEventLayer()));
+	g.getRealMenus().push_back(std::make_shared<MenuSpells>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(LAYER_MENU), g.getEventManager().getKeyEventLayer()));
 	g.getRealEventManager().setKeyEventLayer(3);
 
 	if (g.getRealBattle().getStarted())
 		g.getRealBattle().setShown(false);
 	
-	return std::dynamic_pointer_cast<MenuSpells>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getMap().getCamera().getX(), g.getMap().getCamera().getY(), sp);
+	return std::dynamic_pointer_cast<MenuSpells>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(LAYER_MENU), g.getMap().getCamera().getX(), g.getMap().getCamera().getY(), sp);
 }
 
 int af_menuSpellsClose(Game &g)
@@ -270,7 +270,7 @@ int af_menuSpellUp(Game &g)
 			).getDescription()
 		);
 		ret += std::dynamic_pointer_cast<MenuSpells>(g.getRealMenus().back())->getRealDialogBox().continueText(
-			g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER)
+			g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(LAYER_MENU)
 		);
 	}
 	return ret;
@@ -295,7 +295,7 @@ int af_menuSpellDown(Game &g)
 			).getDescription()
 		);
 		ret += std::dynamic_pointer_cast<MenuSpells>(g.getRealMenus().back())->getRealDialogBox().continueText(
-			g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER)
+			g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(LAYER_MENU)
 		);
 	}
 	return ret;
@@ -307,7 +307,7 @@ int af_menuInventoryOpen(Game &g)
 {
 	g.getRealMap().gotUpdated();
 	af_teamStop(g);
-	g.getRealMenus().push_back(std::make_shared<MenuInventory>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER), g.getEventManager().getKeyEventLayer()));
+	g.getRealMenus().push_back(std::make_shared<MenuInventory>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(LAYER_MENU), g.getEventManager().getKeyEventLayer()));
 	g.getRealEventManager().setKeyEventLayer(6);
 
 	bool enabled[] = {false, false, true, true, true, true, false};
@@ -315,7 +315,7 @@ int af_menuInventoryOpen(Game &g)
 	if (g.getRealBattle().getStarted())
 		g.getRealBattle().setShown(false);
 
-	return std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getMap().getCamera().getX(), g.getMap().getCamera().getY(), g.getRealTeam().getRealInventory().getItems(), std::vector<bool>(std::begin(enabled), std::end(enabled)));
+	return std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->load(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(LAYER_MENU), g.getMap().getCamera().getX(), g.getMap().getCamera().getY(), g.getRealTeam().getRealInventory().getItems(), std::vector<bool>(std::begin(enabled), std::end(enabled)));
 }
 
 int af_menuInventoryClose(Game &g)
@@ -348,7 +348,7 @@ int af_menuInventoryUp(Game &g)
 			).first.getDescription()
 		);
 		ret += std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->getRealDialogBox().continueText(
-			g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER)
+			g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(LAYER_MENU)
 		);
 	}
 	return ret;
@@ -373,7 +373,7 @@ int af_menuInventoryDown(Game &g)
 			).first.getDescription()
 		);
 		ret += std::dynamic_pointer_cast<MenuInventory>(g.getRealMenus().back())->getRealDialogBox().continueText(
-			g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER)
+			g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(LAYER_MENU)
 		);
 	}
 	return ret;
@@ -385,20 +385,20 @@ int af_menuTeamOpenSpell(Game &g)
 {
 	g.getRealMap().gotUpdated();
 	af_teamStop(g);
-	g.getRealMenus().push_back(std::make_shared<MenuTeam>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_TEAM_LAYER), g.getEventManager().getKeyEventLayer()));
+	g.getRealMenus().push_back(std::make_shared<MenuTeam>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(LAYER_MENU), g.getEventManager().getKeyEventLayer()));
 	g.getRealEventManager().setKeyEventLayer(7);
 
-	return std::dynamic_pointer_cast<MenuTeam>(g.getRealMenus().back())->load(MenuTeam::e_MenuTeamType::MENU_TEAM_SPELLS, g.getRealTeam().getRealTeamBattle(), g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
+	return std::dynamic_pointer_cast<MenuTeam>(g.getRealMenus().back())->load(MenuTeam::e_MenuTeamType::MENU_TEAM_SPELLS, g.getRealTeam().getRealTeamBattle(), g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(LAYER_MENU), g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
 }
 
 int af_menuTeamOpenChar(Game &g)
 {
 	g.getRealMap().gotUpdated();
 	af_teamStop(g);
-	g.getRealMenus().push_back(std::make_shared<MenuTeam>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_TEAM_LAYER), g.getEventManager().getKeyEventLayer()));
+	g.getRealMenus().push_back(std::make_shared<MenuTeam>(g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(LAYER_MENU), g.getEventManager().getKeyEventLayer()));
 	g.getRealEventManager().setKeyEventLayer(7);
 
-	return std::dynamic_pointer_cast<MenuTeam>(g.getRealMenus().back())->load(MenuTeam::e_MenuTeamType::MENU_TEAM_CHAR, g.getRealTeam().getRealTeamBattle(), g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(MENU_SIMPLE_LAYER), g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
+	return std::dynamic_pointer_cast<MenuTeam>(g.getRealMenus().back())->load(MenuTeam::e_MenuTeamType::MENU_TEAM_CHAR, g.getRealTeam().getRealTeamBattle(), g.getRealRessourceManager().at(Game::e_ressourcesLayer::RESSOURCES_MENU), g.getRealSurfaceManager(LAYER_MENU), g.getMap().getCamera().getX(), g.getMap().getCamera().getY());
 }
 
 

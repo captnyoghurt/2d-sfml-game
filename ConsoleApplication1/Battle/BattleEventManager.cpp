@@ -169,7 +169,7 @@ int BattleEventManager::execute(Game &g)
 	std::dynamic_pointer_cast<MenuDialogBox>(g.getRealBattle().getRealBattleMenu().getRealMenus().at(MenuBattle::BM_DIALOG))->addText(it->getDescription());
 	std::dynamic_pointer_cast<MenuDialogBox>(g.getRealBattle().getRealBattleMenu().getRealMenus().at(MenuBattle::BM_DIALOG))->continueText(
 		g.getRealRessourceManager(Game::e_ressourcesLayer::RESSOURCES_MENU),
-		g.getRealSurfaceManager(BATTLE_MIN_LAYER)
+		g.getRealSurfaceManager(LAYER_MENU)
 	);
 
 	g.getRealBattle().getRealBattleMenu().setIsBlocking(true);

@@ -82,7 +82,7 @@ int TeamBattle::load(Game *g)
 	if (!texture2->loadFromFile(TEAM_BATTLE_CHAR2_NAME))
 		THROW_RESSOURCE("Player 2 battle texture", TEAM_BATTLE_CHAR2_NAME);
 
-	m_team.at(0)->setSurface(g->getRealSurfaceManager(BATTLE_MAX_LAYER - 1).addSurface(ManageSurfaces::e_thing::SPRITE, std::make_shared<SurfaceSprite>()));
+	m_team.at(0)->setSurface(g->getRealSurfaceManager(LAYER_BATTLE_END).addSurface(ManageSurfaces::e_thing::SPRITE, std::make_shared<SurfaceSprite>()));
 	std::dynamic_pointer_cast<SurfaceSprite>(m_team.at(0)->getRealSurface()->second)->setTexture(*texture);
 	m_team.at(0)->getRealSurface()->second->setDimensions(
 		TEAM_BATTLE_CHAR1_X,
@@ -91,7 +91,7 @@ int TeamBattle::load(Game *g)
 		(int)std::dynamic_pointer_cast<SurfaceSprite>(m_team.at(0)->getRealSurface()->second)->getGlobalBounds().height
 	);
 
-	m_team.at(1)->setSurface(g->getRealSurfaceManager(BATTLE_MAX_LAYER - 1).addSurface(ManageSurfaces::e_thing::SPRITE, std::make_shared<SurfaceSprite>()));
+	m_team.at(1)->setSurface(g->getRealSurfaceManager(LAYER_BATTLE_END).addSurface(ManageSurfaces::e_thing::SPRITE, std::make_shared<SurfaceSprite>()));
 	std::dynamic_pointer_cast<SurfaceSprite>(m_team.at(1)->getRealSurface()->second)->setTexture(*texture2);
 	m_team.at(1)->getRealSurface()->second->setDimensions(
 		TEAM_BATTLE_CHAR2_X,

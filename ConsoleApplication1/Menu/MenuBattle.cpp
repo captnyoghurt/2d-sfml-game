@@ -193,7 +193,7 @@ int MenuBattle::af_MenuBattleEnter(Game &g)
 	}
 	else if (m_activeMenu == MenuBattle::BM_DIALOG)
 	{
-		ret = std::dynamic_pointer_cast<MenuDialogBox>(m_menus.at(m_activeMenu))->continueText(g.getRealRessourceManager(RESSOURCE_TEXTURE_NUMBER_MENU), g.getRealSurfaceManager(MENU_DIALOG_BOX_LAYER));
+		ret = std::dynamic_pointer_cast<MenuDialogBox>(m_menus.at(m_activeMenu))->continueText(g.getRealRessourceManager(RESSOURCE_TEXTURE_NUMBER_MENU), g.getRealSurfaceManager(LAYER_MENU));
 
 		if (ret == 0)
 		{
