@@ -194,7 +194,7 @@ int Item::setPriceSell(const int &p)
 // Modify the icon id of the item
 int Item::setIconId(const int &id)
 {
-	if (!((unsigned)id < ICONS_SURFACE_BY_COLUMN*ICONS_SURFACE_BY_LINE))
+	if (!((unsigned)id < (unsigned)ICONS_SURFACE_BY_COLUMN*ICONS_SURFACE_BY_LINE))
 		THROW_VALUE("Wrong value of icon id : " + std::to_string(id));
 
 	m_iconId = id;
