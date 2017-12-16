@@ -17,9 +17,9 @@
 *	7 - Battle	(Background)
 *	8 - Battle	(Characters)
 *	9 - Battle	(Animation)
-*	10 - Upper
+*	10 - Under Menu
 *	11 - Menu
-*	12 - Upper
+*	12 - On Menu
 *  
 */
 
@@ -37,6 +37,17 @@ int WINDOW_SLEEPTIME = 5; // ms
 int WINDOW_FRAMERATES = 60;
 
 // Graphic constants
+
+/// Layers
+int LAYER_MAP_BEGIN = 0;
+int LAYER_MAP_END = 5;
+int LAYER_MAP_EVENEMENT = 3;
+int LAYER_BATTLE_BEGIN = 6;
+int LAYER_BATTLE_END = 8;
+int LAYER_BATTLE_EVENEMENT = 7;
+int LAYER_MENU_UNDER = 9;
+int LAYER_MENU = 10;
+int LAYER_MENU_ON = 11;
 
 /// Icons
 std::string ICONS_SURFACE_NAME("data/graphic/icons/001.png");

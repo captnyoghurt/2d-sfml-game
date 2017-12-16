@@ -20,6 +20,17 @@ extern int WINDOW_FRAMERATES;
 
 // Graphic constants
 
+/// Layers
+extern int LAYER_MAP_BEGIN;
+extern int LAYER_MAP_END;
+extern int LAYER_MAP_EVENEMENT;
+extern int LAYER_BATTLE_BEGIN;
+extern int LAYER_BATTLE_END;
+extern int LAYER_BATTLE_EVENEMENT;
+extern int LAYER_MENU_UNDER;
+extern int LAYER_MENU;
+extern int LAYER_MENU_ON;
+
 /// Icons
 extern std::string ICONS_SURFACE_NAME;
 extern int ICONS_SURFACE_BY_LINE;
