@@ -8,6 +8,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(Srcdir "src")
 set(EXECUTABLE_NAME game)
 
+set(CMAKE_MODULE_PATH  "/usr/share/SFML/cmake/Modules")
+set(CMAKE_PREFIX_PATH  "/usr/share/SFML")
 
 # SFML
 find_package(SFML 2.5 COMPONENTS audio graphics window system REQUIRED)
