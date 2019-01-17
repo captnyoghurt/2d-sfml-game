@@ -21,7 +21,7 @@ prepare:
   script:
     - git reset --hard HEAD 
     - git clean -d -f -x
-    - apt-get update -qq && apt-get install -y libsfml-dev
+    - apk add libsfml-dev
     - mkdir build
     - cd build
     - cmake ..
