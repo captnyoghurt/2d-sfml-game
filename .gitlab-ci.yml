@@ -17,13 +17,12 @@ prepare:
 build:
   stage: build
   script:
-    - cd build
     - cmake --build .
 
 test:
   stage: test
   script:
-    - cd build
+    - echo "test stage"
     # - make check no test yet
 
 package:
@@ -31,7 +30,6 @@ package:
   artifacts:
     expire_in: 1 week
     paths:
-      - build/out/
+      - out/
   script:
-    - cd build
-    - make package
+    - echo "package stage"
