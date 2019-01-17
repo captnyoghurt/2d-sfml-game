@@ -1,5 +1,5 @@
 # Simple image with CMake, make, git and g++
-image: coignetp/sfml-cmake
+image: coignetp/sfml-cmake:latest
 
 stages:
   - prepare
@@ -7,19 +7,9 @@ stages:
   - test
   - package
 
-cache:
-  untracked: true
-  paths:
-    - build
-    - external
-
-# Since we are using cache to persist all data, we need to clean in the first
-# step.
 prepare:
   stage: prepare
   script:
-    - git reset --hard HEAD 
-    - git clean -d -f -x
     - mkdir build
     - cd build
     - cmake ..
