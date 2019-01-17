@@ -7,6 +7,11 @@ stages:
   - test
   - package
 
+cache:
+  untracked: true
+  paths:
+    - build
+
 prepare:
   stage: prepare
   script:
@@ -17,6 +22,7 @@ prepare:
 build:
   stage: build
   script:
+    - cd build
     - cmake --build .
 
 test:
