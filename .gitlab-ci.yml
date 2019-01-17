@@ -1,6 +1,5 @@
 # Simple image with CMake, make, git and g++
-# Credit https://github.com/kracejic/cleanCppProject/blob/master/.gitlab-ci.yml
-image: kracejic/alpinecpp
+image: coignetp/sfml-cmake
 
 stages:
   - prepare
@@ -21,7 +20,6 @@ prepare:
   script:
     - git reset --hard HEAD 
     - git clean -d -f -x
-    - apk add libsfml-dev
     - mkdir build
     - cd build
     - cmake ..
