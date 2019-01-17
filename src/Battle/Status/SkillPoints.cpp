@@ -1,144 +1,109 @@
 /**
-*  @file
-*  @author  Paul Coignet
-*  @date    11 / 11 / 2017
-*  @version 0.1
-*
-*  @brief Class header.
-*
-*  @section DESCRIPTION
-*
-*  SkillPoints of a fighter.
-*
-*/
+ *  @file
+ *  @author  Paul Coignet
+ *  @date    11 / 11 / 2017
+ *  @version 0.1
+ *
+ *  @brief Class header.
+ *
+ *  @section DESCRIPTION
+ *
+ *  SkillPoints of a fighter.
+ *
+ */
 
-#include "../../constants.h"
 #include "SkillPoints.h"
+#include "../../constants.h"
 #include "Spell.h"
 
-
-SkillPoints::SkillPoints()
-{
-	m_maxPoints = SKILLPOINTS_MAX_POINTS;
-	m_points = 0;
+SkillPoints::SkillPoints() {
+  m_maxPoints = SKILLPOINTS_MAX_POINTS;
+  m_points = 0;
 }
 
-SkillPoints::SkillPoints(const SkillPoints &skp)
-{
-	m_maxPoints = skp.getMaxPoints();
-	m_points = skp.getPoints();
+SkillPoints::SkillPoints(const SkillPoints &skp) {
+  m_maxPoints = skp.getMaxPoints();
+  m_points = skp.getPoints();
 }
 
-
-SkillPoints::SkillPoints(const int &max)
-{
-	m_maxPoints = max;
-	m_points = max;
+SkillPoints::SkillPoints(const int &max) {
+  m_maxPoints = max;
+  m_points = max;
 }
 
+SkillPoints::~SkillPoints() {}
 
-SkillPoints::~SkillPoints()
-{
+SkillPoints &SkillPoints::operator=(const SkillPoints &skp) {
+  m_maxPoints = skp.getMaxPoints();
+  m_points = skp.getPoints();
+
+  return *this;
 }
-
-
-SkillPoints& SkillPoints::operator=(const SkillPoints &skp)
-{
-	m_maxPoints = skp.getMaxPoints();
-	m_points = skp.getPoints();
-
-	return *this;
-}
-
 
 // Return the number of skill points
-int SkillPoints::getPoints() const
-{
-	return m_points;
-}
-
+int SkillPoints::getPoints() const { return m_points; }
 
 // Return the maximum number of skill points
-int SkillPoints::getMaxPoints() const
-{
-	return m_maxPoints;
-}
-
+int SkillPoints::getMaxPoints() const { return m_maxPoints; }
 
 // Return all the actual effects
-std::list<EffectOnCharacteristic> SkillPoints::getEffects() const;
+std::list<EffectOnCharacteristic> SkillPoints::getEffects() const {
+  return m_effects;
+};
 // Return all the actual adding effects
-std::list<EffectOnCharacteristic> SkillPoints::getAddingEffects() const;
-
+std::list<EffectOnCharacteristic> SkillPoints::getAddingEffects() const {
+  return m_addingEffects;
+};
 
 // Modify the number of skill points
-int SkillPoints::setPoints(const int &p)
-{
-	if (p >= 0 && p <= m_maxPoints)
-	{
-		m_points = p;
-		return 0;
-	}
-	return -1;
+int SkillPoints::setPoints(const int &p) {
+  if (p >= 0 && p <= m_maxPoints) {
+    m_points = p;
+    return 0;
+  }
+  return -1;
 }
-
 
 // Modify the maximum number of skill points
-int SkillPoints::setMaxPoints(const int &maxp)
-{
-	if (maxp < 0)
-		return -1;
+int SkillPoints::setMaxPoints(const int &maxp) {
+  if (maxp < 0) return -1;
 
-	m_maxPoints = maxp;
+  m_maxPoints = maxp;
 
-	if (m_points > m_maxPoints)
-		m_points = m_maxPoints;
+  if (m_points > m_maxPoints) m_points = m_maxPoints;
 
-	return 0;
+  return 0;
 }
-
 
 // Say if a spell can be used
-bool SkillPoints::canCastSpell(const Spell &sp)
-{
-	//[TODO]
+bool SkillPoints::canCastSpell(const Spell &sp) {
+  //[TODO]
 
-	return true;
+  return true;
 }
-
 
 // Say if there is enought skill point
-bool SkillPoints::enoughFor(const int &points)
-{
-	return (m_points >= points);
-}
-
+bool SkillPoints::enoughFor(const int &points) { return (m_points >= points); }
 
 // Use some skill points
-int SkillPoints::use(const int &points)
-{
-	if (!enoughFor(points))
-		return -1;
+int SkillPoints::use(const int &points) {
+  if (!enoughFor(points)) return -1;
 
-	m_points -= points;
+  m_points -= points;
 
-	return 0;
+  return 0;
 }
-int SkillPoints::use(const Spell &sp)
-{
-	if(!canCastSpell(sp))
-		return -1;
+int SkillPoints::use(const Spell &sp) {
+  if (!canCastSpell(sp)) return -1;
 
-	//[TODO]
+  //[TODO]
 
-	return 0;
+  return 0;
 }
-
 
 // Get some skill points
-int SkillPoints::recharge(const int &points)
-{
-	m_points = MIN(m_points + points, m_maxPoints);
+int SkillPoints::recharge(const int &points) {
+  m_points = MIN(m_points + points, m_maxPoints);
 
-	return 0;
+  return 0;
 }

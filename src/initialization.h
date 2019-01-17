@@ -1,8 +1,8 @@
 #pragma once
 
 #include <string>
+#include "Event/IG_Action.h"
 #include "Game.h"
-#include "Event\IG_Action.h"
 
 // Initiate everything in the program
 int initialization();

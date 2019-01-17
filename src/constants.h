@@ -1,13 +1,13 @@
 #pragma once
 
-#include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
 #include <string>
 
-#define ABSOLUTE(x)	(((x) > 0) ? (x) : (-x))
-#define SIGNE(x)	(((x) > 0) ? 1 : -1)
-#define MIN(x, y)	(((x) > (y)) ? (y) : (x))
-#define MAX(x, y)	(((x) > (y)) ? (x) : (y))
+#define ABSOLUTE(x) (((x) > 0) ? (x) : (-x))
+#define SIGNE(x) (((x) > 0) ? 1 : -1)
+#define MIN(x, y) (((x) > (y)) ? (y) : (x))
+#define MAX(x, y) (((x) > (y)) ? (x) : (y))
 
 // Window constants
 extern std::string WINDOW_NAME;
@@ -64,7 +64,7 @@ extern int ANIMATION_NB_LAYER;
 /// Menus
 extern int MENUS_BORDER_X;
 extern int MENUS_BORDER_Y;
-extern int MENUS_GAP_BETWEEN_LINES; // px
+extern int MENUS_GAP_BETWEEN_LINES;  // px
 
 /// Ressources number texture
 extern int RESSOURCE_TEXTURE_NUMBER_MENU;
@@ -176,7 +176,6 @@ extern int MENU_SURFACE_SELECTED_BEGIN_Y;
 extern int MENU_SURFACE_SELECTED_WIDTH;
 extern int MENU_SURFACE_SELECTED_HEIGHT;
 
-
 // Battle constants
 
 /// General
@@ -257,7 +256,6 @@ extern std::string TEAM_BATTLE_CHAR2_NAME;
 extern int TEAM_BATTLE_CHAR2_X;
 extern int TEAM_BATTLE_CHAR2_Y;
 
-
 // Database constants
 
 /// Json
@@ -271,7 +269,6 @@ extern std::string DATABASE_JSON_NAME_ITEMS_EFFECTS;
 extern std::string DATABASE_JSON_NAME_CHARCOURB;
 extern std::string DATABASE_JSON_NAME_TEAMMATE;
 extern std::string DATABASE_JSON_NAME_TEAMMATE_SPELLS;
-
 
 // Character
 

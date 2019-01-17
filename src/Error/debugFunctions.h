@@ -14,4 +14,4 @@ extern int DEB_ALLOCATED_ANIMATION;
 void deb_start();
 void deb_end();
 
-#endif // DEBUG_MODE_ON
+#endif  // DEBUG_MODE_ON

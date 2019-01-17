@@ -1,30 +1,30 @@
 /**
-*  @file
-*  @author  Paul Coignet
-*  @date	17/04/2017
-*  @version 0.1
-*
-*  @brief game constants.
-*
-*  @section LAYER ORGANISATION
-*
-*	1 - Map		(Ground)
-*	2 - Map		(Environment)
-*	3 - Map		(Environment)
-*	4 - Map		(Characters & evenement)
-*	5 - Map		(Environment)
-*	6 - Map		(Environement)
-*	7 - Battle	(Background)
-*	8 - Battle	(Characters)
-*	9 - Battle	(Animation)
-*	10 - Under Menu
-*	11 - Menu
-*	12 - On Menu
-*  
-*/
+ *  @file
+ *  @author  Paul Coignet
+ *  @date	17/04/2017
+ *  @version 0.1
+ *
+ *  @brief game constants.
+ *
+ *  @section LAYER ORGANISATION
+ *
+ *	1 - Map		(Ground)
+ *	2 - Map		(Environment)
+ *	3 - Map		(Environment)
+ *	4 - Map		(Characters & evenement)
+ *	5 - Map		(Environment)
+ *	6 - Map		(Environement)
+ *	7 - Battle	(Background)
+ *	8 - Battle	(Characters)
+ *	9 - Battle	(Animation)
+ *	10 - Under Menu
+ *	11 - Menu
+ *	12 - On Menu
+ *
+ */
 
-#include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
 #include <string>
 
 // Window constants
@@ -33,7 +33,7 @@ int WINDOW_WIDTH = 800;
 int WINDOW_HEIGHT = 640;
 int WINDOW_X = 0;
 int WINDOW_Y = 0;
-int WINDOW_SLEEPTIME = 5; // ms
+int WINDOW_SLEEPTIME = 5;  // ms
 int WINDOW_FRAMERATES = 60;
 
 // Graphic constants
@@ -66,8 +66,8 @@ int TILE_HEIGHT = 32;
 /// Camera
 int CAMERA_WIDTH = WINDOW_WIDTH;
 int CAMERA_HEIGHT = WINDOW_HEIGHT;
-int CAMERA_MOVING_X = TILE_WIDTH/4;
-int CAMERA_MOVING_Y = TILE_HEIGHT/4;
+int CAMERA_MOVING_X = TILE_WIDTH / 4;
+int CAMERA_MOVING_Y = TILE_HEIGHT / 4;
 
 /// Team moving
 int TEAM_MOVING_X = 2;
@@ -76,13 +76,13 @@ int TEAM_MOVING_NORMAL_SPEED_X = 10000;
 int TEAM_MOVING_NORMAL_SPEED_Y = 10000;
 
 /// Animation
-int ANIMATION_REFRESHING = 50; // ms
+int ANIMATION_REFRESHING = 50;  // ms
 int ANIMATION_NB_LAYER = 20;
 
 /// Menus
 int MENUS_BORDER_X = 10;
 int MENUS_BORDER_Y = 10;
-int MENUS_GAP_BETWEEN_LINES = 25; // px
+int MENUS_GAP_BETWEEN_LINES = 25;  // px
 
 /// Ressources number texture
 int RESSOURCE_TEXTURE_NUMBER_MENU = 0;
@@ -95,7 +95,7 @@ int RESSOURCE_FONT_NUMBER_MONO = 0;
 
 /// Walk Stand
 std::string TEAM_BASIC_WALKSTAND("data/graphic/charset/001-Fighter01.png");
-int TEAM_WALK_ANIMATION_REFRESH = 100; // ms
+int TEAM_WALK_ANIMATION_REFRESH = 100;  // ms
 int TEAM_WALK_WIDTH = 32;
 int TEAM_WALK_HEIGHT = 48;
 int TEAM_WALK_FRAME_NUMBER = 4;
@@ -128,17 +128,18 @@ int MENU_SURFACE_HEIGHT = 80;
 /// Simple menu
 std::string MENU_SIMPLE_TEXT("data/menu/simple.m");
 int MENU_SIMPLE_FONTSIZE = 18;
-int MENU_SIMPLE_HEIGHT = 2*CAMERA_HEIGHT/3;
-int MENU_SIMPLE_WIDTH = CAMERA_WIDTH/4;
+int MENU_SIMPLE_HEIGHT = 2 * CAMERA_HEIGHT / 3;
+int MENU_SIMPLE_WIDTH = CAMERA_WIDTH / 4;
 
 /// Dialog box
 int MENU_DIALOG_BOX_FONTSIZE = 18;
 int MENU_DIALOG_BOX_GAP_BETWEEN_LINES = MENUS_GAP_BETWEEN_LINES;
 int MENU_DIALOG_BOX_X = 0;
-int MENU_DIALOG_BOX_Y = (3*CAMERA_HEIGHT/4) - 5;
+int MENU_DIALOG_BOX_Y = (3 * CAMERA_HEIGHT / 4) - 5;
 int MENU_DIALOG_BOX_WIDTH = CAMERA_WIDTH;
 int MENU_DIALOG_BOX_HEIGHT = CAMERA_HEIGHT - MENU_DIALOG_BOX_Y;
-int MENU_DIALOG_BOX_CHARACTER_BY_LINE = (2*(MENU_DIALOG_BOX_WIDTH-MENUS_BORDER_X) / MENU_DIALOG_BOX_FONTSIZE);
+int MENU_DIALOG_BOX_CHARACTER_BY_LINE =
+    (2 * (MENU_DIALOG_BOX_WIDTH - MENUS_BORDER_X) / MENU_DIALOG_BOX_FONTSIZE);
 
 /// Bag
 std::string MENU_BAG_TEXT("data/menu/inventaire.m");
@@ -164,7 +165,8 @@ int MENU_TEAM_X = 540;
 int MENU_TEAM_Y = 0;
 int MENU_TEAM_WIDTH = 130;
 int MENU_TEAM_HEIGHT = 100;
-int MENU_TEAM_CHOICES_DISPLAYED = (MENU_TEAM_HEIGHT - (2 * MENUS_BORDER_Y)) / (MENUS_GAP_BETWEEN_LINES);
+int MENU_TEAM_CHOICES_DISPLAYED =
+    (MENU_TEAM_HEIGHT - (2 * MENUS_BORDER_Y)) / (MENUS_GAP_BETWEEN_LINES);
 
 /// Cursor
 //// Up
@@ -193,7 +195,6 @@ int MENU_SURFACE_SELECTED_BEGIN_X = 129;
 int MENU_SURFACE_SELECTED_BEGIN_Y = 64;
 int MENU_SURFACE_SELECTED_WIDTH = 30;
 int MENU_SURFACE_SELECTED_HEIGHT = 32;
-
 
 // Battle constants
 
@@ -242,7 +243,7 @@ int MANA_SURFACE_BEGIN_Y = 15;
 int MANA_SURFACE_WIDTH = 100;
 int MANA_SURFACE_HEIGHT = 10;
 int MANA_TEXT_POSITION_X = MENUS_BORDER_X;
-int MANA_TEXT_POSITION_Y = 3* MENU_SIMPLE_FONTSIZE;
+int MANA_TEXT_POSITION_Y = 3 * MENU_SIMPLE_FONTSIZE;
 int MANA_TEXT_WIDTH = CAMERA_WIDTH / 5;
 int MANA_TEXT_HEIGHT = MENU_SIMPLE_FONTSIZE;
 int MANA_IMAGE_POSITION_X = 0;
@@ -275,7 +276,6 @@ std::string TEAM_BATTLE_CHAR2_NAME("data/graphic/battleset/001-f02.png");
 int TEAM_BATTLE_CHAR2_X = 580;
 int TEAM_BATTLE_CHAR2_Y = 280;
 
-
 // Database constants
 
 /// Json
@@ -289,7 +289,6 @@ std::string DATABASE_JSON_NAME_ITEMS_EFFECTS("data/jdb/items-effects.json");
 std::string DATABASE_JSON_NAME_CHARCOURB("data/jdb/courb.json");
 std::string DATABASE_JSON_NAME_TEAMMATE("data/jdb/team_mate.json");
 std::string DATABASE_JSON_NAME_TEAMMATE_SPELLS("data/jdb/team_mate-spell.json");
-
 
 // Character
 
