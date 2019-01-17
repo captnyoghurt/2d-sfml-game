@@ -13,7 +13,7 @@ prepare:
     - mkdir build
     - cd build
     - cmake ..
-    - make external-update-all
+    - cmake --build .
 
 build:
   stage: build
