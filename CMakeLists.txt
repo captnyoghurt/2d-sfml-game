@@ -10,9 +10,7 @@ set(EXECUTABLE_NAME game)
 
 
 # SFML
-set(CMAKE_MODULE_PATH  "/usr/share/SFML/cmake/Modules")
-set(CMAKE_PREFIX_PATH  "/usr/share/SFML")
-find_package(SFML 2.5 REQUIRED audio graphics window system)
+find_package(SFML 2.5 COMPONENTS audio graphics window system REQUIRED)
 
 
 ### SOURCES
