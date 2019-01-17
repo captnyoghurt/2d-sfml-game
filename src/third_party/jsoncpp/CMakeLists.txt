@@ -1,0 +1,18 @@
+set(Database_Jsoncpp_Srcs
+    ${Srcdir}/third_party/jsoncpp/json/allocator.h
+    ${Srcdir}/third_party/jsoncpp/json/assertions.h
+    ${Srcdir}/third_party/jsoncpp/json/autolink.h
+    ${Srcdir}/third_party/jsoncpp/json/config.h
+    ${Srcdir}/third_party/jsoncpp/json/features.h
+    ${Srcdir}/third_party/jsoncpp/json/forwards.h
+    ${Srcdir}/third_party/jsoncpp/json/json.h
+    ${Srcdir}/third_party/jsoncpp/json/reader.h
+    ${Srcdir}/third_party/jsoncpp/json/value.h
+    ${Srcdir}/third_party/jsoncpp/json/version.h
+    ${Srcdir}/third_party/jsoncpp/json/writer.h
+    ${Srcdir}/third_party/jsoncpp/json_reader.cpp
+    ${Srcdir}/third_party/jsoncpp/json_tool.h
+    ${Srcdir}/third_party/jsoncpp/json_value.cpp
+    ${Srcdir}/third_party/jsoncpp/json_valueiterator.inl
+    ${Srcdir}/third_party/jsoncpp/json_writer.cpp
+)
