@@ -13,14 +13,12 @@ prepare:
     - mkdir build
     - cd build
     - cmake ..
-    - cmake --build .
 
 build:
   stage: build
   script:
     - cd build
-    - make
-    - make install
+    - cmake --build .
 
 test:
   stage: test

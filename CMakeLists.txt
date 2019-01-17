@@ -8,12 +8,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(Srcdir "src")
 set(EXECUTABLE_NAME game)
 
+# SFML
 set(CMAKE_MODULE_PATH  "/usr/share/SFML/cmake/Modules")
 set(CMAKE_PREFIX_PATH  "/usr/share/SFML")
-
-# SFML
-find_package(SFML 2.5 COMPONENTS audio graphics window system REQUIRED)
-
 
 ### SOURCES
 # Animation
@@ -84,10 +81,14 @@ add_executable(${EXECUTABLE_NAME}
 )
 
 # SFML
+find_package(SFML 2.5 COMPONENTS audio graphics window system REQUIRED)
+
 if(SFML_FOUND)
   include_directories(${SFML_INCLUDE_DIR})
   target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
 endif()
+
+set(CMAKE_MODULE_PATH "/usr/share/SFML/Modules" ${CMAKE_MODULE_PATH})
 
 # Resources
 file(COPY "${CMAKE_SOURCE_DIR}/data" DESTINATION .)
