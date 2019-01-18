@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include "json/json.h"
+#include "../third_party/jsoncpp/dist/json/json.h"
 
 class BattleEffects;
 class Spell;

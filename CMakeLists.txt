@@ -12,7 +12,7 @@ set(EXECUTABLE_NAME game)
 # SFML
 set(CMAKE_MODULE_PATH  "/usr/share/SFML/cmake/Modules")
 set(CMAKE_PREFIX_PATH  "/usr/share/SFML")
-find_package(SFML 2.5 REQUIRED audio graphics window system)
+find_package(SFML 2.3 REQUIRED audio graphics window system)
 
 
 ### SOURCES
@@ -55,6 +55,8 @@ add_subdirectory(${Srcdir}/Sound)
 # Team
 add_subdirectory(${Srcdir}/Team)
 
+# Third party
+add_subdirectory(${Srcdir}/third_party)
 
 # Root sources 
 set(Root_Srcs
@@ -79,6 +81,8 @@ add_executable(${EXECUTABLE_NAME}
     ${Menu_Srcs}
     ${Sound_Srcs}
     ${Team_Srcs}
+
+    ${Third_Party_Srcs}
 
     ${Root_Srcs}
 )
