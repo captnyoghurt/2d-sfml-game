@@ -15,8 +15,7 @@ cache:
 prepare:
   stage: prepare
   script:
-    - git reset --hard HEAD 
-    - git clean -d -f -x
+    - rm -rf build
     - apt-get update -qq
     - mkdir build
 
