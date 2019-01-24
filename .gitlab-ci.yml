@@ -15,14 +15,16 @@ cache:
 prepare:
   stage: prepare
   script:
+    - git reset --hard HEAD 
+    - git clean -d -f -x
+    - apt-get update -qq
     - mkdir build
-    - cd build
-    - cmake ..
 
 build:
   stage: build
   script:
     - cd build
+    - cmake ..
     - cmake --build .
 
 test:
@@ -36,6 +38,6 @@ package:
   artifacts:
     expire_in: 1 week
     paths:
-      - out/
+      - build/out/
   script:
     - echo "package stage"
