@@ -2,26 +2,14 @@
 image: coignetp/sfml-cmake:latest
 
 stages:
-  - prepare
   - build
   - test
-  - package
-
-cache:
-  untracked: true
-  paths:
-    - build
-
-prepare:
-  stage: prepare
-  script:
-    - rm -rf build
-    - apt-get update -qq
-    - mkdir build
 
 build:
   stage: build
   script:
+    - apt-get update -qq
+    - mkdir build
     - cd build
     - cmake ..
     - cmake --build .
@@ -31,12 +19,3 @@ test:
   script:
     - echo "test stage"
     # - make check no test yet
-
-package:
-  stage: package
-  artifacts:
-    expire_in: 1 week
-    paths:
-      - build/out/
-  script:
-    - echo "package stage"

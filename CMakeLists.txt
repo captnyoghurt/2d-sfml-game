@@ -9,8 +9,8 @@ set(Srcdir "src")
 set(EXECUTABLE_NAME game)
 
 # SFML
-set(CMAKE_MODULE_PATH  "/usr/share/SFML/cmake/Modules")
-set(CMAKE_PREFIX_PATH  "/usr/share/SFML")
+# set(CMAKE_MODULE_PATH  "/usr/share/SFML/cmake/Modules")
+# set(CMAKE_PREFIX_PATH  "/usr/share/SFML")
 
 ### SOURCES
 # Animation
