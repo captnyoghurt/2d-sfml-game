@@ -1,0 +1,21 @@
+# Simple image with CMake, make, git and g++
+image: coignetp/sfml-cmake:latest
+
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  script:
+    - apt-get update -qq
+    - mkdir build
+    - cd build
+    - cmake ..
+    - cmake --build .
+
+test:
+  stage: test
+  script:
+    - echo "test stage"
+    # - make check no test yet

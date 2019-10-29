@@ -1,0 +1,59 @@
+# Battle sources
+
+set(Battle_BEvent_Srcs
+    ${Srcdir}/Battle/B_Event/B_Event.cpp
+    ${Srcdir}/Battle/B_Event/B_Event.h
+    ${Srcdir}/Battle/B_Event/B_EventAttack.cpp
+    ${Srcdir}/Battle/B_Event/B_EventAttack.h
+    ${Srcdir}/Battle/B_Event/B_EventDefense.cpp
+    ${Srcdir}/Battle/B_Event/B_EventDefense.h
+    ${Srcdir}/Battle/B_Event/B_EventEscape.cpp
+    ${Srcdir}/Battle/B_Event/B_EventEscape.h
+    ${Srcdir}/Battle/B_Event/B_EventSpell.cpp
+    ${Srcdir}/Battle/B_Event/B_EventSpell.h
+)
+
+set(Battle_Fighters_Srcs
+    ${Srcdir}/Battle/Fighters/EnemiBasic.cpp
+    ${Srcdir}/Battle/Fighters/EnemiBasic.h
+    ${Srcdir}/Battle/Fighters/EnemiBoss.cpp
+    ${Srcdir}/Battle/Fighters/EnemiBoss.h
+    ${Srcdir}/Battle/Fighters/Enemies.cpp
+    ${Srcdir}/Battle/Fighters/Enemies.h
+    ${Srcdir}/Battle/Fighters/Fighter.cpp
+    ${Srcdir}/Battle/Fighters/Fighter.h
+    ${Srcdir}/Battle/Fighters/TeamBattle.cpp
+    ${Srcdir}/Battle/Fighters/TeamBattle.h
+    ${Srcdir}/Battle/Fighters/TeamMate.cpp
+    ${Srcdir}/Battle/Fighters/TeamMate.h
+)
+
+set(Battle_Status_Srcs
+    ${Srcdir}/Battle/Status/BattleEffects.cpp
+    ${Srcdir}/Battle/Status/BattleEffects.h
+    ${Srcdir}/Battle/Status/Characteristic.cpp
+    ${Srcdir}/Battle/Status/Characteristic.h
+    ${Srcdir}/Battle/Status/CharCourb.cpp
+    ${Srcdir}/Battle/Status/CharCourb.h
+    ${Srcdir}/Battle/Status/EffectOnCharacteristic.cpp
+    ${Srcdir}/Battle/Status/EffectOnCharacteristic.h
+    ${Srcdir}/Battle/Status/Health.cpp
+    ${Srcdir}/Battle/Status/Health.h
+    ${Srcdir}/Battle/Status/Mana.cpp
+    ${Srcdir}/Battle/Status/Mana.h
+    ${Srcdir}/Battle/Status/SkillPoints.cpp
+    ${Srcdir}/Battle/Status/SkillPoints.h
+    ${Srcdir}/Battle/Status/Spell.cpp
+    ${Srcdir}/Battle/Status/Spell.h
+)
+
+set(Battle_Srcs
+    ${Battle_BEvent_Srcs}
+    ${Battle_Fighters_Srcs}
+    ${Battle_Status_Srcs}
+    ${Srcdir}/Battle/Battle.cpp
+    ${Srcdir}/Battle/Battle.h
+    ${Srcdir}/Battle/BattleEventManager.cpp
+    ${Srcdir}/Battle/BattleEventManager.h
+    PARENT_SCOPE
+)
